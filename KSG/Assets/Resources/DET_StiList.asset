@@ -3,8 +3,9 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 8
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -22,7 +23,7 @@ MonoBehaviour:
       ex1: "\uD074"
       ex2: "\uB04C"
       ex3: "\uADF9"
-      ex4: "\uAE08"
+      ex4: rn
       filename: det_1-01
     - level: 1
       no: 2

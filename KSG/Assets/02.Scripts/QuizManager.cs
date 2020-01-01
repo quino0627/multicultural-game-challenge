@@ -162,21 +162,26 @@ public class QuizManager : MonoBehaviour
         }
     }
 
-    static void Init()
+    static void Init()     
     {
         PostScript ps = GameObject.Find("Post").GetComponent<PostScript>();
-
+        Debug.Log("hello");
+        Debug.Log(ps.parse_WordID.Count);
         page_isAnswer = new bool[ps.parse_WordID.Count];
         page_ModifyCount = new int[ps.parse_WordID.Count];
         page_currentScore = new int[ps.parse_WordID.Count];
         trueorfalse = new bool[ps.parse_WordID.Count];
-
         for (int i = 0; i < page_isAnswer.Length; i++)
         {
             page_isAnswer[i] = false;
             page_ModifyCount[i] = 0;
             page_currentScore[i] = 10;
+            Debug.Log(page_isAnswer[i]);
+            Debug.Log(page_ModifyCount[i]);
+            Debug.Log(page_currentScore[i]);
         }
+        Debug.Log("In QUIZMANAGERR, INIT()");
+        
     }
 
     public void BtnClickSoundPlay()

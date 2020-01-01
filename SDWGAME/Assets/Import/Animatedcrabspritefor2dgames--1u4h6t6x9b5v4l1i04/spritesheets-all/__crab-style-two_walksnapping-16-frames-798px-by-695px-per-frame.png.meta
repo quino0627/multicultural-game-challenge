@@ -1,0 +1,468 @@
+fileFormatVersion: 2
+guid: b73b9df463d482b4fb675ec06fcc11d8
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: __crab-style-two_walksnapping-16-frames-798px-by-695px-per-frame_0
+    21300002: __crab-style-two_walksnapping-16-frames-798px-by-695px-per-frame_1
+    21300004: __crab-style-two_walksnapping-16-frames-798px-by-695px-per-frame_2
+    21300006: __crab-style-two_walksnapping-16-frames-798px-by-695px-per-frame_3
+    21300008: __crab-style-two_walksnapping-16-frames-798px-by-695px-per-frame_4
+    21300010: __crab-style-two_walksnapping-16-frames-798px-by-695px-per-frame_5
+    21300012: __crab-style-two_walksnapping-16-frames-798px-by-695px-per-frame_6
+    21300014: __crab-style-two_walksnapping-16-frames-798px-by-695px-per-frame_7
+    21300016: __crab-style-two_walksnapping-16-frames-798px-by-695px-per-frame_8
+    21300018: __crab-style-two_walksnapping-16-frames-798px-by-695px-per-frame_9
+    21300020: __crab-style-two_walksnapping-16-frames-798px-by-695px-per-frame_10
+    21300022: __crab-style-two_walksnapping-16-frames-798px-by-695px-per-frame_11
+    21300024: __crab-style-two_walksnapping-16-frames-798px-by-695px-per-frame_12
+    21300026: __crab-style-two_walksnapping-16-frames-798px-by-695px-per-frame_13
+    21300028: __crab-style-two_walksnapping-16-frames-798px-by-695px-per-frame_14
+    21300030: __crab-style-two_walksnapping-16-frames-798px-by-695px-per-frame_15
+  externalObjects: {}
+  serializedVersion: 9
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: __crab-style-two_walksnapping-16-frames-798px-by-695px-per-frame_0
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 2098
+        width: 709
+        height: 682
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 251fd701fa451694cabf1097bba047b5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: __crab-style-two_walksnapping-16-frames-798px-by-695px-per-frame_1
+      rect:
+        serializedVersion: 2
+        x: 821
+        y: 2117
+        width: 713
+        height: 659
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b45e6b1b6b220f468bbca7d3d8fc6bf
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: __crab-style-two_walksnapping-16-frames-798px-by-695px-per-frame_2
+      rect:
+        serializedVersion: 2
+        x: 1619
+        y: 2125
+        width: 713
+        height: 649
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 169bcd4c9ef29604aa225e586db8c42a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: __crab-style-two_walksnapping-16-frames-798px-by-695px-per-frame_3
+      rect:
+        serializedVersion: 2
+        x: 2418
+        y: 2137
+        width: 718
+        height: 631
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: add96e8cda7fa524ca27e992fed23fcc
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: __crab-style-two_walksnapping-16-frames-798px-by-695px-per-frame_4
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 1431
+        width: 718
+        height: 638
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd94046e896e75c48bb055a0688eebf7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: __crab-style-two_walksnapping-16-frames-798px-by-695px-per-frame_5
+      rect:
+        serializedVersion: 2
+        x: 822
+        y: 1421
+        width: 715
+        height: 644
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d265f20be9391494bbcdf3e325084a81
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: __crab-style-two_walksnapping-16-frames-798px-by-695px-per-frame_6
+      rect:
+        serializedVersion: 2
+        x: 1621
+        y: 1422
+        width: 711
+        height: 643
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be0aa16a5caa08648a091603b433a7da
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: __crab-style-two_walksnapping-16-frames-798px-by-695px-per-frame_7
+      rect:
+        serializedVersion: 2
+        x: 2418
+        y: 1427
+        width: 706
+        height: 639
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e2a34f4995b7de42997495afa356a0c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: __crab-style-two_walksnapping-16-frames-798px-by-695px-per-frame_8
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 735
+        width: 698
+        height: 636
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37f405ceb69a2c149a9387f6838f9975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: __crab-style-two_walksnapping-16-frames-798px-by-695px-per-frame_9
+      rect:
+        serializedVersion: 2
+        x: 823
+        y: 741
+        width: 708
+        height: 631
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed2eada72205fda4ea7bf04252baedac
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: __crab-style-two_walksnapping-16-frames-798px-by-695px-per-frame_10
+      rect:
+        serializedVersion: 2
+        x: 1621
+        y: 729
+        width: 718
+        height: 643
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b1529182eeda3a408fa82d205c15aa5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: __crab-style-two_walksnapping-16-frames-798px-by-695px-per-frame_11
+      rect:
+        serializedVersion: 2
+        x: 2420
+        y: 707
+        width: 718
+        height: 664
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76695672fbf632d4cb392de68c1c6a8a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: __crab-style-two_walksnapping-16-frames-798px-by-695px-per-frame_12
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 12
+        width: 724
+        height: 667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49c98c90773e53a468bdfbef31a0fad6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: __crab-style-two_walksnapping-16-frames-798px-by-695px-per-frame_13
+      rect:
+        serializedVersion: 2
+        x: 824
+        y: 12
+        width: 723
+        height: 670
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c5e4e856ee263b44bff37d3520deb91
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: __crab-style-two_walksnapping-16-frames-798px-by-695px-per-frame_14
+      rect:
+        serializedVersion: 2
+        x: 1622
+        y: 12
+        width: 720
+        height: 674
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c5712c644b33e942ab058627b1c7c73
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: __crab-style-two_walksnapping-16-frames-798px-by-695px-per-frame_15
+      rect:
+        serializedVersion: 2
+        x: 2418
+        y: 12
+        width: 718
+        height: 680
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 239a520ff2a43e142ad38563a463040b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 839e47f72ed8966459ce0042ba605e3c
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

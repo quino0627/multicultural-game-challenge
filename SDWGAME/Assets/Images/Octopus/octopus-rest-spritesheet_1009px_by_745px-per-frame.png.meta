@@ -1,0 +1,468 @@
+fileFormatVersion: 2
+guid: be63559b72c784e13a919ec7beb7f9cb
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: octopus-rest-spritesheet_1009px_by_745px-per-frame_0
+    21300002: octopus-rest-spritesheet_1009px_by_745px-per-frame_1
+    21300004: octopus-rest-spritesheet_1009px_by_745px-per-frame_2
+    21300006: octopus-rest-spritesheet_1009px_by_745px-per-frame_3
+    21300008: octopus-rest-spritesheet_1009px_by_745px-per-frame_4
+    21300010: octopus-rest-spritesheet_1009px_by_745px-per-frame_5
+    21300012: octopus-rest-spritesheet_1009px_by_745px-per-frame_6
+    21300014: octopus-rest-spritesheet_1009px_by_745px-per-frame_7
+    21300016: octopus-rest-spritesheet_1009px_by_745px-per-frame_8
+    21300018: octopus-rest-spritesheet_1009px_by_745px-per-frame_9
+    21300020: octopus-rest-spritesheet_1009px_by_745px-per-frame_10
+    21300022: octopus-rest-spritesheet_1009px_by_745px-per-frame_11
+    21300024: octopus-rest-spritesheet_1009px_by_745px-per-frame_12
+    21300026: octopus-rest-spritesheet_1009px_by_745px-per-frame_13
+    21300028: octopus-rest-spritesheet_1009px_by_745px-per-frame_14
+    21300030: octopus-rest-spritesheet_1009px_by_745px-per-frame_15
+  externalObjects: {}
+  serializedVersion: 9
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: octopus-rest-spritesheet_1009px_by_745px-per-frame_0
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 2247
+        width: 960
+        height: 726
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f58976028ef34a2ba0ca4ff6ea58b53
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: octopus-rest-spritesheet_1009px_by_745px-per-frame_1
+      rect:
+        serializedVersion: 2
+        x: 1054
+        y: 2256
+        width: 965
+        height: 717
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80fc9e7b139544ac4a6a72652ab2f53a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: octopus-rest-spritesheet_1009px_by_745px-per-frame_2
+      rect:
+        serializedVersion: 2
+        x: 2057
+        y: 2262
+        width: 970
+        height: 710
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca41f5b8dee254960bb7712d93af5442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: octopus-rest-spritesheet_1009px_by_745px-per-frame_3
+      rect:
+        serializedVersion: 2
+        x: 3063
+        y: 2270
+        width: 972
+        height: 703
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2aa9624e1467485ab52242cae497497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: octopus-rest-spritesheet_1009px_by_745px-per-frame_4
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 1532
+        width: 976
+        height: 692
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d104bffb583b04dc1af44c13d43a3f7b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: octopus-rest-spritesheet_1009px_by_745px-per-frame_5
+      rect:
+        serializedVersion: 2
+        x: 1038
+        y: 1537
+        width: 979
+        height: 687
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61185b4c20c6c4e06ae7abbd10deceb2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: octopus-rest-spritesheet_1009px_by_745px-per-frame_6
+      rect:
+        serializedVersion: 2
+        x: 2043
+        y: 1546
+        width: 983
+        height: 678
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96be612561c114da1bebbf1e4ba9c254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: octopus-rest-spritesheet_1009px_by_745px-per-frame_7
+      rect:
+        serializedVersion: 2
+        x: 3049
+        y: 1552
+        width: 984
+        height: 671
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e81956f03595641c8bef2666058e2bd5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: octopus-rest-spritesheet_1009px_by_745px-per-frame_8
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 817
+        width: 990
+        height: 658
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13c167d414d6d42148114ba565cb2016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: octopus-rest-spritesheet_1009px_by_745px-per-frame_9
+      rect:
+        serializedVersion: 2
+        x: 1030
+        y: 811
+        width: 985
+        height: 664
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa5519e0ac7784d138f67868b436340a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: octopus-rest-spritesheet_1009px_by_745px-per-frame_10
+      rect:
+        serializedVersion: 2
+        x: 2043
+        y: 803
+        width: 982
+        height: 674
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13b9c8deae24c47f784131dd9ac21cb7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: octopus-rest-spritesheet_1009px_by_745px-per-frame_11
+      rect:
+        serializedVersion: 2
+        x: 3056
+        y: 795
+        width: 979
+        height: 682
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0dfa2e7c4a74c44cca976f0015cfadcf
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: octopus-rest-spritesheet_1009px_by_745px-per-frame_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 42
+        width: 1009
+        height: 692
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe77a2202520d4365891587ad403e147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: octopus-rest-spritesheet_1009px_by_745px-per-frame_13
+      rect:
+        serializedVersion: 2
+        x: 1045
+        y: 36
+        width: 973
+        height: 698
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 276a3078d3f65440ba1a1f3f6a0c4ffa
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: octopus-rest-spritesheet_1009px_by_745px-per-frame_14
+      rect:
+        serializedVersion: 2
+        x: 2057
+        y: 29
+        width: 969
+        height: 707
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8793336df687c4173a21d4974e1d6743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: octopus-rest-spritesheet_1009px_by_745px-per-frame_15
+      rect:
+        serializedVersion: 2
+        x: 3071
+        y: 23
+        width: 965
+        height: 713
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df9fb5e0e8f574605b33b7087d0c11fe
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 6addf55e75d764b588a6ac2e6786eae5
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

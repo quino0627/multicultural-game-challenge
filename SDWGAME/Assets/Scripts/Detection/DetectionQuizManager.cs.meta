@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: da6b1496831de41808bd920aafe8bb5e
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - list: {fileID: 11400000, guid: 6dd53c6bbc27443f1a521a1ba42abf7a, type: 2}
+  - Octo: {instanceID: 0}
+  - quiz_level: {instanceID: 0}
+  - quiz_step: {instanceID: 0}
+  - timeText: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

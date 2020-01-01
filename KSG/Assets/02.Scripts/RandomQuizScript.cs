@@ -259,6 +259,8 @@ public class RandomQuizScript : MonoBehaviour
     {
         Quiz_Level.text = "" + (level + 1);
         Quiz_Step.text = ""+(Quiz_No + 1);
+        Debug.Log("Level" + level);
+        Debug.Log("Quiz_NO" + Quiz_No);
 
         //yield return null;
         //yield return new WaitForEndOfFrame();
@@ -286,7 +288,7 @@ public class RandomQuizScript : MonoBehaviour
             //QuizManager.quiz_word_length = words[0].Length;
             //Quiz1_1text[0].text = ps.quizJson["data"][0][QuizManager.pageNum]["quiz_data"].Value;//ps.pars_QuizAttribute[2];//퀴즈 제목을 먼저 넣고
 
-
+            Debug.Log(list);
             Debug.Log("quiz1_answer_choice: " + quiz1_answer_choice);
             //Quiz1_1text[quiz1_answer_choice].color = textcolor;
             Quiz1_1text[quiz1_answer_choice].text = list.sheets[level].list[Quiz_No].cor;//정답을 랜덤위치에 넣고
