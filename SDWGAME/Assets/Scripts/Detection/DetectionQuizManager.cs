@@ -12,6 +12,8 @@ using Object = UnityEngine.Object;
 public class DetectionQuizManager : MonoBehaviour
 {
    
+    // director
+    private GameObject director;
     
     //excel data
     public Entity_LEVEL1 list;
@@ -19,9 +21,9 @@ public class DetectionQuizManager : MonoBehaviour
     //쉬움, 보통, 어려움 난이도
     public int level = 0;
     //각 난이도 안에는 stage 0 부터 max_stage_no - 1까지의 stage가 존재한다.
-    public int stage_no = 0;
+    public static int stage_no = 0;
     //엑셀 데이터 개수 가져와서 저장할 것.
-    public int max_stage_no;
+    public static int max_stage_no;
     //Barrel1, Barrel2, Barrel3, Barrel4, Barrel5 -> 텍스트를 담고 있는 Object
     public GameObject[] Barrels;
     //문어새기
@@ -37,8 +39,10 @@ public class DetectionQuizManager : MonoBehaviour
     
     //stage 1 ~ 5까지의 정답 리스트를 저장 -> stage_no는 0~4부터가 된다.
     // 정답은 Barrel 1~5중 랜덤으로 위치해야 함
-    [HideInInspector] private int[] answer_list;
-
+    [HideInInspector] public static int[] answer_list;
+    // answer_string_list는 각 스테이지별 정답
+    [HideInInspector] public static string[] answer_string_list;
+    
     // 매 스테이지에서 Barrel 1~5에 들어갈 텍스트가 여기 들어감.
     // 즉 매 스테이지마다 초기화되어야함.
     public TextMeshPro[] QuizTextList;
@@ -49,9 +53,12 @@ public class DetectionQuizManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //엑셀에서 파싱해서 들고 와야 함 
+        this.director = GameObject.Find("GameDirector");
+        
+        
         max_stage_no = 3;
         answer_list = new int[max_stage_no];
+        answer_string_list = new string[max_stage_no];
         QuizInit();
     }
 
@@ -59,11 +66,11 @@ public class DetectionQuizManager : MonoBehaviour
     void Update()
     {
         timeText.text = watch.ElapsedMilliseconds.ToString();
-        if (!run_once && watch.ElapsedMilliseconds > 5000)
+        if (!run_once && watch.ElapsedMilliseconds > 10000)
         {
             Debug.Log("Stage Over");
             run_once = true;
-            this.TimeOver();
+            this.StageOver();
         }
 
     }
@@ -79,11 +86,11 @@ public class DetectionQuizManager : MonoBehaviour
             
             i++;
         }
-        Debug.Log($"Stage 0~{max_stage_no-1}까지의 정답은");
-        for (int j = 0; j < max_stage_no; j++)
-        {
-            Debug.Log(answer_list[j].ToString());
-        }
+//        Debug.Log($"Stage 0~{max_stage_no-1}까지의 정답은");
+//        for (int j = 0; j < max_stage_no; j++)
+//        {
+//            Debug.Log(answer_list[j].ToString());
+//        }
         
         // 단계(easy=0, normal=1, hard=2)를 받아서 그에 따른 stage를 띄워주면 될 듯
         StartCoroutine(StageEach(level));
@@ -97,17 +104,51 @@ public class DetectionQuizManager : MonoBehaviour
         //
         //시작 오디오
         run_once = false;
-        //QuizTextList 초기화
-//        QuizTextList = new Text[5];
+        
+        // UI 설정
+        this.director.GetComponent<GameDirector>().setStage(stage_no);
+        this.director.GetComponent<GameDirector>().setLevel(level);
+        
         // 퀴즈 배열
         //정답을 랜덤위치에 넣고
-        Debug.Log($"answerlist[stage_no]는 {answer_list[stage_no]}");
-        Debug.Log(QuizTextList);
         Debug.Log(list.sheets[level].list[stage_no].cor);
+        answer_string_list[stage_no] = list.sheets[level].list[stage_no].cor;
         QuizTextList[answer_list[stage_no]].text = list.sheets[level].list[stage_no].cor;
-        Debug.Log(QuizTextList[answer_list[stage_no]].text);
-     
+
         
+        //보기들을 나머지 위치에 넣음
+        //
+        int tmp = 1;
+        for (int i = 0; i < 5; i++)
+        {
+            // i 가 만약 정답이 있는 index가 아니라면 해당 index의 text에 값을 넣어야 함.
+            if (i != answer_list[stage_no])
+            {
+                switch (tmp)
+                {
+                    case 1:
+                        QuizTextList[i].text = list.sheets[level].list[stage_no].ex1;
+                        break;
+                    case 2:
+                        QuizTextList[i].text = list.sheets[level].list[stage_no].ex2;
+                        break;
+                    case 3:
+                        QuizTextList[i].text = list.sheets[level].list[stage_no].ex3;
+                        break;
+                    case 4:
+                        QuizTextList[i].text = list.sheets[level].list[stage_no].ex4;
+                        break;
+                    default:
+                        Debug.Log("?");
+                        break;
+                    
+                }
+                tmp++;
+            }
+
+            
+        }
+            
         // 퀴즈 시작 && 타이머 시작
         {
             //퀴즈 띄우기
@@ -122,6 +163,13 @@ public class DetectionQuizManager : MonoBehaviour
                 Barrels[i].SetActive(true);
                 i += 1;
             }
+
+            string wordFileLink = $"Sounds/Detection/{list.sheets[level].list[stage_no].filename}";
+            Debug.Log(wordFileLink);
+            Octo.GetComponent<AudioSource>().loop = false;
+            Octo.GetComponent<AudioSource>().clip = Resources.Load(wordFileLink) as AudioClip;
+            Debug.Log(Resources.Load(wordFileLink) as AudioClip);
+            Octo.GetComponent<AudioSource>().Play();
             Debug.Log("타이머 스타트");
             //클릭 타임이 될 것이야..
             watch.Start();
@@ -130,7 +178,7 @@ public class DetectionQuizManager : MonoBehaviour
         
     }
 
-    public void TimeOver()
+    public void StageOver()
     {
         Debug.Log("Time Over");
         watch.Stop();

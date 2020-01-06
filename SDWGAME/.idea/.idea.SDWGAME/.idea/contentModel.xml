@@ -10,6 +10,7 @@
             <e p="BarrelController.cs" t="Include" />
             <e p="DetectionPostScript.cs" t="Include" />
             <e p="DetectionQuizManager.cs" t="Include" />
+            <e p="GameDirector.cs" t="Include" />
             <e p="Global.cs" t="Include" />
           </e>
           <e p="Synthesis" t="Include">
@@ -87,7 +88,6 @@
           <e p="Fonts" t="Include">
             <e p="LiberationSans - OFL.txt" t="Include" />
           </e>
-          <e p="Glyph Report.txt" t="Include" />
           <e p="Resources" t="Include">
             <e p="LineBreaking Following Characters.txt" t="Include" />
             <e p="LineBreaking Leading Characters.txt" t="Include" />

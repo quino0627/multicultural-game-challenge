@@ -544,6 +544,7 @@ public class RandomQuizScript : MonoBehaviour
         string p = "02.Sounds/Stimulus/" + list.sheets[level].list[Quiz_No].filename;
         Octo.GetComponent<AudioSource>().loop = false;
         Octo.GetComponent<AudioSource>().clip = Resources.Load(p) as AudioClip;
+        Debug.Log(Resources.Load(p) as AudioClip);
         Octo.GetComponent<AudioSource>().Play();
     }
 
