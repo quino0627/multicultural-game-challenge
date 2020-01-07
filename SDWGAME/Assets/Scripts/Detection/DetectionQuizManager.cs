@@ -14,7 +14,8 @@ public class DetectionQuizManager : MonoBehaviour
    
     // director
     private GameObject director;
-    
+
+    [HideInInspector] private Animator[] animators = new Animator[5];
     //excel data
     public Entity_LEVEL1 list;
     
@@ -25,7 +26,7 @@ public class DetectionQuizManager : MonoBehaviour
     //엑셀 데이터 개수 가져와서 저장할 것.
     public static int max_stage_no;
     //Barrel1, Barrel2, Barrel3, Barrel4, Barrel5 -> 텍스트를 담고 있는 Object
-    public GameObject[] Barrels;
+    [HideInInspector] public GameObject[] Barrels = new GameObject[5];
     //문어새기
     public GameObject Octo;
     public Text quiz_level;
@@ -45,7 +46,7 @@ public class DetectionQuizManager : MonoBehaviour
     
     // 매 스테이지에서 Barrel 1~5에 들어갈 텍스트가 여기 들어감.
     // 즉 매 스테이지마다 초기화되어야함.
-    public TextMeshPro[] QuizTextList;
+    public TextMeshPro[] QuizTextList = new TextMeshPro[5];
     
     // 매 Stage가 time이 넘어가게 되면 TimeOver 함수를 호출하는 과정에 필요한 변
     [HideInInspector] private bool run_once = false;
@@ -54,7 +55,24 @@ public class DetectionQuizManager : MonoBehaviour
     void Start()
     {
         this.director = GameObject.Find("GameDirector");
-        
+
+        this.Barrels[0] = transform.Find("Barrel1").gameObject;
+        this.Barrels[1] = transform.Find("Barrel2").gameObject;
+        this.Barrels[2] = transform.Find("Barrel3").gameObject;
+        this.Barrels[3] = transform.Find("Barrel4").gameObject;
+        this.Barrels[4] = transform.Find("Barrel5").gameObject;
+
+        this.QuizTextList[0] = this.Barrels[0].transform.Find("Word").GetComponent<TextMeshPro>();
+        this.QuizTextList[1] = this.Barrels[1].transform.Find("Word").GetComponent<TextMeshPro>();
+        this.QuizTextList[2] = this.Barrels[2].transform.Find("Word").GetComponent<TextMeshPro>();
+        this.QuizTextList[3] = this.Barrels[3].transform.Find("Word").GetComponent<TextMeshPro>();
+        this.QuizTextList[4] = this.Barrels[4].transform.Find("Word").GetComponent<TextMeshPro>();
+
+        this.animators[0] = this.Barrels[0].GetComponent<Animator>();
+        this.animators[1] = this.Barrels[1].GetComponent<Animator>();
+        this.animators[2] = this.Barrels[2].GetComponent<Animator>();
+        this.animators[3] = this.Barrels[3].GetComponent<Animator>();
+        this.animators[4] = this.Barrels[4].GetComponent<Animator>();
         
         max_stage_no = 3;
         answer_list = new int[max_stage_no];
@@ -65,7 +83,7 @@ public class DetectionQuizManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timeText.text = watch.ElapsedMilliseconds.ToString();
+//        timeText.text = watch.ElapsedMilliseconds.ToString();
         if (!run_once && watch.ElapsedMilliseconds > 10000)
         {
             Debug.Log("Stage Over");
@@ -159,8 +177,10 @@ public class DetectionQuizManager : MonoBehaviour
             while (i < 5)
             {
                 yield return new WaitForSeconds(0.2f);
+                
                 //하나씩 SetActive
                 Barrels[i].SetActive(true);
+                animators[i].Play("Entry");
                 i += 1;
             }
 
@@ -194,10 +214,14 @@ public class DetectionQuizManager : MonoBehaviour
         int i = 0;
         while (i < 5)
         {
-            yield return new WaitForSeconds(0.1f);
+            animators[i].Play("BarrelDestroy");
+//            yield return new WaitForSeconds(2f);
+            Debug.Log(GetAnimationClip(animators[i], "BarrelDestroy").length);
+            yield return new WaitForSeconds(GetAnimationClip(animators[i], "BarrelDestroy").length);
             Barrels[i].SetActive(false);
             i = i + 1;
         }
+        
         this.GoNextStage();
         
     }
@@ -216,5 +240,16 @@ public class DetectionQuizManager : MonoBehaviour
             Debug.Log("결과창 setActive");
         }
         
+    }
+    
+    public AnimationClip GetAnimationClip(Animator animator, string name) {
+        if (!animator) return null; // no animator
+ 
+        foreach (AnimationClip clip in animator.runtimeAnimatorController.animationClips) {
+            if (clip.name == name) {
+                return clip;
+            }
+        }
+        return null; // no clip by that name
     }
 }
