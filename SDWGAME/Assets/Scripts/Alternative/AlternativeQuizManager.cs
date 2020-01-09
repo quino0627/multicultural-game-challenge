@@ -98,6 +98,11 @@ public class AlternativeQuizManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (watch.ElapsedMilliseconds > 0)
+        {
+            director.GetComponent<AlternativeGameDirector>().SetTime(watch.ElapsedMilliseconds/1000.0f);
+        }
+        
         if (isMoving)
         {
             currentDistanceToTouchPos = (centerPosition - WordBoxOrigin.transform.position).magnitude;
@@ -130,7 +135,7 @@ public class AlternativeQuizManager : MonoBehaviour
         }
         
         // 타임오버 되었을 떄
-        if (!run_once && watch.ElapsedMilliseconds > 10000)
+        if (!run_once && watch.ElapsedMilliseconds > 60000f)
         {
             Debug.Log("Stage Over");
             run_once = true;
@@ -158,6 +163,7 @@ public class AlternativeQuizManager : MonoBehaviour
         // 시작 오디오 세팅
 
         run_once = false;
+        director.GetComponent<AlternativeGameDirector>().InitTime();
         
         // UI 설정
         this.director.GetComponent<AlternativeGameDirector>().setStage(stage_no);

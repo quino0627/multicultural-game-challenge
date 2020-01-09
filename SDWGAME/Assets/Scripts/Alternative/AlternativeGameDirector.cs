@@ -14,7 +14,7 @@ public class AlternativeGameDirector : MonoBehaviour
     private GameObject levelText;
 
     // 제한시간 10초
-    private float time = 10.0f;
+    private float time = 60.0f;
     // 현재 포인트
     private int point = 0;
     // 현재 stage
@@ -26,6 +26,16 @@ public class AlternativeGameDirector : MonoBehaviour
     public void GetPoint(int po)
     {
         this.point = this.point + po;
+    }
+
+    public void SetTime(float t)
+    {
+        this.time = 60f - t;
+    }
+
+    public void InitTime()
+    {
+        this.time = 60f;
     }
 
     public void setStage(int st)
@@ -58,6 +68,7 @@ public class AlternativeGameDirector : MonoBehaviour
         this.pointText = GameObject.Find("Score");
         this.stageText = GameObject.Find("Stage");
         this.levelText = GameObject.Find("Level");
+        this.InitTime();
     }
 
     // Update is called once per frame
@@ -66,5 +77,6 @@ public class AlternativeGameDirector : MonoBehaviour
         this.pointText.GetComponent<TextMeshProUGUI>().text = this.point.ToString() + "점";
         this.stageText.GetComponent<TextMeshProUGUI>().text = $"{this.stage + 1}단계";
         this.levelText.GetComponent<TextMeshProUGUI>().text = level;
+        this.timerText.GetComponent<TextMeshProUGUI>().text = time.ToString("F")+ "초";
     }
 }
