@@ -1120,9 +1120,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   Octo: {fileID: 1553913798}
-  quiz_level: {fileID: 0}
-  quiz_step: {fileID: 0}
-  timeText: {fileID: 0}
   QuizTextList:
   - {fileID: 2053785464}
   - {fileID: 1786106351}
@@ -3603,14 +3600,14 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 5028681059217851263, guid: 0cf2b19ba0df346f7b039c8e67240d40,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 231130919}
     - target: {fileID: 5028681059217851261, guid: 0cf2b19ba0df346f7b039c8e67240d40,
         type: 3}
       propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 231130919}
+    - target: {fileID: 5028681059217851263, guid: 0cf2b19ba0df346f7b039c8e67240d40,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 231130919}
     m_RemovedComponents: []

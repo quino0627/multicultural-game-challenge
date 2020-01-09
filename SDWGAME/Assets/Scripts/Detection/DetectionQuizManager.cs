@@ -16,12 +16,12 @@ public class DetectionQuizManager : MonoBehaviour
     private GameObject director;
 
     [HideInInspector] private Animator[] animators = new Animator[5];
-    //excel data
-    public Entity_LEVEL1 list;
+    // excel data
+    public Entity_Detection list;
     
-    //쉬움, 보통, 어려움 난이도
+    // 쉬움, 보통, 어려움 난이도
     public int level = 0;
-    //각 난이도 안에는 stage 0 부터 max_stage_no - 1까지의 stage가 존재한다.
+    // 각 난이도 안에는 stage 0 부터 max_stage_no - 1까지의 stage가 존재한다.
     public static int stage_no = 0;
     //엑셀 데이터 개수 가져와서 저장할 것.
     public static int max_stage_no;
@@ -29,11 +29,7 @@ public class DetectionQuizManager : MonoBehaviour
     [HideInInspector] public GameObject[] Barrels = new GameObject[5];
     //문어새기
     public GameObject Octo;
-    public Text quiz_level;
-    public Text quiz_step;
-//시간 테스트를 위한 임시 변수
-    public Text timeText;
-// 타이머 관련 변수
+    // 타이머 관련 변수
     private float timer = 0f;
     private float timeLimit = 60f;
     public Stopwatch watch = new Stopwatch();
@@ -118,9 +114,8 @@ public class DetectionQuizManager : MonoBehaviour
     // Original Code at RandomQuizScript/EnableCoroutine
     IEnumerator StageEach(int level)
     {
+        // 시작 오디오 세팅
         
-        //
-        //시작 오디오
         run_once = false;
         
         // UI 설정
@@ -191,7 +186,7 @@ public class DetectionQuizManager : MonoBehaviour
             Debug.Log(Resources.Load(wordFileLink) as AudioClip);
             Octo.GetComponent<AudioSource>().Play();
             Debug.Log("타이머 스타트");
-            //클릭 타임이 될 것이야..
+            //클릭 타임이
             watch.Start();
 //            director.GetComponent<GameDirector>().DecreaseTimer(1f);
         }  
@@ -200,7 +195,6 @@ public class DetectionQuizManager : MonoBehaviour
 
     public void StageOver()
     {
-        Debug.Log("Time Over");
         watch.Stop();
         //기록 남기기
         Debug.Log($"{watch.ElapsedMilliseconds}ms 이후 종 ");
@@ -230,7 +224,7 @@ public class DetectionQuizManager : MonoBehaviour
     public void GoNextStage()
     {
         Debug.Log($"stage_no는 {stage_no}이고, max_stage_no는 {max_stage_no}");
-        if (stage_no < max_stage_no-1)
+        if (stage_no < max_stage_no - 1)
         {
             stage_no++;
             StartCoroutine(StageEach(level));

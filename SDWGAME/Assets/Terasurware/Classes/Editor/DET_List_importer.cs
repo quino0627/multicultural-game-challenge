@@ -8,8 +8,8 @@ using NPOI.XSSF.UserModel;
 using NPOI.SS.UserModel;
 
 public class DET_List_importer : AssetPostprocessor {
-	private static readonly string filePath = "Assets/08.Resources/DET_List.xlsx";
-	private static readonly string exportPath = "Assets/08.Resources/DET_List.asset";
+	private static readonly string filePath = "Assets/Resources/DET_List.xlsx";
+	private static readonly string exportPath = "Assets/Resources/DET_List.asset";
 	private static readonly string[] sheetNames = { "LEVEL1","LEVEL2","LEVEL3", };
 	
 	static void OnPostprocessAllAssets (string[] importedAssets, string[] deletedAssets, string[] movedAssets, string[] movedFromAssetPaths)
@@ -18,9 +18,9 @@ public class DET_List_importer : AssetPostprocessor {
 			if (!filePath.Equals (asset))
 				continue;
 				
-			Entity_LEVEL1 data = (Entity_LEVEL1)AssetDatabase.LoadAssetAtPath (exportPath, typeof(Entity_LEVEL1));
+			Entity_Detection data = (Entity_Detection)AssetDatabase.LoadAssetAtPath (exportPath, typeof(Entity_Detection));
 			if (data == null) {
-				data = ScriptableObject.CreateInstance<Entity_LEVEL1> ();
+				data = ScriptableObject.CreateInstance<Entity_Detection> ();
 				AssetDatabase.CreateAsset ((ScriptableObject)data, exportPath);
 				data.hideFlags = HideFlags.NotEditable;
 			}
@@ -41,14 +41,14 @@ public class DET_List_importer : AssetPostprocessor {
 						continue;
 					}
 
-					Entity_LEVEL1.Sheet s = new Entity_LEVEL1.Sheet ();
+					Entity_Detection.Sheet s = new Entity_Detection.Sheet ();
 					s.name = sheetName;
 				
 					for (int i=1; i<= sheet.LastRowNum; i++) {
 						IRow row = sheet.GetRow (i);
 						ICell cell = null;
 						
-						Entity_LEVEL1.Param p = new Entity_LEVEL1.Param ();
+						Entity_Detection.Param p = new Entity_Detection.Param ();
 						
 					cell = row.GetCell(0); p.level = (cell == null ? 0.0 : cell.NumericCellValue);
 					cell = row.GetCell(1); p.no = (cell == null ? 0.0 : cell.NumericCellValue);

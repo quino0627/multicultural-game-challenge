@@ -1,0 +1,201 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 8
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e78a0422b51c4e9d8b7d89f8bf5db19, type: 3}
+  m_Name: ALT_List
+  m_EditorClassIdentifier: 
+  sheets:
+  - name: LEVEL1
+    list:
+    - level: 0
+      no: 1
+      sylnum: 1
+      origin: "\uAE38"
+      expect: "\uB51C"
+      target: "\u3131"
+      cor: "\u3137"
+      ex1: "\u3142"
+      ex2: "\u3145"
+      ex3: "\u3134"
+      ex4: "\u314E"
+      filename: alt_1-01
+    - level: 0
+      no: 2
+      sylnum: 1
+      origin: "\uBC24"
+      expect: "\uC0BC"
+      target: "\u3142"
+      cor: "\u3145"
+      ex1: "\u3147"
+      ex2: "\u314D"
+      ex3: "\u314C"
+      ex4: "\u3148"
+      filename: alt_1-02
+    - level: 0
+      no: 3
+      sylnum: 1
+      origin: "\uC0C9"
+      expect: "\uD0DD"
+      target: "\u3145"
+      cor: "\u314C"
+      ex1: "\u3141"
+      ex2: "\u3139"
+      ex3: "\u314E"
+      ex4: "\u3148"
+      filename: alt_1-03
+    - level: 0
+      no: 4
+      sylnum: 1
+      origin: "\uC218"
+      expect: "\uCD94"
+      target: "\u3145"
+      cor: "\u314A"
+      ex1: "\u3131"
+      ex2: "\u3148"
+      ex3: "\u3142"
+      ex4: "\u314D"
+      filename: alt_1-04
+    - level: 0
+      no: 5
+      sylnum: 1
+      origin: "\uCABD"
+      expect: "\uB611"
+      target: "\u3149"
+      cor: "\u3138"
+      ex1: "\u3143"
+      ex2: "\u3146"
+      ex3: "\u3141"
+      ex4: "\u314E"
+      filename: alt_1-05
+  - name: LEVEL2
+    list:
+    - level: 1
+      no: 1
+      sylnum: 1
+      origin: "\uBAA8\uC591"
+      expect: "\uD1A0\uC591"
+      target: "\u3141"
+      cor: "\u314C"
+      ex1: "\u314D"
+      ex2: "\u3145"
+      ex3: "\u314B"
+      ex4: "\u314A"
+      filename: alt_2-01
+    - level: 1
+      no: 2
+      sylnum: 1
+      origin: "\uC644\uC131"
+      expect: "\uC644\uC815"
+      target: "\u3145"
+      cor: "\u3148"
+      ex1: "\u314A"
+      ex2: "\u3134"
+      ex3: "\u3141"
+      ex4: "\u3131"
+      filename: alt_2-02
+    - level: 1
+      no: 3
+      sylnum: 1
+      origin: "\uBB38\uC7A5"
+      expect: "\uCD98\uC7A5"
+      target: "\u3141"
+      cor: "\u314A"
+      ex1: "\u3148"
+      ex2: "\u314B"
+      ex3: "\u314C"
+      ex4: "\u314D"
+      filename: alt_2-03
+    - level: 1
+      no: 4
+      sylnum: 1
+      origin: "\uBC29\uBC95"
+      expect: "\uAC15\uAC81"
+      target: "\u3142"
+      cor: "\u3131"
+      ex1: "\u314A"
+      ex2: "\u3141"
+      ex3: "\u314E"
+      ex4: "\u3134"
+      filename: alt_2-04
+    - level: 1
+      no: 5
+      sylnum: 1
+      origin: "\uC77D\uACE0"
+      expect: "\uC77D\uC18C"
+      target: "\u3131"
+      cor: "\u3145"
+      ex1: "\u3134"
+      ex2: "\u3141"
+      ex3: "\u3139"
+      ex4: "\u314E"
+      filename: alt_2-05
+  - name: LEVEL3
+    list:
+    - level: 2
+      no: 1
+      sylnum: 1
+      origin: "\uB098\uD0C0\uB0BC"
+      expect: "\uC790\uD0C0\uC7B4"
+      target: "\u3134"
+      cor: "\u3148"
+      ex1: "\u3141"
+      ex2: "\u3139"
+      ex3: "\u314E"
+      ex4: "\u3137"
+      filename: alt_3-01
+    - level: 2
+      no: 2
+      sylnum: 1
+      origin: "\uB098\uB204\uAE30"
+      expect: "\uB2E4\uB450\uAE30"
+      target: "\u3134"
+      cor: "\u3137"
+      ex1: "\u314A"
+      ex2: "\u314D"
+      ex3: "\u3134"
+      ex4: "\u3141"
+      filename: alt_3-02
+    - level: 2
+      no: 3
+      sylnum: 1
+      origin: "\uB9D0\uD558\uAE30"
+      expect: "\uB9D0\uD558\uBBF8"
+      target: "\u3131"
+      cor: "\u3141"
+      ex1: "\u314C"
+      ex2: "\u314B"
+      ex3: "\u3145"
+      ex4: "\u314E"
+      filename: alt_3-03
+    - level: 2
+      no: 4
+      sylnum: 1
+      origin: "\uBC14\uB974\uAC8C"
+      expect: "\uC544\uB974\uAC8C"
+      target: "\u3142"
+      cor: "\u3147"
+      ex1: "\u314C"
+      ex2: "\u314A"
+      ex3: "\u314D"
+      ex4: "\u3148"
+      filename: alt_3-04
+    - level: 2
+      no: 5
+      sylnum: 1
+      origin: "\uC775\uD788\uAE30"
+      expect: "\uC775\uD53C\uAE30"
+      target: "\u314E"
+      cor: "\u314D"
+      ex1: "\u314A"
+      ex2: "\u3148"
+      ex3: "\u3137"
+      ex4: "\u314C"
+      filename: alt_3-05
