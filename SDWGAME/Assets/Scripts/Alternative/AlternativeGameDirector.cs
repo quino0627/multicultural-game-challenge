@@ -1,0 +1,70 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using TMPro;
+using UnityEngine;
+
+public class AlternativeGameDirector : MonoBehaviour
+{
+    private GameObject timerText;
+
+    private GameObject pointText;
+
+    private GameObject stageText;
+
+    private GameObject levelText;
+
+    // 제한시간 10초
+    private float time = 10.0f;
+    // 현재 포인트
+    private int point = 0;
+    // 현재 stage
+    private int stage = 0;
+    // 현재 level
+    // l
+    private string level = "default value";
+    
+    public void GetPoint(int po)
+    {
+        this.point = this.point + po;
+    }
+
+    public void setStage(int st)
+    {
+        this.stage = st;
+    }
+
+    public void setLevel(int le)
+    {
+        if (le == 0)
+        {
+            this.level = "쉬움";
+        }
+
+        if (le == 1)
+        {
+            this.level = "보통";
+        }
+
+        if (le == 2)
+        {
+            this.level = "어려움";
+        }
+        
+    }
+    // Start is called before the first frame update
+    void Start()
+    {
+        this.timerText = GameObject.Find("Time");
+        this.pointText = GameObject.Find("Score");
+        this.stageText = GameObject.Find("Stage");
+        this.levelText = GameObject.Find("Level");
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        this.pointText.GetComponent<TextMeshProUGUI>().text = this.point.ToString() + "점";
+        this.stageText.GetComponent<TextMeshProUGUI>().text = $"{this.stage + 1}단계";
+        this.levelText.GetComponent<TextMeshProUGUI>().text = level;
+    }
+}

@@ -1,0 +1,468 @@
+fileFormatVersion: 2
+guid: f1d9f854ffc574402a4babbbfe407016
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: __red_seahorse_swimming_441px_by_978px_per_frame_0
+    21300002: __red_seahorse_swimming_441px_by_978px_per_frame_1
+    21300004: __red_seahorse_swimming_441px_by_978px_per_frame_2
+    21300006: __red_seahorse_swimming_441px_by_978px_per_frame_3
+    21300008: __red_seahorse_swimming_441px_by_978px_per_frame_4
+    21300010: __red_seahorse_swimming_441px_by_978px_per_frame_5
+    21300012: __red_seahorse_swimming_441px_by_978px_per_frame_6
+    21300014: __red_seahorse_swimming_441px_by_978px_per_frame_7
+    21300016: __red_seahorse_swimming_441px_by_978px_per_frame_8
+    21300018: __red_seahorse_swimming_441px_by_978px_per_frame_9
+    21300020: __red_seahorse_swimming_441px_by_978px_per_frame_10
+    21300022: __red_seahorse_swimming_441px_by_978px_per_frame_11
+    21300024: __red_seahorse_swimming_441px_by_978px_per_frame_12
+    21300026: __red_seahorse_swimming_441px_by_978px_per_frame_13
+    21300028: __red_seahorse_swimming_441px_by_978px_per_frame_14
+    21300030: __red_seahorse_swimming_441px_by_978px_per_frame_15
+  externalObjects: {}
+  serializedVersion: 9
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: __red_seahorse_swimming_441px_by_978px_per_frame_0
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 2984
+        width: 363
+        height: 924
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f20a86a79ffe247b0b142de5e307c2d2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: __red_seahorse_swimming_441px_by_978px_per_frame_1
+      rect:
+        serializedVersion: 2
+        x: 466
+        y: 2982
+        width: 375
+        height: 926
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b56697624ce92460cad92097bbb70628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: __red_seahorse_swimming_441px_by_978px_per_frame_2
+      rect:
+        serializedVersion: 2
+        x: 906
+        y: 2980
+        width: 392
+        height: 928
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae23a844c6ba94d5ab07648c5683822b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: __red_seahorse_swimming_441px_by_978px_per_frame_3
+      rect:
+        serializedVersion: 2
+        x: 1347
+        y: 2978
+        width: 362
+        height: 930
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed16230acd0cb416788447b2eac6e61e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: __red_seahorse_swimming_441px_by_978px_per_frame_4
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 1998
+        width: 363
+        height: 932
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7110cdfe5e90479194b17d064517f7a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: __red_seahorse_swimming_441px_by_978px_per_frame_5
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 1996
+        width: 409
+        height: 934
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46618a716cb83469086d09c899a8a88b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: __red_seahorse_swimming_441px_by_978px_per_frame_6
+      rect:
+        serializedVersion: 2
+        x: 904
+        y: 1994
+        width: 365
+        height: 936
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2776e9b492b5b44dcaaa21c3f1a5b368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: __red_seahorse_swimming_441px_by_978px_per_frame_7
+      rect:
+        serializedVersion: 2
+        x: 1345
+        y: 1992
+        width: 364
+        height: 938
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 089b418622e094713a7cb260e003619e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: __red_seahorse_swimming_441px_by_978px_per_frame_8
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 1010
+        width: 422
+        height: 942
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf8985e736251497083e309dcae00cca
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: __red_seahorse_swimming_441px_by_978px_per_frame_9
+      rect:
+        serializedVersion: 2
+        x: 462
+        y: 1012
+        width: 366
+        height: 940
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e0a99312634f4e8ba90bf7771ac5f75
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: __red_seahorse_swimming_441px_by_978px_per_frame_10
+      rect:
+        serializedVersion: 2
+        x: 904
+        y: 1014
+        width: 365
+        height: 938
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48fdc143d9b954677ad9047b26e70061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: __red_seahorse_swimming_441px_by_978px_per_frame_11
+      rect:
+        serializedVersion: 2
+        x: 1345
+        y: 1016
+        width: 404
+        height: 936
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78fdfbb4bc0384795a992103c71decf9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: __red_seahorse_swimming_441px_by_978px_per_frame_12
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 40
+        width: 375
+        height: 934
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7dc37f3f4cfaa49d5bffd5b8c46e7b31
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: __red_seahorse_swimming_441px_by_978px_per_frame_13
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 42
+        width: 364
+        height: 932
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4efc5ed6499c44bad93e665c2bc0dbac
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: __red_seahorse_swimming_441px_by_978px_per_frame_14
+      rect:
+        serializedVersion: 2
+        x: 906
+        y: 44
+        width: 392
+        height: 930
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de9ec753738584a95bfe0fffae495cf7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: __red_seahorse_swimming_441px_by_978px_per_frame_15
+      rect:
+        serializedVersion: 2
+        x: 1347
+        y: 46
+        width: 386
+        height: 928
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71cb3828ad75d4be198b3825ad4599b1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 1c4f71516ec764270bc34efa91c7b5f0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
