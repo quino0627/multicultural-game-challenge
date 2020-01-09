@@ -7,6 +7,7 @@
       <e p="Assets" t="Include">
         <e p="Scripts" t="Include">
           <e p="Alternative" t="Include">
+            <e p="AlternativeDescriptionController.cs" t="Include" />
             <e p="AlternativeGameDirector.cs" t="Include" />
             <e p="AlternativeQuizManager.cs" t="Include" />
             <e p="BubbleController.cs" t="Include" />

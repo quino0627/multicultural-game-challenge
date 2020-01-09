@@ -10,6 +10,7 @@ public class AlternativeQuizManager : MonoBehaviour
     
     // director
     private GameObject director;
+    private GameObject description;
     
     // Bubble 없어지는 animation
     [HideInInspector] Animator[] animators = new Animator[5];
@@ -66,6 +67,7 @@ public class AlternativeQuizManager : MonoBehaviour
     void Start()
     {
         this.director = GameObject.Find("AlternativeGameDirector");
+        this.description = GameObject.Find("DescriptionBubble");
         
         // 해마새기들
         this.SeahorseLeft = transform.Find("SeahorseLeft").gameObject;
@@ -161,9 +163,10 @@ public class AlternativeQuizManager : MonoBehaviour
     IEnumerator StageEach(int level)
     {
         // 시작 오디오 세팅
-
+            
         run_once = false;
         director.GetComponent<AlternativeGameDirector>().InitTime();
+        description.GetComponent<AlternativeDescriptionController>().DefaultDescription();
         
         // UI 설정
         this.director.GetComponent<AlternativeGameDirector>().setStage(stage_no);
