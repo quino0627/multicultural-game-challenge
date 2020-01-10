@@ -597,6 +597,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &108081615 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 95900843293255280, guid: edb8ef0ff87494ca78f709f6bd5b5c8c,
+    type: 3}
+  m_PrefabInstance: {fileID: 504288839}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &117695058
 GameObject:
   m_ObjectHideFlags: 0
@@ -1212,7 +1218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a98e8a9b4237c4bb1ba460dcea0a40b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waterFallAnimator: {fileID: 0}
+  waterFallAnimator: {fileID: 108081615}
 --- !u!95 &194367164
 Animator:
   serializedVersion: 3
@@ -1700,6 +1706,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaterFallAnimation
       objectReference: {fileID: 0}
+    - target: {fileID: 1362965937030603988, guid: edb8ef0ff87494ca78f709f6bd5b5c8c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1362965937030603991, guid: edb8ef0ff87494ca78f709f6bd5b5c8c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1789,8 +1800,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a669761f836c4137b80851135ada1ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waterFallAnimator: {fileID: 0}
-  _WaterFallAnimation: {fileID: 0}
+  waterFallAnimator: {fileID: 820127401}
 --- !u!114 &622947072
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1907,6 +1917,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaterFallAnimation
       objectReference: {fileID: 0}
+    - target: {fileID: 1362965937030603988, guid: edb8ef0ff87494ca78f709f6bd5b5c8c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1362965937030603991, guid: edb8ef0ff87494ca78f709f6bd5b5c8c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1997,6 +2012,12 @@ Transform:
   m_Father: {fileID: 185061411}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &820127401 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 95900843293255280, guid: edb8ef0ff87494ca78f709f6bd5b5c8c,
+    type: 3}
+  m_PrefabInstance: {fileID: 665677225}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &835205995
 GameObject:
   m_ObjectHideFlags: 0

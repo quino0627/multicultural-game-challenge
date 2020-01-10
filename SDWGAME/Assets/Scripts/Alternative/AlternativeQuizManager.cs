@@ -216,7 +216,9 @@ public class AlternativeQuizManager : MonoBehaviour
             // 왼쪽 해마 워터폴 이펙
             Debug.Log("left start");
             SeahorseLeft.transform.Find("WaterFallAnimation").gameObject.SetActive(true);
+            Debug.Log(SeahorseLeft.GetComponent<SeahorseLeftController>().waterFallAnimator);
             Animator left_waterFallAnimator = SeahorseLeft.GetComponent<SeahorseLeftController>().waterFallAnimator;
+            
             left_waterFallAnimator.Play("WaterFall");
             
             yield return new WaitForSeconds(left_waterFallAnimator.GetCurrentAnimatorStateInfo(0).length);
