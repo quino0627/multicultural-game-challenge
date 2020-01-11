@@ -159,7 +159,7 @@ Animator:
   m_GameObject: {fileID: 2094976907094460925}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a7f4b3feeae86b6419d931abb08a5ce5, type: 2}
+  m_Controller: {fileID: 9100000, guid: ff15c85d846a84c2895575503e8a3f3e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -201,7 +201,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2094976907094460925}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9d2ce858015173146a11410c975b3603, type: 3}
   m_Name: 
@@ -279,9 +279,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70e2eeeb9b7418244b95c16bc74bd36a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jellyfish: {fileID: 0}
   speed: 1
   targetAngle: 45
   turnSpeed: 5
+  isAboarding: 0
 --- !u!114 &620775260
 MonoBehaviour:
   m_ObjectHideFlags: 0
