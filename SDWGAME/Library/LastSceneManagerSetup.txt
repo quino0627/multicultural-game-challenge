@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/DetectionGame.unity
+- path: Assets/Scenes/Elimination.unity
   isLoaded: 1
   isActive: 1

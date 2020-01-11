@@ -1,0 +1,36 @@
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class SpeakerController : MonoBehaviour
+{
+    private GameObject QuizManager;
+    private AudioSource _audioSource;
+    private FishShowAnswer script;
+    // Start is called before the first frame update
+    void Start()
+    {
+        QuizManager = GameObject.Find("QuizManager");
+        _audioSource = gameObject.GetComponent<AudioSource>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        script = QuizManager.GetComponent<FishShowAnswer>();
+    }
+
+    private void OnMouseDown()
+    {
+        Debug.Log("OnMouseDown");
+        SpeakerClicked();
+    }
+
+    public void SpeakerClicked()
+    {
+        //string s = $"Sounds/Detection/{script.data.sheets[script.level].list[script.stageIndex].오답음성1}"
+        _audioSource.Play();
+        
+    }
+}
