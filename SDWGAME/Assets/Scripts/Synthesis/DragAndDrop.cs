@@ -10,7 +10,7 @@ public class DragAndDrop : MonoBehaviour
     private Vector2 initialPosition;
     private Vector2 mousePosition;
     private float deltaX, deltaY;
-    public Transform AnswerTransform;
+    //public Transform AnswerTransform;
 
     public static bool locked;
 
@@ -65,13 +65,14 @@ public class DragAndDrop : MonoBehaviour
                 //StartCoroutine("UpdateNumAns");
 
                 MoveJellyfish moveScript = GetComponent<MoveJellyfish>();
-                moveScript.initialPosition = initialPosition;
+                //moveScript.initialPosition = initialPosition;
                 moveScript.onCircle = true;
                 
             }
         }
         else //원이 아닌 곳에 놓이면 해파리를 제자리로
         {
+            Debug.Log("not on circle");
             transform.position = new Vector2(initialPosition.x,initialPosition.y);
         }
     }

@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="$PROJECT_DIR$" t="IncludeRecursive">
+    <e p="C:\Users\singi\.Rider2019.2\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\singi\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_SDWGAME.-1870591809.00" t="ExcludeRecursive" />
+    <e p="C:\Users\singi\Documents\GitHub\2019outsource\multicultural-game-challenge\SDWGAME" t="IncludeRecursive">
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
@@ -24,13 +26,20 @@
             <e p="GameDirector.cs" t="Include" />
             <e p="Global.cs" t="Include" />
           </e>
+          <e p="Elimination" t="Include">
+            <e p="FishController.cs" t="Include" />
+            <e p="FishShowAnswer.cs" t="Include" />
+            <e p="SpeakerController.cs" t="Include" />
+          </e>
           <e p="Synthesis" t="Include">
             <e p="CharacterController2D.cs" t="Include" />
             <e p="CheckAnswer.cs" t="Include" />
             <e p="CrabMove.cs" t="Include" />
             <e p="DragAndDrop.cs" t="Include" />
             <e p="GameData.cs" t="Include" />
+            <e p="JfSuccess.cs" t="Include" />
             <e p="MoveJellyfish.cs" t="Include" />
+            <e p="MovingJfScript.cs" t="Include" />
             <e p="PlayerMovement.cs" t="Include" />
             <e p="Projectile.cs" t="Include" />
             <e p="SpreadChoices.cs" t="Include" />
@@ -42,9 +51,13 @@
             <e p="Editor" t="Include">
               <e p="ALT_List_importer.cs" t="Include" />
               <e p="DET_List_importer.cs" t="Include" />
+              <e p="eliminationTest_importer.cs" t="Include" />
+              <e p="synthesis_importer.cs" t="Include" />
             </e>
             <e p="Entity_Alternative.cs" t="Include" />
             <e p="Entity_Detection.cs" t="Include" />
+            <e p="Entity_EliminationTest.cs" t="Include" />
+            <e p="Entity_Synthesis.cs" t="Include" />
           </e>
           <e p="Editor" t="Include">
             <e p="EntityTemplate.txt" t="Include" />
@@ -128,9 +141,7 @@
       <e p="obj" t="ExcludeRecursive" />
       <e p="Packages" t="ExcludeRecursive" />
       <e p="SDWGAME.sln" t="IncludeFlat" />
-      <e p="Temp/bin" t="ExcludeRecursive" />
+      <e p="Temp\bin" t="ExcludeRecursive" />
     </e>
-    <e p="$USER_HOME$/Library/Caches/Rider2019.2/extResources" t="IncludeRecursive" />
-    <e p="$USER_HOME$/Library/Caches/Rider2019.2/resharper-host/local/Transient/ReSharperHost/v192/SolutionCaches/_SDWGAME.-1328817057.00" t="ExcludeRecursive" />
   </component>
 </project>
