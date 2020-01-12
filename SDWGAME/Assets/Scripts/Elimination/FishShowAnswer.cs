@@ -1,9 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Runtime.InteropServices.WindowsRuntime;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Debug = UnityEngine.Debug;
 
 public class FishShowAnswer : MonoBehaviour
 {
@@ -36,31 +39,89 @@ public class FishShowAnswer : MonoBehaviour
     public TextMeshPro quizLevel;
     public TextMeshPro quizStage;
     
+    // 타이머 관련 변수
+    private float timer = 0f;
+    private float timeLimit = 10000f; //10초
+    public Stopwatch watch = new Stopwatch();
+    public Slider sliderTimer;
+    
+    //
+    private GameObject QuizManager;
+
+    private Transform sharkArriveTransform;
+    public float fastSpeed = 20f;
+    public float slowSpeed = 0.006f;
+    public bool isSharkArrived;
+    
+    public Transform fishExitPos;
+    public Transform Fishes;
+    public Transform FishesCenter;
+    public bool isFishExited;
+    public bool isTimeSetted;
+    public bool isTimeOver;
+    public bool sharkAte;
     // Start is called before the first frame update
     void Start()
     {
+        QuizManager = GameObject.Find("QuizManager");
+        fishExitPos = GameObject.Find("FishExitPos").transform;
+        Fishes = GameObject.Find("Fishes").transform;
+        FishesCenter = GameObject.Find("FishesCenter").transform;
         sharkAudio = shark.GetComponent<AudioSource>();
         stimulText = stimulation.GetComponent<TextMeshPro>();
+        sharkArriveTransform = GameObject.Find("SharkArrivePos").transform;
         QuizInit();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (watch.ElapsedMilliseconds > 0)
+        {
+            QuizManager.GetComponent<EliminationDirector>()
+                .SetTime(watch.ElapsedMilliseconds/1000.0f);
+            //Debug.Log(watch.ElapsedMilliseconds/1000.0f);
+        }
+
+        if (watch.ElapsedMilliseconds > timeLimit)
+        {
+            Debug.Log("Stage Over");
+            isTimeOver = true;
+            this.GoNextStage(100,false);
+        }
         
+        //이제 왼쪽으로 서서히 움직일꺼야
+        if ( isTimeSetted && watch.ElapsedMilliseconds < timeLimit)
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                if (choices[i].GetComponent<FishController>().isCaught == false)
+                {
+                    Fishes.Translate(
+                        Vector2.left * slowSpeed * Time.deltaTime,
+                        Space.World);
+                }
+                else
+                {
+                    isTimeSetted = false;
+                    GoNextStage(i, true);
+                }
+                
+            }
+        }
     }
 
     public void QuizInit()
     {
+        
         StartCoroutine(EnableCoroutine());
     }
 
     IEnumerator EnableCoroutine()
     {
-        //quizLevel.text = "" + (level + 1);
-        //quizStage.text = "" + (stageIndex + 1);
-        //Debug.Log("level "+level);
-        //Debug.Log("stageIndex "+stageIndex);
+        QuizManager.GetComponent<EliminationDirector>().setStage(stageIndex);
+        QuizManager.GetComponent<EliminationDirector>().setLevel(level);
+        
         //yield return new WaitForSecondsRealtime(GetComponent<AudioSource>().clip.length);
         yield return new WaitForSeconds(0.0f);
         //CheckToggleGroup.SetAllTogglesOff();
@@ -143,10 +204,29 @@ public class FishShowAnswer : MonoBehaviour
 
     IEnumerator ShowSharkNeed()
     {
+        //먼저 상어가 들어온다
+        while (!isSharkArrived)
+        {
+            yield return new WaitForEndOfFrame();
+            float distance = Vector2.Distance(
+                shark.transform.position,
+                sharkArriveTransform.position);
+            if (distance > 0.01f)
+            {
+                MoveShark(sharkArriveTransform.position);
+                //Debug.Log("Shark moved");
+            }
+            else
+            {
+                isSharkArrived = true;
+                //Debug.Log("Shark arrived");
+            }
+        }
+        
         // 자극 제시 ex) 만들
         stimulText.text = data.sheets[level].list[stageIndex].자극;
         stimulation.SetActive(true);
-        yield return new WaitForSeconds(3.0f);
+        yield return new WaitForSeconds(1.5f);
         
         // 탈락 자극 제시 ex) ㄴ
         stimulation.SetActive(false);
@@ -155,38 +235,129 @@ public class FishShowAnswer : MonoBehaviour
 
         StartCoroutine(ShowAnswer());
     }
+
+    void MoveShark(Vector2 destination)
+    {
+        float step = fastSpeed * Time.deltaTime;
+        shark.transform.position = Vector2.MoveTowards(
+            shark.transform.position, destination, step);
+    }
     IEnumerator ShowAnswer()
     {
         int i = 0;
+        //int fish_index;
         while (i < 5)
         {
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(1.0f);
             choices[i].SetActive(true);
+            
+            //물고기들이 가운데 생김
+            
             i++;
         }
-        
-        
-        
+       
+        //Debug.Log("watch start");
+        watch.Start();
+        sliderTimer.GetComponent<SliderTimer>().shouldStart = true;
+
+        isTimeSetted = true;
+        for (int j = 0; j < 5; j++)
+        {
+            choices[j].GetComponent<Animator>().SetTrigger("Swim");
+        }
     }
     
     
-    IEnumerator HideAnswers()
+    IEnumerator HideAnswers(int poorFishIndex, bool isCaught)
     {
-        int i = 0;
-        while (i < 5)
+        yield return new WaitForSeconds(0.1f); 
+        //choices[i].SetActive(false);
+        
+        while (!isFishExited)
         {
-            yield return new WaitForSeconds(0.1f);
-            choices[i].SetActive(false);
-            i++;
+            yield return new WaitForEndOfFrame();
+            float distance = Vector2.Distance(
+                FishesCenter.position,
+                fishExitPos.position);
+            if (distance > 0.01f)
+            {
+                if (isCaught)
+                {
+                    for (int j = 0; j < 5; j++)
+                    {
+                        if (j != poorFishIndex)
+                        {
+                            //Debug.Log("surrvied fish: "+j);
+                            MoveSurrvivedFish(j,
+                                fishExitPos.position, fastSpeed);
+                        }
+                    }
+                    MoveFishesCenter(fishExitPos.position, fastSpeed);
+                }
+                else
+                {
+                    MoveFishes(fishExitPos.position, fastSpeed);
+                    MoveFishesCenter(fishExitPos.position, fastSpeed);
+                }
+
+            }
+            else
+            {
+                isFishExited= true;
+            }
         }
-        yield return new WaitForSeconds(1.0f);
+        
+        
+        
+     
+        if (sharkAte||isTimeOver)
+        {
+            Debug.Log("LoadNextScene");
+            yield return new WaitForSeconds(2.0f);
+            LoadNextScene();
+        }
+    }
+
+    void LoadNextScene()
+    {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    void MoveFishes( Vector2 destination,float speed)
+    {
+        Debug.Log("Fishes exiting");
+        float step = speed * Time.deltaTime;
+      
+             Fishes.position 
+                = Vector2.MoveTowards(Fishes.position,
+            destination, step);
+
+    }
+
+    void MoveFishesCenter(Vector2 destination, float speed)
+    {
+        //Debug.Log("Fishes exiting");
+        float step = speed * Time.deltaTime;
+        FishesCenter.position 
+            = Vector2.MoveTowards(FishesCenter.position,
+                destination, step);
+    }
+    void MoveSurrvivedFish( int i, Vector2 destination,float speed)
+    {
+        //Debug.Log("Fishes Escaped");
+        float step = speed * Time.deltaTime;
+        choices[i].transform.position = 
+            Vector2.MoveTowards(choices[i].transform.position,
+            destination, step);
         
     }
 
-    public void GoNextStage()
+    public void GoNextStage(int a, bool b)
     {
+        watch.Stop();
+        isTimeSetted = false;
         stageIndex++;
-        StartCoroutine(HideAnswers());
+        watch.Reset();
+        StartCoroutine(HideAnswers(a,b));
     }
 }

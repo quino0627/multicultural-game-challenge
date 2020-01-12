@@ -8,6 +8,7 @@ TagManager:
   - Carrier
   - CorrectAns
   - WrongAns
+  - Choice
   layers:
   - Default
   - TransparentFX

@@ -19,18 +19,22 @@
           </e>
           <e p="Common" t="Include">
             <e p="MovingScript.cs" t="Include" />
+            <e p="SliderTimer.cs" t="Include" />
+            <e p="TimerScript.cs" t="Include" />
           </e>
           <e p="Detection" t="Include">
             <e p="BarrelController.cs" t="Include" />
+            <e p="DetectionDescriptionController.cs" t="Include" />
             <e p="DetectionQuizManager.cs" t="Include" />
             <e p="GameDirector.cs" t="Include" />
-            <e p="Global.cs" t="Include" />
           </e>
           <e p="Elimination" t="Include">
+            <e p="EliminationDirector.cs" t="Include" />
             <e p="FishController.cs" t="Include" />
             <e p="FishShowAnswer.cs" t="Include" />
             <e p="SpeakerController.cs" t="Include" />
           </e>
+          <e p="StartMenu.cs" t="Include" />
           <e p="Synthesis" t="Include">
             <e p="CharacterController2D.cs" t="Include" />
             <e p="CheckAnswer.cs" t="Include" />
