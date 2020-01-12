@@ -52,8 +52,8 @@ MonoBehaviour:
     y: 636
     width: 459
     height: 319
-  m_MinSize: {x: 102, y: 124}
-  m_MaxSize: {x: 4002, y: 4024}
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 18}
@@ -94,8 +94,12 @@ MonoBehaviour:
   m_MinSize: {x: 277, y: 198}
   m_MaxSize: {x: 4002, y: 8048}
   vertical: 1
+<<<<<<< Updated upstream
   controlID: 16
 >>>>>>> develop
+=======
+  controlID: 131
+>>>>>>> Stashed changes
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -127,8 +131,12 @@ MonoBehaviour:
   m_MinSize: {x: 713, y: 498}
   m_MaxSize: {x: 18008, y: 14048}
   vertical: 1
+<<<<<<< Updated upstream
   controlID: 129
 >>>>>>> develop
+=======
+  controlID: 65
+>>>>>>> Stashed changes
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -200,8 +208,12 @@ MonoBehaviour:
   m_MinSize: {x: 234, y: 498}
   m_MaxSize: {x: 10004, y: 14048}
   vertical: 1
+<<<<<<< Updated upstream
   controlID: 81
 >>>>>>> develop
+=======
+  controlID: 87
+>>>>>>> Stashed changes
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -281,8 +293,12 @@ MonoBehaviour:
   m_MinSize: {x: 713, y: 498}
   m_MaxSize: {x: 18008, y: 14048}
   vertical: 0
+<<<<<<< Updated upstream
   controlID: 130
 >>>>>>> develop
+=======
+  controlID: 66
+>>>>>>> Stashed changes
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -336,8 +352,12 @@ MonoBehaviour:
   m_MinSize: {x: 202, y: 448}
   m_MaxSize: {x: 4002, y: 8048}
   vertical: 1
+<<<<<<< Updated upstream
   controlID: 131
 >>>>>>> develop
+=======
+  controlID: 67
+>>>>>>> Stashed changes
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -402,8 +422,8 @@ MonoBehaviour:
 =======
     width: 459
     height: 636
-  m_MinSize: {x: 277, y: 74}
-  m_MaxSize: {x: 4002, y: 4024}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 20}
   m_Panes:
   - {fileID: 20}
@@ -439,8 +459,8 @@ MonoBehaviour:
 =======
     width: 789
     height: 489
-  m_MinSize: {x: 202, y: 224}
-  m_MaxSize: {x: 4002, y: 4024}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 23}
   m_Panes:
   - {fileID: 23}
@@ -477,8 +497,8 @@ MonoBehaviour:
     y: 489
     width: 789
     height: 466
-  m_MinSize: {x: 202, y: 224}
-  m_MaxSize: {x: 4002, y: 4024}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 22}
   m_Panes:
   - {fileID: 22}
@@ -736,8 +756,12 @@ MonoBehaviour:
 =======
       m_SelectedIDs: 
       m_LastClickedID: 0
+<<<<<<< Updated upstream
       m_ExpandedIDs: f8f1ffffd4fbffff44430000804300008a430000
 >>>>>>> develop
+=======
+      m_ExpandedIDs: d4fbffff68430000ac430000
+>>>>>>> Stashed changes
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -887,10 +911,16 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 700}
+<<<<<<< Updated upstream
     m_SelectedIDs: f8300000
     m_LastClickedID: 12536
     m_ExpandedIDs: 00000000fa2600000a270000982700004a280000602800003229000038290000ac290000762a0000d82a00006e2b0000ae2b0000462c0000ee2c00000e2d0000902d0000fc2d0000542f0000562f000072300000b4300000ec300000f83000006c320000883200003a33000094340000fc340000363500003a360000ac36000090380000c8380000d83800004839000060390000503a0000dc3a0000d63d0000623e0000a83e0000ca3e0000683f00008a3f00000e40000036410000424100001844000000ca9a3b
 >>>>>>> develop
+=======
+    m_SelectedIDs: 02310000
+    m_LastClickedID: 12546
+    m_ExpandedIDs: 00000000fc2600000c2700009a2700004e28000064280000382900003e290000b22900007c2a0000de2a0000742b0000b42b00004c2c0000f42c0000162d0000982d0000042e00005c2f00005e2f00007c300000be300000f6300000023100007632000092320000443300009e340000083500004235000046360000b83600009c380000d4380000e4380000543900006e3900005e3a0000ea3a0000e43d0000703e0000b63e0000d83e0000763f0000983f00001c40000046410000524100007a44000000ca9a3b
+>>>>>>> Stashed changes
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -918,11 +948,15 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
+<<<<<<< Updated upstream
 <<<<<<< HEAD
     m_ExpandedIDs: 00000000280a0000380a0000d80a0000740b00008a0b0000320c0000780c00007a0c0000e00c0000a60d0000000e0000a40e0000e80e0000780f00001a10000034100000ac1000001811000060120000621200007c130000ba130000fa13000006140000721500008e15000048160000fe1700002019000098190000661b0000981b0000a61b00002e1c00009c1d0000d22000003e2100005c210000f42100001e220000ca230000b4420000
 =======
     m_ExpandedIDs: 00000000fa2600000a270000982700004a280000602800003229000038290000ac290000762a0000d82a00006e2b0000ae2b0000462c0000ee2c00000e2d0000902d0000fc2d0000542f0000562f000072300000b4300000ec300000f83000006c320000883200003a33000094340000fc340000363500003a360000ac3600004438000090380000c8380000d83800004839000060390000503a0000dc3a0000d63d0000623e0000a83e0000ca3e0000683f00008a3f00000e400000364100004241000018440000
 >>>>>>> develop
+=======
+    m_ExpandedIDs: 00000000fc2600000c2700009a2700004e28000064280000382900003e290000b22900007c2a0000de2a0000742b0000b42b00004c2c0000f42c0000162d0000982d0000042e00005c2f00005e2f00007c300000be300000f6300000023100007632000092320000443300009e340000083500004235000046360000b83600009c380000d4380000e4380000543900006e3900005e3a0000ea3a0000e43d0000703e0000b63e0000d83e0000763f0000983f00001c40000046410000524100007a440000
+>>>>>>> Stashed changes
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -961,23 +995,32 @@ MonoBehaviour:
     m_ExpandedInstanceIDs: f64500001e4700003c3c0000fcb2ffff
     m_RenameOverlay:
       m_UserAcceptedRename: 0
+<<<<<<< Updated upstream
       m_Name: ChestPrefabAni
       m_OriginalName: ChestPrefabAni
 >>>>>>> develop
+=======
+      m_Name: 
+      m_OriginalName: 
+>>>>>>> Stashed changes
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
+<<<<<<< Updated upstream
 <<<<<<< HEAD
       m_UserData: 33322
 =======
       m_UserData: -19716
 >>>>>>> develop
+=======
+      m_UserData: 0
+>>>>>>> Stashed changes
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 5}
     m_CreateAssetUtility:
