@@ -11,6 +11,11 @@ public class AlternativeQuizManager : MonoBehaviour
     // director
     private GameObject director;
     private GameObject description;
+    public GameObject Result;
+    public GameObject Panel;
+    public GameObject Chest1;
+    public GameObject Chest2;
+    public GameObject Chest3;
     
     // Bubble 없어지는 animation
     [HideInInspector] Animator[] animators = new Animator[5];
@@ -20,8 +25,12 @@ public class AlternativeQuizManager : MonoBehaviour
     public int level = 0;
     // 각 난이도 안에는 stage0 부터 max_stage_no - 1까지의 stage가 존재한다.
     public static int stage_no = 0;
-    public static int max_stage_no;
-        
+    public static int max_stage_no = 0;
+
+    // 한 레벨이 끝날 때 까지 
+    public int total_clicked = 0;
+    public int total_correct = 0;
+
     // Bubble1, Bubble2, Bubble3, Bubble4, Bubble5 -> 음소를 담고 있는 Object
     [HideInInspector] public GameObject[] Bubbles = new GameObject[5];
     // 왼쪽에 있는 해마새기
@@ -297,7 +306,7 @@ public class AlternativeQuizManager : MonoBehaviour
 
     IEnumerator HideAnswers()
     {
-        // 다시 듣기 말풍선 띄우기
+        // 다시 듣기 말풍선 가리기
         SeahorseRight.transform.Find("RepeatSound").gameObject.SetActive(false);
         for (int i = 0; i < 5; i++)
         {
@@ -309,11 +318,7 @@ public class AlternativeQuizManager : MonoBehaviour
         WordBoxExpect.SetActive(false);
         
 
-        this.GoNextStage();
-    }
-
-    public void GoNextStage()
-    {
+        // 다음 스테이지로 가던지, 아니면 결과창을 보여 주던지
         SeahorseRight.transform.Find("RepeatSound").gameObject.SetActive(false);
         if (stage_no < max_stage_no - 1)
         {
@@ -323,7 +328,31 @@ public class AlternativeQuizManager : MonoBehaviour
         else
         {
             Debug.Log("결과창 setActive");
+            // Game 이 끝났다는 효과 보여주기
+            Result.SetActive(true);
+            Panel.transform.Find("Chests").gameObject.SetActive(true);
+            
+            // Text 설정
+            Panel.transform.Find("ResultDescriptionText").GetComponent<TextMeshProUGUI>().text =
+                $"{total_clicked}번만에 {total_correct}개를 맞췄어요!";  
+            GetComponent<PanelController>().OpenPanel(Panel);
+            yield return new WaitForSeconds(1f);
+            GetComponent<PanelController>().OpenTreasureChest(Chest1);
+            yield return new WaitForSeconds(1f);
+            GetComponent<PanelController>().OpenTreasureChest(Chest2);
+            yield return new WaitForSeconds(1f);
+            GetComponent<PanelController>().OpenTreasureChest(Chest3);
+            yield return new WaitForSeconds(1f);
+            Panel.transform.Find("ResultDescriptionText").gameObject.SetActive(true);
+
         }
+        
+//        this.GoNextStage();
+    }
+
+    public void GoNextStage()
+    {
+        
     }
     
     public AnimationClip GetAnimationClip(Animator animator, string name) {

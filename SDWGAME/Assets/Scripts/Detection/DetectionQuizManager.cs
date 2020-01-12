@@ -40,6 +40,7 @@ public class DetectionQuizManager : MonoBehaviour
     // answer_string_list는 각 스테이지별 정답
     [HideInInspector] public static string[] answer_string_list;
     
+    
     // 매 스테이지에서 Barrel 1~5에 들어갈 텍스트가 여기 들어감.
     // 즉 매 스테이지마다 초기화되어야함.
     public TextMeshPro[] QuizTextList = new TextMeshPro[5];
@@ -69,6 +70,8 @@ public class DetectionQuizManager : MonoBehaviour
         this.animators[2] = this.Barrels[2].GetComponent<Animator>();
         this.animators[3] = this.Barrels[3].GetComponent<Animator>();
         this.animators[4] = this.Barrels[4].GetComponent<Animator>();
+
+        this.Octo = transform.Find("Octopus").gameObject;
         
         max_stage_no = 3;
         answer_list = new int[max_stage_no];
@@ -168,6 +171,13 @@ public class DetectionQuizManager : MonoBehaviour
 //            StartCoroutine(ShowChoices());
             //타이머 줄이기 호출(Director Object 접근)
 //            GameObject director = GameObject.Find("GameDirector");
+//            StartCoroutine(Octo.GetComponent<OctoSinusodialMove>().MoveOctopus());
+            yield return Octo.GetComponent<OctoSinusodialMove>().MoveOctopus();
+            yield return new WaitForSeconds(1f);
+            Octo.transform.Find("DescriptionBubble").gameObject.SetActive(true);
+            yield return new WaitForSeconds(1f);
+            
+            
             int i = 0;
             while (i < 5)
             {
@@ -179,15 +189,19 @@ public class DetectionQuizManager : MonoBehaviour
                 i += 1;
             }
 
-            string wordFileLink = $"Sounds/Detection/{list.sheets[level].list[stage_no].filename}";
+            //originalPosition 이 false인 경우에는 아무것도 하지 않다가 true가 되면 break한다.
+            string wordFileLink = $"Sounds/Detection/{list.sheets[level].list[stage_no].filename}"; 
             Debug.Log(wordFileLink);
             Octo.GetComponent<AudioSource>().loop = false;
             Octo.GetComponent<AudioSource>().clip = Resources.Load(wordFileLink) as AudioClip;
             Debug.Log(Resources.Load(wordFileLink) as AudioClip);
             Octo.GetComponent<AudioSource>().Play();
             Debug.Log("타이머 스타트");
-            //클릭 타임이
+                    //클릭 타임이
             watch.Start();
+        
+
+            
 //            director.GetComponent<GameDirector>().DecreaseTimer(1f);
         }  
         

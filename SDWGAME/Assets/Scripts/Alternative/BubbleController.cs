@@ -59,13 +59,17 @@ public class BubbleController : MonoBehaviour
             this.director.GetComponent<AlternativeGameDirector>().GetPoint(100);
             Transform tmpTransform = GameObject.Find("QuizContainer").transform;
             tmpTransform.GetComponent<AlternativeQuizManager>().StageOver();
+            
+            // 점수판에 올라가는 것
+            tmpTransform.GetComponent<AlternativeQuizManager>().total_clicked++;
+            tmpTransform.GetComponent<AlternativeQuizManager>().total_correct++;
         }
         else
         {
             description.GetComponent<AlternativeDescriptionController>().WrongAnswer();
-            // 점수 그대로 두기 
             // 애니메이션 출력
-            // 말풍선 출력
+            Transform tmpTransform = GameObject.Find("QuizContainer").transform;
+            tmpTransform.GetComponent<AlternativeQuizManager>().total_clicked++;
         }
     }
 }
