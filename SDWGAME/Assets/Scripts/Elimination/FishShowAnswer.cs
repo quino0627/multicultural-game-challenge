@@ -34,6 +34,8 @@ public class FishShowAnswer : MonoBehaviour
     // 해당 난이도의 전체 stage 개수
     public static int stageMaxIndex;
     
+
+    public int refStageIndex;
     //보기 이 게임에선 물고기
     public GameObject[] choices;
     public TextMeshPro[] choiceTexts;
@@ -77,6 +79,7 @@ public class FishShowAnswer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        refStageIndex = stageIndex;
         QuizManager = GameObject.Find("QuizManager");
         fishExitPos = GameObject.Find("FishExitPos").transform;
         Fishes = GameObject.Find("Fishes").transform;

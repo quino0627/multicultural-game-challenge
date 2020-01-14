@@ -1,4 +1,8 @@
 sceneSetups:
+<<<<<<< HEAD
 - path: Assets/Scenes/CrabLevel4.unity
+=======
+- path: Assets/Scenes/Elimination 1.unity
+>>>>>>> develop
   isLoaded: 1
   isActive: 1
