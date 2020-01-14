@@ -59,6 +59,7 @@ public class MoveJellyfish : MonoBehaviour
         if (gameObject.CompareTag("WrongAns"))
         {
             StartCoroutine(ChoseWrongAnswer(fly));
+            Debug.Log("WRONG!!!");
             
         }
         
@@ -68,6 +69,9 @@ public class MoveJellyfish : MonoBehaviour
         //모든 글자 성공후 animation은 JfSuccess.js
         if (gameObject.CompareTag("CorrectAns") && !ischecked)
         {
+            Debug.Log("");
+            QuizManager.GetComponent<SpreadChoices>().PlusTotalCorrect();
+            QuizManager.GetComponent<SpreadChoices>().PlusTotalTry();
             Carrier.SetActive(true);
             TextMeshPro child = GetComponentInChildren<TextMeshPro>();
             GameObject quizmanager = GameObject.Find("QuizManager");
@@ -109,6 +113,11 @@ public class MoveJellyfish : MonoBehaviour
         //spark animation
         if (!sparked)
         {
+            Debug.Log("MAYBe ONLY ONCE?");
+            
+            // totaltried ++
+            QuizManager.GetComponent<SpreadChoices>().PlusTotalTry();
+            
             Instantiate(Spark, transform.position, Quaternion.identity);
             sparked = true;
             

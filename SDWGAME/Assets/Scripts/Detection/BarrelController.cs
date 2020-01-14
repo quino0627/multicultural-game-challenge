@@ -55,12 +55,19 @@ public class BarrelController : MonoBehaviour
             Transform tmpTransform = GameObject.Find("QuizContainer").transform;
             tmpTransform.GetComponent<DetectionQuizManager>().StageOver();
 
+            // total clicked 와 total correct 를 올린다.
+            tmpTransform.GetComponent<DetectionQuizManager>().total_clicked++;
+            tmpTransform.GetComponent<DetectionQuizManager>().total_correct++;
         }
         else
         {
             // 점수 그대로 두기
             // 애니메이션 출력
             // 말풍선 출력
+            
+            // 틀렸으니 까 total clicked만 올린다.
+            Transform tmpTransform = GameObject.Find("QuizContainer").transform;
+            tmpTransform.GetComponent<DetectionQuizManager>().total_clicked++;
         }
 
 

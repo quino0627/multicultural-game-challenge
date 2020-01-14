@@ -12,6 +12,21 @@ using Random = UnityEngine.Random;
 
 public class SpreadChoices : MonoBehaviour
 {
+    
+    // Show Result
+    public GameObject Result;
+    public GameObject Panel;
+    public GameObject Chest1;
+    public GameObject Chest2;
+    public GameObject Chest3;
+
+    // 한 게임에서 전체 시도한 횟수와 전체 맞춘 갯수
+    // Result 페이지에서 이에 따라 보물상자 여는 것을 달리 해야 함.
+    public static int total_tried = 0;
+    public static int total_correct = 0;
+    public static int total_correct_stage = 0;
+    
+    
     public bool allJFArrived;
     private bool[] JfArrived = new bool[8];
     public int cntJFArrived;
@@ -28,6 +43,8 @@ public class SpreadChoices : MonoBehaviour
     
     // 각 난이도 안의 stage index
     public static int stageIndex;
+    // 해당 난이도의 전체 stage 개수 
+    public static int stageMaxIndex;
     
     //보기 이 게임에선 해파리
     public GameObject[] choices;
@@ -74,6 +91,7 @@ public class SpreadChoices : MonoBehaviour
     void Start()
     {
         Debug.Log("Level, StageIndex = ("+level+", "+stageIndex+")");
+        stageMaxIndex = 3;
         QuizInit();
         
     }
@@ -317,27 +335,41 @@ public class SpreadChoices : MonoBehaviour
         yield return new WaitForSeconds(4f);
         //Debug.Log("Re Quiz Init");
 
-        if (level == 0 && stageIndex == 15)
+        // stageIndex는 0부터 시작 
+        // stageMaxIndex-1: 전체 stage개수
+        // stage가 끝났을 경우에는 Result창을 보여주어야 한다.
+        if (stageIndex >= stageMaxIndex)
         {
-            //글자수 1 -> 2
-            //초급인 건 그대로
-            SceneManager.LoadScene("CrabLevel2");
+            Debug.Log("Game Is Over");
+            yield return DecideResult(total_tried, total_correct, total_correct_stage);
         }
 
-        if (level == 1 && stageIndex == 15)
+        if (stageIndex < stageMaxIndex)
         {
-            //중급으로 넘어가기 
-            SceneManager.LoadScene("CrabLevel3");
+            if (level == 0 && stageIndex == 15)
+            {
+                //글자수 1 -> 2
+                //초급인 건 그대로
+                SceneManager.LoadScene("CrabLevel2");
+            }
+            
+            if (level == 1 && stageIndex == 15)
+            {
+                //중급으로 넘어가기 
+                SceneManager.LoadScene("CrabLevel3");
+            }
+            if (level == 2 && stageIndex==30) 
+            {
+                //고급으로 넘어가기
+                SceneManager.LoadScene("CrabLevel4");
+            }
+            else
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            }
         }
-        if (level == 2 && stageIndex==30) 
-        {
-            //고급으로 넘어가기
-            SceneManager.LoadScene("CrabLevel4");
-        }
-        else
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
+        
+        
             
         
         
@@ -384,5 +416,82 @@ public class SpreadChoices : MonoBehaviour
         
         //Debug.Log("return flag: "+flag);
         return flag;
+    }
+    
+    // ttr: total tried, tco: total corrected 
+    IEnumerator DecideResult(float ttr, float tco, float tcos)
+    {
+        Result.SetActive(true);
+        Panel.transform.Find("Chests").gameObject.SetActive(true);
+        // Text 설정
+        GetComponent<PanelController>().OpenPanel(Panel);
+        // tcl : total_clicked
+        // tco : total_correct
+        string result_text =  $"{ttr - tco}번 틀리고 {tcos}개를 맞췄어요!";
+        string one_sentence = "";
+        string[] sentences = {"정말 잘했어요", "조금 더 신중하게 해 보자", "더 연습하자"};
+        float rate = ttr / tco;
+        yield return new WaitForSeconds(1f);
+        // 만약에 2.5배보다 더 많이 클릭했으면
+        if (rate > 2.5f)
+        {
+            // 아무것도 열리지 않을 것.
+            GetComponent<PanelController>().OpenEmptyChest(Chest1);
+            one_sentence = sentences[2];
+        }
+        else
+        {
+            one_sentence = sentences[2];
+            GetComponent<PanelController>().OpenTreasureChest(Chest1);
+        }
+        yield return new WaitForSeconds(1f);
+        if (rate > 2)
+        {
+            GetComponent<PanelController>().OpenEmptyChest(Chest2);
+            
+        }
+        else
+        {
+            one_sentence = sentences[1];
+            GetComponent<PanelController>().OpenTreasureChest(Chest2);
+        }
+        yield return new WaitForSeconds(1f);
+        if (rate > 1.5)
+        {
+            
+            GetComponent<PanelController>().OpenEmptyChest(Chest3);
+        }
+        else
+        {
+            one_sentence = sentences[0];
+            GetComponent<PanelController>().OpenTreasureChest(Chest3);
+        }
+        
+        Panel.transform.Find("ResultDescriptionText").GetComponent<TextMeshProUGUI>().text = result_text;
+        Panel.transform.Find("ResultOneSentence").GetComponent<TextMeshProUGUI>().text = one_sentence;
+        yield return new WaitForSeconds(1f);
+        Panel.transform.Find("ResultDescriptionText").gameObject.SetActive(true);
+        Panel.transform.Find("ResultOneSentence").gameObject.SetActive(true);
+
+    }
+    
+    public void PlusTotalTry()
+    {
+        Debug.Log("totaltried");
+        total_tried++;
+    }
+
+    // 얘는 한 번 드래그 할때마다 올라가고,
+    public void PlusTotalCorrect()
+    {
+        Debug.Log("totalCorrected");
+        total_correct++;
+    }
+
+    //얘는 한 스테이지를 맞출 떄마다 올라간다.
+    public void PlusTotalCorrectStage()
+    {
+        Debug.Log("totalCorrectedStage");
+        total_correct_stage++;
     }
 }

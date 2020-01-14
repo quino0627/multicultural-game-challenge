@@ -14,6 +14,12 @@ public class DetectionQuizManager : MonoBehaviour
    
     // director
     private GameObject director;
+    private GameObject description;
+    public GameObject Result;
+    public GameObject Panel;
+    public GameObject Chest1;
+    public GameObject Chest2;
+    public GameObject Chest3;
 
     [HideInInspector] private Animator[] animators = new Animator[5];
     // excel data
@@ -25,6 +31,11 @@ public class DetectionQuizManager : MonoBehaviour
     public static int stage_no = 0;
     //엑셀 데이터 개수 가져와서 저장할 것.
     public static int max_stage_no;
+    
+    // 한 레벨이 끝날 때 까지 
+    public int total_clicked = 0;
+    public int total_correct = 0;
+    
     //Barrel1, Barrel2, Barrel3, Barrel4, Barrel5 -> 텍스트를 담고 있는 Object
     [HideInInspector] public GameObject[] Barrels = new GameObject[5];
     //문어새기
@@ -230,13 +241,7 @@ public class DetectionQuizManager : MonoBehaviour
             i = i + 1;
         }
         
-        this.GoNextStage();
-        
-    }
-    
-    // stage가 모두 끝났다면 결과 창으로, 그렇지 않다면 다음 스테이지로 넘어간
-    public void GoNextStage()
-    {
+        // stage가 모두 끝났다면 결과 창으로, 그렇지 않다면 다음 스테이지로 넘어간
         Debug.Log($"stage_no는 {stage_no}이고, max_stage_no는 {max_stage_no}");
         if (stage_no < max_stage_no - 1)
         {
@@ -246,10 +251,12 @@ public class DetectionQuizManager : MonoBehaviour
         else
         {
             Debug.Log("결과창 setActive");
+            yield return DecideResult(total_clicked, total_correct);
         }
         
     }
     
+ 
     public AnimationClip GetAnimationClip(Animator animator, string name) {
         if (!animator) return null; // no animator
  
@@ -259,5 +266,62 @@ public class DetectionQuizManager : MonoBehaviour
             }
         }
         return null; // no clip by that name
+    }
+    
+    
+    IEnumerator DecideResult(float tcl, float tco)
+    {
+        Result.SetActive(true);
+        Panel.transform.Find("Chests").gameObject.SetActive(true);
+        // Text 설정
+        GetComponent<PanelController>().OpenPanel(Panel);
+        // tcl : total_clicked
+        // tco : total_correct
+        string result_text =  $"{tcl}번만에 {tco}개를 맞췄어요!";
+        string one_sentence = "";
+        string[] sentences = {"정말 잘했어요", "조금 더 신중하게 해 보자", "더 연습하자"};
+        float rate = tcl / tco;
+        yield return new WaitForSeconds(1f);
+        // 만약에 2.5배보다 더 많이 클릭했으면
+        if (rate > 2.5f)
+        {
+            // 아무것도 열리지 않을 것.
+            GetComponent<PanelController>().OpenEmptyChest(Chest1);
+            one_sentence = sentences[2];
+        }
+        else
+        {
+            one_sentence = sentences[2];
+            GetComponent<PanelController>().OpenTreasureChest(Chest1);
+        }
+        yield return new WaitForSeconds(1f);
+        if (rate > 2)
+        {
+            GetComponent<PanelController>().OpenEmptyChest(Chest2);
+            
+        }
+        else
+        {
+            one_sentence = sentences[1];
+            GetComponent<PanelController>().OpenTreasureChest(Chest2);
+        }
+        yield return new WaitForSeconds(1f);
+        if (rate > 1.5)
+        {
+            
+            GetComponent<PanelController>().OpenEmptyChest(Chest3);
+        }
+        else
+        {
+            one_sentence = sentences[0];
+            GetComponent<PanelController>().OpenTreasureChest(Chest3);
+        }
+        
+        Panel.transform.Find("ResultDescriptionText").GetComponent<TextMeshProUGUI>().text = result_text;
+        Panel.transform.Find("ResultOneSentence").GetComponent<TextMeshProUGUI>().text = one_sentence;
+        yield return new WaitForSeconds(1f);
+        Panel.transform.Find("ResultDescriptionText").gameObject.SetActive(true);
+        Panel.transform.Find("ResultOneSentence").gameObject.SetActive(true);
+
     }
 }

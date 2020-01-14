@@ -11,6 +11,18 @@ using Debug = UnityEngine.Debug;
 public class FishShowAnswer : MonoBehaviour
 {
     
+    // Show Result
+    public GameObject Result;
+    public GameObject Panel;
+    public GameObject Chest1;
+    public GameObject Chest2;
+    public GameObject Chest3;
+
+    // 한 게임에서 전체 클릭한 갯수와 전체 맞춘 갯수
+    // Result 페이지에서 이에 따라 보물상자 여는 것을 달리 해야 함.
+    public static int total_clicked = 0;
+    public static int total_correct = 0;
+    
     //excel data
     public Entity_EliminationTest data;
     
@@ -19,6 +31,8 @@ public class FishShowAnswer : MonoBehaviour
     
     // 각 난이도 안의 stage index
     public static int stageIndex;
+    // 해당 난이도의 전체 stage 개수
+    public static int stageMaxIndex;
     
     //보기 이 게임에선 물고기
     public GameObject[] choices;
@@ -70,6 +84,8 @@ public class FishShowAnswer : MonoBehaviour
         sharkAudio = shark.GetComponent<AudioSource>();
         stimulText = stimulation.GetComponent<TextMeshPro>();
         sharkArriveTransform = GameObject.Find("SharkArrivePos").transform;
+        // 전체 stage 개수를 3으로 한다.
+        stageMaxIndex = 3;
         QuizInit();
     }
 
@@ -307,15 +323,31 @@ public class FishShowAnswer : MonoBehaviour
             }
         }
         
-        
-        
-     
-        if (sharkAte||isTimeOver)
+        Debug.Log($"stageIndex:{stageIndex}");
+        Debug.Log($"stageMaxIndex:{stageMaxIndex}");
+        // stageIndex는 0 부터 시작
+        // stageMaxIndex-1 : 전체 stage개수
+        // stage가 끝났을 경우에. Result창을 보여줌
+        if (stageIndex >= stageMaxIndex)
         {
-            Debug.Log("LoadNextScene");
-            yield return new WaitForSeconds(2.0f);
-            LoadNextScene();
+            Debug.Log("Game Is Over");
+            shark.SetActive(false);
+            Fishes.gameObject.SetActive(false);
+            yield return new WaitForSeconds(1f);
+            yield return DecideResult(total_clicked, total_correct);
         }
+        
+        // stage가 아직 남았을 경우에
+        if (stageIndex < stageMaxIndex)
+        {
+            if (sharkAte||isTimeOver)
+            {
+                Debug.Log("LoadNextScene");
+                yield return new WaitForSeconds(2.0f);
+                LoadNextScene();
+            }
+        }
+        
     }
 
     void LoadNextScene()
@@ -360,4 +392,76 @@ public class FishShowAnswer : MonoBehaviour
         watch.Reset();
         StartCoroutine(HideAnswers(a,b));
     }
+    
+    
+    IEnumerator DecideResult(float tcl, float tco)
+    {
+        Result.SetActive(true);
+        Panel.transform.Find("Chests").gameObject.SetActive(true);
+        // Text 설정
+        GetComponent<PanelController>().OpenPanel(Panel);
+        // tcl : total_clicked
+        // tco : total_correct
+        string result_text =  $"{tcl}번만에 {tco}개를 맞췄어요!";
+        string one_sentence = "";
+        string[] sentences = {"정말 잘했어요", "조금 더 신중하게 해 보자", "더 연습하자"};
+        float rate = tcl / tco;
+        yield return new WaitForSeconds(1f);
+        // 만약에 2.5배보다 더 많이 클릭했으면
+        if (rate > 2.5f)
+        {
+            // 아무것도 열리지 않을 것.
+            GetComponent<PanelController>().OpenEmptyChest(Chest1);
+            one_sentence = sentences[2];
+        }
+        else
+        {
+            one_sentence = sentences[2];
+            GetComponent<PanelController>().OpenTreasureChest(Chest1);
+        }
+        yield return new WaitForSeconds(1f);
+        if (rate > 2)
+        {
+            GetComponent<PanelController>().OpenEmptyChest(Chest2);
+            
+        }
+        else
+        {
+            one_sentence = sentences[1];
+            GetComponent<PanelController>().OpenTreasureChest(Chest2);
+        }
+        yield return new WaitForSeconds(1f);
+        if (rate > 1.5)
+        {
+            
+            GetComponent<PanelController>().OpenEmptyChest(Chest3);
+        }
+        else
+        {
+            one_sentence = sentences[0];
+            GetComponent<PanelController>().OpenTreasureChest(Chest3);
+        }
+        
+        Panel.transform.Find("ResultDescriptionText").GetComponent<TextMeshProUGUI>().text = result_text;
+        Panel.transform.Find("ResultOneSentence").GetComponent<TextMeshProUGUI>().text = one_sentence;
+        yield return new WaitForSeconds(1f);
+        Panel.transform.Find("ResultDescriptionText").gameObject.SetActive(true);
+        Panel.transform.Find("ResultOneSentence").gameObject.SetActive(true);
+
+    }
+
+    // Total Click과 Total Correct를 증가시키기 위한 함수들
+    public void PlusTotalClick()
+    {
+        Debug.Log("totalClicked");
+        total_clicked++;
+    }
+
+    public void PlusTotalCorrect()
+    {
+        Debug.Log("totalCorrected");
+        total_correct++;
+    }
+    
+    
 }

@@ -1,8 +1,4 @@
 sceneSetups:
-<<<<<<< HEAD
-- path: Assets/Scenes/StartMenu.unity
-=======
-- path: Assets/Scenes/AlternativeGame.unity
->>>>>>> develop
+- path: Assets/Scenes/CrabLevel4.unity
   isLoaded: 1
   isActive: 1
