@@ -54,6 +54,10 @@ public class FishController : MonoBehaviour
         
         if (currFishText == currStageAnsText ) 
         {
+            // total clicked와 total correct ++
+            script.PlusTotalClick();
+            script.PlusTotalCorrect();
+            
             //점수 올리기
             QuizManager.GetComponent<EliminationDirector>().GetPoint(100);
             
@@ -70,9 +74,13 @@ public class FishController : MonoBehaviour
                 //상어 먹기시작
                 Shark.GetComponent<Animator>().SetTrigger("Eat");
                 StartCoroutine(SharkEating()); 
+                
+                
+               
         }
         else
         {
+            script.PlusTotalClick();
             //상어가 x표시함
             script.eliminStimul.SetActive(false);
             xSign.SetActive(true);
@@ -81,6 +89,8 @@ public class FishController : MonoBehaviour
             //그리고 다시 돌아옴
             script.eliminStimul.SetActive(true);
             xSign.SetActive(false);
+
+            
         }
         
     }

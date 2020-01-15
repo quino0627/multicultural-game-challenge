@@ -51,6 +51,9 @@ public class DragAndDrop : MonoBehaviour
                 //놓여짐
                 transform.position = new Vector2(ObjectPlace.position.x, ObjectPlace.position.y);
                 
+             
+                
+                
                 
                 //crab를 점프시키기
                 //Projectile script = GameObject.Find("Crab").GetComponent<Projectile>();

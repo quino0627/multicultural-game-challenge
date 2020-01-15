@@ -21,6 +21,8 @@ public class JfSuccess : MonoBehaviour
     public bool isSuccess;
     public bool willCrabReturn;
     // Start is called before the first frame update
+
+    public bool tmpValue;
     void Start()
     {
         //일단 정답 하나인 경우
@@ -29,6 +31,7 @@ public class JfSuccess : MonoBehaviour
         aboardPosition = GameObject.Find("AboardPosition").transform.position;
         departPosition = GameObject.Find("DepartPosition").transform.position;
         willCrabReturn = true;
+        tmpValue = false;
     }
 
     // Update is called once per frame
@@ -38,6 +41,12 @@ public class JfSuccess : MonoBehaviour
         if (CheckSuccess())
         {
             //Carrier.SetActive(true);
+            if (!tmpValue)
+            {
+                GameObject.Find("QuizManager").GetComponent<SpreadChoices>().PlusTotalCorrectStage();
+                tmpValue = true;
+                Debug.Log("GOOGGOOD");
+            }
             FinishAnimation();
         }
     }
@@ -72,6 +81,7 @@ public class JfSuccess : MonoBehaviour
         //CrabMove.cs
         //3. crab 이동
         //4. crab 탑승후 멈춤
+        Debug.Log("BBBBBBBB");
 
         // 5. 목적지 향해 move
         if (crabAnimator.GetFloat("WalkSpeed") <= 0 && isCrabAboard)
@@ -98,6 +108,7 @@ public class JfSuccess : MonoBehaviour
         //Debug.Log("currCntCorrAns: "+ currCntCorrAns);
         if (cntCorrAns == currCntCorrAns)
         {
+            Debug.Log("ASDFASDF");
             return true;
         }
         
