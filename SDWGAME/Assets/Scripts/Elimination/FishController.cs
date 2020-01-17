@@ -41,7 +41,10 @@ public class FishController : MonoBehaviour
     private void OnMouseDown()
     {
         Debug.Log("OnMouseDown");
-        StartCoroutine(FishClicked());
+        if (script.canClick)
+        {
+            StartCoroutine(FishClicked());
+        }
     }
 
     IEnumerator FishClicked()

@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: 60a57c36b1c6d6a48817b73e3b60ae2d
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Distro
+  fontNames:
+  - Distro
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 54066b34397a9440cbbd3ef19c0746d2, type: 3}
+  - {fileID: 12800000, guid: ffce97c50832046d3ae6b1caf650025a, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

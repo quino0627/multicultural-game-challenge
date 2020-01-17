@@ -2329,16 +2329,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 346676575395305098, guid: e0b42e8175115d84784421704c61bb42,
-        type: 3}
-      propertyPath: m_MaxValue
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 346676575395305098, guid: e0b42e8175115d84784421704c61bb42,
-        type: 3}
-      propertyPath: m_Value
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 346676576693969082, guid: e0b42e8175115d84784421704c61bb42,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -2363,6 +2353,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 346676575395305098, guid: e0b42e8175115d84784421704c61bb42,
+        type: 3}
+      propertyPath: m_MaxValue
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 346676575395305098, guid: e0b42e8175115d84784421704c61bb42,
+        type: 3}
+      propertyPath: m_Value
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0b42e8175115d84784421704c61bb42, type: 3}
@@ -3253,6 +3253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 671fa85581711604b9db95447af3a409, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canClick: 0
   Result: {fileID: 528547351}
   Panel: {fileID: 434963586}
   Chest1: {fileID: 627044397}
@@ -3260,6 +3261,7 @@ MonoBehaviour:
   Chest3: {fileID: 6212075}
   data: {fileID: 11400000, guid: e52f5092e5e21894693ff7eefaa4afa4, type: 2}
   level: 0
+  refStageIndex: 0
   choices:
   - {fileID: 415810803}
   - {fileID: 1353128405}

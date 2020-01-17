@@ -1,39 +1,31 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using SpriteGlow;
 using UnityEngine;
 
 public class SelectResponse : MonoBehaviour
 {
     // game 4개마다 장착된 스크립트
-    
-
-    // Start is called before the first frame update
+    private SpriteGlowEffect glow;
+    public bool isHovering;
     void Start()
     {
         
+
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void OnMouseEnter()
     {
         //반짝반짝
-        
-        
+
+        isHovering = true;
+
     }
 
-    private void OnMouseDown()
+    private void OnMouseExit()
     {
-        //회색
-    }
-
-    private void OnMouseUp()
-    {
-        //Load Scene
+        isHovering = false;
     }
 }
