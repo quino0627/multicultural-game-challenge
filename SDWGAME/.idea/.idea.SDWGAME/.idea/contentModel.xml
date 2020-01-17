@@ -1,12 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\singi\.Rider2019.2\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\singi\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_SDWGAME.-1870591809.00" t="ExcludeRecursive" />
-    <e p="C:\Users\singi\Documents\GitHub\2019outsource\multicultural-game-challenge\SDWGAME" t="IncludeRecursive">
+    <e p="$PROJECT_DIR$" t="IncludeRecursive">
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="Import" t="Include">
+          <e p="GUI Animator" t="Include">
+            <e p="GUI Animator for Unity UI" t="Include">
+              <e p="!How to.txt" t="Include" />
+              <e p="Demo (CSharp)" t="Include">
+                <e p="Scripts" t="Include">
+                  <e p="Demo00.cs" t="Include" />
+                  <e p="Demo01.cs" t="Include" />
+                  <e p="Demo02.cs" t="Include" />
+                  <e p="Demo03.cs" t="Include" />
+                  <e p="Demo04.cs" t="Include" />
+                  <e p="Demo05.cs" t="Include" />
+                  <e p="Demo06.cs" t="Include" />
+                  <e p="Demo07.cs" t="Include" />
+                  <e p="Demo08.cs" t="Include" />
+                  <e p="DemoPlaySound.cs" t="Include" />
+                  <e p="OpenOtherScene.cs" t="Include" />
+                </e>
+              </e>
+              <e p="Demo Basic (CSharp)" t="Include">
+                <e p="Scripts" t="Include">
+                  <e p="GA_UUI_DemoBasicControlledByScripts.cs" t="Include" />
+                  <e p="GA_UUI_DemoBasicControlledByScriptsShowRotateLoop.cs" t="Include" />
+                </e>
+              </e>
+              <e p="Readme.txt" t="Include" />
+              <e p="Scripts" t="Include">
+                <e p="Editor" t="Include">
+                  <e p="GAuiEditor.cs" t="Include" />
+                  <e p="Note.txt" t="Include" />
+                </e>
+                <e p="GAui.cs" t="Include" />
+                <e p="GSui.cs" t="Include" />
+                <e p="Note.txt" t="Include" />
+              </e>
+            </e>
+          </e>
+        </e>
         <e p="Scripts" t="Include">
           <e p="Alternative" t="Include">
             <e p="AlternativeDescriptionController.cs" t="Include" />
@@ -21,6 +57,8 @@
             <e p="MovingScript.cs" t="Include" />
             <e p="OctoSinusodialMove.cs" t="Include" />
             <e p="PanelController.cs" t="Include" />
+            <e p="SettingButtonScript.cs" t="Include" />
+            <e p="SettingsHandler.cs" t="Include" />
             <e p="SliderTimer.cs" t="Include" />
             <e p="TimerScript.cs" t="Include" />
           </e>
@@ -164,12 +202,53 @@
             <e p="EmojiOne Attribution.txt" t="Include" />
           </e>
         </e>
+        <e p="UI Pack" t="Include">
+          <e p="Toony PRO" t="Include">
+            <e p="Readme.txt" t="Include" />
+            <e p="Scripts" t="Include">
+              <e p="Background" t="Include">
+                <e p="UIPT_PRO_2DBGSky.cs" t="Include" />
+                <e p="UIPT_PRO_2DWaterManager.cs" t="Include" />
+                <e p="UIPT_PRO_BGFindCanvas.cs" t="Include" />
+                <e p="UIPT_PRO_CloudManager.cs" t="Include" />
+              </e>
+              <e p="Controllers" t="Include">
+                <e p="UIPT_PRO_ParticleController.cs" t="Include" />
+                <e p="UIPT_PRO_SoundController.cs" t="Include" />
+              </e>
+              <e p="Demo" t="Include">
+                <e p="UIPT_PRO_Demo01_IntroAndLoading.cs" t="Include" />
+                <e p="UIPT_PRO_Demo02_Home.cs" t="Include" />
+                <e p="UIPT_PRO_Demo03_LevelSelect.cs" t="Include" />
+                <e p="UIPT_PRO_Demo04_GameplayAndLevelClear.cs" t="Include" />
+                <e p="UIPT_PRO_Demo05_Ranks.cs" t="Include" />
+                <e p="UIPT_PRO_Demo06_Achievements.cs" t="Include" />
+                <e p="UIPT_PRO_Demo07_Social.cs" t="Include" />
+                <e p="UIPT_PRO_Demo08_MoreSamples.cs" t="Include" />
+                <e p="UIPT_PRO_Demo09_Credits.cs" t="Include" />
+                <e p="UIPT_PRO_Demo10_Shop.cs" t="Include" />
+                <e p="UIPT_PRO_Demo_Achievement.cs" t="Include" />
+                <e p="UIPT_PRO_Demo_Config.cs" t="Include" />
+                <e p="UIPT_PRO_Demo_GUIPanel.cs" t="Include" />
+                <e p="UIPT_PRO_Demo_Help.cs" t="Include" />
+                <e p="UIPT_PRO_Demo_LevelClear.cs" t="Include" />
+                <e p="UIPT_PRO_Demo_News.cs" t="Include" />
+                <e p="UIPT_PRO_Demo_ParticleMask.cs" t="Include" />
+                <e p="UIPT_PRO_Demo_Pause.cs" t="Include" />
+                <e p="UIPT_PRO_Demo_RankInfo.cs" t="Include" />
+                <e p="UIPT_PRO_Demo_Settings.cs" t="Include" />
+              </e>
+            </e>
+          </e>
+        </e>
       </e>
       <e p="Elringus.SpriteGlow.Runtime.csproj" t="IncludeRecursive" />
       <e p="obj" t="ExcludeRecursive" />
       <e p="Packages" t="ExcludeRecursive" />
       <e p="SDWGAME.sln" t="IncludeFlat" />
-      <e p="Temp\bin" t="ExcludeRecursive" />
+      <e p="Temp/bin" t="ExcludeRecursive" />
     </e>
+    <e p="$USER_HOME$/Library/Caches/Rider2019.2/extResources" t="IncludeRecursive" />
+    <e p="$USER_HOME$/Library/Caches/Rider2019.2/resharper-host/local/Transient/ReSharperHost/v192/SolutionCaches/_SDWGAME.-1328817057.00" t="ExcludeRecursive" />
   </component>
 </project>

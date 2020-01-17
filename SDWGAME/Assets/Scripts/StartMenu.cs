@@ -18,5 +18,6 @@ public class StartMenu : MonoBehaviour
     public void ChangeSettings()
     {
         //환경설정 창 띄우기
+        SceneManager.LoadScene("Scenes/Settings");
     }
 }
