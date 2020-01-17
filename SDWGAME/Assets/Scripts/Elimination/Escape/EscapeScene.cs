@@ -168,7 +168,7 @@ public class EscapeScene : MonoBehaviour
         
         
         Debug.Log("LoadScene");
-        //SceneManager.LoadScene("Elimination");
+        SceneManager.LoadScene("Elimination");
 
     }
     

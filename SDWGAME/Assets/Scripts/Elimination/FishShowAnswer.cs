@@ -10,7 +10,7 @@ using Debug = UnityEngine.Debug;
 
 public class FishShowAnswer : MonoBehaviour
 {
-    
+    public bool canClick;
     // Show Result
     public GameObject Result;
     public GameObject Panel;
@@ -278,7 +278,7 @@ public class FishShowAnswer : MonoBehaviour
         //Debug.Log("watch start");
         watch.Start();
         sliderTimer.GetComponent<SliderTimer>().shouldStart = true;
-
+        canClick = true;
         isTimeSetted = true;
         for (int j = 0; j < 5; j++)
         {
@@ -326,14 +326,14 @@ public class FishShowAnswer : MonoBehaviour
             }
         }
         
-        Debug.Log($"stageIndex:{stageIndex}");
-        Debug.Log($"stageMaxIndex:{stageMaxIndex}");
+        //Debug.Log($"stageIndex:{stageIndex}");
+        //Debug.Log($"stageMaxIndex:{stageMaxIndex}");
         // stageIndex는 0 부터 시작
         // stageMaxIndex-1 : 전체 stage개수
         // stage가 끝났을 경우에. Result창을 보여줌
         if (stageIndex >= stageMaxIndex)
         {
-            Debug.Log("Game Is Over");
+            //Debug.Log("Game Is Over");
             shark.SetActive(false);
             Fishes.gameObject.SetActive(false);
             yield return new WaitForSeconds(1f);
@@ -345,7 +345,7 @@ public class FishShowAnswer : MonoBehaviour
         {
             if (sharkAte||isTimeOver)
             {
-                Debug.Log("LoadNextScene");
+                //Debug.Log("LoadNextScene");
                 yield return new WaitForSeconds(2.0f);
                 LoadNextScene();
             }
@@ -360,7 +360,7 @@ public class FishShowAnswer : MonoBehaviour
 
     void MoveFishes( Vector2 destination,float speed)
     {
-        Debug.Log("Fishes exiting");
+        //Debug.Log("Fishes exiting");
         float step = speed * Time.deltaTime;
       
              Fishes.position 
