@@ -42,6 +42,45 @@
               </e>
             </e>
           </e>
+          <e p="UI Pack" t="Include">
+            <e p="Toony PRO" t="Include">
+              <e p="Readme.txt" t="Include" />
+              <e p="Scripts" t="Include">
+                <e p="Background" t="Include">
+                  <e p="UIPT_PRO_2DBGSky.cs" t="Include" />
+                  <e p="UIPT_PRO_2DWaterManager.cs" t="Include" />
+                  <e p="UIPT_PRO_BGFindCanvas.cs" t="Include" />
+                  <e p="UIPT_PRO_CloudManager.cs" t="Include" />
+                </e>
+                <e p="Controllers" t="Include">
+                  <e p="UIPT_PRO_ParticleController.cs" t="Include" />
+                  <e p="UIPT_PRO_SoundController.cs" t="Include" />
+                </e>
+                <e p="Demo" t="Include">
+                  <e p="UIPT_PRO_Demo01_IntroAndLoading.cs" t="Include" />
+                  <e p="UIPT_PRO_Demo02_Home.cs" t="Include" />
+                  <e p="UIPT_PRO_Demo03_LevelSelect.cs" t="Include" />
+                  <e p="UIPT_PRO_Demo04_GameplayAndLevelClear.cs" t="Include" />
+                  <e p="UIPT_PRO_Demo05_Ranks.cs" t="Include" />
+                  <e p="UIPT_PRO_Demo06_Achievements.cs" t="Include" />
+                  <e p="UIPT_PRO_Demo07_Social.cs" t="Include" />
+                  <e p="UIPT_PRO_Demo08_MoreSamples.cs" t="Include" />
+                  <e p="UIPT_PRO_Demo09_Credits.cs" t="Include" />
+                  <e p="UIPT_PRO_Demo10_Shop.cs" t="Include" />
+                  <e p="UIPT_PRO_Demo_Achievement.cs" t="Include" />
+                  <e p="UIPT_PRO_Demo_Config.cs" t="Include" />
+                  <e p="UIPT_PRO_Demo_GUIPanel.cs" t="Include" />
+                  <e p="UIPT_PRO_Demo_Help.cs" t="Include" />
+                  <e p="UIPT_PRO_Demo_LevelClear.cs" t="Include" />
+                  <e p="UIPT_PRO_Demo_News.cs" t="Include" />
+                  <e p="UIPT_PRO_Demo_ParticleMask.cs" t="Include" />
+                  <e p="UIPT_PRO_Demo_Pause.cs" t="Include" />
+                  <e p="UIPT_PRO_Demo_RankInfo.cs" t="Include" />
+                  <e p="UIPT_PRO_Demo_Settings.cs" t="Include" />
+                </e>
+              </e>
+            </e>
+          </e>
         </e>
         <e p="Scripts" t="Include">
           <e p="Alternative" t="Include">
@@ -200,45 +239,6 @@
           </e>
           <e p="Sprites" t="Include">
             <e p="EmojiOne Attribution.txt" t="Include" />
-          </e>
-        </e>
-        <e p="UI Pack" t="Include">
-          <e p="Toony PRO" t="Include">
-            <e p="Readme.txt" t="Include" />
-            <e p="Scripts" t="Include">
-              <e p="Background" t="Include">
-                <e p="UIPT_PRO_2DBGSky.cs" t="Include" />
-                <e p="UIPT_PRO_2DWaterManager.cs" t="Include" />
-                <e p="UIPT_PRO_BGFindCanvas.cs" t="Include" />
-                <e p="UIPT_PRO_CloudManager.cs" t="Include" />
-              </e>
-              <e p="Controllers" t="Include">
-                <e p="UIPT_PRO_ParticleController.cs" t="Include" />
-                <e p="UIPT_PRO_SoundController.cs" t="Include" />
-              </e>
-              <e p="Demo" t="Include">
-                <e p="UIPT_PRO_Demo01_IntroAndLoading.cs" t="Include" />
-                <e p="UIPT_PRO_Demo02_Home.cs" t="Include" />
-                <e p="UIPT_PRO_Demo03_LevelSelect.cs" t="Include" />
-                <e p="UIPT_PRO_Demo04_GameplayAndLevelClear.cs" t="Include" />
-                <e p="UIPT_PRO_Demo05_Ranks.cs" t="Include" />
-                <e p="UIPT_PRO_Demo06_Achievements.cs" t="Include" />
-                <e p="UIPT_PRO_Demo07_Social.cs" t="Include" />
-                <e p="UIPT_PRO_Demo08_MoreSamples.cs" t="Include" />
-                <e p="UIPT_PRO_Demo09_Credits.cs" t="Include" />
-                <e p="UIPT_PRO_Demo10_Shop.cs" t="Include" />
-                <e p="UIPT_PRO_Demo_Achievement.cs" t="Include" />
-                <e p="UIPT_PRO_Demo_Config.cs" t="Include" />
-                <e p="UIPT_PRO_Demo_GUIPanel.cs" t="Include" />
-                <e p="UIPT_PRO_Demo_Help.cs" t="Include" />
-                <e p="UIPT_PRO_Demo_LevelClear.cs" t="Include" />
-                <e p="UIPT_PRO_Demo_News.cs" t="Include" />
-                <e p="UIPT_PRO_Demo_ParticleMask.cs" t="Include" />
-                <e p="UIPT_PRO_Demo_Pause.cs" t="Include" />
-                <e p="UIPT_PRO_Demo_RankInfo.cs" t="Include" />
-                <e p="UIPT_PRO_Demo_Settings.cs" t="Include" />
-              </e>
-            </e>
           </e>
         </e>
       </e>

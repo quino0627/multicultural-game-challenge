@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
-public class SettingsHandler : MonoBehaviour
+public class SettingsHandler : UIPT_PRO_Demo_GUIPanel
 {
 
 
@@ -25,5 +25,11 @@ public class SettingsHandler : MonoBehaviour
     {
         Debug.Log(volume);
         audioMixer.SetFloat("bgmVolume", volume);
+    }
+
+    public void CloseSettings()
+    {
+        Debug.Log("CLOSED BYBYE");
+        Hide();
     }
 }
