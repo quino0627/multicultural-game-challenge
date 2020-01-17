@@ -40,6 +40,7 @@
             <e p="SpeakerController.cs" t="Include" />
           </e>
           <e p="FadeIn.cs" t="Include" />
+          <e p="LevelMenu.cs" t="Include" />
           <e p="StartMenu.cs" t="Include" />
           <e p="Synthesis" t="Include">
             <e p="CharacterController2D.cs" t="Include" />
@@ -54,6 +55,22 @@
             <e p="Projectile.cs" t="Include" />
             <e p="SpreadChoices.cs" t="Include" />
             <e p="StageClear.cs" t="Include" />
+          </e>
+        </e>
+        <e p="SelectMenu.cs" t="Include" />
+        <e p="SelectResponse.cs" t="Include" />
+        <e p="SpriteGlow" t="Include">
+          <e p="Resources" t="Include">
+            <e p="SpriteGlow" t="Include">
+              <e p="Shaders" t="Include">
+                <e p="SpriteOutline.shader" t="Include" />
+              </e>
+            </e>
+          </e>
+          <e p="Runtime" t="Include">
+            <e p="Elringus.SpriteGlow.Runtime.asmdef" t="Include" />
+            <e p="SpriteGlowEffect.cs" t="Include" />
+            <e p="SpriteGlowMaterial.cs" t="Include" />
           </e>
         </e>
         <e p="Terasurware" t="Include">
@@ -148,6 +165,7 @@
           </e>
         </e>
       </e>
+      <e p="Elringus.SpriteGlow.Runtime.csproj" t="IncludeRecursive" />
       <e p="obj" t="ExcludeRecursive" />
       <e p="Packages" t="ExcludeRecursive" />
       <e p="SDWGAME.sln" t="IncludeFlat" />

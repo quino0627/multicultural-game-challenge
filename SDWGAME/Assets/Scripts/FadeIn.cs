@@ -37,6 +37,7 @@ public class FadeIn : MonoBehaviour
         end = 0f;
         StartCoroutine("FadeOutPlay"); //코루틴 실행
     }*/
+    
 
     public void InStartFadeAnim()
     {
