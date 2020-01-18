@@ -26,7 +26,6 @@ public class StartMenu : MonoBehaviour
 
     public void ToggleSettingPanel()
     {
-        Debug.Log("ASDFASDFASDFGSFSFSFSFGSF");
         //환경설정 창 띄우기
         m_Settings.Show();
         
@@ -34,6 +33,7 @@ public class StartMenu : MonoBehaviour
     
     IEnumerator Show()
     {
+        Debug.Log("ASDF");
         // Play MoveIn animation
         GSui.Instance.MoveIn(this.transform, true);
 

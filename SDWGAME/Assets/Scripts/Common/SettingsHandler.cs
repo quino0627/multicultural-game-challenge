@@ -11,7 +11,7 @@ public class SettingsHandler : UIPT_PRO_Demo_GUIPanel
     // Start is called before the first frame update
     void Start()
     {
-        
+       
     }
 
     // Update is called once per frame
@@ -32,4 +32,6 @@ public class SettingsHandler : UIPT_PRO_Demo_GUIPanel
         Debug.Log("CLOSED BYBYE");
         Hide();
     }
+    
+   
 }

@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class SelectMenu : MonoBehaviour
 {
     public GraphicRaycaster GR;
+    public SettingsHandler m_Settings = null;
     // Start is called before the first frame update
     void Start()
     {
@@ -54,5 +55,11 @@ public class SelectMenu : MonoBehaviour
         
     }
 
+    public void ToggleSettingPanel()
+    {
+        //환경설정 창 띄우기
+        m_Settings.Show();
+        
+    }
     
 }

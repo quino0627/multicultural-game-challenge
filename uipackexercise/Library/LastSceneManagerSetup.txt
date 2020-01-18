@@ -1,5 +1,0 @@
-sceneSetups:
-- path: Assets/UI Pack/Toony PRO/Scenes/Landscape (960x600px)/ToonyPRO Demo 02 - Landscape
-    - Home.unity
-  isLoaded: 1
-  isActive: 1

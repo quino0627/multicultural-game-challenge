@@ -1,8 +1,4 @@
 sceneSetups:
-<<<<<<< HEAD
-- path: Assets/Scenes/StartMenu.unity
-=======
-- path: Assets/Scenes/EliminationEscape.unity
->>>>>>> develop
+- path: Assets/Scenes/LevelMenu.unity
   isLoaded: 1
   isActive: 1

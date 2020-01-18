@@ -10,6 +10,9 @@ public class LevelMenu : MonoBehaviour
     public Button Normal;
 
     public Button Hard;
+    
+    public SettingsHandler m_Settings = null;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +25,13 @@ public class LevelMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+    }
+    
+    public void ToggleSettingPanel()
+    {
+        //환경설정 창 띄우기
+        m_Settings.Show();
         
     }
 }
