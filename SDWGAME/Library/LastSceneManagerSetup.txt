@@ -1,4 +1,12 @@
 sceneSetups:
+<<<<<<< HEAD
 - path: Assets/Scenes/EliminationEscape.unity
+=======
+<<<<<<< Updated upstream
+- path: Assets/Scenes/LevelMenu.unity
+=======
+- path: Assets/Scenes/StartMenu.unity
+>>>>>>> Stashed changes
+>>>>>>> develop
   isLoaded: 1
   isActive: 1
