@@ -1,10 +1,13 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
 public class AlternativeGameDirector : MonoBehaviour
 {
+    public PauseHandler m_Pause = null;
+    
     private GameObject timerText;
 
     private GameObject pointText;
@@ -28,9 +31,9 @@ public class AlternativeGameDirector : MonoBehaviour
         this.point = this.point + po;
     }
 
-    public void SetTime(float t)
+    public void SetTime(float ti)
     {
-        this.time = 60f - t;
+        this.time = Convert.ToSingle(System.Math.Truncate(Convert.ToDouble(60f - ti)));
     }
 
     public void InitTime()
@@ -74,9 +77,14 @@ public class AlternativeGameDirector : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.pointText.GetComponent<TextMeshProUGUI>().text = this.point.ToString() + "점";
         this.stageText.GetComponent<TextMeshProUGUI>().text = $"{this.stage + 1}단계";
         this.levelText.GetComponent<TextMeshProUGUI>().text = level;
-        this.timerText.GetComponent<TextMeshProUGUI>().text = time.ToString("F")+ "초";
+        GameObject.Find("UIP_ClockBar").GetComponent<TimerScript>().remainedTime = time;
+    }
+    
+    // 일시정지 창 띄우기
+    public void openPause()
+    {
+        m_Pause.Show();
     }
 }

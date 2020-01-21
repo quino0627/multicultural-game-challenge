@@ -58,6 +58,8 @@ public class DetectionQuizManager : MonoBehaviour
     
     // 매 Stage가 time이 넘어가게 되면 TimeOver 함수를 호출하는 과정에 필요한 변
     [HideInInspector] private bool run_once = false;
+
+    private bool CheckPaused = false;
     
     // Start is called before the first frame update
     void Start()
@@ -87,14 +89,33 @@ public class DetectionQuizManager : MonoBehaviour
         max_stage_no = 3;
         answer_list = new int[max_stage_no];
         answer_string_list = new string[max_stage_no];
+
+        
         QuizInit();
     }
 
     // Update is called once per frame
     void Update()
     {
+        // timeScale이 1이 아니고 CheckPaused가 false이면 timer를 stop
+        if (Time.timeScale != 1 && !CheckPaused)
+        {
+            watch.Stop();
+            CheckPaused = true;
+        }
+        // timeScale이 1이고 CheckPaused가 true이면 timer를 restart
+        if (Time.timeScale == 1 && CheckPaused)
+        {
+            watch.Start();
+            CheckPaused = false;
+        }
+        
+        if (watch.ElapsedMilliseconds > 0)
+        {
+            director.GetComponent<GameDirector>().SetTime(watch.ElapsedMilliseconds/1000.0f);
+        }
 //        timeText.text = watch.ElapsedMilliseconds.ToString();
-        if (!run_once && watch.ElapsedMilliseconds > 10000)
+        if (!run_once && watch.ElapsedMilliseconds > 60000f)
         {
             Debug.Log("Stage Over");
             run_once = true;

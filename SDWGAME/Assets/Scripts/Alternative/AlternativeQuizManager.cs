@@ -73,6 +73,10 @@ public class AlternativeQuizManager : MonoBehaviour
     private Vector3 centerPosition, whereToMove;
     private Rigidbody2D rb;
     
+    
+    private bool CheckPaused = false;
+    
+    
     void Start()
     {
         this.director = GameObject.Find("AlternativeGameDirector");
@@ -109,6 +113,20 @@ public class AlternativeQuizManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+        // timeScale이 1이 아니고 CheckPaused가 false이면 timer를 stop
+        if (Time.timeScale != 1 && !CheckPaused)
+        {
+            watch.Stop();
+            CheckPaused = true;
+        }
+        // timeScale이 1이고 CheckPaused가 true이면 timer를 restart
+        if (Time.timeScale == 1 && CheckPaused)
+        {
+            watch.Start();
+            CheckPaused = false;
+        }
+        
         if (watch.ElapsedMilliseconds > 0)
         {
             director.GetComponent<AlternativeGameDirector>().SetTime(watch.ElapsedMilliseconds/1000.0f);
@@ -125,9 +143,6 @@ public class AlternativeQuizManager : MonoBehaviour
             currentDistanceToTouchPos = 0;
             isMoving = true;
             whereToMove = (centerPosition - WordBoxOrigin.transform.position).normalized;
-            Debug.Log(centerPosition);
-            Debug.Log(WordBoxOrigin.transform.position);
-            Debug.Log(whereToMove);
             rb.velocity = new Vector2(whereToMove.x * moveSpeed, whereToMove.y * moveSpeed);
         }
 

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class BarrelController : MonoBehaviour
 {
@@ -30,10 +31,14 @@ public class BarrelController : MonoBehaviour
     {
     }
     
-    private void OnMouseDown()
+    private void OnMouseUp()
     {
+        Debug.Log(!IsPointerOverUIObject());
+        if (!IsPointerOverUIObject())
+        {
+            BarrelClicked();
+        }
         
-        BarrelClicked();
     }
 
 
@@ -72,6 +77,15 @@ public class BarrelController : MonoBehaviour
 
 
 
+    }
+
+    private bool IsPointerOverUIObject()
+    {
+        PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
+        eventDataCurrentPosition.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+        List<RaycastResult> results = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
+        return results.Count > 0;
     }
 
 //    private void OnMouseDown()

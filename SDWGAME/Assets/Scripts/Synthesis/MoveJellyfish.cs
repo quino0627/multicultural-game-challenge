@@ -5,7 +5,6 @@ using System.Numerics;
 using System.Threading;
 using TMPro;
 using UnityEditor;
-using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.UI;
 using Quaternion = UnityEngine.Quaternion;

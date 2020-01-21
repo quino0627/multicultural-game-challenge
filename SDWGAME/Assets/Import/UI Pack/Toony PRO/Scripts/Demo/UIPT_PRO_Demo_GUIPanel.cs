@@ -59,11 +59,13 @@ public class UIPT_PRO_Demo_GUIPanel : MonoBehaviour
 		{
 			if (Application.platform == RuntimePlatform.WindowsPlayer || Application.platform == RuntimePlatform.OSXPlayer)
 			{
-				string CurrentLevel = SceneManager.GetActiveScene().name; // No longer use Application.loadedLevelName in Unity 5.3 or higher.
-				if (CurrentLevel.Contains("Landscape") == true)
-					Screen.SetResolution(960, 600, false);
-				else
-					Screen.SetResolution(540, 960, false);
+//				string CurrentLevel = SceneManager.GetActiveScene().name; // No longer use Application.loadedLevelName in Unity 5.3 or higher.
+//				if (CurrentLevel.Contains("Landscape") == true)
+//					Screen.SetResolution(960, 600, false);
+//				else
+//					Screen.SetResolution(540, 960, false);
+				// 표준 HD+ 사이즈
+				Screen.SetResolution(1600,900, false);
 			}
 		}
 	}

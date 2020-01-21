@@ -2074,7 +2074,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GR: {fileID: 220744727}
-  m_Settings: {fileID: 0}
+  m_Settings: {fileID: 1644242000}
 --- !u!4 &808579497
 Transform:
   m_ObjectHideFlags: 0
@@ -3312,19 +3312,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 11489178, guid: 6958cb5910209491187e882ae43ae1db, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11489178, guid: 6958cb5910209491187e882ae43ae1db, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11489178, guid: 6958cb5910209491187e882ae43ae1db, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 11b812d76974340cf915eb2ad72840ce,
-        type: 3}
     - target: {fileID: 22489178, guid: 6958cb5910209491187e882ae43ae1db, type: 3}
       propertyPath: m_SizeDelta.x
       value: 30
@@ -3337,6 +3324,19 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 6683a58624fc447428edaa17d08faa14,
+        type: 3}
+    - target: {fileID: 11489178, guid: 6958cb5910209491187e882ae43ae1db, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11489178, guid: 6958cb5910209491187e882ae43ae1db, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11489178, guid: 6958cb5910209491187e882ae43ae1db, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 11b812d76974340cf915eb2ad72840ce,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6958cb5910209491187e882ae43ae1db, type: 3}
@@ -3612,6 +3612,18 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &1644242000 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8799329715339595891, guid: 85167f57e410c42d09db8d164adf1f1d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1775329393}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 238343f1c010f42f5824138636fb83dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1696857038
 GameObject:
   m_ObjectHideFlags: 0
@@ -3834,7 +3846,7 @@ PrefabInstance:
     - target: {fileID: 8799329715339595880, guid: 85167f57e410c42d09db8d164adf1f1d,
         type: 3}
       propertyPath: m_Name
-      value: Settings
+      value: SettingPanel
       objectReference: {fileID: 0}
     - target: {fileID: 8799329715339595887, guid: 85167f57e410c42d09db8d164adf1f1d,
         type: 3}

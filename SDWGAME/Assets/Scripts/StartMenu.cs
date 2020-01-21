@@ -16,7 +16,7 @@ public class StartMenu : MonoBehaviour
 
     public void StartGame()
     {
-        //SceneManager.LoadScene("SelectMenu");
+        SceneManager.LoadScene("SelectMenu");
     }
 
     public void GoToResult()
