@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class JfSuccess : MonoBehaviour
 {
+
     public int currCntCorrAns;  // 현재 정답 글자수
     public int cntCorrAns; // 정답 글자수
     public float speed = 2f;
@@ -45,7 +46,8 @@ public class JfSuccess : MonoBehaviour
             {
                 GameObject.Find("QuizManager").GetComponent<SpreadChoices>().PlusTotalCorrectStage();
                 tmpValue = true;
-                Debug.Log("GOOGGOOD");
+//                Debug.Log("GOOGGOOD");
+                
             }
             FinishAnimation();
         }
@@ -81,7 +83,7 @@ public class JfSuccess : MonoBehaviour
         //CrabMove.cs
         //3. crab 이동
         //4. crab 탑승후 멈춤
-        Debug.Log("BBBBBBBB");
+//        Debug.Log("BBBBBBBB");
 
         // 5. 목적지 향해 move
         if (crabAnimator.GetFloat("WalkSpeed") <= 0 && isCrabAboard)
@@ -96,7 +98,7 @@ public class JfSuccess : MonoBehaviour
         if (Mathf.Abs(Carrier.transform.position.x - departPosition.x) <= 0.1f
             && isCrabAboard)
         {
-            Debug.Log("Jellyfish depart ready");
+//            Debug.Log("Jellyfish depart ready");
             crabAnimator.SetFloat("WalkSpeed", 2f);
             isCrabAboard = false;
             Crab.transform.SetParent(null);
@@ -108,7 +110,7 @@ public class JfSuccess : MonoBehaviour
         //Debug.Log("currCntCorrAns: "+ currCntCorrAns);
         if (cntCorrAns == currCntCorrAns)
         {
-            Debug.Log("ASDFASDF");
+//            Debug.Log("ASDFASDF");
             return true;
         }
         

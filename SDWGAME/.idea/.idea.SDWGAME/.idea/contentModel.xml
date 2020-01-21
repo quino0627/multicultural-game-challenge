@@ -138,6 +138,7 @@
             <e p="Projectile.cs" t="Include" />
             <e p="SpreadChoices.cs" t="Include" />
             <e p="StageClear.cs" t="Include" />
+            <e p="SynthesisGameDirector.cs" t="Include" />
           </e>
         </e>
         <e p="SelectMenu.cs" t="Include" />
@@ -163,6 +164,7 @@
               <e p="ALT_List_importer.cs" t="Include" />
               <e p="DET_List_importer.cs" t="Include" />
               <e p="eliminationTest_importer.cs" t="Include" />
+              <e p="SYN_List_importer.cs" t="Include" />
               <e p="synthesis_importer.cs" t="Include" />
             </e>
             <e p="Entity_Alternative.cs" t="Include" />

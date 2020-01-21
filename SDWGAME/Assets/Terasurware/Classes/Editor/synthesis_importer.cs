@@ -59,6 +59,7 @@ public class synthesis_importer : AssetPostprocessor {
 					cell = row.GetCell(6); p.보기2 = (cell == null ? "" : cell.StringCellValue);
 					cell = row.GetCell(7); p.보기3 = (cell == null ? "" : cell.StringCellValue);
 					cell = row.GetCell(8); p.보기4 = (cell == null ? "" : cell.StringCellValue);
+					cell = row.GetCell(9); p.filename = (cell == null ? "" : cell.StringCellValue);
 						s.list.Add (p);
 					}
 					data.sheets.Add(s);

@@ -12,7 +12,8 @@ using Random = UnityEngine.Random;
 
 public class SpreadChoices : MonoBehaviour
 {
-    
+    // director
+    private GameObject director;
     // Show Result
     public GameObject Result;
     public GameObject Panel;
@@ -86,14 +87,50 @@ public class SpreadChoices : MonoBehaviour
 
     public Transform crabStartTransform;
     
-
+    // 매 스테이지에서 time이 넘어가게 되면 TimeOver 함수를 호출하는 과정에 필요한 변수 
+    [HideInInspector] private bool run_once = false;
+    // 일시 정지에 사용되는 불린 
+    private bool CheckPaused = false;
+    
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("Level, StageIndex = ("+level+", "+stageIndex+")");
+        this.director = GameObject.Find("SynthesisGameDirector");
+//        Debug.Log("Level, StageIndex = ("+level+", "+stageIndex+")");
         stageMaxIndex = 3;
         QuizInit();
         
+    }
+
+    void Update()
+    {
+        // timeScale이 1이 아니고 CheckPaused가 false이면 timer를 stop
+       if(Time.timeScale != 1 && !CheckPaused)
+       {
+           watch.Stop();
+           CheckPaused = true;
+       }
+       // timeScale이 1이고 CheckPaused가 true이면 timer를 restart
+       if (Time.timeScale == 1 && CheckPaused)
+       {
+           watch.Start();
+           CheckPaused = false;
+       }
+       
+       if (watch.ElapsedMilliseconds > 0)
+       {
+           director.GetComponent<SynthesisGameDirector>().SetTime(watch.ElapsedMilliseconds/1000.0f);
+       }
+       // 타임오버 되었을 떄
+       if (!run_once && watch.ElapsedMilliseconds > 60000f)
+       {
+//           Debug.Log("Stage Over");
+           run_once = true;
+//           this.StageOver();
+       }
+
+       
+
     }
 
     public void QuizInit()
@@ -118,10 +155,10 @@ public class SpreadChoices : MonoBehaviour
             crab.transform.localScale=new Vector3(0.4f,0.4f,1);
         }
         //StartCoroutine(EnableCoroutine());
-        EnableCoroutine();
+        StartCoroutine(EnableCoroutine());
     }
 
-    void EnableCoroutine()
+    IEnumerator EnableCoroutine()
     {
         //quizLevel.text = "" + (level + 1);
         //quizStage.text = "" + (stageIndex + 1);
@@ -131,6 +168,12 @@ public class SpreadChoices : MonoBehaviour
         //yield return new WaitForSeconds(1.0f);
         //CheckToggleGroup.SetAllTogglesOff();
         
+        run_once = false;
+        // 감독의 시간을 60초로 초기화한다.
+        director.GetComponent<SynthesisGameDirector>().InitTime();;
+        // UI 설정
+        director.GetComponent<SynthesisGameDirector>().setStage(stageIndex);
+        director.GetComponent<SynthesisGameDirector>().setLevel(level);
         
         //정답의 index (corrAnsCnt: 초급-1,2개 중급-3개 고급-4개)
         //8개의 자리중 랜덤한 위치
@@ -209,12 +252,24 @@ public class SpreadChoices : MonoBehaviour
         }
 
         //show quiz
-        StartCoroutine(ShowAnswers());
+        yield return StartCoroutine(ShowAnswers());
+        
+        Debug.Log("Asdf");
         //waitUser = true;
     }
 
     IEnumerator ShowAnswers()
     {
+        
+        yield return new WaitForSeconds(2.0f);
+        string wordFileLink = $"Sounds/Synthesis/{data.sheets[level].list[stageIndex].filename}";
+        Debug.Log(data.sheets[level].list[stageIndex].filename);
+        Debug.Log(wordFileLink);
+        crab.GetComponent<AudioSource>().loop = false;
+        crab.GetComponent<AudioSource>().clip = Resources.Load(wordFileLink) as AudioClip;
+        crab.GetComponent<AudioSource>().Play();
+        Debug.Log(crab.GetComponent<AudioSource>().clip.length);
+        yield return new WaitForSeconds(crab.GetComponent<AudioSource>().clip.length + 1f);
         //Jellyfish comes out
         int cnt=0;
         int jellyfish_index;
@@ -229,6 +284,8 @@ public class SpreadChoices : MonoBehaviour
             
             cnt++;
         }
+        
+        Debug.Log("aaaaaaaaa");
 
         //Debug.Log("End ShowAnswers");
         // Crab Speaks - no audio available right now
@@ -237,6 +294,7 @@ public class SpreadChoices : MonoBehaviour
         crab.GetComponent<AudioSource>().loop = false;
         crab.GetComponent<AudioSource>().clip = Resources.Load(p) as AudioClip;
         crab.GetComponent<AudioSource>().Play();*/
+        
     }
 
     IEnumerator InitialJellyfish(int i)
@@ -258,10 +316,12 @@ public class SpreadChoices : MonoBehaviour
             else
             {
                 JfArrived[i] = true;
+                Debug.Log("wjjwwjj");
                 //Debug.Log("InitialJellyfish JF "+ i +" became true");
             }
             
         }
+        
     }
 
     void MoveJellyfish(int i, Vector2 destination)
@@ -283,6 +343,9 @@ public class SpreadChoices : MonoBehaviour
          //Debug.Log("initialDone: "+initialDone);
          if (!initialDone && CheckAllArrived())
          {
+             Debug.Log("DONE");
+             // 해파리가 모두 제 자리에 왔을 때 시간을 시작.
+             watch.Start();
              for (int i = 0; i < wrongAnsCnt + corrAnsCnt; i++)
              {
                  JfArrived[corrAnsPosIndex[i]] = false;
@@ -305,6 +368,7 @@ public class SpreadChoices : MonoBehaviour
 
     public void GoNext()
     {
+        Debug.Log("HERE?");
         if (stageIndex == 29)
         { 
             level++;
@@ -491,6 +555,8 @@ public class SpreadChoices : MonoBehaviour
     //얘는 한 스테이지를 맞출 떄마다 올라간다.
     public void PlusTotalCorrectStage()
     {
+        // 시간을 멉춥니다.
+        watch.Stop();
         Debug.Log("totalCorrectedStage");
         total_correct_stage++;
     }

@@ -23,7 +23,6 @@ public class AlternativeGameDirector : MonoBehaviour
     // 현재 stage
     private int stage = 0;
     // 현재 level
-    // l
     private string level = "default value";
     
     public void GetPoint(int po)
@@ -55,10 +54,14 @@ public class AlternativeGameDirector : MonoBehaviour
 
         if (le == 1)
         {
-            this.level = "보통";
+            this.level = "쉬움";
         }
 
         if (le == 2)
+        {
+            this.level = "보통";
+        }
+        if (le == 3)
         {
             this.level = "어려움";
         }

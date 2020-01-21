@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8039406b816081746a75814962ed9ea4, type: 3}
-  m_Name: synthesis
+  m_Name: SYN_List
   m_EditorClassIdentifier: 
   sheets:
   - name: Sheet1
@@ -24,6 +24,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uAE34"
       "\uBCF4\uAE303": "\uAE40"
       "\uBCF4\uAE304": ' '
+      filename: alt_1-01
     - "\uD45C\uC801": "\uC9D1"
       "\uC815\uB2F51": "\uC9D1"
       "\uC815\uB2F52": ' '
@@ -33,6 +34,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uC785"
       "\uBCF4\uAE303": "\uC90D"
       "\uBCF4\uAE304": ' '
+      filename: alt_1-02
     - "\uD45C\uC801": "\uB73B"
       "\uC815\uB2F51": "\uB73B"
       "\uC815\uB2F52": ' '
@@ -42,6 +44,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uB54C"
       "\uBCF4\uAE303": "\uB610"
       "\uBCF4\uAE304": ' '
+      filename: alt_1-03
     - "\uD45C\uC801": "\uCF69"
       "\uC815\uB2F51": "\uCF69"
       "\uC815\uB2F52": ' '
@@ -51,6 +54,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uCF85"
       "\uBCF4\uAE303": "\uD401"
       "\uBCF4\uAE304": ' '
+      filename: alt_1-04
     - "\uD45C\uC801": "\uB538"
       "\uC815\uB2F51": "\uB538"
       "\uC815\uB2F52": ' '
@@ -60,6 +64,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uD314"
       "\uBCF4\uAE303": "\uB9D0"
       "\uBCF4\uAE304": ' '
+      filename: alt_1-05
     - "\uD45C\uC801": "\uD480"
       "\uC815\uB2F51": "\uD480"
       "\uC815\uB2F52": ' '
@@ -69,6 +74,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uD488"
       "\uBCF4\uAE303": "\uD3FC"
       "\uBCF4\uAE304": ' '
+      filename: alt_1-06
     - "\uD45C\uC801": "\uBB38"
       "\uC815\uB2F51": "\uBB38"
       "\uC815\uB2F52": ' '
@@ -78,6 +84,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uC6B4"
       "\uBCF4\uAE303": "\uBA3C"
       "\uBCF4\uAE304": ' '
+      filename: alt_1-07
     - "\uD45C\uC801": "\uB05D"
       "\uC815\uB2F51": "\uB05D"
       "\uC815\uB2F52": ' '
@@ -87,6 +94,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uAE08"
       "\uBCF4\uAE303": "\uB4EF"
       "\uBCF4\uAE304": ' '
+      filename: alt_1-08
     - "\uD45C\uC801": "\uD798"
       "\uC815\uB2F51": "\uD798"
       "\uC815\uB2F52": ' '
@@ -96,6 +104,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uD790"
       "\uBCF4\uAE303": "\uD574"
       "\uBCF4\uAE304": ' '
+      filename: alt_1-09
     - "\uD45C\uC801": "\uBE48"
       "\uC815\uB2F51": "\uBE48"
       "\uC815\uB2F52": ' '
@@ -105,6 +114,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uBD84"
       "\uBCF4\uAE303": "\uBE59"
       "\uBCF4\uAE304": ' '
+      filename: alt_1-10
     - "\uD45C\uC801": "\uC4F8"
       "\uC815\uB2F51": "\uC4F8"
       "\uC815\uB2F52": ' '
@@ -114,6 +124,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uC500"
       "\uBCF4\uAE303": "\uC300"
       "\uBCF4\uAE304": ' '
+      filename: alt_1-11
     - "\uD45C\uC801": "\uCC28"
       "\uC815\uB2F51": "\uCC28"
       "\uC815\uB2F52": ' '
@@ -123,6 +134,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uCD94"
       "\uBCF4\uAE303": "\uCC98"
       "\uBCF4\uAE304": ' '
+      filename: alt_1-12
     - "\uD45C\uC801": "\uAF43"
       "\uC815\uB2F51": "\uAF43"
       "\uC815\uB2F52": ' '
@@ -132,6 +144,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uB2FB"
       "\uBCF4\uAE303": "\uAF2D"
       "\uBCF4\uAE304": ' '
+      filename: alt_1-13
     - "\uD45C\uC801": "\uC9DD"
       "\uC815\uB2F51": "\uC9DD"
       "\uC815\uB2F52": ' '
@@ -141,6 +154,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uCB49"
       "\uBCF4\uAE303": "\uC791"
       "\uBCF4\uAE304": ' '
+      filename: alt_1-14
   - name: Sheet2
     list:
     - "\uD45C\uC801": "\uB0B1\uB9D0"
@@ -152,6 +166,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uBC00"
       "\uBCF4\uAE303": ' '
       "\uBCF4\uAE304": ' '
+      filename: alt_2-01
     - "\uD45C\uC801": "\uD568\uAED8"
       "\uC815\uB2F51": "\uD568"
       "\uC815\uB2F52": "\uAED8"
@@ -161,6 +176,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uAE68"
       "\uBCF4\uAE303": ' '
       "\uBCF4\uAE304": ' '
+      filename: alt_2-02
     - "\uD45C\uC801": "\uC18C\uB9AC"
       "\uC815\uB2F51": "\uC18C"
       "\uC815\uB2F52": "\uB9AC"
@@ -170,6 +186,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uC774"
       "\uBCF4\uAE303": ' '
       "\uBCF4\uAE304": ' '
+      filename: alt_2-03
     - "\uD45C\uC801": "\uC0C9\uCE60"
       "\uC815\uB2F51": "\uC0C9"
       "\uC815\uB2F52": "\uCE60"
@@ -179,6 +196,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uCE61"
       "\uBCF4\uAE303": ' '
       "\uBCF4\uAE304": ' '
+      filename: alt_2-04
     - "\uD45C\uC801": "\uD06C\uAE30"
       "\uC815\uB2F51": "\uD06C"
       "\uC815\uB2F52": "\uAE30"
@@ -188,6 +206,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uAC1C"
       "\uBCF4\uAE303": ' '
       "\uBCF4\uAE304": ' '
+      filename: alt_2-05
     - "\uD45C\uC801": "\uBE84\uC148"
       "\uC815\uB2F51": "\uBE84"
       "\uC815\uB2F52": "\uC148"
@@ -197,6 +216,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uC12C"
       "\uBCF4\uAE303": ' '
       "\uBCF4\uAE304": ' '
+      filename: alt_2-06
     - "\uD45C\uC801": "\uD558\uB8E8"
       "\uC815\uB2F51": "\uD558"
       "\uC815\uB2F52": "\uB8E8"
@@ -206,6 +226,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uB77C"
       "\uBCF4\uAE303": ' '
       "\uBCF4\uAE304": ' '
+      filename: alt_2-07
     - "\uD45C\uC801": "\uAC00\uBA74"
       "\uC815\uB2F51": "\uAC00"
       "\uC815\uB2F52": "\uBA74"
@@ -215,6 +236,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uB9CC"
       "\uBCF4\uAE303": ' '
       "\uBCF4\uAE304": ' '
+      filename: alt_2-08
     - "\uD45C\uC801": "\uC138\uBAA8"
       "\uC815\uB2F51": "\uC138"
       "\uC815\uB2F52": "\uBAA8"
@@ -224,6 +246,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uBB34"
       "\uBCF4\uAE303": ' '
       "\uBCF4\uAE304": ' '
+      filename: alt_2-09
     - "\uD45C\uC801": "\uC6B0\uC815"
       "\uC815\uB2F51": "\uC6B0"
       "\uC815\uB2F52": "\uC815"
@@ -233,6 +256,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uC9D0"
       "\uBCF4\uAE303": ' '
       "\uBCF4\uAE304": ' '
+      filename: alt_2-10
     - "\uD45C\uC801": "\uC11E\uC5B4"
       "\uC815\uB2F51": "\uC11E"
       "\uC815\uB2F52": "\uC5B4"
@@ -242,6 +266,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uC5EC"
       "\uBCF4\uAE303": ' '
       "\uBCF4\uAE304": ' '
+      filename: alt_2-11
     - "\uD45C\uC801": "\uD587\uBE5B"
       "\uC815\uB2F51": "\uD587"
       "\uC815\uB2F52": "\uBE5B"
@@ -251,6 +276,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uBCD5"
       "\uBCF4\uAE303": ' '
       "\uBCF4\uAE304": ' '
+      filename: alt_2-12
     - "\uD45C\uC801": "\uD0C0\uB294"
       "\uC815\uB2F51": "\uD0C0"
       "\uC815\uB2F52": "\uB294"
@@ -260,6 +286,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uB208"
       "\uBCF4\uAE303": ' '
       "\uBCF4\uAE304": ' '
+      filename: alt_2-13
     - "\uD45C\uC801": "\uD48D\uB369"
       "\uC815\uB2F51": "\uD48D"
       "\uC815\uB2F52": "\uB369"
@@ -269,6 +296,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uB465"
       "\uBCF4\uAE303": ' '
       "\uBCF4\uAE304": ' '
+      filename: alt_2-14
     - "\uD45C\uC801": "\uC54A\uC740"
       "\uC815\uB2F51": "\uC54A"
       "\uC815\uB2F52": "\uC740"
@@ -278,6 +306,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uC74C"
       "\uBCF4\uAE303": ' '
       "\uBCF4\uAE304": ' '
+      filename: alt_2-15
     - "\uD45C\uC801": "\uCA0D\uCA0D"
       "\uC815\uB2F51": "\uCA0D"
       "\uC815\uB2F52": "\uCA0D"
@@ -287,6 +316,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uC7C1"
       "\uBCF4\uAE303": ' '
       "\uBCF4\uAE304": ' '
+      filename: alt_2-16
   - name: Sheet3
     list:
     - "\uD45C\uC801": "\uB098\uB204\uAE30"
@@ -298,6 +328,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uC6B0"
       "\uBCF4\uAE303": "\uAC1C"
       "\uBCF4\uAE304": 
+      filename: alt_3-01
     - "\uD45C\uC801": "\uD5E4\uC5B4\uC9C8"
       "\uC815\uB2F51": "\uD5E4"
       "\uC815\uB2F52": "\uC5B4"
@@ -307,6 +338,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uC624"
       "\uBCF4\uAE303": "\uC810"
       "\uBCF4\uAE304": 
+      filename: alt_3-02
     - "\uD45C\uC801": "\uD655\uC778\uD574"
       "\uC815\uB2F51": "\uD655"
       "\uC815\uB2F52": "\uC778"
@@ -316,6 +348,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uC740"
       "\uBCF4\uAE303": "\uD5C8"
       "\uBCF4\uAE304": 
+      filename: alt_3-03
     - "\uD45C\uC801": "\uC18C\uAC1C\uD574"
       "\uC815\uB2F51": "\uC18C"
       "\uC815\uB2F52": "\uAC1C"
@@ -325,6 +358,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uAC70"
       "\uBCF4\uAE303": "\uD558"
       "\uBCF4\uAE304": 
+      filename: alt_3-04
     - "\uD45C\uC801": "\uB9CC\uB4E4\uC5B4"
       "\uC815\uB2F51": "\uB9CC"
       "\uC815\uB2F52": "\uB4E4"
@@ -334,6 +368,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uB458"
       "\uBCF4\uAE303": "\uC774"
       "\uBCF4\uAE304": 
+      filename: alt_3-05
     - "\uD45C\uC801": "\uC6B0\uC8FC\uC120"
       "\uC815\uB2F51": "\uC6B0"
       "\uC815\uB2F52": "\uC8FC"
@@ -343,6 +378,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uC9C0"
       "\uBCF4\uAE303": "\uC131"
       "\uBCF4\uAE304": 
+      filename: alt_3-06
     - "\uD45C\uC801": "\uB178\uB7AB\uB9D0"
       "\uC815\uB2F51": "\uB178"
       "\uC815\uB2F52": "\uB7AB"
@@ -352,6 +388,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uB0C7"
       "\uBCF4\uAE303": "\uBB3C"
       "\uBCF4\uAE304": 
+      filename: alt_3-07
     - "\uD45C\uC801": "\uB2EC\uB77C\uC9C4"
       "\uC815\uB2F51": "\uB2EC"
       "\uC815\uB2F52": "\uB77C"
@@ -361,6 +398,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uB098"
       "\uBCF4\uAE303": "\uD540"
       "\uBCF4\uAE304": 
+      filename: alt_3-08
     - "\uD45C\uC801": "\uB098\uBB47\uC78E"
       "\uC815\uB2F51": "\uB098"
       "\uC815\uB2F52": "\uBB47"
@@ -370,6 +408,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uB9E4"
       "\uBCF4\uAE303": "\uC606"
       "\uBCF4\uAE304": 
+      filename: alt_3-09
     - "\uD45C\uC801": "\uCF54\uB07C\uB9AC"
       "\uC815\uB2F51": "\uCF54"
       "\uC815\uB2F52": "\uB07C"
@@ -379,6 +418,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uAE68"
       "\uBCF4\uAE303": "\uB2C8"
       "\uBCF4\uAE304": 
+      filename: alt_3-10
     - "\uD45C\uC801": "\uC548\uC804\uBAA8"
       "\uC815\uB2F51": "\uC548"
       "\uC815\uB2F52": "\uC804"
@@ -388,6 +428,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uC7C1"
       "\uBCF4\uAE303": "\uBB34"
       "\uBCF4\uAE304": 
+      filename: alt_3-11
     - "\uD45C\uC801": "\uC608\uBC29\uBC95"
       "\uC815\uB2F51": "\uC608"
       "\uC815\uB2F52": "\uBC29"
@@ -397,6 +438,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uBC24"
       "\uBCF4\uAE303": "\uBA49"
       "\uBCF4\uAE304": 
+      filename: alt_3-12
     - "\uD45C\uC801": "\uC637\uCC28\uB9BC"
       "\uC815\uB2F51": "\uC637"
       "\uC815\uB2F52": "\uCC28"
@@ -406,6 +448,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uCC98"
       "\uBCF4\uAE303": "\uB78C"
       "\uBCF4\uAE304": 
+      filename: alt_3-13
     - "\uD45C\uC801": "\uAFF0\uC5B4\uC11C"
       "\uC815\uB2F51": "\uAFF0"
       "\uC815\uB2F52": "\uC5B4"
@@ -415,6 +458,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uC57C"
       "\uBCF4\uAE303": "\uC0C8"
       "\uBCF4\uAE304": 
+      filename: alt_3-14
     - "\uD45C\uC801": "\uB290\uB9B0\uB370"
       "\uC815\uB2F51": "\uB290"
       "\uC815\uB2F52": "\uB9B0"
@@ -424,6 +468,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uB7F0"
       "\uBCF4\uAE303": "\uBCA0"
       "\uBCF4\uAE304": 
+      filename: alt_3-15
     - "\uD45C\uC801": "\uBC1C\uD45C\uD68C"
       "\uC815\uB2F51": "\uBC1C"
       "\uC815\uB2F52": "\uD45C"
@@ -433,6 +478,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uD478"
       "\uBCF4\uAE303": "\uD574"
       "\uBCF4\uAE304": 
+      filename: alt_3-16
     - "\uD45C\uC801": "\uC18C\uC911\uD55C"
       "\uC815\uB2F51": "\uC18C"
       "\uC815\uB2F52": "\uC911"
@@ -442,6 +488,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uC7C1"
       "\uBCF4\uAE303": "\uB9CC"
       "\uBCF4\uAE304": 
+      filename: alt_3-17
     - "\uD45C\uC801": "\uC218\uB3D7\uAC00"
       "\uC815\uB2F51": "\uC218"
       "\uC815\uB2F52": "\uB3D7"
@@ -451,6 +498,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uB3CB"
       "\uBCF4\uAE303": "\uAC70"
       "\uBCF4\uAE304": 
+      filename: alt_3-18
     - "\uD45C\uC801": "\uC37C\uB098\uC694"
       "\uC815\uB2F51": "\uC37C"
       "\uC815\uB2F52": "\uB098"
@@ -460,6 +508,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uB0B4"
       "\uBCF4\uAE303": "\uBB18"
       "\uBCF4\uAE304": 
+      filename: alt_3-19
     - "\uD45C\uC801": "\uC774\uAE30\uBA74"
       "\uC815\uB2F51": "\uC774"
       "\uC815\uB2F52": "\uAE30"
@@ -469,6 +518,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uBBF8"
       "\uBCF4\uAE303": "\uB9D0"
       "\uBCF4\uAE304": 
+      filename: alt_3-20
     - "\uD45C\uC801": "\uC88B\uC544\uC694"
       "\uC815\uB2F51": "\uC88B"
       "\uC815\uB2F52": "\uC544"
@@ -478,6 +528,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uB9C8"
       "\uBCF4\uAE303": "\uB3C4"
       "\uBCF4\uAE304": 
+      filename: alt_3-21
     - "\uD45C\uC801": "\uD0DC\uC5B4\uB098"
       "\uC815\uB2F51": "\uD0DC"
       "\uC815\uB2F52": "\uC5B4"
@@ -487,6 +538,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uC560"
       "\uBCF4\uAE303": "\uB0B4"
       "\uBCF4\uAE304": 
+      filename: alt_3-22
     - "\uD45C\uC801": "\uD658\uD48D\uAD6C"
       "\uC815\uB2F51": "\uD658"
       "\uC815\uB2F52": "\uD48D"
@@ -496,6 +548,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uD479"
       "\uBCF4\uAE303": "\uC6B0"
       "\uBCF4\uAE304": 
+      filename: alt_3-23
     - "\uD45C\uC801": "\uD754\uB4E4\uB9BC"
       "\uC815\uB2F51": "\uD754"
       "\uC815\uB2F52": "\uB4E4"
@@ -505,6 +558,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uB4EC"
       "\uBCF4\uAE303": "\uC784"
       "\uBCF4\uAE304": 
+      filename: alt_3-24
     - "\uD45C\uC801": "\uC6C3\uC73C\uBA70"
       "\uC815\uB2F51": "\uC6C3"
       "\uC815\uB2F52": "\uC73C"
@@ -514,6 +568,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uBBC0"
       "\uBCF4\uAE303": "\uBBF8"
       "\uBCF4\uAE304": 
+      filename: alt_3-25
     - "\uD45C\uC801": "\uCF69\uB098\uBB3C"
       "\uC815\uB2F51": "\uCF69"
       "\uC815\uB2F52": "\uB098"
@@ -523,6 +578,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uB178"
       "\uBCF4\uAE303": "\uBA78"
       "\uBCF4\uAE304": 
+      filename: alt_3-26
     - "\uD45C\uC801": "\uD0C0\uAC70\uB77C"
       "\uC815\uB2F51": "\uD0C0"
       "\uC815\uB2F52": "\uAC70"
@@ -532,6 +588,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uAC00"
       "\uBCF4\uAE303": "\uB9AC"
       "\uBCF4\uAE304": 
+      filename: alt_3-27
     - "\uD45C\uC801": "\uB3C4\uB9DD\uAC04"
       "\uC815\uB2F51": "\uB3C4"
       "\uC815\uB2F52": "\uB9DD"
@@ -541,6 +598,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uBA85"
       "\uBCF4\uAE303": "\uCE78"
       "\uBCF4\uAE304": 
+      filename: alt_3-28
     - "\uD45C\uC801": "\uC790\uB790\uC8E0"
       "\uC815\uB2F51": "\uC790"
       "\uC815\uB2F52": "\uB790"
@@ -550,6 +608,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uB7AC"
       "\uBCF4\uAE303": "\uC8FC"
       "\uBCF4\uAE304": 
+      filename: alt_3-29
     - "\uD45C\uC801": "\uAD74\uB7EC\uC694"
       "\uC815\uB2F51": "\uAD74"
       "\uC815\uB2F52": "\uB7EC"
@@ -559,6 +618,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uB798"
       "\uBCF4\uAE303": "\uC720"
       "\uBCF4\uAE304": 
+      filename: alt_3-30
   - name: Sheet4
     list:
     - "\uD45C\uC801": "\uC2E0\uACE0\uD574\uC694"
@@ -570,6 +630,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uAD6C"
       "\uBCF4\uAE303": "\uAC1C"
       "\uBCF4\uAE304": "\uC5EC"
+      filename: alt_4-01
     - "\uD45C\uC801": "\uC18C\uBC29\uB300\uC6D0"
       "\uC815\uB2F51": "\uC18C"
       "\uC815\uB2F52": "\uBC29"
@@ -579,6 +640,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uBCD1"
       "\uBCF4\uAE303": "\uB2E4"
       "\uBCF4\uAE304": "\uBA74"
+      filename: alt_4-02
     - "\uD45C\uC801": "\uACE0\uB9D9\uB2E4\uACE0"
       "\uC815\uB2F51": "\uACE0"
       "\uC815\uB2F52": "\uB9D9"
@@ -588,6 +650,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uBA4D"
       "\uBCF4\uAE303": "\uB300"
       "\uBCF4\uAE304": "\uACE1"
+      filename: alt_4-03
     - "\uD45C\uC801": "\uC7AC\uBBF8\uC788\uB294"
       "\uC815\uB2F51": "\uC7AC"
       "\uC815\uB2F52": "\uBBF8"
@@ -597,6 +660,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uC774"
       "\uBCF4\uAE303": "\uC785"
       "\uBCF4\uAE304": "\uB208"
+      filename: alt_4-04
     - "\uD45C\uC801": "\uC0AC\uC774\uC88B\uAC8C"
       "\uC815\uB2F51": "\uC0AC"
       "\uC815\uB2F52": "\uC774"
@@ -606,6 +670,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uC5EC"
       "\uBCF4\uAE303": "\uC8FD"
       "\uBCF4\uAE304": "\uAD6C"
+      filename: alt_4-05
     - "\uD45C\uC801": "\uC0DD\uAC01\uD574\uC694"
       "\uC815\uB2F51": "\uC0DD"
       "\uC815\uB2F52": "\uAC01"
@@ -615,6 +680,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uC791"
       "\uBCF4\uAE303": "\uD6C4"
       "\uBCF4\uAE304": "\uC57C"
+      filename: alt_4-06
     - "\uD45C\uC801": "\uB2E4\uAC00\uC640\uC694"
       "\uC815\uB2F51": "\uB2E4"
       "\uC815\uB2F52": "\uAC00"
@@ -624,6 +690,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uAC1C"
       "\uBCF4\uAE303": "\uC6CC"
       "\uBCF4\uAE304": "\uC5B4"
+      filename: alt_4-07
     - "\uD45C\uC801": "\uBD80\uB7EC\uC9C0\uB124"
       "\uC815\uB2F51": "\uBD80"
       "\uC815\uB2F52": "\uB7EC"
@@ -633,6 +700,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uB77C"
       "\uBCF4\uAE303": "\uC800"
       "\uBCF4\uAE304": "\uB108"
+      filename: alt_4-08
     - "\uD45C\uC801": "\uD754\uB4E4\uD754\uB4E4"
       "\uC815\uB2F51": "\uD754"
       "\uC815\uB2F52": "\uB4E4"
@@ -642,6 +710,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uD480"
       "\uBCF4\uAE303": "\uD604"
       "\uBCF4\uAE304": "\uB458"
+      filename: alt_4-09
     - "\uD45C\uC801": "\uB300\uD53C\uD574\uC694"
       "\uC815\uB2F51": "\uB300"
       "\uC815\uB2F52": "\uD53C"
@@ -651,6 +720,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uD328"
       "\uBCF4\uAE303": "\uD638"
       "\uBCF4\uAE304": "\uC57C"
+      filename: alt_4-10
     - "\uD45C\uC801": "\uADF8\uCCE4\uC5B4\uC694"
       "\uC815\uB2F51": "\uADF8"
       "\uC815\uB2F52": "\uCCE4"
@@ -660,6 +730,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uCE6B"
       "\uBCF4\uAE303": "\uC5EC"
       "\uBCF4\uAE304": "\uB178"
+      filename: alt_4-11
     - "\uD45C\uC801": "\uC6C3\uC74C\uBC14\uB2E4"
       "\uC815\uB2F51": "\uC6C3"
       "\uC815\uB2F52": "\uC74C"
@@ -669,6 +740,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uC6C0"
       "\uBCF4\uAE303": "\uBCBC"
       "\uBCF4\uAE304": "\uB300"
+      filename: alt_4-12
     - "\uD45C\uC801": "\uC5CE\uB4DC\uB824\uC694"
       "\uC815\uB2F51": "\uC5CE"
       "\uC815\uB2F52": "\uB4DC"
@@ -678,6 +750,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uB3C4"
       "\uBCF4\uAE303": "\uB9AC"
       "\uBCF4\uAE304": "\uC720"
+      filename: alt_4-13
     - "\uD45C\uC801": "\uC2F1\uAE00\uBC99\uAE00"
       "\uC815\uB2F51": "\uC2F1"
       "\uC815\uB2F52": "\uAE00"
@@ -687,6 +760,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uADE4"
       "\uBCF4\uAE303": "\uBD95"
       "\uBCF4\uAE304": "\uAC08"
+      filename: alt_4-14
     - "\uD45C\uC801": "\uBD80\uB52A\uD614\uAD70"
       "\uC815\uB2F51": "\uBD80"
       "\uC815\uB2F52": "\uB52A"
@@ -696,6 +770,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uB2EB"
       "\uBCF4\uAE303": "\uD3C8"
       "\uBCF4\uAE304": "\uADFC"
+      filename: alt_4-15
     - "\uD45C\uC801": "\uCC98\uC74C\uC73C\uB85C"
       "\uC815\uB2F51": "\uCC98"
       "\uC815\uB2F52": "\uC74C"
@@ -705,6 +780,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uC740"
       "\uBCF4\uAE303": "\uC720"
       "\uBCF4\uAE304": "\uB8CC"
+      filename: alt_4-16
     - "\uD45C\uC801": "\uC811\uC2B5\uB2C8\uB2E4"
       "\uC815\uB2F51": "\uC811"
       "\uC815\uB2F52": "\uC2B5"
@@ -714,6 +790,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uC539"
       "\uBCF4\uAE303": "\uB108"
       "\uBCF4\uAE304": "\uB450"
+      filename: alt_4-17
     - "\uD45C\uC801": "\uAEBE\uC2B5\uB2C8\uB2E4"
       "\uC815\uB2F51": "\uAEBE"
       "\uC815\uB2F52": "\uC2B5"
@@ -723,6 +800,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uC228"
       "\uBCF4\uAE303": "\uB124"
       "\uBCF4\uAE304": "\uB514"
+      filename: alt_4-18
     - "\uD45C\uC801": "\uC758\uB17C\uD558\uBA70"
       "\uC815\uB2F51": "\uC758"
       "\uC815\uB2F52": "\uB17C"
@@ -732,6 +810,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uB208"
       "\uBCF4\uAE303": "\uD5C8"
       "\uBCF4\uAE304": "\uBBF8"
+      filename: alt_4-19
     - "\uD45C\uC801": "\uB9C8\uCE58\uACE0\uC11C"
       "\uC815\uB2F51": "\uB9C8"
       "\uC815\uB2F52": "\uCE58"
@@ -741,6 +820,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uCCB4"
       "\uBCF4\uAE303": "\uB178"
       "\uBCF4\uAE304": "\uBCBC"
+      filename: alt_4-20
     - "\uD45C\uC801": "\uAC78\uC5B4\uAC00\uBA74"
       "\uC815\uB2F51": "\uAC78"
       "\uC815\uB2F52": "\uC5B4"
@@ -750,6 +830,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uC6B0"
       "\uBCF4\uAE303": "\uAC1C"
       "\uBCF4\uAE304": "\uBBFC"
+      filename: alt_4-21
     - "\uD45C\uC801": "\uD6A1\uB2E8\uBCF4\uB3C4"
       "\uC815\uB2F51": "\uD6A1"
       "\uC815\uB2F52": "\uB2E8"
@@ -759,6 +840,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uB9CC"
       "\uBCF4\uAE303": "\uBAA8"
       "\uBCF4\uAE304": "\uB450"
+      filename: alt_4-22
     - "\uD45C\uC801": "\uB098\uB204\uC5B4\uC694"
       "\uC815\uB2F51": "\uB098"
       "\uC815\uB2F52": "\uB204"
@@ -768,6 +850,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uB20C"
       "\uBCF4\uAE303": "\uC560"
       "\uBCF4\uAE304": "\uC6A9"
+      filename: alt_4-23
     - "\uD45C\uC801": "\uB118\uC5B4\uC84C\uB2E4"
       "\uC815\uB2F51": "\uB118"
       "\uC815\uB2F52": "\uC5B4"
@@ -777,6 +860,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uC5B8"
       "\uBCF4\uAE303": "\uC9D3"
       "\uBCF4\uAE304": "\uB2E8"
+      filename: alt_4-24
     - "\uD45C\uC801": "\uB098\uC624\uB108\uB77C"
       "\uC815\uB2F51": "\uB098"
       "\uC815\uB2F52": "\uC624"
@@ -786,6 +870,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uC634"
       "\uBCF4\uAE303": "\uB0B4"
       "\uBCF4\uAE304": "\uB098"
+      filename: alt_4-25
     - "\uD45C\uC801": "\uB9E1\uC2B5\uB2C8\uB2E4"
       "\uC815\uB2F51": "\uB9E1"
       "\uC815\uB2F52": "\uC2B5"
@@ -795,6 +880,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uC2B4"
       "\uBCF4\uAE303": "\uB2D8"
       "\uBCF4\uAE304": "\uB354"
+      filename: alt_4-26
     - "\uD45C\uC801": "\uB5A0\uC62C\uB77C\uC694"
       "\uC815\uB2F51": "\uB5A0"
       "\uC815\uB2F52": "\uC62C"
@@ -804,6 +890,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uC634"
       "\uBCF4\uAE303": "\uB798"
       "\uBCF4\uAE304": "\uC639"
+      filename: alt_4-27
     - "\uD45C\uC801": "\uC5BC\uB9C8\uB9CC\uD07C"
       "\uC815\uB2F51": "\uC5BC"
       "\uC815\uB2F52": "\uB9C8"
@@ -813,6 +900,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uB9DD"
       "\uBCF4\uAE303": "\uB9C8"
       "\uBCF4\uAE304": "\uD760"
+      filename: alt_4-28
     - "\uD45C\uC801": "\uC5B8\uC81C\uB4E0\uC9C0"
       "\uC815\uB2F51": "\uC5B8"
       "\uC815\uB2F52": "\uC81C"
@@ -822,6 +910,7 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uC9C0"
       "\uBCF4\uAE303": "\uB358"
       "\uBCF4\uAE304": "\uC81C"
+      filename: alt_4-29
     - "\uD45C\uC801": "\uB9FA\uD788\uBA74\uC11C"
       "\uC815\uB2F51": "\uB9FA"
       "\uC815\uB2F52": "\uD788"
@@ -831,3 +920,4 @@ MonoBehaviour:
       "\uBCF4\uAE302": "\uD799"
       "\uBCF4\uAE303": "\uC5F0"
       "\uBCF4\uAE304": "\uC138"
+      filename: alt_4-30

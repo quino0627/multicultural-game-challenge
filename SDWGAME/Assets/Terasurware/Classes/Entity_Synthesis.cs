@@ -26,6 +26,7 @@ public class Entity_Synthesis : ScriptableObject
 		public string 보기2;
 		public string 보기3;
 		public string 보기4;
+		public string filename;
 	}
 }
 
