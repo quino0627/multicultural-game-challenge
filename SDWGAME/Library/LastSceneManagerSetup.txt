@@ -1,4 +1,8 @@
 sceneSetups:
+<<<<<<< HEAD
 - path: Assets/Scenes/Elimination.unity
+=======
+- path: Assets/Scenes/EliminationEscape.unity
+>>>>>>> develop
   isLoaded: 1
   isActive: 1

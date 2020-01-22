@@ -53,6 +53,7 @@ public class EscapeScene : MonoBehaviour
     
     IEnumerator SharkTry()
     {
+        yield return new WaitForSeconds(3.0f);
         Debug.Log("SharkTry");
         //먼저 상어가 들어온다
         while (!isSharkArrived)
