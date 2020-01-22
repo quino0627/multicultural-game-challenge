@@ -27,21 +27,20 @@ public class SelectMenu : MonoBehaviour
 
     public void Detection()
     {
-        Debug.Log("Clicked");
         GR.enabled = false;
         SceneManager.LoadScene("DetectionGame");
         
     }
 
     public void Synthesis()
-    { Debug.Log("Clicked");
+    { 
         GR.enabled = false;
         SceneManager.LoadScene("CrabLevel1");
         
     }
 
     public void Elimination()
-    { Debug.Log("Clicked");
+    {
         GR.enabled = false;
         SceneManager.LoadScene("EliminationEscape");
         
@@ -49,7 +48,7 @@ public class SelectMenu : MonoBehaviour
     }
 
     public void Alternative()
-    { Debug.Log("Clicked");
+    {
         GR.enabled = false;
         SceneManager.LoadScene("AlternativeGame");
         
@@ -60,6 +59,12 @@ public class SelectMenu : MonoBehaviour
         //환경설정 창 띄우기
         m_Settings.Show();
         
+    }
+
+    public void GoBack()
+    {
+        SceneManager.LoadScene("StartMenu");
+        //SceneManager.LoadScene("LevelMenu");
     }
     
 }

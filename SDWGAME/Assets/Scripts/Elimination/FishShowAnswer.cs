@@ -24,13 +24,16 @@ public class FishShowAnswer : MonoBehaviour
     public static int total_correct = 0;
     
     //excel data
-    public Entity_EliminationTest data;
+    //public Entity_EliminationTest data;
+    public Entity_EliminationTestCnt10 data;
     
     // 초급/중급/고급
     public int level;
     
     // 각 난이도 안의 stage index
     public static int stageIndex;
+    
+    
     // 해당 난이도의 전체 stage 개수
     public static int stageMaxIndex;
     
@@ -50,6 +53,9 @@ public class FishShowAnswer : MonoBehaviour
 
     public GameObject eliminStimul;
     public TextMeshPro eliminText;
+
+    public GameObject syllable;
+    public TextMeshPro syllableText;
     
     // ui level과 stage표시 하기 위한 변수
     public TextMeshPro quizLevel;
@@ -76,6 +82,8 @@ public class FishShowAnswer : MonoBehaviour
     public bool isTimeSetted;
     public bool isTimeOver;
     public bool sharkAte;
+    
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -143,7 +151,7 @@ public class FishShowAnswer : MonoBehaviour
         
         //yield return new WaitForSecondsRealtime(GetComponent<AudioSource>().clip.length);
         yield return new WaitForSeconds(0.0f);
-        //CheckToggleGroup.SetAllTogglesOff();
+        
 
         for (int i = 0; i < 5; i++)
         {
@@ -151,10 +159,8 @@ public class FishShowAnswer : MonoBehaviour
             do {
                 tmp = Random.Range(0, 5);
             } while (ansPosIndex.Contains(tmp));
-            //Debug.Log("AnsPosIndex[" + i + "] = " + tmp );
             ansPosIndex.Add(tmp);
         }
-        //Debug.Log("correctAnsPosIndex: " + ansPosIndex[0]);
         
         //정답 물고기에 정답음성 넣기
         string wordFileLink = 
@@ -241,6 +247,11 @@ public class FishShowAnswer : MonoBehaviour
                 //Debug.Log("Shark arrived");
             }
         }
+        
+        //초성 종성 표시
+        syllableText.text = $"<{data.sheets[level].list[stageIndex].초성종성}>";
+        
+        //syllable.SetActive(true);
         
         // 자극 제시 ex) 만들
         stimulText.text = data.sheets[level].list[stageIndex].자극;

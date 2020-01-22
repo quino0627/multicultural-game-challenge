@@ -89,7 +89,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -3224,10 +3224,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 522680273}
     m_Modifications:
-    - target: {fileID: 189180, guid: 6958cb5910209491187e882ae43ae1db, type: 3}
-      propertyPath: m_Name
-      value: GoBackButton
-      objectReference: {fileID: 0}
     - target: {fileID: 22489180, guid: 6958cb5910209491187e882ae43ae1db, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3312,19 +3308,10 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 22489178, guid: 6958cb5910209491187e882ae43ae1db, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 30
+    - target: {fileID: 189180, guid: 6958cb5910209491187e882ae43ae1db, type: 3}
+      propertyPath: m_Name
+      value: GoBackButton
       objectReference: {fileID: 0}
-    - target: {fileID: 22489178, guid: 6958cb5910209491187e882ae43ae1db, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 11489182, guid: 6958cb5910209491187e882ae43ae1db, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 6683a58624fc447428edaa17d08faa14,
-        type: 3}
     - target: {fileID: 11489178, guid: 6958cb5910209491187e882ae43ae1db, type: 3}
       propertyPath: m_Color.g
       value: 1
@@ -3337,6 +3324,43 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 11b812d76974340cf915eb2ad72840ce,
+        type: 3}
+    - target: {fileID: 11489180, guid: 6958cb5910209491187e882ae43ae1db, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11489180, guid: 6958cb5910209491187e882ae43ae1db, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11489180, guid: 6958cb5910209491187e882ae43ae1db, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11489180, guid: 6958cb5910209491187e882ae43ae1db, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 808579496}
+    - target: {fileID: 11489180, guid: 6958cb5910209491187e882ae43ae1db, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: GoBack
+      objectReference: {fileID: 0}
+    - target: {fileID: 11489180, guid: 6958cb5910209491187e882ae43ae1db, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 22489178, guid: 6958cb5910209491187e882ae43ae1db, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 22489178, guid: 6958cb5910209491187e882ae43ae1db, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 11489182, guid: 6958cb5910209491187e882ae43ae1db, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6683a58624fc447428edaa17d08faa14,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6958cb5910209491187e882ae43ae1db, type: 3}
