@@ -11,11 +11,16 @@ public class AlternativeQuizManager : MonoBehaviour
     // director
     private GameObject director;
     private GameObject description;
-    public GameObject Result;
-    public GameObject Panel;
-    public GameObject Chest1;
-    public GameObject Chest2;
-    public GameObject Chest3;
+    
+    public GameObject StarLeft;
+    public GameObject StarMiddle;
+    public GameObject StarRight;
+    public TextMeshProUGUI descriptionText;
+    public TextMeshProUGUI onesentenceText;
+    
+    // result handler
+    public ResultHandler _resultHandler;
+
     
     // Bubble 없어지는 animation
     [HideInInspector] Animator[] animators = new Animator[5];
@@ -79,6 +84,8 @@ public class AlternativeQuizManager : MonoBehaviour
     
     void Start()
     {
+        stage_no = 0;
+        max_stage_no = 3;
         this.director = GameObject.Find("AlternativeGameDirector");
         this.description = GameObject.Find("DescriptionBubble");
         
@@ -365,57 +372,51 @@ public class AlternativeQuizManager : MonoBehaviour
 
     IEnumerator DecideResult(float tcl, float tco)
     {
-        Result.SetActive(true);
-        Panel.transform.Find("Chests").gameObject.SetActive(true);
-        // Text 설정
-        GetComponent<PanelController>().OpenPanel(Panel);
-        // tcl : total_clicked
-        // tco : total_correct
-        string result_text =  $"{tcl}번만에 {tco}개를 맞췄어요!";
+        yield return new WaitForSeconds(1.0f);
+        _resultHandler.OpenResult();
+//        // Text 설정
+//        // tcl : total_clicked
+//        // tco : total_correct
+        string result_text = $"{tcl}번만에 {tco}개를 맞췄어요!";
         string one_sentence = "";
         string[] sentences = {"정말 잘했어요", "조금 더 신중하게 해 보자", "더 연습하자"};
         float rate = tcl / tco;
-        yield return new WaitForSeconds(1f);
-        // 만약에 2.5배보다 더 많이 클릭했으면
+//        // 만약에 2.5배보다 더 많이 클릭했으면
         if (rate > 2.5f)
         {
             // 아무것도 열리지 않을 것.
-            GetComponent<PanelController>().OpenEmptyChest(Chest1);
+            // do nothing
+            StarLeft.SetActive(false);
             one_sentence = sentences[2];
         }
         else
         {
             one_sentence = sentences[2];
-            GetComponent<PanelController>().OpenTreasureChest(Chest1);
+            StarLeft.SetActive(true);
         }
-        yield return new WaitForSeconds(1f);
+
         if (rate > 2)
         {
-            GetComponent<PanelController>().OpenEmptyChest(Chest2);
-            
+            StarMiddle.SetActive(false);
         }
         else
         {
             one_sentence = sentences[1];
-            GetComponent<PanelController>().OpenTreasureChest(Chest2);
+            StarMiddle.SetActive(true);
         }
-        yield return new WaitForSeconds(1f);
+
         if (rate > 1.5)
         {
-            
-            GetComponent<PanelController>().OpenEmptyChest(Chest3);
+            StarRight.SetActive(false);
         }
         else
         {
             one_sentence = sentences[0];
-            GetComponent<PanelController>().OpenTreasureChest(Chest3);
-        }
-        
-        Panel.transform.Find("ResultDescriptionText").GetComponent<TextMeshProUGUI>().text = result_text;
-        Panel.transform.Find("ResultOneSentence").GetComponent<TextMeshProUGUI>().text = one_sentence;
-        yield return new WaitForSeconds(1f);
-        Panel.transform.Find("ResultDescriptionText").gameObject.SetActive(true);
-        Panel.transform.Find("ResultOneSentence").gameObject.SetActive(true);
+            StarRight.SetActive(true);
 
+        }
+
+        descriptionText.text = result_text;
+        onesentenceText.text = one_sentence;
     }
 }

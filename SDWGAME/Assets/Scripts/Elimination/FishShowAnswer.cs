@@ -10,13 +10,19 @@ using Debug = UnityEngine.Debug;
 
 public class FishShowAnswer : MonoBehaviour
 {
+    
+    // director
+    private GameObject director;
     public bool canClick;
+    
+    public GameObject StarLeft;
+    public GameObject StarMiddle;
+    public GameObject StarRight;
+    public TextMeshProUGUI descriptionText;
+    public TextMeshProUGUI onesentenceText;
+    
     // Show Result
-    public GameObject Result;
-    public GameObject Panel;
-    public GameObject Chest1;
-    public GameObject Chest2;
-    public GameObject Chest3;
+    public ResultHandler _resultHandler;
 
     // 한 게임에서 전체 클릭한 갯수와 전체 맞춘 갯수
     // Result 페이지에서 이에 따라 보물상자 여는 것을 달리 해야 함.
@@ -57,10 +63,9 @@ public class FishShowAnswer : MonoBehaviour
     
     // 타이머 관련 변수
     private float timer = 0f;
-    private float timeLimit = 10000f; //10초
+    private float timeLimit = 60000f; //60초
     public Stopwatch watch = new Stopwatch();
-    public Slider sliderTimer;
-    
+
     //
     private GameObject QuizManager;
 
@@ -77,8 +82,12 @@ public class FishShowAnswer : MonoBehaviour
     public bool isTimeOver;
     public bool sharkAte;
     // Start is called before the first frame update
+
+    private bool CheckPaused = false;
+    
     void Start()
     {
+        director = GameObject.Find("EliminationGameDirector");
         refStageIndex = stageIndex;
         QuizManager = GameObject.Find("QuizManager");
         fishExitPos = GameObject.Find("FishExitPos").transform;
@@ -95,13 +104,27 @@ public class FishShowAnswer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // timeScale이 1이 아니고 CheckPaused가 false이면 timer를 stop
+        if (Time.timeScale != 1 && !CheckPaused)
+        {
+            watch.Stop();
+            CheckPaused = true;
+        }
+        // timeScale이 1이고 CheckPaused가 true이면 timer를 restart
+        if (Time.timeScale == 1 && CheckPaused)
+        {
+            watch.Start();
+            CheckPaused = false;
+        }
+        
         if (watch.ElapsedMilliseconds > 0)
         {
-            QuizManager.GetComponent<EliminationDirector>()
+            director.GetComponent<EliminationDirector>()
                 .SetTime(watch.ElapsedMilliseconds/1000.0f);
             //Debug.Log(watch.ElapsedMilliseconds/1000.0f);
         }
 
+        // 타임오버 되었을 떄
         if (watch.ElapsedMilliseconds > timeLimit)
         {
             Debug.Log("Stage Over");
@@ -138,8 +161,9 @@ public class FishShowAnswer : MonoBehaviour
 
     IEnumerator EnableCoroutine()
     {
-        QuizManager.GetComponent<EliminationDirector>().setStage(stageIndex);
-        QuizManager.GetComponent<EliminationDirector>().setLevel(level);
+        director.GetComponent<EliminationDirector>().InitTime();
+        director.GetComponent<EliminationDirector>().setStage(stageIndex);
+        director.GetComponent<EliminationDirector>().setLevel(level);
         
         //yield return new WaitForSecondsRealtime(GetComponent<AudioSource>().clip.length);
         yield return new WaitForSeconds(0.0f);
@@ -251,7 +275,9 @@ public class FishShowAnswer : MonoBehaviour
         stimulation.SetActive(false);
         eliminText.text = data.sheets[level].list[stageIndex].탈락자극;
         eliminStimul.SetActive(true);
-
+        
+        Debug.Log("HEHEHEHE");
+        
         StartCoroutine(ShowAnswer());
     }
 
@@ -277,7 +303,7 @@ public class FishShowAnswer : MonoBehaviour
        
         //Debug.Log("watch start");
         watch.Start();
-        sliderTimer.GetComponent<SliderTimer>().shouldStart = true;
+//        sliderTimer.GetComponent<SliderTimer>().shouldStart = true;
         canClick = true;
         isTimeSetted = true;
         for (int j = 0; j < 5; j++)
@@ -399,58 +425,52 @@ public class FishShowAnswer : MonoBehaviour
     
     IEnumerator DecideResult(float tcl, float tco)
     {
-        Result.SetActive(true);
-        Panel.transform.Find("Chests").gameObject.SetActive(true);
-        // Text 설정
-        GetComponent<PanelController>().OpenPanel(Panel);
-        // tcl : total_clicked
-        // tco : total_correct
-        string result_text =  $"{tcl}번만에 {tco}개를 맞췄어요!";
+        yield return new WaitForSeconds(1.0f);
+        _resultHandler.OpenResult();
+//        // Text 설정
+//        // tcl : total_clicked
+//        // tco : total_correct
+        string result_text = $"{tcl}번만에 {tco}개를 맞췄어요!";
         string one_sentence = "";
         string[] sentences = {"정말 잘했어요", "조금 더 신중하게 해 보자", "더 연습하자"};
         float rate = tcl / tco;
-        yield return new WaitForSeconds(1f);
-        // 만약에 2.5배보다 더 많이 클릭했으면
+//        // 만약에 2.5배보다 더 많이 클릭했으면
         if (rate > 2.5f)
         {
             // 아무것도 열리지 않을 것.
-            GetComponent<PanelController>().OpenEmptyChest(Chest1);
+            // do nothing
+            StarLeft.SetActive(false);
             one_sentence = sentences[2];
         }
         else
         {
             one_sentence = sentences[2];
-            GetComponent<PanelController>().OpenTreasureChest(Chest1);
+            StarLeft.SetActive(true);
         }
-        yield return new WaitForSeconds(1f);
+
         if (rate > 2)
         {
-            GetComponent<PanelController>().OpenEmptyChest(Chest2);
-            
+            StarMiddle.SetActive(false);
         }
         else
         {
             one_sentence = sentences[1];
-            GetComponent<PanelController>().OpenTreasureChest(Chest2);
+            StarMiddle.SetActive(true);
         }
-        yield return new WaitForSeconds(1f);
+
         if (rate > 1.5)
         {
-            
-            GetComponent<PanelController>().OpenEmptyChest(Chest3);
+            StarRight.SetActive(false);
         }
         else
         {
             one_sentence = sentences[0];
-            GetComponent<PanelController>().OpenTreasureChest(Chest3);
-        }
-        
-        Panel.transform.Find("ResultDescriptionText").GetComponent<TextMeshProUGUI>().text = result_text;
-        Panel.transform.Find("ResultOneSentence").GetComponent<TextMeshProUGUI>().text = one_sentence;
-        yield return new WaitForSeconds(1f);
-        Panel.transform.Find("ResultDescriptionText").gameObject.SetActive(true);
-        Panel.transform.Find("ResultOneSentence").gameObject.SetActive(true);
+            StarRight.SetActive(true);
 
+        }
+
+        descriptionText.text = result_text;
+        onesentenceText.text = one_sentence;
     }
 
     // Total Click과 Total Correct를 증가시키기 위한 함수들

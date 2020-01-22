@@ -62,7 +62,7 @@ public class FishController : MonoBehaviour
             script.PlusTotalCorrect();
             
             //점수 올리기
-            QuizManager.GetComponent<EliminationDirector>().GetPoint(100);
+//            director.GetComponent<EliminationDirector>().GetPoint(100);
             
             isCaught = true;
                 

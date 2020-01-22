@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -14,7 +15,7 @@ public class EliminationDirector : MonoBehaviour
     private GameObject levelText;
     
     // 제한시간 10초
-    private float time = 10.0f;
+    private float time = 60.0f;
     // 현재 포인트
     private static int point = 0;
     // 현재 stage
@@ -28,14 +29,14 @@ public class EliminationDirector : MonoBehaviour
         point = point + po;
     }
 
-    public void SetTime(float t)
+    public void SetTime(float ti)
     {
-        this.time = 10f - t;
+        this.time = Convert.ToSingle(System.Math.Truncate(Convert.ToDouble(60f - ti)));
     }
 
     public void InitTime()
     {
-        this.time = 10f;
+        this.time = 60f;
     }
 
     public void setStage(int st)
@@ -74,10 +75,11 @@ public class EliminationDirector : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.pointText.GetComponent<TextMeshProUGUI>().text = point.ToString() + "점";
+//        this.pointText.GetComponent<TextMeshProUGUI>().text = point.ToString() + "점";
         this.stageText.GetComponent<TextMeshProUGUI>().text = $"{this.stage + 1}단계";
         this.levelText.GetComponent<TextMeshProUGUI>().text = level;
-        this.timerText.GetComponent<TextMeshProUGUI>().text = time.ToString("F")+ "초";
+//        this.timerText.GetComponent<TextMeshProUGUI>().text = time.ToString("F")+ "초";
+        GameObject.Find("UIP_ClockBar").GetComponent<TimerScript>().remainedTime = time;
 
     }
 }

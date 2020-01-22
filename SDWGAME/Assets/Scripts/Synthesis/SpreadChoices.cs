@@ -15,12 +15,14 @@ public class SpreadChoices : MonoBehaviour
     // director
     private GameObject director;
     // Show Result
-    public GameObject Result;
-    public GameObject Panel;
-    public GameObject Chest1;
-    public GameObject Chest2;
-    public GameObject Chest3;
-
+    public GameObject StarLeft;
+    public GameObject StarMiddle;
+    public GameObject StarRight;
+    public TextMeshProUGUI descriptionText;
+    public TextMeshProUGUI onesentenceText;
+    
+    // result handler
+    public ResultHandler _resultHandler;
     // 한 게임에서 전체 시도한 횟수와 전체 맞춘 갯수
     // Result 페이지에서 이에 따라 보물상자 여는 것을 달리 해야 함.
     public static int total_tried = 0;
@@ -268,8 +270,10 @@ public class SpreadChoices : MonoBehaviour
         crab.GetComponent<AudioSource>().loop = false;
         crab.GetComponent<AudioSource>().clip = Resources.Load(wordFileLink) as AudioClip;
         crab.GetComponent<AudioSource>().Play();
-        Debug.Log(crab.GetComponent<AudioSource>().clip.length);
-        yield return new WaitForSeconds(crab.GetComponent<AudioSource>().clip.length + 1f);
+        if (crab.GetComponent<AudioSource>().clip)
+        {
+            yield return new WaitForSeconds(crab.GetComponent<AudioSource>().clip.length + 1f);
+        }
         //Jellyfish comes out
         int cnt=0;
         int jellyfish_index;
@@ -485,58 +489,51 @@ public class SpreadChoices : MonoBehaviour
     // ttr: total tried, tco: total corrected 
     IEnumerator DecideResult(float ttr, float tco, float tcos)
     {
-        Result.SetActive(true);
-        Panel.transform.Find("Chests").gameObject.SetActive(true);
-        // Text 설정
-        GetComponent<PanelController>().OpenPanel(Panel);
+        yield return new WaitForSeconds(1.0f);
+        _resultHandler.OpenResult();
         // tcl : total_clicked
         // tco : total_correct
         string result_text =  $"{ttr - tco}번 틀리고 {tcos}개를 맞췄어요!";
         string one_sentence = "";
         string[] sentences = {"정말 잘했어요", "조금 더 신중하게 해 보자", "더 연습하자"};
         float rate = ttr / tco;
-        yield return new WaitForSeconds(1f);
-        // 만약에 2.5배보다 더 많이 클릭했으면
+        //        // 만약에 2.5배보다 더 많이 클릭했으면
         if (rate > 2.5f)
         {
             // 아무것도 열리지 않을 것.
-            GetComponent<PanelController>().OpenEmptyChest(Chest1);
+            // do nothing
+            StarLeft.SetActive(false);
             one_sentence = sentences[2];
         }
         else
         {
             one_sentence = sentences[2];
-            GetComponent<PanelController>().OpenTreasureChest(Chest1);
+            StarLeft.SetActive(true);
         }
-        yield return new WaitForSeconds(1f);
+
         if (rate > 2)
         {
-            GetComponent<PanelController>().OpenEmptyChest(Chest2);
-            
+            StarMiddle.SetActive(false);
         }
         else
         {
             one_sentence = sentences[1];
-            GetComponent<PanelController>().OpenTreasureChest(Chest2);
+            StarMiddle.SetActive(true);
         }
-        yield return new WaitForSeconds(1f);
+
         if (rate > 1.5)
         {
-            
-            GetComponent<PanelController>().OpenEmptyChest(Chest3);
+            StarRight.SetActive(false);
         }
         else
         {
             one_sentence = sentences[0];
-            GetComponent<PanelController>().OpenTreasureChest(Chest3);
-        }
-        
-        Panel.transform.Find("ResultDescriptionText").GetComponent<TextMeshProUGUI>().text = result_text;
-        Panel.transform.Find("ResultOneSentence").GetComponent<TextMeshProUGUI>().text = one_sentence;
-        yield return new WaitForSeconds(1f);
-        Panel.transform.Find("ResultDescriptionText").gameObject.SetActive(true);
-        Panel.transform.Find("ResultOneSentence").gameObject.SetActive(true);
+            StarRight.SetActive(true);
 
+        }
+
+        descriptionText.text = result_text;
+        onesentenceText.text = one_sentence;
     }
     
     public void PlusTotalTry()

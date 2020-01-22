@@ -99,6 +99,7 @@
             <e p="OctoSinusodialMove.cs" t="Include" />
             <e p="PanelController.cs" t="Include" />
             <e p="PauseHandler.cs" t="Include" />
+            <e p="ResultHandler.cs" t="Include" />
             <e p="SettingButtonScript.cs" t="Include" />
             <e p="SettingsHandler.cs" t="Include" />
             <e p="SliderTimer.cs" t="Include" />

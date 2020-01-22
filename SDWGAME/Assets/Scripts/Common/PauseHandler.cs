@@ -18,9 +18,12 @@ public class PauseHandler : UIPT_PRO_Demo_GUIPanel
             GSui.Instance.m_GUISpeed = 4.0f;
             GSui.Instance.m_AutoAnimation = false;
         }
-        
 
-        // Activate all UI Canves GameObjects.
+
+        if (this.transform.gameObject.activeSelf == false)
+            this.transform.gameObject.SetActive(true);
+        
+            // Activate all UI Canves GameObjects.
         if (m_Settings.gameObject.activeSelf == false)
             m_Settings.gameObject.SetActive(true);
         

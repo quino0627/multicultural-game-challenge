@@ -19,11 +19,20 @@ public class BarrelController : MonoBehaviour
 
     private GameObject director;
 
+    // 배럴이 여러번 클릭되는 것을 방지한다.
+    // 기본값은 false, 정답일 경우 한번 클릭된 이후에는 true로 
+    private bool preventSeveralTouch = false;
+
     // Start is called before the first frame update
     void Start()
     {
         this.director = GameObject.Find("GameDirector");
-        
+        preventSeveralTouch = false;
+    }
+
+    private void OnEnable()
+    {
+        preventSeveralTouch = false;
     }
 
     // Update is called once per frame
@@ -33,8 +42,9 @@ public class BarrelController : MonoBehaviour
     
     private void OnMouseUp()
     {
-        Debug.Log(!IsPointerOverUIObject());
-        if (!IsPointerOverUIObject())
+//        Debug.Log(!IsPointerOverUIObject()); //true
+//        if (IsPointerOverUIObject()) //false
+        if(!preventSeveralTouch)
         {
             BarrelClicked();
         }
@@ -54,6 +64,7 @@ public class BarrelController : MonoBehaviour
         // 만약 유저가 클릭한 배럴에 쓰여 있는 글자가 해당 stage의 정답과 일치하면,
         if (currentBarrelText == currentStageAnswerText)
         {
+            preventSeveralTouch = true;
             // 점수 올리기
             this.director.GetComponent<GameDirector>().GetPoint(100);
             // 다음 stage로 넘어가기

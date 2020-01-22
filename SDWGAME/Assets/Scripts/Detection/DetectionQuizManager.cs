@@ -15,12 +15,16 @@ public class DetectionQuizManager : MonoBehaviour
     // director
     private GameObject director;
     private GameObject description;
-    public GameObject Result;
-    public GameObject Panel;
-    public GameObject Chest1;
-    public GameObject Chest2;
-    public GameObject Chest3;
-
+    
+    public GameObject StarLeft;
+    public GameObject StarMiddle;
+    public GameObject StarRight;
+    public TextMeshProUGUI descriptionText;
+    public TextMeshProUGUI onesentenceText;
+    
+    // result handler
+    public ResultHandler _resultHandler;
+    
     [HideInInspector] private Animator[] animators = new Animator[5];
     // excel data
     public Entity_Detection list;
@@ -60,10 +64,14 @@ public class DetectionQuizManager : MonoBehaviour
     [HideInInspector] private bool run_once = false;
 
     private bool CheckPaused = false;
+    // 로딩중인지?
+    private bool isLoading = true;
     
     // Start is called before the first frame update
     void Start()
     {
+        stage_no = 0;
+        max_stage_no = 3;
         this.director = GameObject.Find("GameDirector");
 
         this.Barrels[0] = transform.Find("Barrel1").gameObject;
@@ -106,8 +114,11 @@ public class DetectionQuizManager : MonoBehaviour
         // timeScale이 1이고 CheckPaused가 true이면 timer를 restart
         if (Time.timeScale == 1 && CheckPaused)
         {
-            watch.Start();
-            CheckPaused = false;
+            if(!isLoading){
+                Debug.Log("????????????");
+                watch.Start();
+                CheckPaused = false;}
+            
         }
         
         if (watch.ElapsedMilliseconds > 0)
@@ -222,14 +233,14 @@ public class DetectionQuizManager : MonoBehaviour
             }
 
             //originalPosition 이 false인 경우에는 아무것도 하지 않다가 true가 되면 break한다.
-            string wordFileLink = $"Sounds/Detection/{list.sheets[level].list[stage_no].filename}"; 
-            Debug.Log(wordFileLink);
+            string wordFileLink = $"Sounds/Detection/{list.sheets[level].list[stage_no].filename}";
             Octo.GetComponent<AudioSource>().loop = false;
             Octo.GetComponent<AudioSource>().clip = Resources.Load(wordFileLink) as AudioClip;
             Debug.Log(Resources.Load(wordFileLink) as AudioClip);
             Octo.GetComponent<AudioSource>().Play();
             Debug.Log("타이머 스타트");
                     //클릭 타임이
+            isLoading = false;
             watch.Start();
         
 
@@ -288,61 +299,56 @@ public class DetectionQuizManager : MonoBehaviour
         }
         return null; // no clip by that name
     }
-    
-    
+
+
     IEnumerator DecideResult(float tcl, float tco)
     {
-        Result.SetActive(true);
-        Panel.transform.Find("Chests").gameObject.SetActive(true);
-        // Text 설정
-        GetComponent<PanelController>().OpenPanel(Panel);
-        // tcl : total_clicked
-        // tco : total_correct
-        string result_text =  $"{tcl}번만에 {tco}개를 맞췄어요!";
+        yield return new WaitForSeconds(1.0f);
+        _resultHandler.OpenResult();
+//        // Text 설정
+//        // tcl : total_clicked
+//        // tco : total_correct
+        string result_text = $"{tcl}번만에 {tco}개를 맞췄어요!";
         string one_sentence = "";
         string[] sentences = {"정말 잘했어요", "조금 더 신중하게 해 보자", "더 연습하자"};
         float rate = tcl / tco;
-        yield return new WaitForSeconds(1f);
-        // 만약에 2.5배보다 더 많이 클릭했으면
+//        // 만약에 2.5배보다 더 많이 클릭했으면
         if (rate > 2.5f)
         {
             // 아무것도 열리지 않을 것.
-            GetComponent<PanelController>().OpenEmptyChest(Chest1);
+            // do nothing
+            StarLeft.SetActive(false);
             one_sentence = sentences[2];
         }
         else
         {
             one_sentence = sentences[2];
-            GetComponent<PanelController>().OpenTreasureChest(Chest1);
+            StarLeft.SetActive(true);
         }
-        yield return new WaitForSeconds(1f);
+
         if (rate > 2)
         {
-            GetComponent<PanelController>().OpenEmptyChest(Chest2);
-            
+            StarMiddle.SetActive(false);
         }
         else
         {
             one_sentence = sentences[1];
-            GetComponent<PanelController>().OpenTreasureChest(Chest2);
+            StarMiddle.SetActive(true);
         }
-        yield return new WaitForSeconds(1f);
+
         if (rate > 1.5)
         {
-            
-            GetComponent<PanelController>().OpenEmptyChest(Chest3);
+            StarRight.SetActive(false);
         }
         else
         {
             one_sentence = sentences[0];
-            GetComponent<PanelController>().OpenTreasureChest(Chest3);
-        }
-        
-        Panel.transform.Find("ResultDescriptionText").GetComponent<TextMeshProUGUI>().text = result_text;
-        Panel.transform.Find("ResultOneSentence").GetComponent<TextMeshProUGUI>().text = one_sentence;
-        yield return new WaitForSeconds(1f);
-        Panel.transform.Find("ResultDescriptionText").gameObject.SetActive(true);
-        Panel.transform.Find("ResultOneSentence").gameObject.SetActive(true);
+            StarRight.SetActive(true);
 
+        }
+
+        descriptionText.text = result_text;
+        onesentenceText.text = one_sentence;
     }
+
 }
