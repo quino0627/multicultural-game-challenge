@@ -1,8 +1,4 @@
 sceneSetups:
-<<<<<<< Updated upstream
 - path: Assets/Scenes/StartMenu.unity
-=======
-- path: Assets/Scenes/CrabLevel1.unity
->>>>>>> Stashed changes
   isLoaded: 1
   isActive: 1

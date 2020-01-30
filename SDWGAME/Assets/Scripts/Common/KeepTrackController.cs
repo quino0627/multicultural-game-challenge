@@ -39,6 +39,7 @@ public class KeepTrackController : MonoBehaviour
     {
         DontDestroyOnLoad(gameObject);
         isLevelOpen=new bool[3];
+        tmpLevel = new int[4];
         Load();
         //Debug.Log("Loaded");
        Debug.Log(isLevelOpen.Length);

@@ -97,7 +97,7 @@ public class BarrelController : MonoBehaviour
             // 틀렸으니 까 total clicked만 올린다.
             SoundManager.Instance.Play_ClickedWrongAnswer();
             description.GetComponent<DetectionDescriptionController>().WrongAnswer();
-            Transform tmpTransform = GameObject.Find("QuizContainer").transform;
+//            Transform tmpTransform = GameObject.Find("QuizContainer").transform;
             tmpTransform.GetComponent<DetectionQuizManager>().total_clicked++;
         }
 
