@@ -8,7 +8,9 @@ public class SelectMenu : MonoBehaviour
 {
     public GraphicRaycaster GR;
     public SettingsHandler m_Settings = null;
-    
+    public GameObject TotalStorage;
+    public KeepTrackController TotalStorageScript;
+    public int[] stages;
     void Awake()
     {
         // Set GSui.Instance.m_AutoAnimation to false, 
@@ -28,6 +30,12 @@ public class SelectMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        TotalStorage = GameObject.Find("TotalStorage");
+        TotalStorageScript = TotalStorage.GetComponent<KeepTrackController>();
+        
+        
+        
+        
 
     }
 
@@ -51,8 +59,30 @@ public class SelectMenu : MonoBehaviour
     { 
         GR.enabled = false;
         SoundManager.Instance.Play_SoundClick();
-        SceneManager.LoadScene("CrabLevel1");
-        
+        if (TotalStorageScript.chosenLevel == 0)
+        {
+            if (TotalStorageScript.tmpStage[1] < 15)
+            {
+                SceneManager.LoadScene("CrabLevel1");
+            }
+            else
+            {
+                SceneManager.LoadScene("CrabLevel2");
+            }
+        }
+
+        if (TotalStorageScript.chosenLevel == 1)
+        {
+           
+            SceneManager.LoadScene("CrabLevel3");
+            
+        }
+
+        if (TotalStorageScript.chosenLevel == 2)
+        {
+            SceneManager.LoadScene("CrabLevel4");
+        }
+
     }
 
     public void Elimination()

@@ -105,7 +105,8 @@ public class FishShowAnswer : MonoBehaviour
 
         director = GameObject.Find("EliminationGameDirector");
         refStageIndex = stageIndex;
-        totalStorageScript.tmpLevel[2] = level;
+        level = totalStorageScript.chosenLevel;
+        stageIndex = totalStorageScript.tmpStage[2];
         QuizManager = GameObject.Find("QuizManager");
         fishExitPos = GameObject.Find("FishExitPos").transform;
         Fishes = GameObject.Find("Fishes").transform;
@@ -163,6 +164,7 @@ public class FishShowAnswer : MonoBehaviour
                 }
                 else
                 {
+                    //Debug.Log("jdklsfjalkjfalksjf;lkasjfal;ksdjfl");
                     isTimeSetted = false;
                     GoNextStage(i, true);
                 }
@@ -351,7 +353,7 @@ public class FishShowAnswer : MonoBehaviour
     {
         yield return new WaitForSeconds(0.1f); 
         //choices[i].SetActive(false);
-        
+        Debug.Log("Inside HideAnswers");
         while (!isFishExited)
         {
             yield return new WaitForEndOfFrame();
@@ -386,23 +388,27 @@ public class FishShowAnswer : MonoBehaviour
             }
         }
         
-        //Debug.Log($"stageIndex:{stageIndex}");
-        //Debug.Log($"stageMaxIndex:{stageMaxIndex}");
+        Debug.Log($"stageIndex:{stageIndex}");
+        Debug.Log($"stageMaxIndex:{stageMaxIndex}");
         // stageIndex는 0 부터 시작
         // stageMaxIndex-1 : 전체 stage개수
         // stage가 끝났을 경우에. Result창을 보여줌
         if (stageIndex >= stageMaxIndex)
         {
-            //Debug.Log("Game Is Over");
+            Debug.Log("Game Is Over");
             shark.SetActive(false);
             Fishes.gameObject.SetActive(false);
+            totalStorageScript.tmpLevel[2]++;
             yield return new WaitForSeconds(1f);
             yield return DecideResult(total_clicked, total_correct);
         }
         
+        yield return new WaitForSeconds(1.0f);
+        
         // stage가 아직 남았을 경우에
         if (stageIndex < stageMaxIndex)
         {
+            Debug.Log("StageIndex<StageMaxIndex");
             if (sharkAte||isTimeOver)
             {
                 //Debug.Log("LoadNextScene");
@@ -452,7 +458,9 @@ public class FishShowAnswer : MonoBehaviour
         watch.Stop();
         isTimeSetted = false;
         stageIndex++;
+        totalStorageScript.tmpStage[2] = stageIndex;
         watch.Reset();
+        Debug.Log("In GoNextSTage Invoke HideAnswer");
         StartCoroutine(HideAnswers(a,b));
     }
     

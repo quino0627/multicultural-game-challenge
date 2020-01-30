@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class LevelMenu : MonoBehaviour
@@ -43,6 +44,22 @@ public class LevelMenu : MonoBehaviour
             Hard.interactable = false;
         }
         
+    }
+
+    public void EasySelectMenu()
+    {
+        totalStorageScript.chosenLevel = 0;
+        SceneManager.LoadScene("SelectMenu");
+    }
+    public void NormalSelectMenu()
+    {
+        totalStorageScript.chosenLevel = 1;
+        SceneManager.LoadScene("SelectMenu");
+    }
+    public void HardSelectMenu()
+    {
+        totalStorageScript.chosenLevel = 2;
+        SceneManager.LoadScene("SelectMenu");
     }
     
     public void ToggleSettingPanel()

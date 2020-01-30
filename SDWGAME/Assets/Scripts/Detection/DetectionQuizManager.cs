@@ -89,8 +89,9 @@ public class DetectionQuizManager : MonoBehaviour
         totalStorageObject = GameObject.Find("TotalStorage");
         totalStorageScript = totalStorageObject.GetComponent<KeepTrackController>();
         
-        stage_no = 0;
-        
+        //stage_no = 0;
+        level = totalStorageScript.chosenLevel;
+        stage_no = totalStorageScript.tmpStage[0];
         //wj
         ref_stage_no = stage_no;
         
@@ -202,6 +203,7 @@ public class DetectionQuizManager : MonoBehaviour
         //wj
         ref_answer_string = answer_string_list[stage_no];
         totalStorageScript.tmpLevel[0] = level;
+        totalStorageScript.tmpStage[0] = stage_no;
         //보기들을 나머지 위치에 넣음
         //
         int tmp = 1;
@@ -315,10 +317,12 @@ public class DetectionQuizManager : MonoBehaviour
         if (stage_no < max_stage_no - 1)
         {
             stage_no++;
+            totalStorageScript.tmpStage[3] = stage_no;
             StartCoroutine(StageEach(level));
         }
         else
         {
+            totalStorageScript.tmpLevel[0]++;
             Debug.Log("결과창 setActive");
             yield return DecideResult(total_clicked, total_correct);
         }

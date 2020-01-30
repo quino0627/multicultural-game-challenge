@@ -46,7 +46,7 @@ public class StartMenu : UIPT_PRO_Demo_GUIPanel
         SoundManager.Instance.Play_SoundPlay();
         GSui.Instance.MoveOut(this.transform, true);
         GSui.Instance.DontDestroyParticleWhenLoadNewScene(this.transform, true);
-        GSui.Instance.LoadLevel("SelectMenu", 1.0f);
+        GSui.Instance.LoadLevel("LevelMenu", 1.0f);
     }
 
     public void GoToResult()
@@ -63,7 +63,7 @@ public class StartMenu : UIPT_PRO_Demo_GUIPanel
     
     IEnumerator Show()
     {
-        Debug.Log("ASDF");
+        //Debug.Log("ASDF");
         // Play MoveIn animation
         GSui.Instance.MoveIn(this.transform, true);
 

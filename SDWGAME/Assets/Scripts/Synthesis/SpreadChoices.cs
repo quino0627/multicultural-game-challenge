@@ -112,7 +112,9 @@ public class SpreadChoices : MonoBehaviour
 //        Debug.Log("Level, StageIndex = ("+level+", "+stageIndex+")");
         stageMaxIndex = 3;
         refStageIndex = stageIndex;
-        totalStorageScript.tmpLevel[1] = level;
+        
+        level = totalStorageScript.chosenLevel;
+        stageIndex = totalStorageScript.tmpStage[1]; 
         QuizInit();
         
     }
@@ -396,6 +398,7 @@ public class SpreadChoices : MonoBehaviour
         else
         { 
             stageIndex++;
+            totalStorageScript.tmpStage[1] = stageIndex;
         }
         
         StartCoroutine(HideAnswers());
@@ -424,6 +427,7 @@ public class SpreadChoices : MonoBehaviour
         if (stageIndex >= stageMaxIndex)
         {
             Debug.Log("Game Is Over");
+            totalStorageScript.tmpLevel[1]++;
             yield return DecideResult(total_tried, total_correct, total_correct_stage);
         }
 
