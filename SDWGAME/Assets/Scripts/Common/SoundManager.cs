@@ -43,6 +43,7 @@ public class SoundManager : MonoBehaviour
 				instance = GameObject.FindObjectOfType<SoundManager>();
 				DontDestroyOnLoad(instance.gameObject);
 			}
+
 			return instance;
 		}
 	}
@@ -66,35 +67,53 @@ public class SoundManager : MonoBehaviour
 	public AudioClip m_ButtonPlay = null;
 	public AudioClip m_ButtonTab = null;
 	public AudioClip m_ButtonYes = null;
+
 	public AudioClip m_ButtonExitGame = null;
+
 	// 게임 선택 시 호버했을 떄나오는 소리 
 	public AudioClip m_ButtonGameHover = null;
+
 	// 문어가 움직일 때 나는 소리
 	public AudioClip m_OctopusMove = null;
+
 	// 말풍선 pop 할때 나는 소리
 	public AudioClip m_SpeechBubblePop = null;
+
 	// DetectionStage Barrel 나타나는 소리
 	public AudioClip m_BarrelCreated = null;
+
 	// 올바른 보기를 클릭했을 때
 	public AudioClip m_ClickedCorrectAnswer = null;
+
 	// 틀린 보기를 선택했을 떄
 	public AudioClip m_ClickedWrongAnswer = null;
+
 	// 결과창에서 별이 박힐 때
 	public AudioClip m_StarShowedUp = null;
+
 	// 별을 하나도 못 받았을 때 
 	public AudioClip m_NoStarShowedUp = null;
+
 	// 해마가 물 쏠 때
 	public AudioClip m_SeahorseWaves = null;
+
 	// 대치과제에서 단어가 제시될 때
 	public AudioClip m_AlterWordShowedUp = null;
+
 	// 대치과제에서 버블이 나올 때
 	public AudioClip m_AlterBubbleShowedUp = null;
+
 	// 탈락과제에서 상어가 튀어나올 때
 	public AudioClip m_SharkShowedUp = null;
+
 	// 탈락과제에서 상어가 물고기를 먹을 때
 	public AudioClip m_SharkEatingFish = null;
-	
-	
+
+	// 합성과제에서 해파리가 뽀글뽀글 올라올 떄
+	public AudioClip m_JellyFishShowedUp = null;
+
+	// 해파리가 틀렸을 때 전기충격
+	public AudioClip m_JellyFishShocked = null;
 
 
 
@@ -236,8 +255,8 @@ public class SoundManager : MonoBehaviour
 			}
 		}
 	}
-	
-	
+
+
 
 	// Play sound one shot
 	void PlaySoundOneShot(AudioClip pAudioClip)
@@ -331,31 +350,31 @@ public class SoundManager : MonoBehaviour
 
 	public void StopMusic()
 	{
-		
-			AudioListener pAudioListener = GameObject.FindObjectOfType<AudioListener>();
-			if (pAudioListener != null)
-			{
-				Debug.Log("ASDFASDF");
-				// Look for an AudioListener component that is not playing background music or sounds.
-				bool IsPlaySuccess = false;
-				AudioSource[] pAudioSourceList = pAudioListener.gameObject.GetComponents<AudioSource>();
-				if (pAudioSourceList.Length > 0)
-				{
-					Debug.Log("HIHI");
-					for (int i = 0; i < pAudioSourceList.Length; i++)
-					{
-						Debug.Log(pAudioSourceList[i].name);
-						// Stop music
-						
-							pAudioSourceList[i].Stop();
-//							break;
-						
-					}
-				}
 
-				
+		AudioListener pAudioListener = GameObject.FindObjectOfType<AudioListener>();
+		if (pAudioListener != null)
+		{
+			Debug.Log("ASDFASDF");
+			// Look for an AudioListener component that is not playing background music or sounds.
+			bool IsPlaySuccess = false;
+			AudioSource[] pAudioSourceList = pAudioListener.gameObject.GetComponents<AudioSource>();
+			if (pAudioSourceList.Length > 0)
+			{
+				Debug.Log("HIHI");
+				for (int i = 0; i < pAudioSourceList.Length; i++)
+				{
+					Debug.Log(pAudioSourceList[i].name);
+					// Stop music
+
+					pAudioSourceList[i].Stop();
+//							break;
+
+				}
 			}
-		
+
+
+		}
+
 	}
 
 	// Set sound volume between 0.0 to 1.0
@@ -433,7 +452,7 @@ public class SoundManager : MonoBehaviour
 	{
 		PlaySoundOneShot(m_ButtonYes);
 	}
-	
+
 	// When exit game
 	public void Play_SoundExitGame()
 	{
@@ -505,6 +524,15 @@ public class SoundManager : MonoBehaviour
 		PlaySoundOneShot(m_SharkEatingFish);
 	}
 
+	public void Play_JellyFishShowedUp()
+	{
+		PlayMusic(m_JellyFishShowedUp);
+	}
+
+	public void Play_JellyFishShocked()
+	{
+		PlaySoundOneShot(m_JellyFishShocked);
+	}
 
 	#endregion // Functions
 }

@@ -74,5 +74,7 @@ MonoBehaviour:
     type: 3}
   m_SharkShowedUp: {fileID: 8300000, guid: 5c2405f4ee7584acbaa1c741c36239c7, type: 3}
   m_SharkEatingFish: {fileID: 8300000, guid: 887b9618127e1464aabefb814a24bc75, type: 3}
+  m_JellyFishShowedUp: {fileID: 8300000, guid: 79b0d7a1e422047079ba09687c1aeb11, type: 3}
+  m_JellyFishShocked: {fileID: 8300000, guid: 8679320d2f49746878d50728f45e123b, type: 3}
   m_SoundVolume: 0.5
   m_MusicVolume: 0.5

@@ -411,7 +411,8 @@ public class FishShowAnswer : MonoBehaviour
             Debug.Log("StageIndex<StageMaxIndex");
             if (sharkAte||isTimeOver)
             {
-                //Debug.Log("LoadNextScene");
+                Debug.Log("LoadNextScene");
+                
                 yield return new WaitForSeconds(2.0f);
                 LoadNextScene();
             }

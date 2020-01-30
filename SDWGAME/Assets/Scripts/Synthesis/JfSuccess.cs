@@ -54,7 +54,7 @@ public class JfSuccess : MonoBehaviour
                 GameObject.Find("QuizManager").GetComponent<SpreadChoices>().PlusTotalCorrectStage();
                 tmpValue = true;
 //                Debug.Log("GOOGGOOD");
-                
+                Crab.transform.Find("DescriptionBubble").GetComponent<SynthesisDescriptionController>().CorrectAnswer();
             }
 
             spreadChoicesScript.isUserRight = true;

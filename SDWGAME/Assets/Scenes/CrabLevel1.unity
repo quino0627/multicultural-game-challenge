@@ -4734,16 +4734,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7c9c032716417c45807e99c447abddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  totalStorageObject: {fileID: 0}
   StarLeft: {fileID: 1223843983}
   StarMiddle: {fileID: 1223843984}
   StarRight: {fileID: 1223843982}
   descriptionText: {fileID: 1223843981}
   onesentenceText: {fileID: 1223843980}
   _resultHandler: {fileID: 1223843985}
+  ref_total_tried: 0
   allJFArrived: 0
   cntJFArrived: 0
+  isUserRight: 0
   data: {fileID: 11400000, guid: 8fcb1efef110c4821bc65a35a4c4dcec, type: 2}
   level: 0
+  refStageIndex: 0
   choices:
   - {fileID: 226080029}
   - {fileID: 7814788422906350757}
@@ -4777,6 +4781,7 @@ MonoBehaviour:
   corrAnsPosIndex: 
   corrAnsCnt: 1
   wrongAnsCnt: 3
+  chosenAns: []
   PickedAnswer:
   - {fileID: 169968083}
   - {fileID: 0}
@@ -4823,6 +4828,8 @@ MonoBehaviour:
   isCrabAboard: 0
   isSuccess: 0
   willCrabReturn: 0
+  QuizManager: {fileID: 0}
+  spreadChoicesScript: {fileID: 0}
   tmpValue: 0
 --- !u!114 &1110820570
 MonoBehaviour:
@@ -6148,6 +6155,75 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &1908418731
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8001905002203895302, guid: 7425c1c00e5b64bc3a50ed2166d55055,
+        type: 3}
+      propertyPath: m_Name
+      value: TotalStorage
+      objectReference: {fileID: 0}
+    - target: {fileID: 6122125076985990004, guid: 7425c1c00e5b64bc3a50ed2166d55055,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.0830417
+      objectReference: {fileID: 0}
+    - target: {fileID: 6122125076985990004, guid: 7425c1c00e5b64bc3a50ed2166d55055,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.68401897
+      objectReference: {fileID: 0}
+    - target: {fileID: 6122125076985990004, guid: 7425c1c00e5b64bc3a50ed2166d55055,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.08320366
+      objectReference: {fileID: 0}
+    - target: {fileID: 6122125076985990004, guid: 7425c1c00e5b64bc3a50ed2166d55055,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6122125076985990004, guid: 7425c1c00e5b64bc3a50ed2166d55055,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6122125076985990004, guid: 7425c1c00e5b64bc3a50ed2166d55055,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6122125076985990004, guid: 7425c1c00e5b64bc3a50ed2166d55055,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6122125076985990004, guid: 7425c1c00e5b64bc3a50ed2166d55055,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 6122125076985990004, guid: 7425c1c00e5b64bc3a50ed2166d55055,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6122125076985990004, guid: 7425c1c00e5b64bc3a50ed2166d55055,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6122125076985990004, guid: 7425c1c00e5b64bc3a50ed2166d55055,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7425c1c00e5b64bc3a50ed2166d55055, type: 3}
 --- !u!1 &1908924544
 GameObject:
   m_ObjectHideFlags: 0
@@ -6310,6 +6386,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectPlace: {fileID: 1068975827}
+  QuizManager: {fileID: 0}
+  spreadChoicesScript: {fileID: 0}
 --- !u!222 &1908924548
 CanvasRenderer:
   m_ObjectHideFlags: 2
@@ -6571,6 +6649,10 @@ PrefabInstance:
       propertyPath: jellyfish
       value: 
       objectReference: {fileID: 137979843}
+    - target: {fileID: 1288890979, guid: ec1a40a14ca4642fba19ea0de5d82ced, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec1a40a14ca4642fba19ea0de5d82ced, type: 3}
 --- !u!1 &1945467935 stripped
@@ -6947,6 +7029,9 @@ MonoBehaviour:
   QuizManager: {fileID: 1110820566}
   willCrabReturn: 0
   Carrier: {fileID: 137979843}
+  spreadChoicesScript: {fileID: 0}
+  tmp: {fileID: 0}
+  child: {fileID: 0}
 --- !u!61 &2048071434
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7007,6 +7092,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectPlace: {fileID: 1068975827}
+  QuizManager: {fileID: 0}
+  spreadChoicesScript: {fileID: 0}
 --- !u!1 &2092384536
 GameObject:
   m_ObjectHideFlags: 0
@@ -7265,6 +7352,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectPlace: {fileID: 1068975827}
+  QuizManager: {fileID: 0}
+  spreadChoicesScript: {fileID: 0}
 --- !u!114 &387041623738357332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7454,6 +7543,9 @@ MonoBehaviour:
   QuizManager: {fileID: 1110820566}
   willCrabReturn: 0
   Carrier: {fileID: 137979843}
+  spreadChoicesScript: {fileID: 0}
+  tmp: {fileID: 0}
+  child: {fileID: 0}
 --- !u!61 &387041623934231002
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7514,6 +7606,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectPlace: {fileID: 1068975827}
+  QuizManager: {fileID: 0}
+  spreadChoicesScript: {fileID: 0}
 --- !u!1 &961433035622520129
 GameObject:
   m_ObjectHideFlags: 0
@@ -7681,6 +7775,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectPlace: {fileID: 1068975827}
+  QuizManager: {fileID: 0}
+  spreadChoicesScript: {fileID: 0}
 --- !u!114 &961433037524023125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7706,6 +7802,9 @@ MonoBehaviour:
   QuizManager: {fileID: 1110820566}
   willCrabReturn: 0
   Carrier: {fileID: 137979843}
+  spreadChoicesScript: {fileID: 0}
+  tmp: {fileID: 0}
+  child: {fileID: 0}
 --- !u!61 &961433037524023126
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7860,6 +7959,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectPlace: {fileID: 1068975827}
+  QuizManager: {fileID: 0}
+  spreadChoicesScript: {fileID: 0}
 --- !u!114 &961433037695172832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8059,6 +8160,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectPlace: {fileID: 1068975827}
+  QuizManager: {fileID: 0}
+  spreadChoicesScript: {fileID: 0}
 --- !u!58 &1187686099560868951
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -8234,6 +8337,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectPlace: {fileID: 1068975827}
+  QuizManager: {fileID: 0}
+  spreadChoicesScript: {fileID: 0}
 --- !u!114 &1187686099731504092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8259,6 +8364,9 @@ MonoBehaviour:
   QuizManager: {fileID: 1110820566}
   willCrabReturn: 0
   Carrier: {fileID: 137979843}
+  spreadChoicesScript: {fileID: 0}
+  tmp: {fileID: 0}
+  child: {fileID: 0}
 --- !u!50 &1187686099731504094
 Rigidbody2D:
   serializedVersion: 4
@@ -8477,6 +8585,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1312120093460475355, guid: 1f0aaaafbb86a441aa3612a1c9e9c879,
+        type: 3}
+      propertyPath: m_Settings
+      value: 
+      objectReference: {fileID: 1027040995}
     - target: {fileID: 1312120093460475352, guid: 1f0aaaafbb86a441aa3612a1c9e9c879,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8582,11 +8695,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1312120093460475355, guid: 1f0aaaafbb86a441aa3612a1c9e9c879,
-        type: 3}
-      propertyPath: m_Settings
-      value: 
-      objectReference: {fileID: 1027040995}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f0aaaafbb86a441aa3612a1c9e9c879, type: 3}
 --- !u!4 &6527218231077151561
@@ -8768,6 +8876,9 @@ MonoBehaviour:
   QuizManager: {fileID: 1110820566}
   willCrabReturn: 0
   Carrier: {fileID: 137979843}
+  spreadChoicesScript: {fileID: 0}
+  tmp: {fileID: 0}
+  child: {fileID: 0}
 --- !u!50 &6527218233003737442
 Rigidbody2D:
   serializedVersion: 4
@@ -8828,6 +8939,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectPlace: {fileID: 1068975827}
+  QuizManager: {fileID: 0}
+  spreadChoicesScript: {fileID: 0}
 --- !u!1 &6527218233151387369
 GameObject:
   m_ObjectHideFlags: 0
@@ -8863,6 +8976,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectPlace: {fileID: 1068975827}
+  QuizManager: {fileID: 0}
+  spreadChoicesScript: {fileID: 0}
 --- !u!58 &6527218233151387371
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -9241,6 +9356,9 @@ MonoBehaviour:
   QuizManager: {fileID: 1110820566}
   willCrabReturn: 0
   Carrier: {fileID: 137979843}
+  spreadChoicesScript: {fileID: 0}
+  tmp: {fileID: 0}
+  child: {fileID: 0}
 --- !u!61 &7814788424702996146
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9301,6 +9419,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectPlace: {fileID: 1068975827}
+  QuizManager: {fileID: 0}
+  spreadChoicesScript: {fileID: 0}
 --- !u!1 &7814788424859474232
 GameObject:
   m_ObjectHideFlags: 0
@@ -9371,6 +9491,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectPlace: {fileID: 1068975827}
+  QuizManager: {fileID: 0}
+  spreadChoicesScript: {fileID: 0}
 --- !u!114 &7814788424859474236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9647,6 +9769,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectPlace: {fileID: 1068975827}
+  QuizManager: {fileID: 0}
+  spreadChoicesScript: {fileID: 0}
 --- !u!61 &7921267749337008252
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9719,6 +9843,9 @@ MonoBehaviour:
   QuizManager: {fileID: 1110820566}
   willCrabReturn: 0
   Carrier: {fileID: 137979843}
+  spreadChoicesScript: {fileID: 0}
+  tmp: {fileID: 0}
+  child: {fileID: 0}
 --- !u!23 &7921267749474107379
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9785,6 +9912,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectPlace: {fileID: 1068975827}
+  QuizManager: {fileID: 0}
+  spreadChoicesScript: {fileID: 0}
 --- !u!1 &7921267749474107382
 GameObject:
   m_ObjectHideFlags: 0
@@ -10133,6 +10262,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectPlace: {fileID: 1068975827}
+  QuizManager: {fileID: 0}
+  spreadChoicesScript: {fileID: 0}
 --- !u!114 &8924173200129077740
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10322,6 +10453,9 @@ MonoBehaviour:
   QuizManager: {fileID: 1110820566}
   willCrabReturn: 0
   Carrier: {fileID: 137979843}
+  spreadChoicesScript: {fileID: 0}
+  tmp: {fileID: 0}
+  child: {fileID: 0}
 --- !u!61 &8924173200201729634
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10382,6 +10516,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectPlace: {fileID: 1068975827}
+  QuizManager: {fileID: 0}
+  spreadChoicesScript: {fileID: 0}
 --- !u!1 &8924173201015997769
 GameObject:
   m_ObjectHideFlags: 0

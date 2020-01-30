@@ -112,7 +112,7 @@ public class SpreadChoices : MonoBehaviour
 //        Debug.Log("Level, StageIndex = ("+level+", "+stageIndex+")");
         stageMaxIndex = 3;
         refStageIndex = stageIndex;
-        
+        crab.transform.Find("DescriptionBubble").gameObject.SetActive(false);
         level = totalStorageScript.chosenLevel;
         stageIndex = totalStorageScript.tmpStage[1]; 
         QuizInit();
@@ -281,12 +281,27 @@ public class SpreadChoices : MonoBehaviour
     {
         
         yield return new WaitForSeconds(2.0f);
+        crab.transform.Find("DescriptionBubble").gameObject.SetActive(true);
+        SoundManager.Instance.Play_SpeechBubblePop();
+        yield return new WaitForSeconds(2.0f);
+
+        if (SoundManager.Instance.IsMusicPlaying())
+        {
+            SoundManager.Instance.StopMusic();
+        }
+        yield return new WaitForSeconds(1.5f);
         string wordFileLink = $"Sounds/Synthesis/{data.sheets[level].list[stageIndex].filename}";
         Debug.Log(data.sheets[level].list[stageIndex].filename);
         Debug.Log(wordFileLink);
         crab.GetComponent<AudioSource>().loop = false;
         crab.GetComponent<AudioSource>().clip = Resources.Load(wordFileLink) as AudioClip;
         crab.GetComponent<AudioSource>().Play();
+        yield return new WaitForSeconds(1.5f);
+        if (!SoundManager.Instance.IsMusicPlaying())
+        {
+            SoundManager.Instance.Play_JellyFishShowedUp();    
+        }
+        
         if (crab.GetComponent<AudioSource>().clip)
         {
             yield return new WaitForSeconds(crab.GetComponent<AudioSource>().clip.length + 1f);
@@ -321,7 +336,11 @@ public class SpreadChoices : MonoBehaviour
     IEnumerator InitialJellyfish(int i)
     {
         //Debug.Log("InitialJellyfish "+i);
-        
+        // 얘는 OneShot이 아니고 백그라운드 뮤직
+        if (!SoundManager.Instance.IsMusicPlaying())
+        {
+            SoundManager.Instance.Play_JellyFishShowedUp();    
+        }
         while (!JfArrived[i])
         {
             yield return new WaitForEndOfFrame();
@@ -366,14 +385,8 @@ public class SpreadChoices : MonoBehaviour
          {
              Debug.Log("DONE");
              // 해파리가 모두 제 자리에 왔을 때 시간을 시작.
-             watch.Start();
-             for (int i = 0; i < wrongAnsCnt + corrAnsCnt; i++)
-             {
-                 JfArrived[corrAnsPosIndex[i]] = false;
-             }
-
-             
              initialDone = true;
+             Invoke("StartTime", 2.0f);
              
              //Debug.Log("In update Jfarrived Initialized");
          }
@@ -385,6 +398,15 @@ public class SpreadChoices : MonoBehaviour
          
          
          
+     }
+
+     private void StartTime()
+     {
+         watch.Start();
+         for (int i = 0; i < wrongAnsCnt + corrAnsCnt; i++)
+         {
+             JfArrived[corrAnsPosIndex[i]] = false;
+         }
      }
 
     public void GoNext()
@@ -513,7 +535,7 @@ public class SpreadChoices : MonoBehaviour
         // tcl : total_clicked
         // tco : total_correct
         string result_text =  $"{ttr - tco}번 틀리고 {tcos}개를 맞췄어요!";
-        string one_sentence = "";
+        descriptionText.text = result_text;
         string[] sentences = {"정말 잘했어요", "조금 더 신중하게 해 보자", "더 연습하자"};
         float rate = ttr / tco;
         //        // 만약에 2.5배보다 더 많이 클릭했으면
@@ -521,13 +543,17 @@ public class SpreadChoices : MonoBehaviour
         {
             // 아무것도 열리지 않을 것.
             // do nothing
+            SoundManager.Instance.Play_NoStarShowedUp();
             StarLeft.SetActive(false);
-            one_sentence = sentences[2];
+            onesentenceText.text = sentences[2];
+            
         }
         else
         {
-            one_sentence = sentences[2];
+            SoundManager.Instance.Play_StarShowedUp();
+            onesentenceText.text = sentences[2];
             StarLeft.SetActive(true);
+            yield return new WaitForSeconds(.5f);
         }
 
         if (rate > 2)
@@ -536,8 +562,10 @@ public class SpreadChoices : MonoBehaviour
         }
         else
         {
-            one_sentence = sentences[1];
+            SoundManager.Instance.Play_StarShowedUp();
+            onesentenceText.text = sentences[1];
             StarMiddle.SetActive(true);
+            yield return new WaitForSeconds(.5f);
         }
 
         if (rate > 1.5)
@@ -546,13 +574,14 @@ public class SpreadChoices : MonoBehaviour
         }
         else
         {
-            one_sentence = sentences[0];
+            SoundManager.Instance.Play_StarShowedUp();
+            onesentenceText.text = sentences[0];
             StarRight.SetActive(true);
+            yield return new WaitForSeconds(.5f);
 
         }
 
-        descriptionText.text = result_text;
-        onesentenceText.text = one_sentence;
+        
     }
     
     public void PlusTotalTry()

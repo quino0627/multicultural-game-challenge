@@ -18,7 +18,7 @@ public class MoveJellyfish : MonoBehaviour
     public bool onCircle;
     public bool sparked;
     public bool ischecked;
-    public GameObject Crab;
+    public GameObject Crab = null;
     public GameObject Spark;
     public Vector2 aboardPosition;
     public Vector2 departPosition;
@@ -41,6 +41,11 @@ public class MoveJellyfish : MonoBehaviour
         willCrabReturn = true;*/
         tmp = QuizManager.GetComponent<SpreadChoices>();
         child = GetComponentInChildren<TextMeshPro>();
+        if (Crab == null)
+        {
+            Crab = GameObject.Find("Crab");
+        }
+        
     }
 
     // Update is called once per frame
@@ -73,7 +78,11 @@ public class MoveJellyfish : MonoBehaviour
         //모든 글자 성공후 animation은 JfSuccess.js
         if (gameObject.CompareTag("CorrectAns") && !ischecked)
         {
-            Debug.Log("");
+//            Debug.Log("");
+            Debug.Log("ZZZZZZZZ");
+            Crab.transform.Find("DescriptionBubble").GetComponent<SynthesisDescriptionController>().CorrectOneWord();
+            SoundManager.Instance.Play_ClickedCorrectAnswer();
+//            Crab.transform.Find("DescriptionBubble").GetComponent<SynthesisDescriptionController>().CorrectAnswer();
             QuizManager.GetComponent<SpreadChoices>().PlusTotalCorrect();
             //QuizManager.GetComponent<SpreadChoices>().PlusTotalTry();
             Carrier.SetActive(true);
@@ -117,11 +126,12 @@ public class MoveJellyfish : MonoBehaviour
 
     IEnumerator ChoseWrongAnswer(float step)
     {
+        
+        
         //spark animation
         if (!sparked)
         {
-            Debug.Log("MAYBe ONLY ONCE?");
-            
+            SoundManager.Instance.Play_JellyFishShocked();
             // totaltried ++
             QuizManager.GetComponent<SpreadChoices>().PlusTotalTry();
             
