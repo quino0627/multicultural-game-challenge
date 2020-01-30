@@ -1,0 +1,78 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2966128587410085236
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2966128587410085224}
+  - component: {fileID: 2966128587410085237}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2966128587410085224
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2966128587410085236}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 330.42242, y: 250.82956, z: 6.21378}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2966128587410085237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2966128587410085236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e57e2b34f09142b1b8251e4f3894382, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MaxAudioSource: 8
+  m_Music: {fileID: 8300000, guid: 0d69a57e4a3f6b54dbca4fb6a11be49f, type: 3}
+  DetectionMusic: {fileID: 8300000, guid: 2c41c63412a8cd040b45854337285773, type: 3}
+  SynthesisMusic: {fileID: 8300000, guid: a35b58dddaa2b7a439c90cad10ca37d3, type: 3}
+  AlternativeMusic: {fileID: 8300000, guid: 61cb60d759c121d429de2e0f0b1a7543, type: 3}
+  EliminationMusic: {fileID: 8300000, guid: b7154de6eb78db94998eb3f5a16ed805, type: 3}
+  m_ButtonBack: {fileID: 8300000, guid: a44087fa3b6dc48d28f91873521e7543, type: 3}
+  m_ButtonClick: {fileID: 8300000, guid: 38079713ac813444691665780f3d0960, type: 3}
+  m_ButtonDisable: {fileID: 8300000, guid: 021ae46dad6884066ae3e916a8bb3a9c, type: 3}
+  m_ButtonNo: {fileID: 8300000, guid: eeb6d9259ea0e41febf6355eb62747ef, type: 3}
+  m_ButtonPause: {fileID: 8300000, guid: 0d742c066e0434ff09c4fde91772ce13, type: 3}
+  m_ButtonPlay: {fileID: 8300000, guid: c8af2c8d8063a4a6497e9575bf74228a, type: 3}
+  m_ButtonTab: {fileID: 8300000, guid: 805891eb1d53b45108a345977240d7f6, type: 3}
+  m_ButtonYes: {fileID: 8300000, guid: 7ca46b43ef14e436798aa2962084634a, type: 3}
+  m_ButtonExitGame: {fileID: 8300000, guid: b88407bf65a4f4319a2ae8b30ba683c9, type: 3}
+  m_ButtonGameHover: {fileID: 8300000, guid: 4289ce75543cf432281e7b659c96e175, type: 3}
+  m_OctopusMove: {fileID: 8300000, guid: 79b0d7a1e422047079ba09687c1aeb11, type: 3}
+  m_SpeechBubblePop: {fileID: 8300000, guid: d0a143ae65b1045b8889588d358e8189, type: 3}
+  m_BarrelCreated: {fileID: 8300000, guid: a49f4f467b74f4335ba41c4b1b1bd9bc, type: 3}
+  m_ClickedCorrectAnswer: {fileID: 8300000, guid: 4b7a5dcfee42b42e98c010c5b9e3bbbe,
+    type: 3}
+  m_ClickedWrongAnswer: {fileID: 8300000, guid: 0f5b7cb87bd8a4c8981eb4e6ee4ea00d,
+    type: 3}
+  m_StarShowedUp: {fileID: 8300000, guid: 3a914eaa0093948cfb6bb7678952b659, type: 3}
+  m_NoStarShowedUp: {fileID: 8300000, guid: 71682ec42489943e5b2475071fc899ff, type: 3}
+  m_SeahorseWaves: {fileID: 8300000, guid: e2e76c9509bb74443b18d4a61d311806, type: 3}
+  m_AlterWordShowedUp: {fileID: 8300000, guid: b545cdbc287e94a70ae869058080e0c0, type: 3}
+  m_AlterBubbleShowedUp: {fileID: 8300000, guid: 3bfb24b8446004001b987c7c288d3187,
+    type: 3}
+  m_SharkShowedUp: {fileID: 8300000, guid: 5c2405f4ee7584acbaa1c741c36239c7, type: 3}
+  m_SharkEatingFish: {fileID: 8300000, guid: 887b9618127e1464aabefb814a24bc75, type: 3}
+  m_SoundVolume: 0.5
+  m_MusicVolume: 0.5

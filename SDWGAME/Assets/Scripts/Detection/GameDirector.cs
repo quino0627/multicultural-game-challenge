@@ -68,6 +68,7 @@ public class GameDirector : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+//        SoundManager.Instance.Play_DetectionMusic();
         this.timerText = GameObject.Find("Time");
         this.pointText = GameObject.Find("Score");
         this.stageText = GameObject.Find("Stage");

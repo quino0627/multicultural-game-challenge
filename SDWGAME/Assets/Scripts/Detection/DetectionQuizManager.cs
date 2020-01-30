@@ -34,6 +34,7 @@ public class DetectionQuizManager : MonoBehaviour
     
     // 쉬움, 보통, 어려움 난이도
     public int level = 0;
+    
     // 각 난이도 안에는 stage 0 부터 max_stage_no - 1까지의 stage가 존재한다.
     public static int stage_no = 0;
 
@@ -95,6 +96,7 @@ public class DetectionQuizManager : MonoBehaviour
         
         max_stage_no = 3;
         this.director = GameObject.Find("GameDirector");
+        this.description = GameObject.Find("Octopus").transform.Find("DescriptionBubble").gameObject;
 
         this.Barrels[0] = transform.Find("Barrel1").gameObject;
         this.Barrels[1] = transform.Find("Barrel2").gameObject;
@@ -189,6 +191,7 @@ public class DetectionQuizManager : MonoBehaviour
         // UI 설정
         this.director.GetComponent<GameDirector>().setStage(stage_no);
         this.director.GetComponent<GameDirector>().setLevel(level);
+        description.GetComponent<DetectionDescriptionController>().DefaultDescription();
         
         // 퀴즈 배열
         //정답을 랜덤위치에 넣고
@@ -241,6 +244,7 @@ public class DetectionQuizManager : MonoBehaviour
 //            StartCoroutine(Octo.GetComponent<OctoSinusodialMove>().MoveOctopus());
             yield return Octo.GetComponent<OctoSinusodialMove>().MoveOctopus();
             yield return new WaitForSeconds(1f);
+            SoundManager.Instance.Play_SpeechBubblePop();
             Octo.transform.Find("DescriptionBubble").gameObject.SetActive(true);
             yield return new WaitForSeconds(1f);
             
@@ -251,11 +255,13 @@ public class DetectionQuizManager : MonoBehaviour
                 yield return new WaitForSeconds(0.2f);
                 
                 //하나씩 SetActive
+                SoundManager.Instance.Play_BarrelCreated();
                 Barrels[i].SetActive(true);
                 animators[i].Play("Entry");
                 i += 1;
             }
 
+            yield return new WaitForSeconds(1f);
             //originalPosition 이 false인 경우에는 아무것도 하지 않다가 true가 되면 break한다.
             string wordFileLink = $"Sounds/Detection/{list.sheets[level].list[stage_no].filename}";
             Octo.GetComponent<AudioSource>().loop = false;
@@ -266,6 +272,12 @@ public class DetectionQuizManager : MonoBehaviour
                     //클릭 타임이
             isLoading = false;
             watch.Start();
+            yield return new WaitForSeconds(1.0f);
+            if (!SoundManager.Instance.IsMusicPlaying())
+            {
+                SoundManager.Instance.Play_SoundOctopusMove();
+            }
+            
         
 
             
@@ -334,7 +346,7 @@ public class DetectionQuizManager : MonoBehaviour
 //        // tcl : total_clicked
 //        // tco : total_correct
         string result_text = $"{tcl}번만에 {tco}개를 맞췄어요!";
-        string one_sentence = "";
+        descriptionText.text = result_text;
         string[] sentences = {"정말 잘했어요", "조금 더 신중하게 해 보자", "더 연습하자"};
         float rate = tcl / tco;
 //        // 만약에 2.5배보다 더 많이 클릭했으면
@@ -342,13 +354,17 @@ public class DetectionQuizManager : MonoBehaviour
         {
             // 아무것도 열리지 않을 것.
             // do nothing
+            // 별 아무것도 못 받았을 떄 소리
+            SoundManager.Instance.Play_NoStarShowedUp();
             StarLeft.SetActive(false);
-            one_sentence = sentences[2];
+            onesentenceText.text = sentences[2];
         }
         else
         {
-            one_sentence = sentences[2];
+            SoundManager.Instance.Play_StarShowedUp();
+            onesentenceText.text = sentences[2];
             StarLeft.SetActive(true);
+            yield return new WaitForSeconds(.5f);
         }
 
         if (rate > 2)
@@ -357,8 +373,10 @@ public class DetectionQuizManager : MonoBehaviour
         }
         else
         {
-            one_sentence = sentences[1];
+            SoundManager.Instance.Play_StarShowedUp();
+            onesentenceText.text = sentences[1];
             StarMiddle.SetActive(true);
+            yield return new WaitForSeconds(.5f);
         }
 
         if (rate > 1.5)
@@ -367,13 +385,14 @@ public class DetectionQuizManager : MonoBehaviour
         }
         else
         {
-            one_sentence = sentences[0];
+            SoundManager.Instance.Play_StarShowedUp();
+            onesentenceText.text = sentences[0];
             StarRight.SetActive(true);
+            yield return new WaitForSeconds(.5f);
 
         }
 
-        descriptionText.text = result_text;
-        onesentenceText.text = one_sentence;
+        
     }
 
 }

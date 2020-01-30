@@ -22,6 +22,7 @@ public class OctoSinusodialMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        SoundManager.Instance.Play_SoundOctopusMove();
         SpeechBubble = transform.Find("DescriptionBubble").gameObject;
         BubbleText = SpeechBubble.transform.Find("DescriptionText").gameObject;
         pos = transform.position;
@@ -32,7 +33,6 @@ public class OctoSinusodialMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
         
         
     }
@@ -64,6 +64,8 @@ public class OctoSinusodialMove : MonoBehaviour
         {
             
             originPosition = true;
+            SoundManager.Instance.StopMusic();
+            Debug.Log("STOP MUSIC");
         }
     }
 

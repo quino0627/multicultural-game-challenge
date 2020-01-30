@@ -18,6 +18,7 @@ public class BarrelController : MonoBehaviour
     public GameObject rightAnimation;
 
     private GameObject director;
+    private GameObject description;
 
     // 배럴이 여러번 클릭되는 것을 방지한다.
     // 기본값은 false, 정답일 경우 한번 클릭된 이후에는 true로 
@@ -27,6 +28,7 @@ public class BarrelController : MonoBehaviour
     void Start()
     {
         this.director = GameObject.Find("GameDirector");
+        this.description = GameObject.Find("DescriptionBubble");
         preventSeveralTouch = false;
     }
 
@@ -70,6 +72,8 @@ public class BarrelController : MonoBehaviour
         // 만약 유저가 클릭한 배럴에 쓰여 있는 글자가 해당 stage의 정답과 일치하면,
         if (currentBarrelText == currentStageAnswerText)
         {
+            SoundManager.Instance.Play_ClickedCorrectAnswer();
+            description.GetComponent<DetectionDescriptionController>().CorrectAnswer();
             preventSeveralTouch = true;
             // 점수 올리기
             this.director.GetComponent<GameDirector>().GetPoint(100);
@@ -91,7 +95,9 @@ public class BarrelController : MonoBehaviour
             // 말풍선 출력
             
             // 틀렸으니 까 total clicked만 올린다.
-            //Transform tmpTransform = GameObject.Find("QuizContainer").transform;
+            SoundManager.Instance.Play_ClickedWrongAnswer();
+            description.GetComponent<DetectionDescriptionController>().WrongAnswer();
+            Transform tmpTransform = GameObject.Find("QuizContainer").transform;
             tmpTransform.GetComponent<DetectionQuizManager>().total_clicked++;
         }
 

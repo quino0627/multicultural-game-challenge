@@ -8,6 +8,23 @@ public class SelectMenu : MonoBehaviour
 {
     public GraphicRaycaster GR;
     public SettingsHandler m_Settings = null;
+    
+    void Awake()
+    {
+        // Set GSui.Instance.m_AutoAnimation to false, 
+        // this will let you control all GUI Animator elements in the scene via scripts.
+        if (enabled)
+        {
+            GSui.Instance.m_GUISpeed = 4.0f;
+            GSui.Instance.m_AutoAnimation = false;
+        }
+
+        if (this.transform.gameObject.activeSelf == false)
+        {
+            this.transform.gameObject.SetActive(true);
+        }
+        
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -20,14 +37,12 @@ public class SelectMenu : MonoBehaviour
 
     }
 
-    public void ClickTest()
-    {
-        Debug.Log("Clicked");
-    }
+  
 
     public void Detection()
     {
         GR.enabled = false;
+        SoundManager.Instance.Play_SoundClick();
         SceneManager.LoadScene("DetectionGame");
         
     }
@@ -35,6 +50,7 @@ public class SelectMenu : MonoBehaviour
     public void Synthesis()
     { 
         GR.enabled = false;
+        SoundManager.Instance.Play_SoundClick();
         SceneManager.LoadScene("CrabLevel1");
         
     }
@@ -42,6 +58,7 @@ public class SelectMenu : MonoBehaviour
     public void Elimination()
     {
         GR.enabled = false;
+        SoundManager.Instance.Play_SoundClick();
         SceneManager.LoadScene("EliminationEscape");
         
 
@@ -50,6 +67,7 @@ public class SelectMenu : MonoBehaviour
     public void Alternative()
     {
         GR.enabled = false;
+        SoundManager.Instance.Play_SoundClick();
         SceneManager.LoadScene("AlternativeGame");
         
     }
@@ -63,7 +81,10 @@ public class SelectMenu : MonoBehaviour
 
     public void GoBack()
     {
-        SceneManager.LoadScene("StartMenu");
+        SoundManager.Instance.Play_SoundBack();
+        GSui.Instance.MoveOut(this.transform, true);
+        GSui.Instance.DontDestroyParticleWhenLoadNewScene(this.transform, true);
+        GSui.Instance.LoadLevel("StartMenu", 1.0f);
         //SceneManager.LoadScene("LevelMenu");
     }
     

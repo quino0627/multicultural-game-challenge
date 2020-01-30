@@ -265,7 +265,8 @@ public class AlternativeQuizManager : MonoBehaviour
         {
             // 제시어와 목적 단어 띄우기 ()
             // 왼쪽 해마 워터폴 이펙
-            Debug.Log("left start");
+//            Debug.Log("left start");
+            SoundManager.Instance.Play_SeahorseWaves();
             SeahorseLeft.transform.Find("WaterFallAnimation").gameObject.SetActive(true);
             Debug.Log(SeahorseLeft.GetComponent<SeahorseLeftController>().waterFallAnimator);
             Animator left_waterFallAnimator = SeahorseLeft.GetComponent<SeahorseLeftController>().waterFallAnimator;
@@ -278,9 +279,11 @@ public class AlternativeQuizManager : MonoBehaviour
             // 제시어 박스 살리기
             WordBoxOrigin.transform.position = new Vector3(-2,1,0);
             WordBoxOrigin.SetActive(true);
+            SoundManager.Instance.Play_AlterWordShowedUp();
             yield return new WaitForSeconds(.4f);
             
-            Debug.Log("right start");
+//            Debug.Log("right start");
+            SoundManager.Instance.Play_SeahorseWaves();
             SeahorseRight.transform.Find("WaterFallAnimation").gameObject.SetActive(true);
             Animator right_waterFallAnimator = SeahorseRight.GetComponent<SeahorseRightController>().waterFallAnimator;
             right_waterFallAnimator.Play("WaterFall");
@@ -292,7 +295,7 @@ public class AlternativeQuizManager : MonoBehaviour
             WordBoxExpect.GetComponent<SpriteRenderer>().color = Color.white;
             WordBoxExpect.transform.Find("Text").GetComponent<TextMeshPro>().color =  Color.white;
             WordBoxExpect.SetActive(true);
-            
+            SoundManager.Instance.Play_AlterWordShowedUp();
             yield return new WaitForSeconds(.4f);
             
             // 퀴즈 띄우기
@@ -301,20 +304,28 @@ public class AlternativeQuizManager : MonoBehaviour
                 yield return new WaitForSeconds(0.3f);
                 // 하나씩 setActive
                 Debug.Log($"{i}번째꺼 ");
+                SoundManager.Instance.Play_AlterBubbleShowedUp();
                 Bubbles[i].SetActive(true);
 //                animators
             }
             // 마지막 보기가 나온 뒤에 0.3초 더 기다림
-            yield return new WaitForSeconds(0.3f);
+            yield return new WaitForSeconds(1f);
             
             
             
-
+            if (SoundManager.Instance.IsMusicPlaying())
+            {
+                SoundManager.Instance.StopMusic();
+            }
+            yield return new WaitForSeconds(1f);
             string wordFileLink = $"Sounds/Alternative/{list.sheets[level].list[stage_no].filename}";
-            Debug.Log(wordFileLink);
+//            Debug.Log(wordFileLink);
             SeahorseRight.GetComponent<AudioSource>().loop = false;
             SeahorseRight.GetComponent<AudioSource>().clip = Resources.Load(wordFileLink) as AudioClip;
             SeahorseRight.GetComponent<AudioSource>().Play();
+            
+            yield return new WaitForSeconds(1f);
+            SoundManager.Instance.Play_AlternativeMusic();
             
             yield return new WaitForSeconds(1f);
             Color color = WordBoxExpect.GetComponent<SpriteRenderer>().color;
@@ -326,12 +337,16 @@ public class AlternativeQuizManager : MonoBehaviour
             }
 
 
-            Debug.Log("타이머 스타트");
+//            Debug.Log("타이머 스타트");
             // 클릭 타임 
             watch.Start();
-            
             is_loading = false;
             yield return new WaitForSeconds(1f);
+            if (!SoundManager.Instance.IsMusicPlaying())
+            {
+                SoundManager.Instance.Play_AlternativeMusic(); 
+            }
+            
             // 다시 듣기 말풍선 띄우기
             SeahorseRight.transform.Find("RepeatSound").gameObject.SetActive(true);
         }
@@ -341,7 +356,7 @@ public class AlternativeQuizManager : MonoBehaviour
     {
         watch.Stop();
         is_loading = true;
-        Debug.Log($"{watch.ElapsedMilliseconds}ms 이후 종료되었습니다. ");
+//        Debug.Log($"{watch.ElapsedMilliseconds}ms 이후 종료되었습니다. ");
         watch.Reset();
         StartCoroutine(HideAnswers());
     }
@@ -369,7 +384,7 @@ public class AlternativeQuizManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("결과창 setActive");
+//            Debug.Log("결과창 setActive");
             // Game 이 끝났다는 효과 보여주기
             yield return DecideResult(this.total_clicked, this.total_correct);
 
@@ -398,7 +413,7 @@ public class AlternativeQuizManager : MonoBehaviour
 //        // tcl : total_clicked
 //        // tco : total_correct
         string result_text = $"{tcl}번만에 {tco}개를 맞췄어요!";
-        string one_sentence = "";
+        descriptionText.text = result_text;
         string[] sentences = {"정말 잘했어요", "조금 더 신중하게 해 보자", "더 연습하자"};
         float rate = tcl / tco;
 //        // 만약에 2.5배보다 더 많이 클릭했으면
@@ -406,13 +421,17 @@ public class AlternativeQuizManager : MonoBehaviour
         {
             // 아무것도 열리지 않을 것.
             // do nothing
+            // 별 아무것도 못 받았을 떄 소리
+            SoundManager.Instance.Play_NoStarShowedUp();
             StarLeft.SetActive(false);
-            one_sentence = sentences[2];
+            onesentenceText.text = sentences[2];
         }
         else
         {
-            one_sentence = sentences[2];
+            SoundManager.Instance.Play_StarShowedUp();
+            onesentenceText.text = sentences[2];
             StarLeft.SetActive(true);
+            yield return new WaitForSeconds(.5f);
         }
 
         if (rate > 2)
@@ -421,8 +440,10 @@ public class AlternativeQuizManager : MonoBehaviour
         }
         else
         {
-            one_sentence = sentences[1];
+            SoundManager.Instance.Play_StarShowedUp();
+            onesentenceText.text = sentences[1];
             StarMiddle.SetActive(true);
+            yield return new WaitForSeconds(.5f);
         }
 
         if (rate > 1.5)
@@ -431,12 +452,12 @@ public class AlternativeQuizManager : MonoBehaviour
         }
         else
         {
-            one_sentence = sentences[0];
+            SoundManager.Instance.Play_StarShowedUp();
+            onesentenceText.text = sentences[0];
             StarRight.SetActive(true);
+            yield return new WaitForSeconds(.5f);
 
         }
-
-        descriptionText.text = result_text;
-        onesentenceText.text = one_sentence;
+        
     }
 }

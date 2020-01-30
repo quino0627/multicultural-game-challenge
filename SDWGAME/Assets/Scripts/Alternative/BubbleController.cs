@@ -59,6 +59,7 @@ public class BubbleController : MonoBehaviour
         // 만약 유저가 클릭한 버블에 쓰여 있는 글자가 해당 stage의 정답과 일치하면
         if (currentBubbleText == currentStageAnswerText)
         {
+            SoundManager.Instance.Play_ClickedCorrectAnswer();
             description.GetComponent<AlternativeDescriptionController>().CorrectAnswer();
             // 점수 올리기
             this.director.GetComponent<AlternativeGameDirector>().GetPoint(100);
@@ -74,6 +75,7 @@ public class BubbleController : MonoBehaviour
         }
         else
         {
+            SoundManager.Instance.Play_ClickedWrongAnswer();
             description.GetComponent<AlternativeDescriptionController>().WrongAnswer();
             // 애니메이션 출력
             //Transform tmpTransform = GameObject.Find("QuizContainer").transform;

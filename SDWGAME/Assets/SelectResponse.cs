@@ -21,6 +21,9 @@ public class SelectResponse : MonoBehaviour
         //반짝반짝
 
         isHovering = true;
+        
+        // 뾰로롱 소리
+        SoundManager.Instance.Play_SoundGameHover();
 
     }
 

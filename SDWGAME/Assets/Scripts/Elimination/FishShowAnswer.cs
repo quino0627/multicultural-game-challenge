@@ -263,7 +263,9 @@ public class FishShowAnswer : MonoBehaviour
 
     IEnumerator ShowSharkNeed()
     {
-        //먼저 상어가 들어온다
+        // 먼저 상어가 들어온다
+        // 상어 소리
+        SoundManager.Instance.Play_SharkShowedUp();
         while (!isSharkArrived)
         {
             yield return new WaitForEndOfFrame();
@@ -278,6 +280,7 @@ public class FishShowAnswer : MonoBehaviour
             else
             {
                 isSharkArrived = true;
+                
                 //Debug.Log("Shark arrived");
             }
         }
@@ -289,11 +292,13 @@ public class FishShowAnswer : MonoBehaviour
         
         // 자극 제시 ex) 만들
         stimulText.text = data.sheets[level].list[stageIndex].자극;
+        SoundManager.Instance.Play_SpeechBubblePop();
         stimulation.SetActive(true);
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(2f);
         
         // 탈락 자극 제시 ex) ㄴ
         stimulation.SetActive(false);
+        SoundManager.Instance.Play_SpeechBubblePop();
         eliminText.text = data.sheets[level].list[stageIndex].탈락자극;
         eliminStimul.SetActive(true);
         
@@ -310,6 +315,11 @@ public class FishShowAnswer : MonoBehaviour
     }
     IEnumerator ShowAnswer()
     {
+        if (SoundManager.Instance.IsMusicPlaying())
+        {
+            SoundManager.Instance.StopMusic();
+        }
+        yield return new WaitForSeconds(1f);
         int i = 0;
         //int fish_index;
         while (i < 5)
@@ -321,6 +331,9 @@ public class FishShowAnswer : MonoBehaviour
             
             i++;
         }
+        yield return new WaitForSeconds(2.0f);
+        
+        SoundManager.Instance.Play_EliminationMusic();
        
         //Debug.Log("watch start");
         watch.Start();
@@ -452,7 +465,7 @@ public class FishShowAnswer : MonoBehaviour
 //        // tcl : total_clicked
 //        // tco : total_correct
         string result_text = $"{tcl}번만에 {tco}개를 맞췄어요!";
-        string one_sentence = "";
+        descriptionText.text = result_text;
         string[] sentences = {"정말 잘했어요", "조금 더 신중하게 해 보자", "더 연습하자"};
         float rate = tcl / tco;
 //        // 만약에 2.5배보다 더 많이 클릭했으면
@@ -460,13 +473,17 @@ public class FishShowAnswer : MonoBehaviour
         {
             // 아무것도 열리지 않을 것.
             // do nothing
+            // 별 아무것도 못 받았을 떄 소리
+            SoundManager.Instance.Play_NoStarShowedUp();
             StarLeft.SetActive(false);
-            one_sentence = sentences[2];
+            onesentenceText.text = sentences[2];
         }
         else
         {
-            one_sentence = sentences[2];
+            SoundManager.Instance.Play_StarShowedUp();
+            onesentenceText.text = sentences[2];
             StarLeft.SetActive(true);
+            yield return new WaitForSeconds(.5f);
         }
 
         if (rate > 2)
@@ -475,8 +492,10 @@ public class FishShowAnswer : MonoBehaviour
         }
         else
         {
-            one_sentence = sentences[1];
+            SoundManager.Instance.Play_StarShowedUp();
+            onesentenceText.text = sentences[1];
             StarMiddle.SetActive(true);
+            yield return new WaitForSeconds(.5f);
         }
 
         if (rate > 1.5)
@@ -485,13 +504,15 @@ public class FishShowAnswer : MonoBehaviour
         }
         else
         {
-            one_sentence = sentences[0];
+            SoundManager.Instance.Play_StarShowedUp();
+            onesentenceText.text = sentences[0];
             StarRight.SetActive(true);
+            yield return new WaitForSeconds(.5f);
 
         }
 
-        descriptionText.text = result_text;
-        onesentenceText.text = one_sentence;
+        
+        
     }
 
     // Total Click과 Total Correct를 증가시키기 위한 함수들

@@ -4,19 +4,49 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class StartMenu : MonoBehaviour
+public class StartMenu : UIPT_PRO_Demo_GUIPanel
 {
     public GameObject SettingPanel;
     public SettingsHandler m_Settings = null;
+    public GameObject ClosePanel;
 
+    public AudioClip MainMenuBgm;
+    
+    void Awake()
+    {
+        // Set GSui.Instance.m_AutoAnimation to false, 
+        // this will let you control all GUI Animator elements in the scene via scripts.
+        if (enabled)
+        {
+            GSui.Instance.m_GUISpeed = 4.0f;
+            GSui.Instance.m_AutoAnimation = false;
+        }
+
+        if (this.transform.gameObject.activeSelf == false)
+        {
+            this.transform.gameObject.SetActive(true);
+        }
+        
+        if (ClosePanel.activeSelf == false)
+        {
+            ClosePanel.SetActive(true);
+        }
+        
+    }
+    
     public void Start()
     {
         StartCoroutine(Show());
+        SoundManager.Instance.Play_Music(MainMenuBgm);
     }
 
-    public void StartGame()
+    public void StartGame(GameObject startButton)
     {
-        SceneManager.LoadScene("LevelMenu");
+        // Play Play button sound
+        SoundManager.Instance.Play_SoundPlay();
+        GSui.Instance.MoveOut(this.transform, true);
+        GSui.Instance.DontDestroyParticleWhenLoadNewScene(this.transform, true);
+        GSui.Instance.LoadLevel("SelectMenu", 1.0f);
     }
 
     public void GoToResult()

@@ -61,6 +61,9 @@ public class FishController : MonoBehaviour
             script.PlusTotalClick();
             script.PlusTotalCorrect();
             
+            // 소리
+            SoundManager.Instance.Play_ClickedCorrectAnswer();
+
             //점수 올리기
 //            director.GetComponent<EliminationDirector>().GetPoint(100);
             script.isUserRight = true;
@@ -83,6 +86,7 @@ public class FishController : MonoBehaviour
         }
         else
         {
+            SoundManager.Instance.Play_ClickedWrongAnswer();
             script.PlusTotalClick();
             //상어가 x표시함
             script.eliminStimul.SetActive(false);
@@ -100,6 +104,8 @@ public class FishController : MonoBehaviour
 
     IEnumerator SharkToFish()
     {
+        yield return new WaitForSeconds(.5f);
+        SoundManager.Instance.Play_SharkShowedUp();
         while (!isSharkToFish)
         {
             yield return new WaitForEndOfFrame();
@@ -126,6 +132,8 @@ public class FishController : MonoBehaviour
     }
     IEnumerator SharkEating()
     {
+        yield return new WaitForSeconds(.5f);
+        SoundManager.Instance.Play_SharkEatingFish();
         
         while (!fishSwallown)
         {
@@ -145,7 +153,7 @@ public class FishController : MonoBehaviour
                 Debug.Log("fishSwallown");
                 fishSwallown = true;
                 script.sharkAte = true;
-                //script.GoNextStage();
+//                script.GoNextStage();
             }
             
         }

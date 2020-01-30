@@ -27,7 +27,19 @@ public class SeahorseRightController : MonoBehaviour
 // 다시 듣기 말풍선 클릭시 실행됨
     public void ClickBubble()
     {
+        SoundManager.Instance.StopMusic();
+        Invoke("PlayWordSound" ,1.0f);
+    }
+
+    private void PlayWordSound()
+    {
         this.audioSource.Play();
+        Invoke("ReStartMusic", 1.0f);
+    }
+
+    private void ReStartMusic()
+    {
+        SoundManager.Instance.Play_AlternativeMusic();
     }
 
     
