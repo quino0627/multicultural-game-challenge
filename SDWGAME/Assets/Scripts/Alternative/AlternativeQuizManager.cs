@@ -388,6 +388,10 @@ public class AlternativeQuizManager : MonoBehaviour
         }
         else
         {
+            // 지워야할 코드
+            stage_no++;
+            totalStorageScript.tmpStage[0] = stage_no;
+            totalStorageScript.InitStageData();
 //            Debug.Log("결과창 setActive");
             // Game 이 끝났다는 효과 보여주기
             totalStorageScript.tmpLevel[3]++;

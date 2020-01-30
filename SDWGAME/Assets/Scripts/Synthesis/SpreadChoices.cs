@@ -450,6 +450,7 @@ public class SpreadChoices : MonoBehaviour
         {
             Debug.Log("Game Is Over");
             totalStorageScript.tmpLevel[1]++;
+            totalStorageScript.InitStageData();
             yield return DecideResult(total_tried, total_correct, total_correct_stage);
         }
 

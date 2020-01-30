@@ -39,9 +39,51 @@ public class KeepTrackController : MonoBehaviour
     public FishShowAnswer FSA;
     public AlternativeQuizManager AQM;*/
     public bool[] isLevelOpen;
+
+    private static KeepTrackController instance;
+
+    // Public static reference that can be accesd from anywhere
+    public static KeepTrackController Instance
+    {
+        get
+        {
+            // Check if instance has not been set yet and set it it is not set already
+            // This takes place only on the first time usage of this reference
+            if (instance == null)
+            {
+                instance = GameObject.FindObjectOfType<KeepTrackController>();
+                DontDestroyOnLoad(instance.gameObject);
+            }
+
+            return instance;
+        }
+    }
+    
+    void Awake()
+    {
+        Debug.Log("AWAKE");
+        if (instance == null)
+        {
+            // Make the current instance as the singleton
+            instance = this;
+
+            // Make it persistent  
+            DontDestroyOnLoad(this);
+        }
+        else
+        {
+            Debug.Log("IN FIRST ELSE");
+            // If more than one singleton exists in the scene find the existing reference from the scene and destroy it
+            if (this != instance)
+            {
+                Debug.Log("IN SECONDE ELSE");
+                Destroy(this.gameObject);
+            }
+        }
+    }
     public void Start()
     {
-        DontDestroyOnLoad(gameObject);
+//        DontDestroyOnLoad(gameObject);
         isLevelOpen=new bool[3];
         tmpLevel = new int[4];
         tmpStage = new int[4];
@@ -139,5 +181,10 @@ public class KeepTrackController : MonoBehaviour
         string jdata = File.ReadAllText(Application.dataPath + "/Conclusion.json");
         data = JsonConvert.DeserializeObject<ConclusionData>(jdata);
         
+    }
+
+    public void InitStageData()
+    {
+        tmpStage = new int[4];
     }
 }

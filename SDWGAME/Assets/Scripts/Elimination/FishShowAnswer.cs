@@ -399,6 +399,7 @@ public class FishShowAnswer : MonoBehaviour
             shark.SetActive(false);
             Fishes.gameObject.SetActive(false);
             totalStorageScript.tmpLevel[2]++;
+            totalStorageScript.InitStageData();
             yield return new WaitForSeconds(1f);
             yield return DecideResult(total_clicked, total_correct);
         }
