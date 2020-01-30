@@ -51,7 +51,7 @@ public class FishController : MonoBehaviour
     { 
         //현재 클릭된 물고기 글자
         string currFishText = GetComponentInChildren<TextMeshPro>().text;
-        
+        script.chosenAns = currFishText;
         //해당 stage의 정답 
         string currStageAnsText = script.choiceTexts[script.ansPosIndex[0]].text;
         
@@ -63,7 +63,7 @@ public class FishController : MonoBehaviour
             
             //점수 올리기
 //            director.GetComponent<EliminationDirector>().GetPoint(100);
-            
+            script.isUserRight = true;
             isCaught = true;
                 
                 //상어가 먹으러 온다.

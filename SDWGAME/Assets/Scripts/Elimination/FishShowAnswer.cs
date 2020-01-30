@@ -10,7 +10,9 @@ using Debug = UnityEngine.Debug;
 
 public class FishShowAnswer : MonoBehaviour
 {
-    
+    //KeepTrackController ConclusionData
+    public GameObject totalStorageObject;
+    private KeepTrackController totalStorageScript;
     // director
     private GameObject director;
     public bool canClick;
@@ -28,6 +30,8 @@ public class FishShowAnswer : MonoBehaviour
     // Result 페이지에서 이에 따라 보물상자 여는 것을 달리 해야 함.
     public static int total_clicked = 0;
     public static int total_correct = 0;
+    public int ref_total_clicked;
+    
     
     //excel data
     //public Entity_EliminationTest data;
@@ -87,16 +91,21 @@ public class FishShowAnswer : MonoBehaviour
     public bool isTimeSetted;
     public bool isTimeOver;
     public bool sharkAte;
-    
+
+    public string chosenAns;
+    public bool isUserRight;
     
     // Start is called before the first frame update
 
     private bool CheckPaused = false;
     
     void Start()
-    {
+    {totalStorageObject = GameObject.Find("TotalStorage");
+        totalStorageScript = totalStorageObject.GetComponent<KeepTrackController>();
+
         director = GameObject.Find("EliminationGameDirector");
         refStageIndex = stageIndex;
+        totalStorageScript.tmpLevel[2] = level;
         QuizManager = GameObject.Find("QuizManager");
         fishExitPos = GameObject.Find("FishExitPos").transform;
         Fishes = GameObject.Find("Fishes").transform;
@@ -106,6 +115,7 @@ public class FishShowAnswer : MonoBehaviour
         sharkArriveTransform = GameObject.Find("SharkArrivePos").transform;
         // 전체 stage 개수를 3으로 한다.
         stageMaxIndex = 3;
+        
         QuizInit();
     }
 
@@ -489,6 +499,7 @@ public class FishShowAnswer : MonoBehaviour
     {
         Debug.Log("totalClicked");
         total_clicked++;
+        ref_total_clicked = total_clicked;
     }
 
     public void PlusTotalCorrect()

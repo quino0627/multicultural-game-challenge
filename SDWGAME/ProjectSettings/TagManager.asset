@@ -9,6 +9,7 @@ TagManager:
   - CorrectAns
   - WrongAns
   - Choice
+  - QuizManager
   layers:
   - Default
   - TransparentFX

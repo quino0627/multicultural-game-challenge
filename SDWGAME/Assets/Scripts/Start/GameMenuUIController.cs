@@ -18,7 +18,7 @@ public class GameMenuUIController : MonoBehaviour
     
     IEnumerator Show()
     {
-        Debug.Log("ASDF");
+        //Debug.Log("ASDF");
         // Play MoveIn animation
         GSui.Instance.MoveIn(this.transform, true);
 

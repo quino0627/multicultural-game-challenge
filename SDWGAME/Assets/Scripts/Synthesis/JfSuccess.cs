@@ -21,6 +21,10 @@ public class JfSuccess : MonoBehaviour
     public bool isCrabAboard;
     public bool isSuccess;
     public bool willCrabReturn;
+
+    public GameObject QuizManager;
+    public SpreadChoices spreadChoicesScript;
+    
     // Start is called before the first frame update
 
     public bool tmpValue;
@@ -33,6 +37,9 @@ public class JfSuccess : MonoBehaviour
         departPosition = GameObject.Find("DepartPosition").transform.position;
         willCrabReturn = true;
         tmpValue = false;
+
+        QuizManager = GameObject.FindWithTag("QuizManager");
+        spreadChoicesScript = QuizManager.GetComponent<SpreadChoices>();
     }
 
     // Update is called once per frame
@@ -49,6 +56,8 @@ public class JfSuccess : MonoBehaviour
 //                Debug.Log("GOOGGOOD");
                 
             }
+
+            spreadChoicesScript.isUserRight = true;
             FinishAnimation();
         }
     }

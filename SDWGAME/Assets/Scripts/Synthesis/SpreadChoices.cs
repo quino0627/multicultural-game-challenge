@@ -12,6 +12,9 @@ using Random = UnityEngine.Random;
 
 public class SpreadChoices : MonoBehaviour
 {
+    //KeepTrackController ConclusionData
+    public GameObject totalStorageObject;
+    private KeepTrackController totalStorageScript;
     // director
     private GameObject director;
     // Show Result
@@ -28,7 +31,7 @@ public class SpreadChoices : MonoBehaviour
     public static int total_tried = 0;
     public static int total_correct = 0;
     public static int total_correct_stage = 0;
-    
+    public int ref_total_tried;
     
     public bool allJFArrived;
     private bool[] JfArrived = new bool[8];
@@ -38,6 +41,8 @@ public class SpreadChoices : MonoBehaviour
     private bool initialDone;
     
     private bool waitUser;
+
+    public bool isUserRight;
     //excel data
     public Entity_Synthesis data;
     
@@ -48,6 +53,8 @@ public class SpreadChoices : MonoBehaviour
     public static int stageIndex;
     // 해당 난이도의 전체 stage 개수 
     public static int stageMaxIndex;
+
+    public int refStageIndex;
     
     //보기 이 게임에선 해파리
     public GameObject[] choices;
@@ -71,10 +78,11 @@ public class SpreadChoices : MonoBehaviour
     
     //Number of Wrong Answers
     public int wrongAnsCnt;
-    
+
+    public List<string> chosenAns;
 
     public GameObject[] PickedAnswer;
-
+    
     public Transform[] PickedJfPos;
     //시간 테스트를 위한 임시 변수
     public Text timeText;
@@ -97,15 +105,22 @@ public class SpreadChoices : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        totalStorageObject = GameObject.Find("TotalStorage");
+        totalStorageScript = totalStorageObject.GetComponent<KeepTrackController>();
+
         this.director = GameObject.Find("SynthesisGameDirector");
 //        Debug.Log("Level, StageIndex = ("+level+", "+stageIndex+")");
         stageMaxIndex = 3;
+        refStageIndex = stageIndex;
+        totalStorageScript.tmpLevel[1] = level;
         QuizInit();
         
     }
 
     void Update()
     {
+        ref_total_tried = total_tried;
+        
         // timeScale이 1이 아니고 CheckPaused가 false이면 timer를 stop
        if(Time.timeScale != 1 && !CheckPaused)
        {

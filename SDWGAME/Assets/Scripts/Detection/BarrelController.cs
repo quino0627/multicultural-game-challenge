@@ -55,9 +55,15 @@ public class BarrelController : MonoBehaviour
     //배럴들을 눌렀을 때 정답인지? 아닌지? 
     public void BarrelClicked()
     {
+        Transform tmpTransform = GameObject.Find("QuizContainer").transform;
+        
         GameObject childText = transform.Find("Word").gameObject;
         // 현재 클릭된 배럴의 글자
         string currentBarrelText = childText.GetComponent<TextMeshPro>().text;
+        
+        //wj
+        tmpTransform.GetComponent<DetectionQuizManager>().chosenAns = currentBarrelText;
+        
         // 해당 stage의 정답 string
         string currentStageAnswerText = DetectionQuizManager.answer_string_list[DetectionQuizManager.stage_no];
 
@@ -68,12 +74,15 @@ public class BarrelController : MonoBehaviour
             // 점수 올리기
             this.director.GetComponent<GameDirector>().GetPoint(100);
             // 다음 stage로 넘어가기
-            Transform tmpTransform = GameObject.Find("QuizContainer").transform;
+            //Transform tmpTransform = GameObject.Find("QuizContainer").transform;
             tmpTransform.GetComponent<DetectionQuizManager>().StageOver();
 
             // total clicked 와 total correct 를 올린다.
             tmpTransform.GetComponent<DetectionQuizManager>().total_clicked++;
             tmpTransform.GetComponent<DetectionQuizManager>().total_correct++;
+            
+            //wj
+            tmpTransform.GetComponent<DetectionQuizManager>().isUserRight = true;
         }
         else
         {
@@ -82,7 +91,7 @@ public class BarrelController : MonoBehaviour
             // 말풍선 출력
             
             // 틀렸으니 까 total clicked만 올린다.
-            Transform tmpTransform = GameObject.Find("QuizContainer").transform;
+            //Transform tmpTransform = GameObject.Find("QuizContainer").transform;
             tmpTransform.GetComponent<DetectionQuizManager>().total_clicked++;
         }
 

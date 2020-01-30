@@ -28,9 +28,10 @@ public class MoveJellyfish : MonoBehaviour
     public GameObject QuizManager;
     public bool willCrabReturn; //이걸 안해주면 해파리가 데려다주고 다시 탑승지점으로감...
     public GameObject Carrier;
-    
-    
-    
+    public SpreadChoices spreadChoicesScript;
+    public SpreadChoices tmp;
+
+    public TextMeshPro child;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,7 +39,8 @@ public class MoveJellyfish : MonoBehaviour
         aboardPosition = GameObject.Find("AboardPosition").transform.position;
         departPosition = GameObject.Find("DepartPosition").transform.position;
         willCrabReturn = true;*/
-        
+        tmp = QuizManager.GetComponent<SpreadChoices>();
+        child = GetComponentInChildren<TextMeshPro>();
     }
 
     // Update is called once per frame
@@ -57,6 +59,9 @@ public class MoveJellyfish : MonoBehaviour
         /*** 오답인경우 ***/
         if (gameObject.CompareTag("WrongAns"))
         {
+            //json을 위해 chosenAns;
+            tmp.chosenAns.Add(child.text); 
+            
             StartCoroutine(ChoseWrongAnswer(fly));
             Debug.Log("WRONG!!!");
             
@@ -70,11 +75,11 @@ public class MoveJellyfish : MonoBehaviour
         {
             Debug.Log("");
             QuizManager.GetComponent<SpreadChoices>().PlusTotalCorrect();
-            QuizManager.GetComponent<SpreadChoices>().PlusTotalTry();
+            //QuizManager.GetComponent<SpreadChoices>().PlusTotalTry();
             Carrier.SetActive(true);
-            TextMeshPro child = GetComponentInChildren<TextMeshPro>();
-            GameObject quizmanager = GameObject.Find("QuizManager");
-            SpreadChoices tmp = quizmanager.GetComponent<SpreadChoices>();
+            //TextMeshPro child = GetComponentInChildren<TextMeshPro>();
+            /*GameObject quizmanager = GameObject.Find("QuizManager");
+            SpreadChoices tmp = quizmanager.GetComponent<SpreadChoices>();*/
             
             
             
@@ -93,6 +98,9 @@ public class MoveJellyfish : MonoBehaviour
             script.currCntCorrAns++;
             ischecked = true;
 
+            //json을 위해 chosenAns;
+            tmp.chosenAns.Add(child.text); 
+            
             //정답란에 글자를 띄워줌
             for (int i = 0; i < tmp.corrAnsCnt+tmp.wrongAnsCnt; i++)
             {

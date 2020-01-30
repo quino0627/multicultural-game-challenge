@@ -41,6 +41,7 @@ public class BubbleController : MonoBehaviour
 
     public void BubbleClicked()
     {
+        Transform tmpTransform = GameObject.Find("QuizContainer").transform;
         if (manager.GetComponent<AlternativeQuizManager>().is_loading)
         {
             return;
@@ -48,6 +49,10 @@ public class BubbleController : MonoBehaviour
         GameObject childText = transform.Find("Text").gameObject;
         // 현재 클릭된 배럴의 글자
         string currentBubbleText = childText.GetComponent<TextMeshPro>().text;
+        
+        //wj
+        tmpTransform.GetComponent<AlternativeQuizManager>().chosenAns = currentBubbleText;
+        
         // 해당 stage의 정답 string
         string currentStageAnswerText = AlternativeQuizManager.answer_string_list[AlternativeQuizManager.stage_no];
         
@@ -57,18 +62,21 @@ public class BubbleController : MonoBehaviour
             description.GetComponent<AlternativeDescriptionController>().CorrectAnswer();
             // 점수 올리기
             this.director.GetComponent<AlternativeGameDirector>().GetPoint(100);
-            Transform tmpTransform = GameObject.Find("QuizContainer").transform;
+            //Transform tmpTransform = GameObject.Find("QuizContainer").transform;
             tmpTransform.GetComponent<AlternativeQuizManager>().StageOver();
             
             // 점수판에 올라가는 것
             tmpTransform.GetComponent<AlternativeQuizManager>().total_clicked++;
             tmpTransform.GetComponent<AlternativeQuizManager>().total_correct++;
+            
+            //wj
+            tmpTransform.GetComponent<AlternativeQuizManager>().isUserRight = true;
         }
         else
         {
             description.GetComponent<AlternativeDescriptionController>().WrongAnswer();
             // 애니메이션 출력
-            Transform tmpTransform = GameObject.Find("QuizContainer").transform;
+            //Transform tmpTransform = GameObject.Find("QuizContainer").transform;
             tmpTransform.GetComponent<AlternativeQuizManager>().total_clicked++;
         }
     }

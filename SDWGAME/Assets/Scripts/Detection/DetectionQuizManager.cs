@@ -11,7 +11,10 @@ using Object = UnityEngine.Object;
 
 public class DetectionQuizManager : MonoBehaviour
 {
-   
+    //KeepTrackController ConclusionData
+    public GameObject totalStorageObject;
+    private KeepTrackController totalStorageScript;
+    
     // director
     private GameObject director;
     private GameObject description;
@@ -33,6 +36,11 @@ public class DetectionQuizManager : MonoBehaviour
     public int level = 0;
     // 각 난이도 안에는 stage 0 부터 max_stage_no - 1까지의 stage가 존재한다.
     public static int stage_no = 0;
+
+    //복사본 wj
+    public int ref_stage_no;
+    
+    
     //엑셀 데이터 개수 가져와서 저장할 것.
     public static int max_stage_no;
     
@@ -48,6 +56,7 @@ public class DetectionQuizManager : MonoBehaviour
     private float timer = 0f;
     private float timeLimit = 60f;
     public Stopwatch watch = new Stopwatch();
+    public float responseTime; //wj
     
     //stage 1 ~ 5까지의 정답 리스트를 저장 -> stage_no는 0~4부터가 된다.
     // 정답은 Barrel 1~5중 랜덤으로 위치해야 함
@@ -55,6 +64,12 @@ public class DetectionQuizManager : MonoBehaviour
     // answer_string_list는 각 스테이지별 정답
     [HideInInspector] public static string[] answer_string_list;
     
+    //wj corrAns
+    public string ref_answer_string;
+    
+    //wj chosenAns
+    public string chosenAns;
+    public bool isUserRight;
     
     // 매 스테이지에서 Barrel 1~5에 들어갈 텍스트가 여기 들어감.
     // 즉 매 스테이지마다 초기화되어야함.
@@ -70,7 +85,14 @@ public class DetectionQuizManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        totalStorageObject = GameObject.Find("TotalStorage");
+        totalStorageScript = totalStorageObject.GetComponent<KeepTrackController>();
+        
         stage_no = 0;
+        
+        //wj
+        ref_stage_no = stage_no;
+        
         max_stage_no = 3;
         this.director = GameObject.Find("GameDirector");
 
@@ -173,8 +195,10 @@ public class DetectionQuizManager : MonoBehaviour
         Debug.Log(list.sheets[level].list[stage_no].cor);
         answer_string_list[stage_no] = list.sheets[level].list[stage_no].cor;
         QuizTextList[answer_list[stage_no]].text = list.sheets[level].list[stage_no].cor;
-
         
+        //wj
+        ref_answer_string = answer_string_list[stage_no];
+        totalStorageScript.tmpLevel[0] = level;
         //보기들을 나머지 위치에 넣음
         //
         int tmp = 1;
@@ -252,6 +276,7 @@ public class DetectionQuizManager : MonoBehaviour
 
     public void StageOver()
     {
+        responseTime = watch.ElapsedMilliseconds;
         watch.Stop();
         //기록 남기기
         Debug.Log($"{watch.ElapsedMilliseconds}ms 이후 종 ");

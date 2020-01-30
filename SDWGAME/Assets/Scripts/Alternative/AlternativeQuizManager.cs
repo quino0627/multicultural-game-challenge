@@ -7,6 +7,10 @@ using Debug = UnityEngine.Debug;
 
 public class AlternativeQuizManager : MonoBehaviour
 {
+    //KeepTrackController ConclusionData
+    public GameObject totalStorageObject;
+    private KeepTrackController totalStorageScript;
+    
     
     // director
     private GameObject director;
@@ -32,6 +36,9 @@ public class AlternativeQuizManager : MonoBehaviour
     public static int stage_no = 0;
     public static int max_stage_no = 0;
 
+    //wj
+    public int ref_stage_no;
+    
     // 한 레벨이 끝날 때 까지 
     public int total_clicked = 0;
     public int total_correct = 0;
@@ -57,6 +64,11 @@ public class AlternativeQuizManager : MonoBehaviour
     [HideInInspector] public static int[] answer_list;
     // answer_string_list는 각 스테이지별 정답
     [HideInInspector] public static string[] answer_string_list;
+    
+    //wj
+    public string ref_answer_string;
+    public string chosenAns;
+    public bool isUserRight;
     
     // 매 스테이지에서 Bubble[0~4] 에 들어갈 보기들이 여기 들어감.
     // 매 스테이지마다 초기화되어야 함
@@ -84,7 +96,11 @@ public class AlternativeQuizManager : MonoBehaviour
     
     void Start()
     {
+        totalStorageObject = GameObject.Find("TotalStorage");
+        totalStorageScript = totalStorageObject.GetComponent<KeepTrackController>();
+
         stage_no = 0;
+        ref_stage_no = stage_no;
         max_stage_no = 3;
         this.director = GameObject.Find("AlternativeGameDirector");
         this.description = GameObject.Find("DescriptionBubble");
@@ -211,6 +227,10 @@ public class AlternativeQuizManager : MonoBehaviour
         // 정답을 랜덤위치에 넣고
         answer_string_list[stage_no] = list.sheets[level].list[stage_no].cor;
         QuizTextList[answer_list[stage_no]].text = list.sheets[level].list[stage_no].cor;
+        
+        //wj
+        ref_answer_string = answer_string_list[stage_no];
+        totalStorageScript.tmpLevel[3] = level;
         
         // 보기들을 나머지 위치에 넣음
         int tmp = 1;

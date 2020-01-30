@@ -14,10 +14,15 @@ public class DragAndDrop : MonoBehaviour
     public static bool locked;
 
     private bool isRight;
+
+    public GameObject QuizManager;
+    public SpreadChoices spreadChoicesScript;
     
     private void Start()
     {
         initialPosition = gameObject.transform.position;
+        QuizManager = GameObject.FindWithTag("QuizManager");
+        spreadChoicesScript = QuizManager.GetComponent<SpreadChoices>();
     }
 
     private void OnMouseDown()
@@ -50,6 +55,7 @@ public class DragAndDrop : MonoBehaviour
                 //놓여짐
                 transform.position = new Vector2(ObjectPlace.position.x, ObjectPlace.position.y);
                 
+                spreadChoicesScript.PlusTotalTry();
              
                 
                 
