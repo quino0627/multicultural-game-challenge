@@ -3773,10 +3773,10 @@ PrefabInstance:
     - target: {fileID: 11449296, guid: 6473523504e7243c4adf3ac0c305593e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2041213115}
     - target: {fileID: 11449296, guid: 6473523504e7243c4adf3ac0c305593e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: openPause
+      value: Show
       objectReference: {fileID: 0}
     - target: {fileID: 11449296, guid: 6473523504e7243c4adf3ac0c305593e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -3793,7 +3793,7 @@ PrefabInstance:
     - target: {fileID: 11449296, guid: 6473523504e7243c4adf3ac0c305593e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2041213115}
     - target: {fileID: 11449296, guid: 6473523504e7243c4adf3ac0c305593e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: Pause
@@ -4532,16 +4532,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7c9c032716417c45807e99c447abddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  totalStorageObject: {fileID: 0}
   StarLeft: {fileID: 1997164199}
   StarMiddle: {fileID: 418734510}
   StarRight: {fileID: 96240758}
   descriptionText: {fileID: 320813819}
   onesentenceText: {fileID: 1807757009}
   _resultHandler: {fileID: 1378063887}
+  ref_total_tried: 0
   allJFArrived: 0
   cntJFArrived: 0
+  isUserRight: 0
   data: {fileID: 11400000, guid: 8fcb1efef110c4821bc65a35a4c4dcec, type: 2}
   level: 2
+  refStageIndex: 0
   choices:
   - {fileID: 226080029}
   - {fileID: 7814788422906350757}
@@ -4575,6 +4579,7 @@ MonoBehaviour:
   corrAnsPosIndex: 
   corrAnsCnt: 3
   wrongAnsCnt: 3
+  chosenAns: []
   PickedAnswer:
   - {fileID: 169968083}
   - {fileID: 1101650447}
@@ -4623,6 +4628,8 @@ MonoBehaviour:
   isCrabAboard: 0
   isSuccess: 0
   willCrabReturn: 0
+  QuizManager: {fileID: 0}
+  spreadChoicesScript: {fileID: 0}
   tmpValue: 0
 --- !u!114 &1110820570
 MonoBehaviour:
@@ -6752,6 +6759,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectPlace: {fileID: 1068975827}
+  QuizManager: {fileID: 0}
+  spreadChoicesScript: {fileID: 0}
 --- !u!222 &1908924548
 CanvasRenderer:
   m_ObjectHideFlags: 2
@@ -7154,6 +7163,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pause
       objectReference: {fileID: 0}
+    - target: {fileID: 1312120093460475355, guid: 1f0aaaafbb86a441aa3612a1c9e9c879,
+        type: 3}
+      propertyPath: m_Settings
+      value: 
+      objectReference: {fileID: 111819807}
     - target: {fileID: 1312120093460475352, guid: 1f0aaaafbb86a441aa3612a1c9e9c879,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7259,11 +7273,26 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1312120093460475355, guid: 1f0aaaafbb86a441aa3612a1c9e9c879,
+    - target: {fileID: 1312120092161233651, guid: 1f0aaaafbb86a441aa3612a1c9e9c879,
         type: 3}
-      propertyPath: m_Settings
-      value: 
-      objectReference: {fileID: 111819807}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1312120092161233651, guid: 1f0aaaafbb86a441aa3612a1c9e9c879,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1312120092161233651, guid: 1f0aaaafbb86a441aa3612a1c9e9c879,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1312120092161233651, guid: 1f0aaaafbb86a441aa3612a1c9e9c879,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1312120093143512465, guid: 1f0aaaafbb86a441aa3612a1c9e9c879,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -7329,26 +7358,6 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1312120092161233651, guid: 1f0aaaafbb86a441aa3612a1c9e9c879,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1312120092161233651, guid: 1f0aaaafbb86a441aa3612a1c9e9c879,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1312120092161233651, guid: 1f0aaaafbb86a441aa3612a1c9e9c879,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1312120092161233651, guid: 1f0aaaafbb86a441aa3612a1c9e9c879,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f0aaaafbb86a441aa3612a1c9e9c879, type: 3}
 --- !u!224 &2041213114 stripped
@@ -7357,6 +7366,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 2041213113}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2041213115 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1312120093460475355, guid: 1f0aaaafbb86a441aa3612a1c9e9c879,
+    type: 3}
+  m_PrefabInstance: {fileID: 2041213113}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45ca10da4739d4cc6b24d06ed43422e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2048071433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7382,6 +7403,9 @@ MonoBehaviour:
   QuizManager: {fileID: 1110820566}
   willCrabReturn: 0
   Carrier: {fileID: 137979843}
+  spreadChoicesScript: {fileID: 0}
+  tmp: {fileID: 0}
+  child: {fileID: 0}
 --- !u!61 &2048071434
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7442,6 +7466,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectPlace: {fileID: 1068975827}
+  QuizManager: {fileID: 0}
+  spreadChoicesScript: {fileID: 0}
 --- !u!1 &2079791940
 GameObject:
   m_ObjectHideFlags: 0
@@ -7903,6 +7929,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectPlace: {fileID: 1068975827}
+  QuizManager: {fileID: 0}
+  spreadChoicesScript: {fileID: 0}
 --- !u!114 &387041623738357332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8092,6 +8120,9 @@ MonoBehaviour:
   QuizManager: {fileID: 1110820566}
   willCrabReturn: 0
   Carrier: {fileID: 137979843}
+  spreadChoicesScript: {fileID: 0}
+  tmp: {fileID: 0}
+  child: {fileID: 0}
 --- !u!61 &387041623934231002
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8152,6 +8183,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectPlace: {fileID: 1068975827}
+  QuizManager: {fileID: 0}
+  spreadChoicesScript: {fileID: 0}
 --- !u!1 &961433035622520129
 GameObject:
   m_ObjectHideFlags: 0
@@ -8319,6 +8352,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectPlace: {fileID: 1068975827}
+  QuizManager: {fileID: 0}
+  spreadChoicesScript: {fileID: 0}
 --- !u!114 &961433037524023125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8344,6 +8379,9 @@ MonoBehaviour:
   QuizManager: {fileID: 1110820566}
   willCrabReturn: 0
   Carrier: {fileID: 137979843}
+  spreadChoicesScript: {fileID: 0}
+  tmp: {fileID: 0}
+  child: {fileID: 0}
 --- !u!61 &961433037524023126
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8498,6 +8536,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectPlace: {fileID: 1068975827}
+  QuizManager: {fileID: 0}
+  spreadChoicesScript: {fileID: 0}
 --- !u!114 &961433037695172832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8697,6 +8737,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectPlace: {fileID: 1068975827}
+  QuizManager: {fileID: 0}
+  spreadChoicesScript: {fileID: 0}
 --- !u!58 &1187686099560868951
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -8872,6 +8914,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectPlace: {fileID: 1068975827}
+  QuizManager: {fileID: 0}
+  spreadChoicesScript: {fileID: 0}
 --- !u!114 &1187686099731504092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8897,6 +8941,9 @@ MonoBehaviour:
   QuizManager: {fileID: 1110820566}
   willCrabReturn: 0
   Carrier: {fileID: 137979843}
+  spreadChoicesScript: {fileID: 0}
+  tmp: {fileID: 0}
+  child: {fileID: 0}
 --- !u!50 &1187686099731504094
 Rigidbody2D:
   serializedVersion: 4
@@ -9277,6 +9324,9 @@ MonoBehaviour:
   QuizManager: {fileID: 1110820566}
   willCrabReturn: 0
   Carrier: {fileID: 137979843}
+  spreadChoicesScript: {fileID: 0}
+  tmp: {fileID: 0}
+  child: {fileID: 0}
 --- !u!50 &6527218233003737442
 Rigidbody2D:
   serializedVersion: 4
@@ -9337,6 +9387,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectPlace: {fileID: 1068975827}
+  QuizManager: {fileID: 0}
+  spreadChoicesScript: {fileID: 0}
 --- !u!1 &6527218233151387369
 GameObject:
   m_ObjectHideFlags: 0
@@ -9372,6 +9424,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectPlace: {fileID: 1068975827}
+  QuizManager: {fileID: 0}
+  spreadChoicesScript: {fileID: 0}
 --- !u!58 &6527218233151387371
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -9750,6 +9804,9 @@ MonoBehaviour:
   QuizManager: {fileID: 1110820566}
   willCrabReturn: 0
   Carrier: {fileID: 137979843}
+  spreadChoicesScript: {fileID: 0}
+  tmp: {fileID: 0}
+  child: {fileID: 0}
 --- !u!61 &7814788424702996146
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9810,6 +9867,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectPlace: {fileID: 1068975827}
+  QuizManager: {fileID: 0}
+  spreadChoicesScript: {fileID: 0}
 --- !u!1 &7814788424859474232
 GameObject:
   m_ObjectHideFlags: 0
@@ -9880,6 +9939,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectPlace: {fileID: 1068975827}
+  QuizManager: {fileID: 0}
+  spreadChoicesScript: {fileID: 0}
 --- !u!114 &7814788424859474236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10156,6 +10217,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectPlace: {fileID: 1068975827}
+  QuizManager: {fileID: 0}
+  spreadChoicesScript: {fileID: 0}
 --- !u!61 &7921267749337008252
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10228,6 +10291,9 @@ MonoBehaviour:
   QuizManager: {fileID: 1110820566}
   willCrabReturn: 0
   Carrier: {fileID: 137979843}
+  spreadChoicesScript: {fileID: 0}
+  tmp: {fileID: 0}
+  child: {fileID: 0}
 --- !u!23 &7921267749474107379
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10294,6 +10360,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectPlace: {fileID: 1068975827}
+  QuizManager: {fileID: 0}
+  spreadChoicesScript: {fileID: 0}
 --- !u!1 &7921267749474107382
 GameObject:
   m_ObjectHideFlags: 0
@@ -10642,6 +10710,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectPlace: {fileID: 1068975827}
+  QuizManager: {fileID: 0}
+  spreadChoicesScript: {fileID: 0}
 --- !u!114 &8924173200129077740
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10831,6 +10901,9 @@ MonoBehaviour:
   QuizManager: {fileID: 1110820566}
   willCrabReturn: 0
   Carrier: {fileID: 137979843}
+  spreadChoicesScript: {fileID: 0}
+  tmp: {fileID: 0}
+  child: {fileID: 0}
 --- !u!61 &8924173200201729634
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10891,6 +10964,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectPlace: {fileID: 1068975827}
+  QuizManager: {fileID: 0}
+  spreadChoicesScript: {fileID: 0}
 --- !u!1 &8924173201015997769
 GameObject:
   m_ObjectHideFlags: 0
