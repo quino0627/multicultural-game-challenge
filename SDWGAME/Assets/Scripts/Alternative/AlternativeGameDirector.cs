@@ -51,17 +51,12 @@ public class AlternativeGameDirector : MonoBehaviour
         {
             this.level = "쉬움";
         }
-
+        
         if (le == 1)
-        {
-            this.level = "쉬움";
-        }
-
-        if (le == 2)
         {
             this.level = "보통";
         }
-        if (le == 3)
+        if (le == 2)
         {
             this.level = "어려움";
         }

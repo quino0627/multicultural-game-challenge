@@ -60,16 +60,22 @@ public class SynthesisGameDirector : MonoBehaviour
 
     public void setLevel(int le)
     {
+        Debug.Log(le);
         if (le == 0)
         {
             this.level = "쉬움";
         }
         if (le == 1)
         {
-            this.level = "보통";
+            this.level = "쉬움";
         }
 
         if (le == 2)
+        {
+            this.level = "보통";
+        }
+        
+        if (le == 3)
         {
             this.level = "어려움";
         }

@@ -113,7 +113,16 @@ public class SpreadChoices : MonoBehaviour
         stageMaxIndex = 3;
         refStageIndex = stageIndex;
         crab.transform.Find("DescriptionBubble").gameObject.SetActive(false);
+        
         level = totalStorageScript.chosenLevel;
+        if (level == 0 && stageIndex > 14)
+        {
+            level = 1;
+        }
+        else if (level > 0)
+        {
+            level++;
+        }
         stageIndex = totalStorageScript.tmpStage[1]; 
         QuizInit();
         
