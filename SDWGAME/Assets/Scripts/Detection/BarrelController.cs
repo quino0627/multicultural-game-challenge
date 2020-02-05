@@ -42,10 +42,15 @@ public class BarrelController : MonoBehaviour
     {
     }
     
-    private void OnMouseUp()
+    private void OnMouseDown()
     {
 //        Debug.Log(!IsPointerOverUIObject()); //true
 //        if (IsPointerOverUIObject()) //false
+        Debug.Log(EventSystem.current.IsPointerOverGameObject());
+        if (EventSystem.current.IsPointerOverGameObject())
+        {
+            return;
+        }
         if(!preventSeveralTouch)
         {
             BarrelClicked();
