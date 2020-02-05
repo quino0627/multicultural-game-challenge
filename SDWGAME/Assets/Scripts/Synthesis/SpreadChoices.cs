@@ -159,9 +159,9 @@ public class SpreadChoices : MonoBehaviour
        // 타임오버 되었을 떄
        if (!run_once && watch.ElapsedMilliseconds > 60000f)
        {
-//           Debug.Log("Stage Over");
+           Debug.Log("Stage Over");
            run_once = true;
-//           this.StageOver();
+         this.GoNext();
        }
 
        
@@ -372,7 +372,7 @@ public class SpreadChoices : MonoBehaviour
             else
             {
                 JfArrived[i] = true;
-                Debug.Log("wjjwwjj");
+        
                 //Debug.Log("InitialJellyfish JF "+ i +" became true");
             }
             
@@ -429,6 +429,7 @@ public class SpreadChoices : MonoBehaviour
     {
         StageStorageScript.SaveSynthesis();
         Debug.Log("HERE?");
+        watch.Stop();
         if (stageIndex == 29)
         { 
             //level++;
@@ -439,7 +440,8 @@ public class SpreadChoices : MonoBehaviour
             stageIndex++;
             totalStorageScript.tmpStage[1] = stageIndex;
         }
-        
+        watch.Reset();
+        Debug.Log("In GoNext Invoke HideAnswer");
         StartCoroutine(HideAnswers());
     }
 
