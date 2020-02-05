@@ -13,6 +13,10 @@ public class FishShowAnswer : MonoBehaviour
     //KeepTrackController ConclusionData
     public GameObject totalStorageObject;
     private KeepTrackController totalStorageScript;
+    
+    private GameObject StageStorage;
+    private DataController StageStorageScript;
+    
     // director
     private GameObject director;
     public bool canClick;
@@ -100,8 +104,11 @@ public class FishShowAnswer : MonoBehaviour
     private bool CheckPaused = false;
     
     void Start()
-    {totalStorageObject = GameObject.Find("TotalStorage");
+    {
+        totalStorageObject = GameObject.Find("TotalStorage");
         totalStorageScript = totalStorageObject.GetComponent<KeepTrackController>();
+        StageStorage = GameObject.Find("StageStorage");
+        StageStorageScript = StageStorage.GetComponent<DataController>();
 
         director = GameObject.Find("EliminationGameDirector");
         refStageIndex = stageIndex;
@@ -459,10 +466,11 @@ public class FishShowAnswer : MonoBehaviour
     {
         watch.Stop();
         isTimeSetted = false;
+        StageStorageScript.SaveElimination();
         stageIndex++;
         totalStorageScript.tmpStage[2] = stageIndex;
         watch.Reset();
-        Debug.Log("In GoNextSTage Invoke HideAnswer");
+        //Debug.Log("In GoNextSTage Invoke HideAnswer");
         StartCoroutine(HideAnswers(a,b));
     }
     
@@ -487,12 +495,14 @@ public class FishShowAnswer : MonoBehaviour
             SoundManager.Instance.Play_NoStarShowedUp();
             StarLeft.SetActive(false);
             onesentenceText.text = sentences[2];
+            totalStorageScript.tmpStars[2,level]=0;
         }
         else
         {
             SoundManager.Instance.Play_StarShowedUp();
             onesentenceText.text = sentences[2];
             StarLeft.SetActive(true);
+            totalStorageScript.tmpStars[2,level]++;
             yield return new WaitForSeconds(.5f);
         }
 
@@ -505,6 +515,7 @@ public class FishShowAnswer : MonoBehaviour
             SoundManager.Instance.Play_StarShowedUp();
             onesentenceText.text = sentences[1];
             StarMiddle.SetActive(true);
+            totalStorageScript.tmpStars[2,level]++;
             yield return new WaitForSeconds(.5f);
         }
 
@@ -517,6 +528,7 @@ public class FishShowAnswer : MonoBehaviour
             SoundManager.Instance.Play_StarShowedUp();
             onesentenceText.text = sentences[0];
             StarRight.SetActive(true);
+            totalStorageScript.tmpStars[2,level]++;
             yield return new WaitForSeconds(.5f);
 
         }

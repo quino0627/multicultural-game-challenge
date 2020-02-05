@@ -11,6 +11,8 @@ public class AlternativeQuizManager : MonoBehaviour
     public GameObject totalStorageObject;
     private KeepTrackController totalStorageScript;
     
+    private GameObject StageStorage;
+    private DataController StageStorageScript;
     
     // director
     private GameObject director;
@@ -98,6 +100,8 @@ public class AlternativeQuizManager : MonoBehaviour
     {
         totalStorageObject = GameObject.Find("TotalStorage");
         totalStorageScript = totalStorageObject.GetComponent<KeepTrackController>();
+        StageStorage = GameObject.Find("StageStorage");
+        StageStorageScript = StageStorage.GetComponent<DataController>();
 
         //stage_no = 0;
         level = totalStorageScript.chosenLevel;
@@ -382,6 +386,7 @@ public class AlternativeQuizManager : MonoBehaviour
         SeahorseRight.transform.Find("RepeatSound").gameObject.SetActive(false);
         if (stage_no < max_stage_no - 1)
         {
+            StageStorageScript.SaveAlternative();
             stage_no = stage_no + 1;
             totalStorageScript.tmpStage[3] = stage_no;
             StartCoroutine(StageEach(level));
@@ -434,24 +439,28 @@ public class AlternativeQuizManager : MonoBehaviour
             SoundManager.Instance.Play_NoStarShowedUp();
             StarLeft.SetActive(false);
             onesentenceText.text = sentences[2];
+            totalStorageScript.tmpStars[3,level]=0;
         }
         else
         {
             SoundManager.Instance.Play_StarShowedUp();
             onesentenceText.text = sentences[2];
             StarLeft.SetActive(true);
+            totalStorageScript.tmpStars[3,level]++;
             yield return new WaitForSeconds(.5f);
         }
 
         if (rate > 2)
         {
             StarMiddle.SetActive(false);
+            
         }
         else
         {
             SoundManager.Instance.Play_StarShowedUp();
             onesentenceText.text = sentences[1];
             StarMiddle.SetActive(true);
+            totalStorageScript.tmpStars[3,level]++;
             yield return new WaitForSeconds(.5f);
         }
 
@@ -464,6 +473,7 @@ public class AlternativeQuizManager : MonoBehaviour
             SoundManager.Instance.Play_StarShowedUp();
             onesentenceText.text = sentences[0];
             StarRight.SetActive(true);
+            totalStorageScript.tmpStars[3,level]++;
             yield return new WaitForSeconds(.5f);
 
         }

@@ -15,6 +15,10 @@ public class SpreadChoices : MonoBehaviour
     //KeepTrackController ConclusionData
     public GameObject totalStorageObject;
     private KeepTrackController totalStorageScript;
+    
+    private GameObject StageStorage;
+    private DataController StageStorageScript;
+    
     // director
     private GameObject director;
     // Show Result
@@ -91,6 +95,7 @@ public class SpreadChoices : MonoBehaviour
     private float timer = 0f;
     private float timeLimit = 60f;
     public Stopwatch watch = new Stopwatch();
+    public float responseTime;
     
     //해파리 도망가는 지점
     public Transform FinishPosition;
@@ -107,7 +112,9 @@ public class SpreadChoices : MonoBehaviour
     {
         totalStorageObject = GameObject.Find("TotalStorage");
         totalStorageScript = totalStorageObject.GetComponent<KeepTrackController>();
-
+        StageStorage = GameObject.Find("StageStorage");
+        StageStorageScript = StageStorage.GetComponent<DataController>();
+        
         this.director = GameObject.Find("SynthesisGameDirector");
 //        Debug.Log("Level, StageIndex = ("+level+", "+stageIndex+")");
         stageMaxIndex = 3;
@@ -420,10 +427,11 @@ public class SpreadChoices : MonoBehaviour
 
     public void GoNext()
     {
+        StageStorageScript.SaveSynthesis();
         Debug.Log("HERE?");
         if (stageIndex == 29)
         { 
-            level++;
+            //level++;
             stageIndex = 0;
         }
         else
@@ -556,13 +564,14 @@ public class SpreadChoices : MonoBehaviour
             SoundManager.Instance.Play_NoStarShowedUp();
             StarLeft.SetActive(false);
             onesentenceText.text = sentences[2];
-            
+            totalStorageScript.tmpStars[1,level]=0;
         }
         else
         {
             SoundManager.Instance.Play_StarShowedUp();
             onesentenceText.text = sentences[2];
             StarLeft.SetActive(true);
+            totalStorageScript.tmpStars[1,level]++;
             yield return new WaitForSeconds(.5f);
         }
 
@@ -575,6 +584,7 @@ public class SpreadChoices : MonoBehaviour
             SoundManager.Instance.Play_StarShowedUp();
             onesentenceText.text = sentences[1];
             StarMiddle.SetActive(true);
+            totalStorageScript.tmpStars[1,level]++;
             yield return new WaitForSeconds(.5f);
         }
 
@@ -587,6 +597,7 @@ public class SpreadChoices : MonoBehaviour
             SoundManager.Instance.Play_StarShowedUp();
             onesentenceText.text = sentences[0];
             StarRight.SetActive(true);
+            totalStorageScript.tmpStars[1,level]++;
             yield return new WaitForSeconds(.5f);
 
         }

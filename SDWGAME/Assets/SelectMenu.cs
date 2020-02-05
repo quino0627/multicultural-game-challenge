@@ -11,6 +11,12 @@ public class SelectMenu : MonoBehaviour
     public GameObject TotalStorage;
     public KeepTrackController TotalStorageScript;
     public int[] stages;
+    public Sprite emptyStar;
+    public Sprite filledStar;
+    public int currentLevel;
+    //public GameObject[] gameNames;
+    public GameObject[] stars;
+    private SpriteRenderer[] starSprite;
     void Awake()
     {
         // Set GSui.Instance.m_AutoAnimation to false, 
@@ -32,11 +38,43 @@ public class SelectMenu : MonoBehaviour
     {
         TotalStorage = GameObject.Find("TotalStorage");
         TotalStorageScript = TotalStorage.GetComponent<KeepTrackController>();
-        
-        
-        
+        currentLevel = TotalStorageScript.chosenLevel;
         
 
+        Debug.Log(emptyStar);
+        Debug.Log(filledStar);
+
+        for (int i = 0; i < 4; i++)
+        {
+            starSprite = stars[i].GetComponentsInChildren<SpriteRenderer>(); 
+            int cntStar = TotalStorageScript.tmpStars[i,currentLevel];
+            if (cntStar == 0)
+            {
+                starSprite[0].sprite = emptyStar;
+                starSprite[1].sprite = emptyStar;
+                starSprite[2].sprite = emptyStar;
+            }
+            else if (cntStar == 1)
+            {
+                starSprite[0].sprite = filledStar;
+                starSprite[1].sprite = emptyStar;
+                starSprite[2].sprite = emptyStar;
+
+            }
+            else if (cntStar == 2)
+            {
+                starSprite[0].sprite = filledStar;
+                starSprite[1].sprite = filledStar;
+                starSprite[2].sprite = emptyStar;
+            }
+            else if (cntStar == 3)
+            {
+                starSprite[0].sprite = filledStar;
+                starSprite[1].sprite = filledStar;
+                starSprite[2].sprite = filledStar;
+            }
+            
+        }
     }
 
     // Update is called once per frame

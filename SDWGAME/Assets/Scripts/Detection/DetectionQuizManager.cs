@@ -15,6 +15,9 @@ public class DetectionQuizManager : MonoBehaviour
     public GameObject totalStorageObject;
     private KeepTrackController totalStorageScript;
     
+    private GameObject StageStorage;
+    private DataController StageStorageScript;
+    
     // director
     private GameObject director;
     private GameObject description;
@@ -88,7 +91,8 @@ public class DetectionQuizManager : MonoBehaviour
     {
         totalStorageObject = GameObject.Find("TotalStorage");
         totalStorageScript = totalStorageObject.GetComponent<KeepTrackController>();
-        
+        StageStorage = GameObject.Find("StageStorage");
+        StageStorageScript = StageStorage.GetComponent<DataController>();
         //stage_no = 0;
         level = totalStorageScript.chosenLevel;
         stage_no = totalStorageScript.tmpStage[0];
@@ -316,6 +320,7 @@ public class DetectionQuizManager : MonoBehaviour
         Debug.Log($"stage_no는 {stage_no}이고, max_stage_no는 {max_stage_no}");
         if (stage_no < max_stage_no - 1)
         {
+            StageStorageScript.SaveDetection();
             stage_no++;
             totalStorageScript.tmpStage[0] = stage_no;
             StartCoroutine(StageEach(level));
@@ -367,12 +372,14 @@ public class DetectionQuizManager : MonoBehaviour
             SoundManager.Instance.Play_NoStarShowedUp();
             StarLeft.SetActive(false);
             onesentenceText.text = sentences[2];
+            totalStorageScript.tmpStars[0,level]=0;
         }
         else
         {
             SoundManager.Instance.Play_StarShowedUp();
             onesentenceText.text = sentences[2];
             StarLeft.SetActive(true);
+            totalStorageScript.tmpStars[0,level]++;
             yield return new WaitForSeconds(.5f);
         }
 
@@ -385,6 +392,7 @@ public class DetectionQuizManager : MonoBehaviour
             SoundManager.Instance.Play_StarShowedUp();
             onesentenceText.text = sentences[1];
             StarMiddle.SetActive(true);
+            totalStorageScript.tmpStars[0,level]++;
             yield return new WaitForSeconds(.5f);
         }
 
@@ -397,6 +405,7 @@ public class DetectionQuizManager : MonoBehaviour
             SoundManager.Instance.Play_StarShowedUp();
             onesentenceText.text = sentences[0];
             StarRight.SetActive(true);
+            totalStorageScript.tmpStars[0,level]++;
             yield return new WaitForSeconds(.5f);
 
         }

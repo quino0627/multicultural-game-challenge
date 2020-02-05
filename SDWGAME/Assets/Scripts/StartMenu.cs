@@ -1,7 +1,12 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 using UnityEngine;
+using System.IO;
+using TMPro;
+using UnityEngine.EventSystems;
+using UnityEngine.Experimental.UIElements;
 using UnityEngine.SceneManagement;
 
 public class StartMenu : UIPT_PRO_Demo_GUIPanel
@@ -9,8 +14,20 @@ public class StartMenu : UIPT_PRO_Demo_GUIPanel
     public GameObject SettingPanel;
     public SettingsHandler m_Settings = null;
     public GameObject ClosePanel;
-
     public AudioClip MainMenuBgm;
+    
+    private GameObject TotalStorage;
+    private KeepTrackController TotalStorageScript;
+
+    private GameObject StageStorage;
+    private DataController StageStorageScript;
+    
+    public GameObject idInputFieldGameObject;
+    private TMP_InputField idInputField;
+    public GameObject idEnterButtonGameObject;
+
+    public GameObject startButtonGameObject;
+    public GameObject statisticButtonGameObject;
     
     void Awake()
     {
@@ -36,6 +53,12 @@ public class StartMenu : UIPT_PRO_Demo_GUIPanel
     
     public void Start()
     {
+        TotalStorage = GameObject.Find("TotalStorage");
+        TotalStorageScript = TotalStorage.GetComponent<KeepTrackController>();
+        StageStorage = GameObject.Find("StageStorage");
+        StageStorageScript = StageStorage.GetComponent<DataController>();
+        
+        idInputField = idInputFieldGameObject.GetComponent<TMP_InputField>();
         StartCoroutine(Show());
         SoundManager.Instance.Play_Music(MainMenuBgm);
     }
@@ -74,4 +97,32 @@ public class StartMenu : UIPT_PRO_Demo_GUIPanel
         // Play particles in the hierarchy of given transfrom
         GSui.Instance.PlayParticle(this.transform);
     }
+
+    public void CheckEnter()
+    {
+        
+        var pointer = new PointerEventData(EventSystem.current); // pointer event for Execute
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            //Debug.Log("enter 누름");
+            ExecuteEvents.Execute(idEnterButtonGameObject, pointer, ExecuteEvents.submitHandler);
+        }
+    }
+    public void Login()
+    {
+        //Debug.Log("Login 함수 호출됨");
+        //button 눌러질때 불러짐
+        //Debug.Log(idInputField.text);
+        TotalStorageScript.GetDataWithID(idInputField.text);
+        TotalStorageScript.LoadTmpData();
+        StageStorageScript.LoadStageData();
+        
+        idInputFieldGameObject.SetActive(false);
+        idEnterButtonGameObject.SetActive(false);
+        startButtonGameObject.SetActive(true);
+        statisticButtonGameObject.SetActive(true);
+        
+    }
+
+    
 } 
