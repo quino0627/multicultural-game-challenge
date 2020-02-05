@@ -159,6 +159,7 @@ public class SpreadChoices : MonoBehaviour
        // 타임오버 되었을 떄
        if (!run_once && watch.ElapsedMilliseconds > 60000f)
        {
+           responseTime = watch.ElapsedMilliseconds;
            Debug.Log("Stage Over");
            run_once = true;
          this.GoNext();
@@ -427,8 +428,8 @@ public class SpreadChoices : MonoBehaviour
 
     public void GoNext()
     {
-        StageStorageScript.SaveSynthesis();
-        Debug.Log("HERE?");
+        //StageStorageScript.SaveSynthesis();
+        
         watch.Stop();
         if (stageIndex == 29)
         { 

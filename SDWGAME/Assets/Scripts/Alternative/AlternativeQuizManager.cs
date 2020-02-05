@@ -386,7 +386,7 @@ public class AlternativeQuizManager : MonoBehaviour
         SeahorseRight.transform.Find("RepeatSound").gameObject.SetActive(false);
         if (stage_no < max_stage_no - 1)
         {
-            StageStorageScript.SaveAlternative();
+            //StageStorageScript.SaveAlternative();
             stage_no = stage_no + 1;
             totalStorageScript.tmpStage[3] = stage_no;
             StartCoroutine(StageEach(level));

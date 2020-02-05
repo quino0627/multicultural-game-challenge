@@ -79,8 +79,8 @@ public class FishShowAnswer : MonoBehaviour
     private float timer = 0f;
     private float timeLimit = 60000f; //60초
     public Stopwatch watch = new Stopwatch();
-
-    //
+    public float responseTime;
+    
     private GameObject QuizManager;
 
     private Transform sharkArriveTransform;
@@ -153,6 +153,7 @@ public class FishShowAnswer : MonoBehaviour
         // 타임오버 되었을 떄
         if (watch.ElapsedMilliseconds > timeLimit)
         {
+            responseTime = watch.ElapsedMilliseconds;
             Debug.Log("Stage Over");
             isTimeOver = true;
             this.GoNextStage(100,false);
@@ -170,8 +171,7 @@ public class FishShowAnswer : MonoBehaviour
                         Space.World);
                 }
                 else
-                {
-                    //Debug.Log("jdklsfjalkjfalksjf;lkasjfal;ksdjfl");
+                {    //fish is caught
                     isTimeSetted = false;
                     GoNextStage(i, true);
                 }
@@ -464,9 +464,10 @@ public class FishShowAnswer : MonoBehaviour
 
     public void GoNextStage(int a, bool b)
     {
+        responseTime = watch.ElapsedMilliseconds;
         watch.Stop();
         isTimeSetted = false;
-        StageStorageScript.SaveElimination();
+        //StageStorageScript.SaveElimination();
         stageIndex++;
         totalStorageScript.tmpStage[2] = stageIndex;
         watch.Reset();

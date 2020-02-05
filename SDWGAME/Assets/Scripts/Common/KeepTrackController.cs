@@ -10,7 +10,8 @@ using Newtonsoft.Json;
 using TMPro;
 using UnityEngine.SceneManagement;
 
-public class ConclusionData
+
+class ConclusionData
 {
     //public string id;
     public DateTime startTime;
@@ -27,13 +28,29 @@ public class ConclusionData
     public Dictionary<string,Dictionary<int,int>> totalRate;
     public int[] triedCnt;
 
-}
+    public ConclusionData()
+    {
+        this.startTime = new DateTime();
+        this.endTime = new DateTime();
+        userMaxLevel = new Dictionary<string, int>();
+        userMaxStage = new Dictionary<string, int>();
+        perfection = 0;
+        minorPerfection = new Dictionary<string, int>();
+        avgResponseDuration = 0;
+        maxResponseDuration = 0;
+        IES = 0;
+        totalRate = new Dictionary<string, Dictionary<int, int>>();
+        triedCnt = new int[100];
 
+
+    }
+        
+}
 public class KeepTrackController : MonoBehaviour
 {
     public string currId;
-    public Dictionary<string, ConclusionData> allData;
-    public ConclusionData data = new ConclusionData();
+    private Dictionary<string, ConclusionData> allData; 
+    private ConclusionData data;
     public int chosenLevel;
     public int[] tmpLevel;
     public int[] tmpStage;
@@ -94,6 +111,10 @@ public class KeepTrackController : MonoBehaviour
         tmpLevel = new int[4];
         tmpStage = new int[4];
         tmpStars = new int[4, 3];
+        string jdata = File.ReadAllText(Application.dataPath + "/Conclusion.json");
+        allData = JsonConvert.DeserializeObject<Dictionary<string,ConclusionData>>(jdata);
+        //data = new ConclusionData();
+        //allData = new Dictionary<string, ConclusionData>();
     }
     
     public void Update()
@@ -127,6 +148,14 @@ public class KeepTrackController : MonoBehaviour
 
     }
 
+    public void makeNewId(string id)
+    {
+        ConclusionData tmp =new ConclusionData();
+        allData[id] = tmp;
+        string jdata = JsonConvert.SerializeObject(allData);
+        File.WriteAllText(Application.dataPath+"/Conclusion.json",jdata);
+    }
+    
     public void Save()
     {
         if (data.userMaxLevel["Alternative"] < tmpLevel[3])
@@ -215,8 +244,7 @@ public class KeepTrackController : MonoBehaviour
 
     public void GetDataWithID(string id)
     {
-        string jdata = File.ReadAllText(Application.dataPath + "/Conclusion.json");
-        allData = JsonConvert.DeserializeObject<Dictionary<string,ConclusionData>>(jdata);
+        
 
         if (allData[id] == null)
         {

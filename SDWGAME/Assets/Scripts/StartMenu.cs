@@ -26,6 +26,11 @@ public class StartMenu : UIPT_PRO_Demo_GUIPanel
     private TMP_InputField idInputField;
     public GameObject idEnterButtonGameObject;
 
+    public GameObject newIdInputFieldGameObject;
+    private TMP_InputField newIdInputField;
+    public GameObject newIdEnterButtonGameObject;
+    
+
     public GameObject startButtonGameObject;
     public GameObject statisticButtonGameObject;
     
@@ -59,6 +64,8 @@ public class StartMenu : UIPT_PRO_Demo_GUIPanel
         StageStorageScript = StageStorage.GetComponent<DataController>();
         
         idInputField = idInputFieldGameObject.GetComponent<TMP_InputField>();
+        newIdInputField = newIdInputFieldGameObject.GetComponent<TMP_InputField>();
+        
         StartCoroutine(Show());
         SoundManager.Instance.Play_Music(MainMenuBgm);
     }
@@ -98,7 +105,7 @@ public class StartMenu : UIPT_PRO_Demo_GUIPanel
         GSui.Instance.PlayParticle(this.transform);
     }
 
-    public void CheckEnter()
+    public void CheckEnterGameStart()
     {
         
         var pointer = new PointerEventData(EventSystem.current); // pointer event for Execute
@@ -108,6 +115,16 @@ public class StartMenu : UIPT_PRO_Demo_GUIPanel
             ExecuteEvents.Execute(idEnterButtonGameObject, pointer, ExecuteEvents.submitHandler);
         }
     }
+    public void CheckEnterNewUser()
+    {
+        
+        var pointer = new PointerEventData(EventSystem.current); // pointer event for Execute
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            //Debug.Log("enter 누름");
+            ExecuteEvents.Execute(newIdEnterButtonGameObject, pointer, ExecuteEvents.submitHandler);
+        }
+    }
     public void Login()
     {
         //Debug.Log("Login 함수 호출됨");
@@ -115,14 +132,21 @@ public class StartMenu : UIPT_PRO_Demo_GUIPanel
         //Debug.Log(idInputField.text);
         TotalStorageScript.GetDataWithID(idInputField.text);
         TotalStorageScript.LoadTmpData();
-        StageStorageScript.LoadStageData();
+        /*StageStorageScript.LoadStageData();*/
         
         idInputFieldGameObject.SetActive(false);
         idEnterButtonGameObject.SetActive(false);
+        newIdInputFieldGameObject.SetActive(false);
+        newIdEnterButtonGameObject.SetActive(false);
         startButtonGameObject.SetActive(true);
         statisticButtonGameObject.SetActive(true);
         
     }
 
+    public void makeNewID()
+    {
+        TotalStorageScript.makeNewId(newIdInputField.text);
+        StageStorageScript.makeNewId(newIdInputField.text);
+    }
     
 } 

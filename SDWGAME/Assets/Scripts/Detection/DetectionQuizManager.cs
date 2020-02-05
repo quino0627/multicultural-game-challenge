@@ -320,7 +320,7 @@ public class DetectionQuizManager : MonoBehaviour
         Debug.Log($"stage_no는 {stage_no}이고, max_stage_no는 {max_stage_no}");
         if (stage_no < max_stage_no - 1)
         {
-            StageStorageScript.SaveDetection();
+            //StageStorageScript.SaveDetection();
             stage_no++;
             totalStorageScript.tmpStage[0] = stage_no;
             StartCoroutine(StageEach(level));

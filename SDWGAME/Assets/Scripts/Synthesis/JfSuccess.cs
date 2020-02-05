@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public class JfSuccess : MonoBehaviour
@@ -107,7 +108,6 @@ public class JfSuccess : MonoBehaviour
         if (Mathf.Abs(Carrier.transform.position.x - departPosition.x) <= 0.1f
             && isCrabAboard)
         {
-//            Debug.Log("Jellyfish depart ready");
             crabAnimator.SetFloat("WalkSpeed", 2f);
             isCrabAboard = false;
             Crab.transform.SetParent(null);
@@ -116,14 +116,11 @@ public class JfSuccess : MonoBehaviour
 
     public bool CheckSuccess()
     {
-        //Debug.Log("currCntCorrAns: "+ currCntCorrAns);
         if (cntCorrAns == currCntCorrAns)
         {
-//            Debug.Log("ASDFASDF");
+            spreadChoicesScript.responseTime = spreadChoicesScript.watch.ElapsedMilliseconds;
             return true;
         }
-        
-        
         return false;
     }
     

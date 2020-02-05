@@ -2083,9 +2083,9 @@ MonoBehaviour:
   currentLevel: 0
   stars:
   - {fileID: 4747063256659053913}
-  - {fileID: 1009391562}
   - {fileID: 1514987461}
   - {fileID: 1083724288}
+  - {fileID: 1009391562}
 --- !u!4 &808579497
 Transform:
   m_ObjectHideFlags: 0
@@ -3277,6 +3277,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 522680273}
     m_Modifications:
+    - target: {fileID: 189180, guid: 6958cb5910209491187e882ae43ae1db, type: 3}
+      propertyPath: m_Name
+      value: GoBackButton
+      objectReference: {fileID: 0}
     - target: {fileID: 22489180, guid: 6958cb5910209491187e882ae43ae1db, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3361,10 +3365,19 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 189180, guid: 6958cb5910209491187e882ae43ae1db, type: 3}
-      propertyPath: m_Name
-      value: GoBackButton
+    - target: {fileID: 22489178, guid: 6958cb5910209491187e882ae43ae1db, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 22489178, guid: 6958cb5910209491187e882ae43ae1db, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 11489182, guid: 6958cb5910209491187e882ae43ae1db, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6683a58624fc447428edaa17d08faa14,
+        type: 3}
     - target: {fileID: 11489180, guid: 6958cb5910209491187e882ae43ae1db, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -3401,19 +3414,6 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 11b812d76974340cf915eb2ad72840ce,
-        type: 3}
-    - target: {fileID: 22489178, guid: 6958cb5910209491187e882ae43ae1db, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 22489178, guid: 6958cb5910209491187e882ae43ae1db, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 11489182, guid: 6958cb5910209491187e882ae43ae1db, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 6683a58624fc447428edaa17d08faa14,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6958cb5910209491187e882ae43ae1db, type: 3}

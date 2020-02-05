@@ -41,8 +41,8 @@ public class SelectMenu : MonoBehaviour
         currentLevel = TotalStorageScript.chosenLevel;
         
 
-        Debug.Log(emptyStar);
-        Debug.Log(filledStar);
+        //Debug.Log(emptyStar);
+        //Debug.Log(filledStar);
 
         for (int i = 0; i < 4; i++)
         {

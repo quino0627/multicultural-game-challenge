@@ -4,40 +4,42 @@ using UnityEngine;
 using System.IO;
 using System;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using UnityEngine.UI;
 using Newtonsoft.Json;
 
-public class userStageData
+class userStageData
 {
-    public string userId; //학습자 ID
+    //public string userId; //학습자 ID
     public int level; //난이도
-    public int stageIndex; //문제 번호
+    public int stageIndex;//문제 번호
     public int nthTry;
-    public string [] corrAns; // 정답 보기 글자
+    public string[] corrAns; // 정답 보기 글자
     public List<string> chosenAns; //반응 보기 글자
     public bool isUserRight; //정오표시(60초가 지날 때까지 정답을 고르지 못하면 오답)
     public float responseTime; // 반응시간
     public string gameType;// 자극 유형/ 현재 문제에서 제시한 자극의 유형/숫자
     public int cntClick; //정답을 클릭하기까지 클릭 횟수
-    
 
-    /*public userStageData(string userId, int level, int stageIndex, string[] corrAns,
-        List<string> chosenAns, bool isUserRight, float responseTime, int cntClick)
+
+    public userStageData()
     {
-        /*this.userId = userId;
-        this.level = level;
-        this.stageIndex = stageIndex;
-        this.corrAns = corrAns;
-        this.chosenAns = chosenAns;
-        this.isUserRight = isUserRight;
-        this.responseTime = responseTime;
-        this.cntClick = cntClick;#1#
-    }*/
+        //this.userId = userId;
+        this.level = 0;
+        this.stageIndex = 0;
+        this.nthTry = 0;
+        this.corrAns = new string[5];
+        this.chosenAns = new List<string>();
+        this.isUserRight = false;
+        this.responseTime = 0;
+        this.cntClick = 0;
+    }
 
 }
 
 public class DataController: MonoBehaviour
 {
+    
     private GameObject TotalStorage;
     private KeepTrackController TotalStorageScript;
     
@@ -73,9 +75,79 @@ public class DataController: MonoBehaviour
         //var quizManager  = GameObject.FindWithTag("QuizManager");
         TotalStorage = GameObject.Find("TotalStorage");
         TotalStorageScript = TotalStorage.GetComponent<KeepTrackController>();
+        //LoadStageData();
+
+        /*List<userStageData> tmp1 = new List<userStageData>();
+        tmp1.Add(new userStageData());
+        Dictionary<int, List<userStageData>> tmp2 = new Dictionary<int, List<userStageData>>();
+        for (int i = 0; i < 30; i++)
+        {
+            tmp2.Add(i,tmp1);
+        }
+        Dictionary<int, Dictionary<int, List<userStageData>>> tmp3;
+        tmp3 = new Dictionary<int, Dictionary<int, List<userStageData>>>()
+        {
+            {0,tmp2},{1,tmp2},{2,tmp2}
+        };
+        Dictionary<string, Dictionary<int, Dictionary<int, List<userStageData>>>> tmp4
+            = new Dictionary<string, Dictionary<int, Dictionary<int, List<userStageData>>>>();
+        tmp4["testID"] = tmp3;
+        string jdata = JsonConvert.SerializeObject(tmp4);
+        File.WriteAllText(Application.dataPath+"/Detection.json",jdata);
         
+        jdata = JsonConvert.SerializeObject(tmp4);
+        File.WriteAllText(Application.dataPath+"/Synthesis.json",jdata);
+        
+        jdata = JsonConvert.SerializeObject(tmp4);
+        File.WriteAllText(Application.dataPath+"/Elimination.json",jdata);
+        
+        jdata = JsonConvert.SerializeObject(tmp4);
+        File.WriteAllText(Application.dataPath+"/Alternative.json",jdata);*/
+
+
     }
 
+    
+    public void makeNewId(string id)
+    {
+        List<userStageData> tmp1 = new List<userStageData>();
+        tmp1.Add(new userStageData());
+        Dictionary<int, List<userStageData>> tmp2 = new Dictionary<int, List<userStageData>>();
+        for (int i = 0; i < 30; i++)
+        {
+            tmp2.Add(i,tmp1);
+        }
+        Dictionary<int, Dictionary<int, List<userStageData>>> tmp3;
+        tmp3 = new Dictionary<int, Dictionary<int, List<userStageData>>>()
+        {
+            {0,tmp2},{1,tmp2},{2,tmp2}
+        };
+        
+
+        detectionStageDatas[id] = new Dictionary<int, Dictionary<int, List<userStageData>>>();
+        detectionStageDatas[id] = tmp3;
+        
+        synthesisStageDatas[id] = new Dictionary<int, Dictionary<int, List<userStageData>>>();
+        synthesisStageDatas[id] = tmp3;
+        
+        eliminationStageDatas[id] = new Dictionary<int, Dictionary<int, List<userStageData>>>();
+        eliminationStageDatas[id] = tmp3;
+        
+        alternativeStageDatas[id] = new Dictionary<int, Dictionary<int, List<userStageData>>>();
+        alternativeStageDatas[id] = tmp3;
+
+        string jdata = JsonConvert.SerializeObject(detectionStageDatas);
+        File.WriteAllText(Application.dataPath+"/Detection.json",jdata);
+        
+        jdata = JsonConvert.SerializeObject(synthesisStageDatas);
+        File.WriteAllText(Application.dataPath+"/Synthesis.json",jdata);
+        
+        jdata = JsonConvert.SerializeObject(eliminationStageDatas);
+        File.WriteAllText(Application.dataPath+"/Elimination.json",jdata);
+        
+        jdata = JsonConvert.SerializeObject(alternativeStageDatas);
+        File.WriteAllText(Application.dataPath+"/Alternative.json",jdata);
+    }
     public void LoadStageData()
     {
         string jdata1 = File.ReadAllText(Application.dataPath + "/Detection.json");
