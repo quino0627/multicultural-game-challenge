@@ -126,7 +126,7 @@ public class SpreadChoices : MonoBehaviour
 
         this.director = GameObject.Find("SynthesisGameDirector");
 //        Debug.Log("Level, StageIndex = ("+level+", "+stageIndex+")");
-        stageMaxIndex = 3;
+        stageMaxIndex = 16;
 
         levelOneStageMaxIndex = data.sheets[0].list.Count - 1;
         //Debug.Log("levelOneStageMaxIndex: " + levelOneStageMaxIndex);

@@ -1,5 +1,50 @@
 {
-  "test": {},
+  "test": {
+    "0": {
+      "12": {
+        "1": {
+          "level": 0,
+          "stageIndex": 12,
+          "nthTry": 1,
+          "corrAns": [
+            "꽃",
+            null,
+            null,
+            null,
+            null
+          ],
+          "chosenAns": [
+            "꽃"
+          ],
+          "isUserRight": true,
+          "responseTime": 8770.0,
+          "gameType": "합성",
+          "accumulatedCntClick": 1
+        }
+      },
+      "13": {
+        "1": {
+          "level": 0,
+          "stageIndex": 13,
+          "nthTry": 1,
+          "corrAns": [
+            "짝",
+            null,
+            null,
+            null,
+            null
+          ],
+          "chosenAns": [
+            "짝"
+          ],
+          "isUserRight": true,
+          "responseTime": 230.0,
+          "gameType": "합성",
+          "accumulatedCntClick": 2
+        }
+      }
+    }
+  },
   "clean": {},
   "a": {},
   "c": {
@@ -21,6 +66,74 @@
           "responseTime": 64712.0,
           "gameType": "합성",
           "accumulatedCntClick": 0
+        }
+      }
+    }
+  },
+  "sdw627": {
+    "0": {
+      "0": {
+        "1": {
+          "level": 0,
+          "stageIndex": 0,
+          "nthTry": 1,
+          "corrAns": [
+            "길",
+            null,
+            null,
+            null,
+            null
+          ],
+          "chosenAns": [
+            "길"
+          ],
+          "isUserRight": true,
+          "responseTime": 545.0,
+          "gameType": "합성",
+          "accumulatedCntClick": 1
+        }
+      },
+      "1": {
+        "1": {
+          "level": 0,
+          "stageIndex": 1,
+          "nthTry": 1,
+          "corrAns": [
+            "집",
+            null,
+            null,
+            null,
+            null
+          ],
+          "chosenAns": [
+            "잡",
+            "집"
+          ],
+          "isUserRight": true,
+          "responseTime": 3551.0,
+          "gameType": "합성",
+          "accumulatedCntClick": 4
+        }
+      },
+      "2": {
+        "1": {
+          "level": 0,
+          "stageIndex": 2,
+          "nthTry": 1,
+          "corrAns": [
+            "뜻",
+            null,
+            null,
+            null,
+            null
+          ],
+          "chosenAns": [
+            "뜻"
+          ],
+          "isUserRight": true,
+          "responseTime": 1027.0,
+          "gameType": "합성",
+          "accumulatedCntClick": 5
         }
       }
     }

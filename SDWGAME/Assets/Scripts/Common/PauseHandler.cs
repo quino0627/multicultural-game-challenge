@@ -1,7 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 
 public class PauseHandler : UIPT_PRO_Demo_GUIPanel
 {
@@ -43,6 +42,7 @@ public class PauseHandler : UIPT_PRO_Demo_GUIPanel
 
     public void Pause()
     {
+        Debug.Log("asdf");
         Time.timeScale = 0f;
 //        GameIsPaused = true;
         ChangeGameIsPaused(true);
