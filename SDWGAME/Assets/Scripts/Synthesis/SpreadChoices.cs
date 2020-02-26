@@ -15,79 +15,85 @@ public class SpreadChoices : MonoBehaviour
     //KeepTrackController ConclusionData
     public GameObject totalStorageObject;
     private KeepTrackController totalStorageScript;
-    
+
     private GameObject StageStorage;
     private DataController StageStorageScript;
-    
+
     // director
     private GameObject director;
+
     // Show Result
     public GameObject StarLeft;
     public GameObject StarMiddle;
     public GameObject StarRight;
     public TextMeshProUGUI descriptionText;
     public TextMeshProUGUI onesentenceText;
-    
+
     // result handler
     public ResultHandler _resultHandler;
+
     // 한 게임에서 전체 시도한 횟수와 전체 맞춘 갯수
     // Result 페이지에서 이에 따라 보물상자 여는 것을 달리 해야 함.
     public static int total_tried = 0;
     public static int total_correct = 0;
     public static int total_correct_stage = 0;
     public int ref_total_tried;
-    
+
     public bool allJFArrived;
     private bool[] JfArrived = new bool[8];
     public int cntJFArrived;
     private float speed = 8f;
 
     private bool initialDone;
-    
+
     private bool waitUser;
 
     public bool isUserRight;
+
     //excel data
     public Entity_Synthesis data;
-    
+
     // 초급/중급/고급
     public int level;
-    
+    public int realLevel;
+
     // 각 난이도 안의 stage index
     public static int stageIndex;
+
     // 해당 난이도의 전체 stage 개수 
     public static int stageMaxIndex;
+    public int refStageIndex; //참조용이자 진짜 level
+    public int levelOneStageMaxIndex; //일단 씬에서 결정
 
-    public int refStageIndex;
-    
     //보기 이 게임에선 해파리
     public GameObject[] choices;
     public Transform[] choiceTransforms;
-    
+
     //Crab
     public GameObject crab;
-    
+
     // ui level과 stage표시 하기 위한 변수
     public Text quizLevel;
     public Text quizStage;
-    
+
     //each stage jellyfish's texts
     public TextMeshPro[] choiceTexts;
-    
+
     //correct jellyfish's position Index
     public List<int> corrAnsPosIndex;
-    
+
     //Number of Correct Answers
     public int corrAnsCnt;
-    
+
     //Number of Wrong Answers
     public int wrongAnsCnt;
 
     public List<string> chosenAns;
 
     public GameObject[] PickedAnswer;
-    
+
     public Transform[] PickedJfPos;
+
     //시간 테스트를 위한 임시 변수
     public Text timeText;
 
@@ -96,17 +102,20 @@ public class SpreadChoices : MonoBehaviour
     private float timeLimit = 60f;
     public Stopwatch watch = new Stopwatch();
     public float responseTime;
-    
+
     //해파리 도망가는 지점
     public Transform FinishPosition;
 
     public Transform crabStartTransform;
-    
+
     // 매 스테이지에서 time이 넘어가게 되면 TimeOver 함수를 호출하는 과정에 필요한 변수 
     [HideInInspector] private bool run_once = false;
+
     // 일시 정지에 사용되는 불린 
     private bool CheckPaused = false;
-    
+
+    static bool bTwoAns;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -114,59 +123,72 @@ public class SpreadChoices : MonoBehaviour
         totalStorageScript = totalStorageObject.GetComponent<KeepTrackController>();
         StageStorage = GameObject.Find("StageStorage");
         StageStorageScript = StageStorage.GetComponent<DataController>();
-        
+
         this.director = GameObject.Find("SynthesisGameDirector");
 //        Debug.Log("Level, StageIndex = ("+level+", "+stageIndex+")");
         stageMaxIndex = 3;
-        refStageIndex = stageIndex;
+
+        levelOneStageMaxIndex = data.sheets[0].list.Count - 1;
+        //Debug.Log("levelOneStageMaxIndex: " + levelOneStageMaxIndex);
+
         crab.transform.Find("DescriptionBubble").gameObject.SetActive(false);
-        
+
+        realLevel = totalStorageScript.chosenLevel;
         level = totalStorageScript.chosenLevel;
-        if (level == 0 && stageIndex > 14)
+        Debug.Log("RealLevel :" + realLevel + ", level: " + level + ", bTwoAns:" + bTwoAns);
+        if (bTwoAns ||
+            ( level == 0 && stageIndex > levelOneStageMaxIndex)) //뒤연산은 낱말늘어날때 한번연산하게됨
         {
             level = 1;
+            bTwoAns = true;
         }
-        else if (level > 0)
+        else if (realLevel > 0)
         {
             level++;
         }
-        stageIndex = totalStorageScript.tmpStage[1]; 
+
+        refStageIndex = stageIndex = totalStorageScript.tmpStage[1];
+
+        if (bTwoAns)
+        {
+            stageIndex = totalStorageScript.tmpStage[1] - levelOneStageMaxIndex - 1;
+        }
+
+
         QuizInit();
-        
     }
 
     void Update()
     {
         ref_total_tried = total_tried;
-        
+
         // timeScale이 1이 아니고 CheckPaused가 false이면 timer를 stop
-       if(Time.timeScale != 1 && !CheckPaused)
-       {
-           watch.Stop();
-           CheckPaused = true;
-       }
-       // timeScale이 1이고 CheckPaused가 true이면 timer를 restart
-       if (Time.timeScale == 1 && CheckPaused)
-       {
-           watch.Start();
-           CheckPaused = false;
-       }
-       
-       if (watch.ElapsedMilliseconds > 0)
-       {
-           director.GetComponent<SynthesisGameDirector>().SetTime(watch.ElapsedMilliseconds/1000.0f);
-       }
-       // 타임오버 되었을 떄
-       if (!run_once && watch.ElapsedMilliseconds > 60000f)
-       {
-           responseTime = watch.ElapsedMilliseconds;
-           Debug.Log("Stage Over");
-           run_once = true;
-         this.GoNext();
-       }
+        if (Time.timeScale != 1 && !CheckPaused)
+        {
+            watch.Stop();
+            CheckPaused = true;
+        }
 
-       
+        // timeScale이 1이고 CheckPaused가 true이면 timer를 restart
+        if (Time.timeScale == 1 && CheckPaused)
+        {
+            watch.Start();
+            CheckPaused = false;
+        }
 
+        if (watch.ElapsedMilliseconds > 0)
+        {
+            director.GetComponent<SynthesisGameDirector>().SetTime(watch.ElapsedMilliseconds / 1000.0f);
+        }
+
+        // 타임오버 되었을 떄
+        if (!run_once && watch.ElapsedMilliseconds > 60000f)
+        {
+            responseTime = watch.ElapsedMilliseconds;
+            Debug.Log("Stage Over");
+            run_once = true;
+            this.GoNext();
+        }
     }
 
     public void QuizInit()
@@ -174,22 +196,24 @@ public class SpreadChoices : MonoBehaviour
         crab.transform.position = crabStartTransform.position;
         if (level == 0)
         {
-            crab.transform.localScale=new Vector3(0.2f ,0.2f,1);
+            crab.transform.localScale = new Vector3(0.2f, 0.2f, 1);
         }
 
         if (level == 1)
         {
-            crab.transform.localScale = new Vector3(0.25f,0.25f, 1);
+            crab.transform.localScale = new Vector3(0.25f, 0.25f, 1);
         }
+
         if (level == 2)
         {
-            crab.transform.localScale=new Vector3(0.3f,0.3f,1);
+            crab.transform.localScale = new Vector3(0.3f, 0.3f, 1);
         }
 
         if (level == 3)
         {
-            crab.transform.localScale=new Vector3(0.4f,0.4f,1);
+            crab.transform.localScale = new Vector3(0.4f, 0.4f, 1);
         }
+
         //StartCoroutine(EnableCoroutine());
         StartCoroutine(EnableCoroutine());
     }
@@ -203,61 +227,66 @@ public class SpreadChoices : MonoBehaviour
         //yield return new WaitForSecondsRealtime(GetComponent<AudioSource>().clip.length);
         //yield return new WaitForSeconds(1.0f);
         //CheckToggleGroup.SetAllTogglesOff();
-        
+
         run_once = false;
         // 감독의 시간을 60초로 초기화한다.
-        director.GetComponent<SynthesisGameDirector>().InitTime();;
+        director.GetComponent<SynthesisGameDirector>().InitTime();
+        ;
         // UI 설정
         director.GetComponent<SynthesisGameDirector>().setStage(stageIndex);
         director.GetComponent<SynthesisGameDirector>().setLevel(level);
-        
+
         //정답의 index (corrAnsCnt: 초급-1,2개 중급-3개 고급-4개)
         //8개의 자리중 랜덤한 위치
-        for (int i = 0; i < (corrAnsCnt+wrongAnsCnt); i++)
+        for (int i = 0; i < (corrAnsCnt + wrongAnsCnt); i++)
         {
-            int tmp; 
-            do {
+            int tmp;
+            do
+            {
                 tmp = Random.Range(0, 8);
             } while (corrAnsPosIndex.Contains(tmp));
+
             //Debug.Log("corrAnsPosIndex[" + i + "] = " + tmp );
             corrAnsPosIndex.Add(tmp);
         }
 
-        
+
         //정답 글자를 랜덤 위치에 넣는다.
         for (int i = 0; i < corrAnsCnt; i++)
         {
             choices[corrAnsPosIndex[i]].tag = "CorrectAns";
             if (i == 0)
             {
-                //Debug.Log("level "+level);
-                //Debug.Log("stageIndex "+stageIndex);
+                Debug.Log("level " + level);
+                Debug.Log("stageIndex " + stageIndex);
                 //Debug.Log(corrAnsPosIndex[0]);
-                //Debug.Log(data.sheets[level].list[stageIndex].정답1);
-                PickedAnswer[0].GetComponent<TextMeshPro>().text 
-                    = choiceTexts[corrAnsPosIndex[0]].text 
-                    = data.sheets[level].list[stageIndex].정답1;
-                
+                Debug.Log(data.sheets[level].list[stageIndex].정답1);
+                PickedAnswer[0].GetComponent<TextMeshPro>().text
+                    = choiceTexts[corrAnsPosIndex[0]].text
+                        = data.sheets[level].list[stageIndex].정답1;
+
                 //Debug.Log(choiceTexts[corrAnsPosIndex[0]].text);
             }
 
             if (i == 1)
             {
-                PickedAnswer[1].GetComponent<TextMeshPro>().text 
+                PickedAnswer[1].GetComponent<TextMeshPro>().text
                     = choiceTexts[corrAnsPosIndex[1]].text
-                    = data.sheets[level].list[stageIndex].정답2;
+                        = data.sheets[level].list[stageIndex].정답2;
             }
+
             if (i == 2)
             {
-                PickedAnswer[2].GetComponent<TextMeshPro>().text 
+                PickedAnswer[2].GetComponent<TextMeshPro>().text
                     = choiceTexts[corrAnsPosIndex[2]].text
-                    = data.sheets[level].list[stageIndex].정답3;
+                        = data.sheets[level].list[stageIndex].정답3;
             }
+
             if (i == 3)
             {
-                PickedAnswer[3].GetComponent<TextMeshPro>().text 
+                PickedAnswer[3].GetComponent<TextMeshPro>().text
                     = choiceTexts[corrAnsPosIndex[3]].text
-                    = data.sheets[level].list[stageIndex].정답4;
+                        = data.sheets[level].list[stageIndex].정답4;
             }
         }
 
@@ -270,17 +299,20 @@ public class SpreadChoices : MonoBehaviour
                 choiceTexts[corrAnsPosIndex[i]].text
                     = data.sheets[level].list[stageIndex].보기1;
             }
-            if (i == corrAnsCnt+1)
+
+            if (i == corrAnsCnt + 1)
             {
                 choiceTexts[corrAnsPosIndex[i]].text
                     = data.sheets[level].list[stageIndex].보기2;
             }
-            if (i == corrAnsCnt+2)
+
+            if (i == corrAnsCnt + 2)
             {
                 choiceTexts[corrAnsPosIndex[i]].text
                     = data.sheets[level].list[stageIndex].보기3;
             }
-            if (i == corrAnsCnt+3)
+
+            if (i == corrAnsCnt + 3)
             {
                 choiceTexts[corrAnsPosIndex[i]].text
                     = data.sheets[level].list[stageIndex].보기4;
@@ -289,14 +321,13 @@ public class SpreadChoices : MonoBehaviour
 
         //show quiz
         yield return StartCoroutine(ShowAnswers());
-        
+
         Debug.Log("Asdf");
         //waitUser = true;
     }
 
     IEnumerator ShowAnswers()
     {
-        
         yield return new WaitForSeconds(2.0f);
         crab.transform.Find("DescriptionBubble").gameObject.SetActive(true);
         SoundManager.Instance.Play_SpeechBubblePop();
@@ -306,6 +337,7 @@ public class SpreadChoices : MonoBehaviour
         {
             SoundManager.Instance.StopMusic();
         }
+
         yield return new WaitForSeconds(1.5f);
         string wordFileLink = $"Sounds/Synthesis/{data.sheets[level].list[stageIndex].filename}";
         Debug.Log(data.sheets[level].list[stageIndex].filename);
@@ -316,29 +348,29 @@ public class SpreadChoices : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         if (!SoundManager.Instance.IsMusicPlaying())
         {
-            SoundManager.Instance.Play_JellyFishShowedUp();    
+            SoundManager.Instance.Play_JellyFishShowedUp();
         }
-        
+
         if (crab.GetComponent<AudioSource>().clip)
         {
             yield return new WaitForSeconds(crab.GetComponent<AudioSource>().clip.length + 1f);
         }
+
         //Jellyfish comes out
-        int cnt=0;
+        int cnt = 0;
         int jellyfish_index;
-        while (cnt < corrAnsCnt+wrongAnsCnt)
+        while (cnt < corrAnsCnt + wrongAnsCnt)
         {
-            yield return new WaitForSeconds(0.0f); 
+            yield return new WaitForSeconds(0.0f);
             //choices[maxChoiceNumber].SetActive(true);
             jellyfish_index = corrAnsPosIndex[cnt];
-            
+
             //1. move to each choicePosition
             StartCoroutine(InitialJellyfish(jellyfish_index));
-            
+
             cnt++;
         }
-        
-        Debug.Log("aaaaaaaaa");
+
 
         //Debug.Log("End ShowAnswers");
         // Crab Speaks - no audio available right now
@@ -347,7 +379,6 @@ public class SpreadChoices : MonoBehaviour
         crab.GetComponent<AudioSource>().loop = false;
         crab.GetComponent<AudioSource>().clip = Resources.Load(p) as AudioClip;
         crab.GetComponent<AudioSource>().Play();*/
-        
     }
 
     IEnumerator InitialJellyfish(int i)
@@ -356,91 +387,97 @@ public class SpreadChoices : MonoBehaviour
         // 얘는 OneShot이 아니고 백그라운드 뮤직
         if (!SoundManager.Instance.IsMusicPlaying())
         {
-            SoundManager.Instance.Play_JellyFishShowedUp();    
+            SoundManager.Instance.Play_JellyFishShowedUp();
         }
+
         while (!JfArrived[i])
         {
             yield return new WaitForEndOfFrame();
             //Debug.Log("InitialJellyfish while문 "+i);
             float distance = Vector2.Distance(
-                choices[i].transform.position, 
+                choices[i].transform.position,
                 choiceTransforms[i].position);
             //Debug.Log("distance: "+distance);
             if (distance > 0.02f)
             {
-                MoveJellyfish(i,choiceTransforms[i].position);
+                MoveJellyfish(i, choiceTransforms[i].position);
             }
             else
             {
                 JfArrived[i] = true;
-        
+
                 //Debug.Log("InitialJellyfish JF "+ i +" became true");
             }
-            
         }
-        
+
+        //DragAndDrop script에서 해파리가 제자리로 돌아가기위한 코드
+        choices[i].GetComponent<DragAndDrop>().initialPosition
+            = choiceTransforms[i].position;
     }
 
     void MoveJellyfish(int i, Vector2 destination)
     {
-        
         float step = speed * Time.deltaTime;
         Transform jellyfish = choices[i].transform;
         /*float distance = Vector2.Distance(choices[i].transform.position,
             destination);*/
         jellyfish.position = Vector2.MoveTowards(jellyfish.position,
-                destination, step);
-        
+            destination, step);
     }
-    
-    
-    // Update is called once per frame
-     void FixedUpdate()
-     { 
-         //Debug.Log("initialDone: "+initialDone);
-         if (!initialDone && CheckAllArrived())
-         {
-             Debug.Log("DONE");
-             // 해파리가 모두 제 자리에 왔을 때 시간을 시작.
-             initialDone = true;
-             Invoke("StartTime", 2.0f);
-             
-             //Debug.Log("In update Jfarrived Initialized");
-         }
-         /*Debug.Log("JFArrived : "
-                   +JfArrived[0]+", "
-                   +JfArrived[1]+", "
-                   +JfArrived[2]+", "
-                   +JfArrived[3]+", ");*/
-         
-         
-         
-     }
 
-     private void StartTime()
-     {
-         watch.Start();
-         for (int i = 0; i < wrongAnsCnt + corrAnsCnt; i++)
-         {
-             JfArrived[corrAnsPosIndex[i]] = false;
-         }
-     }
+
+    // Update is called once per frame
+    void FixedUpdate()
+    {
+        //Debug.Log("initialDone: "+initialDone);
+        if (!initialDone && CheckAllArrived())
+        {
+            Debug.Log("DONE");
+            // 해파리가 모두 제 자리에 왔을 때 시간을 시작.
+            initialDone = true;
+            Invoke("StartTime", 2.0f);
+
+            //Debug.Log("In update Jfarrived Initialized");
+        }
+
+        /*Debug.Log("JFArrived : "
+                  +JfArrived[0]+", "
+                  +JfArrived[1]+", "
+                  +JfArrived[2]+", "
+                  +JfArrived[3]+", ");*/
+    }
+
+    private void StartTime()
+    {
+        watch.Start();
+        for (int i = 0; i < wrongAnsCnt + corrAnsCnt; i++)
+        {
+            JfArrived[corrAnsPosIndex[i]] = false;
+        }
+    }
 
     public void GoNext()
     {
-        //StageStorageScript.SaveSynthesis();
-        
+        StageStorageScript.SC = this;
+        StageStorageScript.SaveSynthesis();
+        totalStorageScript.Save();
+
         watch.Stop();
-        if (stageIndex == 29)
-        { 
+        /*if (stageIndex == 29)
+        {
             //level++;
             stageIndex = 0;
         }
-        else
-        { 
+        else*/
+        {
             stageIndex++;
             totalStorageScript.tmpStage[1] = stageIndex;
+            if (bTwoAns)
+            {
+                totalStorageScript.tmpStage[1] = stageIndex + levelOneStageMaxIndex + 1;
+            }
         }
+
         watch.Reset();
         Debug.Log("In GoNext Invoke HideAnswer");
         StartCoroutine(HideAnswers());
@@ -452,38 +489,41 @@ public class SpreadChoices : MonoBehaviour
         int jfIndex;
         while (i < wrongAnsCnt + corrAnsCnt)
         {
-            
             yield return null;
             jfIndex = corrAnsPosIndex[i];
             StartCoroutine(ExitJellyFish(jfIndex));
             i++;
         }
-        
-       
+
+
         yield return new WaitForSeconds(4f);
         //Debug.Log("Re Quiz Init");
 
         // stageIndex는 0부터 시작 
         // stageMaxIndex-1: 전체 stage개수
         // stage가 끝났을 경우에는 Result창을 보여주어야 한다.
-        if (stageIndex >= stageMaxIndex)
+        if (refStageIndex+1 >= stageMaxIndex)
         {
             Debug.Log("Game Is Over");
             totalStorageScript.tmpLevel[1]++;
             totalStorageScript.InitStageData();
+            if (bTwoAns)
+            {
+                bTwoAns = false;
+            }
+
             yield return DecideResult(total_tried, total_correct, total_correct_stage);
         }
 
-        if (stageIndex < stageMaxIndex)
+        if (refStageIndex+1 < stageMaxIndex)
         {
-            if (level == 0 && stageIndex == 15)
+            if (level == 0 && refStageIndex+1 > levelOneStageMaxIndex)
             {
                 //글자수 1 -> 2
                 //초급인 건 그대로
                 SceneManager.LoadScene("CrabLevel2");
             }
-            
-            if (level == 1 && stageIndex == 15)
+            /*if (level == 1 && stageIndex == 15)
             {
                 //중급으로 넘어가기 
                 SceneManager.LoadScene("CrabLevel3");
@@ -492,17 +532,12 @@ public class SpreadChoices : MonoBehaviour
             {
                 //고급으로 넘어가기
                 SceneManager.LoadScene("CrabLevel4");
-            }
+            }*/
             else
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
         }
-        
-        
-            
-        
-        
     }
 
     IEnumerator ExitJellyFish(int i)
@@ -512,7 +547,7 @@ public class SpreadChoices : MonoBehaviour
         {
             //Debug.Log("Jf" + i + " starts moving");
             float distance = Vector2.Distance(
-                choices[i].transform.position, 
+                choices[i].transform.position,
                 FinishPosition.position
             );
             if (distance > 0.01f)
@@ -525,6 +560,7 @@ public class SpreadChoices : MonoBehaviour
                 JfArrived[i] = true;
                 //Debug.Log("Exit JellyFish Jf " + i +" became true");
             }
+
             yield return null;
         }
     }
@@ -535,7 +571,7 @@ public class SpreadChoices : MonoBehaviour
         for (int i = 0; i < corrAnsCnt + wrongAnsCnt; i++)
         {
             //Debug.Log("CheckAllArrived JfArrived " + i + ": " + JfArrived[i]);
-            
+
             if (JfArrived[corrAnsPosIndex[i]] == false)
             {
                 flag = false;
@@ -543,11 +579,11 @@ public class SpreadChoices : MonoBehaviour
                 break;
             }
         }
-        
+
         //Debug.Log("return flag: "+flag);
         return flag;
     }
-    
+
     // ttr: total tried, tco: total corrected 
     IEnumerator DecideResult(float ttr, float tco, float tcos)
     {
@@ -555,10 +591,11 @@ public class SpreadChoices : MonoBehaviour
         _resultHandler.OpenResult();
         // tcl : total_clicked
         // tco : total_correct
-        string result_text =  $"{ttr - tco}번 틀리고 {tcos}개를 맞췄어요!";
+        string result_text = $"{ttr - tco}번 틀리고 {tcos}개를 맞췄어요!";
         descriptionText.text = result_text;
         string[] sentences = {"정말 잘했어요", "조금 더 신중하게 해 보자", "더 연습하자"};
         float rate = ttr / tco;
+        Debug.Log("level, rate: " + level + ", " + rate);
         //        // 만약에 2.5배보다 더 많이 클릭했으면
         if (rate > 2.5f)
         {
@@ -567,14 +604,14 @@ public class SpreadChoices : MonoBehaviour
             SoundManager.Instance.Play_NoStarShowedUp();
             StarLeft.SetActive(false);
             onesentenceText.text = sentences[2];
-            totalStorageScript.tmpStars[1,level]=0;
+            totalStorageScript.tmpStars[1, totalStorageScript.chosenLevel] = 0;
         }
         else
         {
             SoundManager.Instance.Play_StarShowedUp();
             onesentenceText.text = sentences[2];
             StarLeft.SetActive(true);
-            totalStorageScript.tmpStars[1,level]++;
+            totalStorageScript.tmpStars[1, totalStorageScript.chosenLevel]++;
             yield return new WaitForSeconds(.5f);
         }
 
@@ -587,7 +624,7 @@ public class SpreadChoices : MonoBehaviour
             SoundManager.Instance.Play_StarShowedUp();
             onesentenceText.text = sentences[1];
             StarMiddle.SetActive(true);
-            totalStorageScript.tmpStars[1,level]++;
+            totalStorageScript.tmpStars[1, totalStorageScript.chosenLevel]++;
             yield return new WaitForSeconds(.5f);
         }
 
@@ -600,14 +637,21 @@ public class SpreadChoices : MonoBehaviour
             SoundManager.Instance.Play_StarShowedUp();
             onesentenceText.text = sentences[0];
             StarRight.SetActive(true);
-            totalStorageScript.tmpStars[1,level]++;
-            yield return new WaitForSeconds(.5f);
+            totalStorageScript.tmpStars[1, totalStorageScript.chosenLevel]++;
+            if (totalStorageScript.tmpMaxLevel[1] == level)
+            {
+                totalStorageScript.tmpMaxLevel[1] = level + 1;
+            }
 
+            yield return new WaitForSeconds(.5f);
         }
 
-        
+        if (totalStorageScript.tmpMaxLevel[1] > level)
+        {
+            totalStorageScript.tmpStars[1, level] = 3;
+        }
     }
-    
+
     public void PlusTotalTry()
     {
         Debug.Log("totaltried");

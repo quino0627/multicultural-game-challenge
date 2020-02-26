@@ -7,6 +7,7 @@
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="DontDestroyScript.cs" t="Include" />
         <e p="Import" t="Include">
           <e p="GUI Animator" t="Include">
             <e p="GUI Animator" t="Include">
@@ -89,6 +90,22 @@
         <e p="JsonDotNet" t="Include">
           <e p="link.xml" t="Include" />
         </e>
+        <e p="MousePointer.cs" t="Include" />
+        <e p="nested-dictionary-master" t="Include">
+          <e p="src" t="Include">
+            <e p="ExampleCli" t="Include">
+              <e p="Place.cs" t="Include" />
+              <e p="Program.cs" t="Include" />
+              <e p="Properties" t="Include">
+                <e p="AssemblyInfo.cs" t="Include" />
+              </e>
+            </e>
+            <e p="NestedDictionaryLib" t="Include">
+              <e p="Extensions.cs" t="Include" />
+              <e p="NestedDictionary.cs" t="Include" />
+            </e>
+          </e>
+        </e>
         <e p="Scripts" t="Include">
           <e p="Alternative" t="Include">
             <e p="AlternativeDescriptionController.cs" t="Include" />
@@ -127,6 +144,7 @@
             </e>
             <e p="FishController.cs" t="Include" />
             <e p="FishShowAnswer.cs" t="Include" />
+            <e p="FishType.cs" t="Include" />
             <e p="SpeakerController.cs" t="Include" />
           </e>
           <e p="FadeIn.cs" t="Include" />

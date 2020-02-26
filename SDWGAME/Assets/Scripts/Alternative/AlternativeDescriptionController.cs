@@ -30,7 +30,7 @@ public class AlternativeDescriptionController : MonoBehaviour
 
     public void WrongAnswer()
     {
-        description_text = "틀렸어. \n 다시 골라보자.";
+        description_text = "틀렸어.\n다음에 잘해봐~.";
         Invoke("DefaultDescription", 2.0f);
     }
 

@@ -6,9 +6,17 @@ using UnityEngine.SceneManagement;
 
 public class EscapeScene : MonoBehaviour
 {
+    //KeepTrackController ConclusionData
+    public GameObject totalStorageObject;
+    private KeepTrackController totalStorageScript;
+    
+    private GameObject StageStorage;
+    private DataController StageStorageScript;
+    
     private GameObject shark;
     public GameObject sharkBubble;
     private GameObject fish;
+    private TextMeshPro fishText;
 
     public float fastSpeed;
     public float rotSpeed;
@@ -28,33 +36,60 @@ public class EscapeScene : MonoBehaviour
     public float orbitDistance;
     public float orbitDegreesPerSec = 180.0f;
     public Vector3 relativeDistance = Vector3.zero;
+
+    public int level;
+    public static int stageIndex;
+
+    public Entity_EliminationTestCnt10 data;
     
-    //public GameObject QuizManager;
-    private FishShowAnswer script;
     
+
     // Start is called before the first frame update
     void Start()
     {
+        Cursor.visible = false;
+        totalStorageObject = GameObject.Find("TotalStorage");
+        totalStorageScript = totalStorageObject.GetComponent<KeepTrackController>();
+        StageStorage = GameObject.Find("StageStorage");
+        StageStorageScript = StageStorage.GetComponent<DataController>();
+
+        level = totalStorageScript.chosenLevel;
+        stageIndex = totalStorageScript.tmpStage[2];
+        
         dongExitPos = GameObject.Find("DongExitPos").transform;
         shark = GameObject.Find("Shark");
         fish = GameObject.Find("Fish");
+        fishText = fish.transform.GetChild(0).GetComponent<TextMeshPro>();
+        
         sharkMeetFishPos = GameObject.Find("SharkFishMeetPos").transform;
         fishExitPos = GameObject.Find("FishExitPos").transform;
-        //fishDong = GameObject.Find("FishDong");
-        //QuizManager = GameObject.Find("QuizManager");
-        //script = QuizManager.GetComponent<FishShowAnswer>();
+
+        fishDongText = fishDong.GetComponentInChildren<TextMeshPro>();
         fishDongTransform = fishDong.transform;
         relativeDistance = fishDongTransform.position - DongOrbitTarget.transform.position;
         StartCoroutine(SharkTry());    
         
+        //물고기에 정답음성 넣기
+        string wordFileLink = 
+            $"Sounds/Detection/{data.sheets[level].list[stageIndex].정답음성}";
+        AudioSource fishAudioSource = 
+            fish.GetComponentInChildren<AudioSource>();
+        fishAudioSource.loop = false;
+        fishAudioSource.clip = Resources.Load(wordFileLink) as AudioClip;
         
+        //테스트로 글자 넣기
+        fishText.text = 
+            data.sheets[level].list[stageIndex].자극;
+        
+        fishDongText.text = 
+            data.sheets[level].list[stageIndex].탈락자극;
     }
     
     
     IEnumerator SharkTry()
     {
         yield return new WaitForSeconds(3.0f);
-        Debug.Log("SharkTry");
+        //Debug.Log("SharkTry");
         //먼저 상어가 들어온다
         while (!isSharkArrived)
         {
@@ -92,12 +127,13 @@ public class EscapeScene : MonoBehaviour
 
     IEnumerator FishEscape()
     {
-        Debug.Log("FishEscape");
+        //Debug.Log("FishEscape");
         //똥이 보여짐
         fishDong.SetActive(true);
-        /*fishDongText.text = 
-            script.data.sheets[script.level].list[script.refStageIndex].탈락자극;*/
-        //fishDongText.text = "ㄱ";
+       
+        
+        
+        
         
         //똥이 데굴데굴...
         StartCoroutine(DongTargetMove());
@@ -136,12 +172,12 @@ public class EscapeScene : MonoBehaviour
                         if (distance > 0.01f)
                         {
                             MoveObject(slowSpeed, DongOrbitTarget, dongExitPos.position);
-                            Debug.Log("DongTarget moved");
+                            //Debug.Log("DongTarget moved");
                         }
                         else
                         {
                             isDongExited = true;
-                            Debug.Log("DongTarget arrived");
+                            //Debug.Log("DongTarget arrived");
                         }
         }
     }
@@ -168,7 +204,7 @@ public class EscapeScene : MonoBehaviour
         //상어 뿔남 애니메이션 예정
         
         
-        Debug.Log("LoadScene");
+        //Debug.Log("LoadScene");
         SceneManager.LoadScene("Elimination");
 
     }

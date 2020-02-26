@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-
+using System.Diagnostics;
 public class JfSuccess : MonoBehaviour
 {
 
+    public GameObject descriptionBubble;
+    
     public int currCntCorrAns;  // 현재 정답 글자수
     public int cntCorrAns; // 정답 글자수
     public float speed = 2f;
@@ -39,6 +41,7 @@ public class JfSuccess : MonoBehaviour
         willCrabReturn = true;
         tmpValue = false;
 
+        descriptionBubble = Crab.transform.Find("DescriptionBubble").gameObject;
         QuizManager = GameObject.FindWithTag("QuizManager");
         spreadChoicesScript = QuizManager.GetComponent<SpreadChoices>();
     }
@@ -49,17 +52,18 @@ public class JfSuccess : MonoBehaviour
 
         if (CheckSuccess())
         {
+            spreadChoicesScript.responseTime = spreadChoicesScript.watch.ElapsedMilliseconds;
             //Carrier.SetActive(true);
             if (!tmpValue)
             {
                 GameObject.Find("QuizManager").GetComponent<SpreadChoices>().PlusTotalCorrectStage();
                 tmpValue = true;
 //                Debug.Log("GOOGGOOD");
-                Crab.transform.Find("DescriptionBubble").GetComponent<SynthesisDescriptionController>().CorrectAnswer();
+                descriptionBubble.GetComponent<SynthesisDescriptionController>().CorrectAnswer();
             }
 
             spreadChoicesScript.isUserRight = true;
-            FinishAnimation();
+            Invoke("FinishAnimation",1.2f);
         }
     }
 
@@ -71,6 +75,7 @@ public class JfSuccess : MonoBehaviour
         // 1. 해파리를 move toward crab의 탑승지점
         if (willCrabReturn)
         {
+            descriptionBubble.SetActive(false);
             Carrier.transform.position = Vector2.MoveTowards(Carrier.transform.position,
                 aboardPosition, step);
         }

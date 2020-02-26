@@ -41,10 +41,10 @@ public class SynthesisDescriptionController : MonoBehaviour
         {
             AfterCrabScale = ParentCrab.transform.localScale;
             AfterMsgScaleXValue = (OriginCrabScale.x * OriginMsgScale.x / AfterCrabScale.x);
-            Debug.Log($"OriginCrabScale.x: {OriginCrabScale.x}");
-            Debug.Log($"AfterCrabScale.x: {AfterCrabScale.x}");
-            Debug.Log($"OriginMsgScale.x: {OriginMsgScale.x}");
-            Debug.Log($"AfterMsgScaleXValue: {AfterMsgScaleXValue}");
+            //Debug.Log($"OriginCrabScale.x: {OriginCrabScale.x}");
+            //Debug.Log($"AfterCrabScale.x: {AfterCrabScale.x}");
+            //Debug.Log($"OriginMsgScale.x: {OriginMsgScale.x}");
+            //Debug.Log($"AfterMsgScaleXValue: {AfterMsgScaleXValue}");
             this.transform.localScale = new Vector3(AfterMsgScaleXValue, AfterMsgScaleXValue, 1);
             
             isFirstUpdate = false;
@@ -60,10 +60,10 @@ public class SynthesisDescriptionController : MonoBehaviour
         Invoke("DefaultDescription", 2.0f);
     }
 
-    public void CorrectAnswer()
+    public string CorrectAnswer()
     {
         description_text = "정답이야. \n 고마워!";
-        
+        return "CorrectAnswer";
     }
 
     public void WrongAnswer()
@@ -76,4 +76,5 @@ public class SynthesisDescriptionController : MonoBehaviour
     {
         description_text = "해파리를 옮겨 \n 소리나는 단어를\n 만들어줘!";
     }
+    
 }

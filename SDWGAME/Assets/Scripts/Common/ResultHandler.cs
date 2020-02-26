@@ -76,7 +76,7 @@ public class ResultHandler : UIPT_PRO_Demo_GUIPanel
     {
         GSui.Instance.MoveOut(this.transform, true);
         GSui.Instance.DontDestroyParticleWhenLoadNewScene(this.transform, true);
-        GSui.Instance.LoadLevel("LevelMenu", 1.0f);
+        GSui.Instance.LoadLevel("SelectMenu", 1.0f);
     }
     
 }

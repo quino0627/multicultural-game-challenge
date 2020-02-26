@@ -56,7 +56,7 @@ public class BubbleController : MonoBehaviour
         string currentBubbleText = childText.GetComponent<TextMeshPro>().text;
         
         //wj
-        tmpTransform.GetComponent<AlternativeQuizManager>().chosenAns = currentBubbleText;
+        tmpTransform.gameObject.GetComponent<AlternativeQuizManager>().chosenAns.Add(currentBubbleText); 
         
         // 해당 stage의 정답 string
         string currentStageAnswerText = AlternativeQuizManager.answer_string_list[AlternativeQuizManager.stage_no];
@@ -85,6 +85,9 @@ public class BubbleController : MonoBehaviour
             // 애니메이션 출력
             //Transform tmpTransform = GameObject.Find("QuizContainer").transform;
             tmpTransform.GetComponent<AlternativeQuizManager>().total_clicked++;
+            
+            
+            tmpTransform.GetComponent<AlternativeQuizManager>().StageOver();
         }
     }
 }

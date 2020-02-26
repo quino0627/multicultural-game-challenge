@@ -13,10 +13,13 @@ public class SelectMenu : MonoBehaviour
     public int[] stages;
     public Sprite emptyStar;
     public Sprite filledStar;
+
     public int currentLevel;
+
     //public GameObject[] gameNames;
     public GameObject[] stars;
     private SpriteRenderer[] starSprite;
+
     void Awake()
     {
         // Set GSui.Instance.m_AutoAnimation to false, 
@@ -31,23 +34,25 @@ public class SelectMenu : MonoBehaviour
         {
             this.transform.gameObject.SetActive(true);
         }
-        
     }
+
     // Start is called before the first frame update
     void Start()
     {
         TotalStorage = GameObject.Find("TotalStorage");
         TotalStorageScript = TotalStorage.GetComponent<KeepTrackController>();
         currentLevel = TotalStorageScript.chosenLevel;
-        
+
 
         //Debug.Log(emptyStar);
         //Debug.Log(filledStar);
 
         for (int i = 0; i < 4; i++)
         {
-            starSprite = stars[i].GetComponentsInChildren<SpriteRenderer>(); 
-            int cntStar = TotalStorageScript.tmpStars[i,currentLevel];
+            starSprite = stars[i].GetComponentsInChildren<SpriteRenderer>();
+            int cntStar = TotalStorageScript.tmpStars[i, currentLevel];
+            Debug.Log("tmpstars[ " + i + ", " + currentLevel + " ] = " +
+                      TotalStorageScript.tmpStars[i, currentLevel]);
             if (cntStar == 0)
             {
                 starSprite[0].sprite = emptyStar;
@@ -59,7 +64,6 @@ public class SelectMenu : MonoBehaviour
                 starSprite[0].sprite = filledStar;
                 starSprite[1].sprite = emptyStar;
                 starSprite[2].sprite = emptyStar;
-
             }
             else if (cntStar == 2)
             {
@@ -73,33 +77,30 @@ public class SelectMenu : MonoBehaviour
                 starSprite[1].sprite = filledStar;
                 starSprite[2].sprite = filledStar;
             }
-            
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-
     }
 
-  
 
     public void Detection()
     {
         GR.enabled = false;
         SoundManager.Instance.Play_SoundClick();
         SceneManager.LoadScene("DetectionGame");
-        
     }
 
     public void Synthesis()
-    { 
+    {
         GR.enabled = false;
         SoundManager.Instance.Play_SoundClick();
         if (TotalStorageScript.chosenLevel == 0)
         {
-            if (TotalStorageScript.tmpStage[1] < 15)
+            //매직넘버
+            if (TotalStorageScript.tmpStage[1] < 14)
             {
                 SceneManager.LoadScene("CrabLevel1");
             }
@@ -111,16 +112,13 @@ public class SelectMenu : MonoBehaviour
 
         if (TotalStorageScript.chosenLevel == 1)
         {
-           
             SceneManager.LoadScene("CrabLevel3");
-            
         }
 
         if (TotalStorageScript.chosenLevel == 2)
         {
             SceneManager.LoadScene("CrabLevel4");
         }
-
     }
 
     public void Elimination()
@@ -128,8 +126,6 @@ public class SelectMenu : MonoBehaviour
         GR.enabled = false;
         SoundManager.Instance.Play_SoundClick();
         SceneManager.LoadScene("EliminationEscape");
-        
-
     }
 
     public void Alternative()
@@ -137,14 +133,12 @@ public class SelectMenu : MonoBehaviour
         GR.enabled = false;
         SoundManager.Instance.Play_SoundClick();
         SceneManager.LoadScene("AlternativeGame");
-        
     }
 
     public void ToggleSettingPanel()
     {
         //환경설정 창 띄우기
         m_Settings.Show();
-        
     }
 
     public void GoBack()
@@ -152,8 +146,7 @@ public class SelectMenu : MonoBehaviour
         SoundManager.Instance.Play_SoundBack();
         GSui.Instance.MoveOut(this.transform, true);
         GSui.Instance.DontDestroyParticleWhenLoadNewScene(this.transform, true);
-        GSui.Instance.LoadLevel("StartMenu", 1.0f);
+        GSui.Instance.LoadLevel("LevelMenu", 1.0f);
         //SceneManager.LoadScene("LevelMenu");
     }
-    
 }

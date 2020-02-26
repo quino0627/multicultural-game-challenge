@@ -28,7 +28,7 @@ public class DetectionDescriptionController : MonoBehaviour
 
     public void WrongAnswer()
     {
-        description_text = "틀렸어. \n 다시 골라보자.";
+        description_text = "틀렸어.\n나중에 다시 골라봐\nㅠㅠ";
         Invoke("DefaultDescription", 2.0f);
     }
 

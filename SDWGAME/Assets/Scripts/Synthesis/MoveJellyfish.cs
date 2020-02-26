@@ -58,18 +58,13 @@ public class MoveJellyfish : MonoBehaviour
         {
             return; //해파리가 circle에 놓여져 있지 않으면 return
         }
-        //Debug.Log("Jellyfish onCircle");
         
         
         /*** 오답인경우 ***/
         if (gameObject.CompareTag("WrongAns"))
         {
-            //json을 위해 chosenAns;
-            tmp.chosenAns.Add(child.text); 
-            
             StartCoroutine(ChoseWrongAnswer(fly));
             Debug.Log("WRONG!!!");
-            
         }
         
         
@@ -78,7 +73,6 @@ public class MoveJellyfish : MonoBehaviour
         //모든 글자 성공후 animation은 JfSuccess.js
         if (gameObject.CompareTag("CorrectAns") && !ischecked)
         {
-//            Debug.Log("");
             Debug.Log("ZZZZZZZZ");
             Crab.transform.Find("DescriptionBubble").GetComponent<SynthesisDescriptionController>().CorrectOneWord();
             SoundManager.Instance.Play_ClickedCorrectAnswer();
@@ -86,10 +80,6 @@ public class MoveJellyfish : MonoBehaviour
             QuizManager.GetComponent<SpreadChoices>().PlusTotalCorrect();
             //QuizManager.GetComponent<SpreadChoices>().PlusTotalTry();
             Carrier.SetActive(true);
-            //TextMeshPro child = GetComponentInChildren<TextMeshPro>();
-            /*GameObject quizmanager = GameObject.Find("QuizManager");
-            SpreadChoices tmp = quizmanager.GetComponent<SpreadChoices>();*/
-            
             
             
             // level 올라가면 그저 정답간에 순서 맞춰서 배정하면됨
@@ -108,7 +98,7 @@ public class MoveJellyfish : MonoBehaviour
             ischecked = true;
 
             //json을 위해 chosenAns;
-            tmp.chosenAns.Add(child.text); 
+            //tmp.chosenAns.Add(child.text); 
             
             //정답란에 글자를 띄워줌
             for (int i = 0; i < tmp.corrAnsCnt+tmp.wrongAnsCnt; i++)

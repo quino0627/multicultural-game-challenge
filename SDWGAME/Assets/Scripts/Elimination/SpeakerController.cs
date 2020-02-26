@@ -11,14 +11,15 @@ public class SpeakerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        QuizManager = GameObject.Find("QuizManager");
+        //QuizManager = GameObject.Find("QuizManager");
         _audioSource = gameObject.GetComponent<AudioSource>();
+        //script = QuizManager.GetComponent<FishShowAnswer>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        script = QuizManager.GetComponent<FishShowAnswer>();
+        
     }
 
     private void OnMouseDown()

@@ -24,15 +24,22 @@ public class StartMenu : UIPT_PRO_Demo_GUIPanel
     
     public GameObject idInputFieldGameObject;
     private TMP_InputField idInputField;
+    public GameObject idInputPlaceholder;
+    private TextMeshProUGUI idInputPlaceholderTextMeshProUgui;
     public GameObject idEnterButtonGameObject;
 
     public GameObject newIdInputFieldGameObject;
     private TMP_InputField newIdInputField;
+    public GameObject newIdInputPlaceholder;
+    private TextMeshProUGUI newIdInputPlaceholderTextMeshProUgui;
     public GameObject newIdEnterButtonGameObject;
     
 
     public GameObject startButtonGameObject;
     public GameObject statisticButtonGameObject;
+
+    public TMP_InputField tmpInputfield;
+   
     
     void Awake()
     {
@@ -53,9 +60,11 @@ public class StartMenu : UIPT_PRO_Demo_GUIPanel
         {
             ClosePanel.SetActive(true);
         }
+
         
     }
-    
+
+   
     public void Start()
     {
         TotalStorage = GameObject.Find("TotalStorage");
@@ -66,8 +75,24 @@ public class StartMenu : UIPT_PRO_Demo_GUIPanel
         idInputField = idInputFieldGameObject.GetComponent<TMP_InputField>();
         newIdInputField = newIdInputFieldGameObject.GetComponent<TMP_InputField>();
         
+        idInputPlaceholderTextMeshProUgui = idInputPlaceholder.GetComponent<TextMeshProUGUI>();
+        idInputPlaceholderTextMeshProUgui.text = "ID를\n입력하세요...";
+
+        newIdInputPlaceholderTextMeshProUgui = newIdInputPlaceholder.GetComponent<TextMeshProUGUI>();
+        
         StartCoroutine(Show());
         SoundManager.Instance.Play_Music(MainMenuBgm);
+        
+        if (TotalStorageScript.bLogin)
+        {
+            idInputFieldGameObject.SetActive(false);
+            idEnterButtonGameObject.SetActive(false);
+            newIdInputFieldGameObject.SetActive(false);
+            newIdEnterButtonGameObject.SetActive(false);
+            
+            startButtonGameObject.SetActive(true);
+            statisticButtonGameObject.SetActive(true);
+        }
     }
 
     public void StartGame(GameObject startButton)
@@ -93,7 +118,7 @@ public class StartMenu : UIPT_PRO_Demo_GUIPanel
     
     IEnumerator Show()
     {
-        //Debug.Log("ASDF");
+       
         // Play MoveIn animation
         GSui.Instance.MoveIn(this.transform, true);
 
@@ -125,28 +150,62 @@ public class StartMenu : UIPT_PRO_Demo_GUIPanel
             ExecuteEvents.Execute(newIdEnterButtonGameObject, pointer, ExecuteEvents.submitHandler);
         }
     }
+
     public void Login()
     {
         //Debug.Log("Login 함수 호출됨");
         //button 눌러질때 불러짐
         //Debug.Log(idInputField.text);
-        TotalStorageScript.GetDataWithID(idInputField.text);
-        TotalStorageScript.LoadTmpData();
-        /*StageStorageScript.LoadStageData();*/
+
+        if (!TotalStorageScript.GetDataWithID(idInputField.text))
+        {
+            idInputField.text = null;
+            idInputPlaceholderTextMeshProUgui.text = "없는 ID\n다시입력하시오";
+            
+        }
         
-        idInputFieldGameObject.SetActive(false);
-        idEnterButtonGameObject.SetActive(false);
-        newIdInputFieldGameObject.SetActive(false);
-        newIdEnterButtonGameObject.SetActive(false);
-        startButtonGameObject.SetActive(true);
-        statisticButtonGameObject.SetActive(true);
-        
+        if (TotalStorageScript.bLogin)
+        {
+            TotalStorageScript.LoadTmpData();
+            StageStorageScript.LoadUserStageData();
+
+            idInputFieldGameObject.SetActive(false);
+            idEnterButtonGameObject.SetActive(false);
+            newIdInputFieldGameObject.SetActive(false);
+            newIdEnterButtonGameObject.SetActive(false);
+            startButtonGameObject.SetActive(true);
+            statisticButtonGameObject.SetActive(true);
+
+        }
     }
 
     public void makeNewID()
     {
-        TotalStorageScript.makeNewId(newIdInputField.text);
-        StageStorageScript.makeNewId(newIdInputField.text);
+        string newId = newIdInputField.text;
+        if (TotalStorageScript.makeNewId(newId))
+        {
+            TotalStorageScript.makeNewId(newIdInputField.text);
+            StageStorageScript.makeNewId(newIdInputField.text);
+            newIdInputField.text = null;
+        }
+        else
+        {
+         //id 중복 다시입력
+         newIdInputField.text = null;
+         newIdInputPlaceholderTextMeshProUgui.text = "중복된 ID\n다른 ID 입력하시오";
+        }
     }
+
     
+
+    public void deleteTotalInfo()
+    {
+        TotalStorageScript.deleteTotalInfoOfCurrentId(tmpInputfield.text);
+        
+    }
+
+    public void deleteStageInfo()
+    {
+        StageStorageScript.deleteStageInfoOfCurrentId(tmpInputfield.text);
+    }
 } 

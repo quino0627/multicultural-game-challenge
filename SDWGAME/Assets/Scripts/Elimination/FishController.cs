@@ -24,6 +24,7 @@ public class FishController : MonoBehaviour
     public GameObject xSign;
 
     public GameObject thinkBubble;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,7 +36,6 @@ public class FishController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
 
     private void OnMouseDown()
@@ -48,19 +48,19 @@ public class FishController : MonoBehaviour
     }
 
     IEnumerator FishClicked()
-    { 
+    {
         //현재 클릭된 물고기 글자
         string currFishText = GetComponentInChildren<TextMeshPro>().text;
-        script.chosenAns = currFishText;
+        script.chosenAns.Add(currFishText);
         //해당 stage의 정답 
         string currStageAnsText = script.choiceTexts[script.ansPosIndex[0]].text;
-        
-        if (currFishText == currStageAnsText ) 
+
+        if (currFishText == currStageAnsText)
         {
             // total clicked와 total correct ++
             script.PlusTotalClick();
             script.PlusTotalCorrect();
-            
+
             // 소리
             SoundManager.Instance.Play_ClickedCorrectAnswer();
 
@@ -68,38 +68,39 @@ public class FishController : MonoBehaviour
 //            director.GetComponent<EliminationDirector>().GetPoint(100);
             script.isUserRight = true;
             isCaught = true;
-                
-                //상어가 먹으러 온다.
-                //Shark.GetComponent<Animator>().SetTrigger("Swim");
-                thinkBubble.SetActive(false);
-                StartCoroutine(SharkToFish());
 
-                //setactive(false) speaker
-                speaker.SetActive(false);
-                
-                //상어 먹기시작
-                Shark.GetComponent<Animator>().SetTrigger("Eat");
-                StartCoroutine(SharkEating()); 
-                
-                
-               
+            //상어가 먹으러 온다.
+            //Shark.GetComponent<Animator>().SetTrigger("Swim");
+            thinkBubble.SetActive(false);
+            StartCoroutine(SharkToFish());
+
+            //setactive(false) speaker
+            speaker.SetActive(false);
+
+            //상어 먹기시작
+            Shark.GetComponent<Animator>().SetTrigger("Eat");
+            StartCoroutine(SharkEating());
         }
         else
         {
+            //오답을 골랐을시 코드들
+            
+            
             SoundManager.Instance.Play_ClickedWrongAnswer();
             script.PlusTotalClick();
+            
             //상어가 x표시함
             script.eliminStimul.SetActive(false);
             xSign.SetActive(true);
             yield return new WaitForSeconds(1f);
-            
-            //그리고 다시 돌아옴
-            script.eliminStimul.SetActive(true);
-            xSign.SetActive(false);
 
+            //그리고 다시 자극 제시 
+            /*script.eliminStimul.SetActive(true);
+            xSign.SetActive(false);*/
             
+            //가 아닌 넘어감.
+            script.bFail = true;
         }
-        
     }
 
     IEnumerator SharkToFish()
@@ -124,24 +125,26 @@ public class FishController : MonoBehaviour
             }
         }
     }
+
     void MoveShark(Vector2 destination)
     {
         float step = sharkSpeed * Time.deltaTime;
         Shark.transform.position = Vector2.MoveTowards(
             Shark.transform.position, destination, step);
     }
+
     IEnumerator SharkEating()
     {
         yield return new WaitForSeconds(.5f);
         SoundManager.Instance.Play_SharkEatingFish();
-        
+
         while (!fishSwallown)
         {
             yield return new WaitForEndOfFrame();
-            
-           
+
+
             float distance = Vector2.Distance(
-                transform.position, 
+                transform.position,
                 SwallowTransform.position);
             //Debug.Log("distance: "+distance);
             if (distance > 0.01f)
@@ -155,15 +158,13 @@ public class FishController : MonoBehaviour
                 script.sharkAte = true;
 //                script.GoNextStage();
             }
-            
         }
     }
 
-    void MoveFish( Vector2 destination)
+    void MoveFish(Vector2 destination)
     {
         float step = speed * Time.deltaTime;
         transform.position = Vector2.MoveTowards(transform.position,
             destination, step);
     }
-
 }

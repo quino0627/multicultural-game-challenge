@@ -69,7 +69,7 @@ public class BarrelController : MonoBehaviour
         string currentBarrelText = childText.GetComponent<TextMeshPro>().text;
         
         //wj
-        tmpTransform.GetComponent<DetectionQuizManager>().chosenAns = currentBarrelText;
+        tmpTransform.gameObject.GetComponent<DetectionQuizManager>().chosenAns.Add(currentBarrelText);
         
         // 해당 stage의 정답 string
         string currentStageAnswerText = DetectionQuizManager.answer_string_list[DetectionQuizManager.stage_no];
@@ -82,6 +82,7 @@ public class BarrelController : MonoBehaviour
             preventSeveralTouch = true;
             // 점수 올리기
             this.director.GetComponent<GameDirector>().GetPoint(100);
+            
             // 다음 stage로 넘어가기
             //Transform tmpTransform = GameObject.Find("QuizContainer").transform;
             tmpTransform.GetComponent<DetectionQuizManager>().StageOver();
@@ -104,6 +105,9 @@ public class BarrelController : MonoBehaviour
             description.GetComponent<DetectionDescriptionController>().WrongAnswer();
 //            Transform tmpTransform = GameObject.Find("QuizContainer").transform;
             tmpTransform.GetComponent<DetectionQuizManager>().total_clicked++;
+            
+            // 다음 stage로 넘어가기
+            tmpTransform.GetComponent<DetectionQuizManager>().StageOver();
         }
 
 
