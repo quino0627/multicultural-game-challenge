@@ -415,9 +415,12 @@ public class FishShowAnswer : MonoBehaviour
             shark.SetActive(false);
             Fishes.gameObject.SetActive(false);
             totalStorageScript.tmpLevel[2]++;
-            totalStorageScript.InitStageData();
+            //totalStorageScript.InitStageData();
             yield return new WaitForSeconds(1f);
+            stageIndex = 0;
+            totalStorageScript.tmpStage[2] = 0;
             yield return DecideResult(total_clicked, total_correct);
+            totalStorageScript.Save();
         }
 
         yield return new WaitForSeconds(1.0f);
@@ -477,7 +480,7 @@ public class FishShowAnswer : MonoBehaviour
         isTimeSetted = false;
         StageStorageScript.FSA = this;
         StageStorageScript.SaveElimination();
-        totalStorageScript.Save();
+       
         stageIndex++;
         totalStorageScript.tmpStage[2] = stageIndex;
         watch.Reset();

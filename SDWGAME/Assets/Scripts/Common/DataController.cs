@@ -10,6 +10,10 @@ using NestedDictionaryLib;
 using UnityEngine.UI;
 using Newtonsoft.Json;
 using UnityEngine.SceneManagement;
+#if UNITY_EDITOR
+using UnityEditor;
+
+#endif
 
 class userStageData
 {
@@ -39,8 +43,14 @@ class userStageData
     }
 }
 
+
 public class DataController : MonoBehaviour
 {
+    private string detectionPath;
+    private string eliminationPath;
+    private string alternativePath;
+    private string synthesisPath;
+
     private GameObject quizManager;
 
     private GameObject TotalStorage;
@@ -72,6 +82,11 @@ public class DataController : MonoBehaviour
 
     public void Start()
     {
+        detectionPath = Path.Combine(Application.streamingAssetsPath, "Detection.json");
+        synthesisPath = Path.Combine(Application.streamingAssetsPath, "Synthesis.json");
+        eliminationPath = Path.Combine(Application.streamingAssetsPath, "Elimination.json");
+        alternativePath = Path.Combine(Application.streamingAssetsPath, "Alternative.json");
+
         Debug.Log("datacontroller start");
         DontDestroyOnLoad(gameObject);
 
@@ -177,31 +192,132 @@ public class DataController : MonoBehaviour
         SaveAllAtOnce();
     }
 
+    private string ReadFile(string filePath, string json)
+    {
+        using (StreamReader reader = new StreamReader(filePath))
+        {
+            json = reader.ReadToEnd();
+        }
+
+        return json;
+    }
+
     public void LoadStageData()
     {
         Debug.Log("LoadStageData");
-        string jdata1 = File.ReadAllText(Application.dataPath + "/Detection.json");
+
+        NestedDictionary<string, int, int, int, userStageData> tmp4 =
+            new NestedDictionary<string, int, int, int, userStageData>();
+        tmp4.Add("initial", new NestedDictionary<int, int, int, userStageData>());
+        string jdata = JsonConvert.SerializeObject(tmp4);
+
+
+        if (!File.Exists(detectionPath))
+        {
+            //Directory.CreateDirectory(Application.persistentDataPath + "/Detection.json");
+            //File.Create(Application.streamingAssetsPath + "/Detection.json");
+            //File.WriteAllText(detectionPath, jdata);
+
+            using (var fileStream = new FileStream(detectionPath, FileMode.Create))
+            {
+                using (StreamWriter writer = new StreamWriter(fileStream))
+                {
+                    writer.Write(jdata);
+                }
+            }
+        }
+
+        string jdata1 = "";
+        jdata1 = File.ReadAllText(detectionPath);
+        //(detectionPath, jdata1);
+        //var jdata1TextAsset = (TextAsset) Resources.Load("Detection.json");
         detectionStageDatas =
             JsonConvert.DeserializeObject<NestedDictionary<string, int, int, int, userStageData>>(
                 jdata1);
 
 
-        string jdata2 = File.ReadAllText(Application.dataPath + "/Synthesis.json");
+        if (!File.Exists(synthesisPath))
+        {
+            //Directory.CreateDirectory(Application.persistentDataPath + "/Synthesis.json");
+            //File.Create(Application.streamingAssetsPath + "/Synthesis.json");
+            //File.WriteAllText(synthesisPath, jdata);
+
+            using (var fileStream = new FileStream(synthesisPath, FileMode.Create))
+            {
+                using (StreamWriter writer = new StreamWriter(fileStream))
+                {
+                    writer.Write(jdata);
+                }
+            }
+        }
+
+
+        string jdata2 = File.ReadAllText(synthesisPath);
+        //string jdata2 = "";
+        //ReadFile(synthesisPath,jdata2);
+        //var jdata2TextAsset = (TextAsset) Resources.Load("Synthesis.json");
         synthesisStageDatas =
             JsonConvert.DeserializeObject<NestedDictionary<string, int, int, int, userStageData>>(
                 jdata2);
 
 
-        string jdata3 = File.ReadAllText(Application.dataPath + "/Elimination.json");
+        if (!File.Exists(eliminationPath))
+        {
+            //Directory.CreateDirectory(Application.persistentDataPath + "/Elimination.json");
+            //File.Create(Application.streamingAssetsPath + "/Elimination.json");
+            //File.WriteAllText(eliminationPath, jdata);
+
+            using (var fileStream = new FileStream(eliminationPath, FileMode.Create))
+            {
+                using (StreamWriter writer = new StreamWriter(fileStream))
+                {
+                    writer.Write(jdata);
+                }
+            }
+        }
+
+        string jdata3 = File.ReadAllText(eliminationPath);
+        //string jdata3 = "";
+        //ReadFile(eliminationPath,jdata3);
+        //var jdata3TextAsset = (TextAsset) Resources.Load("Elimination.json");
         eliminationStageDatas =
             JsonConvert.DeserializeObject<NestedDictionary<string, int, int, int, userStageData>>(
                 jdata3);
 
 
-        string jdata4 = File.ReadAllText(Application.dataPath + "/Alternative.json");
+        if (!File.Exists(alternativePath))
+        {
+            //Directory.CreateDirectory(Application.persistentDataPath + "/Alternative.json");
+            //File.Create(Application.streamingAssetsPath + "/Alternative.json");
+            //File.WriteAllText(alternativePath, jdata);
+
+            using (var fileStream = new FileStream(alternativePath, FileMode.Create))
+            {
+                using (StreamWriter writer = new StreamWriter(fileStream))
+                {
+                    writer.Write(jdata);
+                }
+            }
+        }
+
+        string jdata4 = File.ReadAllText(alternativePath);
+        //string jdata4 = "";
+        //ReadFile(alternativePath, jdata4);
+        //var jdata4TextAsset = (TextAsset) Resources.Load("Alternative.json");
         alternativeStageDatas =
             JsonConvert.DeserializeObject<NestedDictionary<string, int, int, int, userStageData>>(
                 jdata4);
+    }
+
+    private void WriteFile(string filePath, string json)
+    {
+        using (var fileStream = new FileStream(filePath, FileMode.Create))
+        {
+            using (StreamWriter writer = new StreamWriter(fileStream))
+            {
+                writer.Write(json);
+            }
+        }
     }
 
     public void LoadUserStageData()
@@ -217,16 +333,20 @@ public class DataController : MonoBehaviour
     {
         Debug.Log("SaveAllAtonce");
         string jdata = JsonConvert.SerializeObject(detectionStageDatas, Formatting.Indented);
-        File.WriteAllText(Application.dataPath + "/Detection.json", jdata);
+        //File.WriteAllText(detectionPath, jdata);
+        WriteFile(detectionPath, jdata);
 
         jdata = JsonConvert.SerializeObject(synthesisStageDatas, Formatting.Indented);
-        File.WriteAllText(Application.dataPath + "/Synthesis.json", jdata);
+        //File.WriteAllText(synthesisPath, jdata);
+        WriteFile(synthesisPath, jdata);
 
         jdata = JsonConvert.SerializeObject(eliminationStageDatas, Formatting.Indented);
-        File.WriteAllText(Application.dataPath + "/Elimination.json", jdata);
+        //File.WriteAllText(eliminationPath, jdata);
+        WriteFile(eliminationPath, jdata);
 
         jdata = JsonConvert.SerializeObject(alternativeStageDatas, Formatting.Indented);
-        File.WriteAllText(Application.dataPath + "/Alternative.json", jdata);
+        //File.WriteAllText(alternativePath, jdata);
+        WriteFile(alternativePath, jdata);
     }
 
     public void SaveDetection()
@@ -272,7 +392,8 @@ public class DataController : MonoBehaviour
                       detectionStageDatas, Formatting.Indented));*/
 
         string jdata = JsonConvert.SerializeObject(detectionStageDatas, Formatting.Indented);
-        File.WriteAllText(Application.dataPath + "/Detection.json", jdata);
+        //File.WriteAllText(detectionPath, jdata);
+        WriteFile(detectionPath, jdata);
     }
 
     public void SaveAlternative()
@@ -305,7 +426,8 @@ public class DataController : MonoBehaviour
 
 
         string jdata = JsonConvert.SerializeObject(alternativeStageDatas, Formatting.Indented);
-        File.WriteAllText(Application.dataPath + "/Alternative.json", jdata);
+        //File.WriteAllText(alternativePath, jdata);
+        WriteFile(alternativePath, jdata);
     }
 
     public void SaveSynthesis()
@@ -315,7 +437,7 @@ public class DataController : MonoBehaviour
         curLevel = SC.realLevel;
         tmp.level = curLevel;
         tmp.stageIndex = SC.refStageIndex;
-        
+
         curLevel++;
 
         //tmp.nthTry = ++TotalStorageScript.tmpTriedCnt[1, tmp.stageIndex];
@@ -342,7 +464,8 @@ public class DataController : MonoBehaviour
 
 
         string jdata = JsonConvert.SerializeObject(synthesisStageDatas, Formatting.Indented);
-        File.WriteAllText(Application.dataPath + "/Synthesis.json", jdata);
+        //File.WriteAllText(synthesisPath, jdata);
+        WriteFile(synthesisPath, jdata);
     }
 
     public void SaveElimination()
@@ -385,6 +508,7 @@ public class DataController : MonoBehaviour
 
 
         string jdata = JsonConvert.SerializeObject(eliminationStageDatas, Formatting.Indented);
-        File.WriteAllText(Application.dataPath + "/Elimination.json", jdata);
+        //File.WriteAllText(eliminationPath, jdata);
+        WriteFile(eliminationPath, jdata);
     }
 }
