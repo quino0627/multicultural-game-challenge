@@ -9341,75 +9341,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 441325813}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &2891825404467431420
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2891825404535510200, guid: 34fa29e646a834dfdbfb036fae5756e5,
-        type: 3}
-      propertyPath: m_Name
-      value: StageStorage
-      objectReference: {fileID: 0}
-    - target: {fileID: 2891825404535510202, guid: 34fa29e646a834dfdbfb036fae5756e5,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 300.54733
-      objectReference: {fileID: 0}
-    - target: {fileID: 2891825404535510202, guid: 34fa29e646a834dfdbfb036fae5756e5,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 126.62199
-      objectReference: {fileID: 0}
-    - target: {fileID: 2891825404535510202, guid: 34fa29e646a834dfdbfb036fae5756e5,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -3.169075
-      objectReference: {fileID: 0}
-    - target: {fileID: 2891825404535510202, guid: 34fa29e646a834dfdbfb036fae5756e5,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2891825404535510202, guid: 34fa29e646a834dfdbfb036fae5756e5,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2891825404535510202, guid: 34fa29e646a834dfdbfb036fae5756e5,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2891825404535510202, guid: 34fa29e646a834dfdbfb036fae5756e5,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2891825404535510202, guid: 34fa29e646a834dfdbfb036fae5756e5,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 2891825404535510202, guid: 34fa29e646a834dfdbfb036fae5756e5,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2891825404535510202, guid: 34fa29e646a834dfdbfb036fae5756e5,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2891825404535510202, guid: 34fa29e646a834dfdbfb036fae5756e5,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 34fa29e646a834dfdbfb036fae5756e5, type: 3}
 --- !u!1001 &2966128587845283578
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9720,16 +9651,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8799329715339595884, guid: 85167f57e410c42d09db8d164adf1f1d,
-        type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8799329715339595885, guid: 85167f57e410c42d09db8d164adf1f1d,
-        type: 3}
-      propertyPath: m_UiScaleMode
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8799329715224668835, guid: 85167f57e410c42d09db8d164adf1f1d,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -9760,11 +9681,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
-    - target: {fileID: 8799329715224668833, guid: 85167f57e410c42d09db8d164adf1f1d,
-        type: 3}
-      propertyPath: m_Text
-      value: "\uD68C\uC6D0\uD0C8\uD1F4"
-      objectReference: {fileID: 0}
     - target: {fileID: 8799329715219306175, guid: 85167f57e410c42d09db8d164adf1f1d,
         type: 3}
       propertyPath: m_text
@@ -9789,6 +9705,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textInfo.pageCount
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8799329715339595884, guid: 85167f57e410c42d09db8d164adf1f1d,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8799329715339595885, guid: 85167f57e410c42d09db8d164adf1f1d,
+        type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8799329715224668833, guid: 85167f57e410c42d09db8d164adf1f1d,
+        type: 3}
+      propertyPath: m_Text
+      value: "\uD68C\uC6D0\uD0C8\uD1F4"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85167f57e410c42d09db8d164adf1f1d, type: 3}

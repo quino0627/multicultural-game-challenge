@@ -25,5 +25,78 @@
       }
     }
   },
+<<<<<<< HEAD:SDWGAME/Assets/Resources/Synthesis.json
   "wat": {}
+=======
+  "clean": {},
+  "a": {},
+  "c": {},
+  "sdw627": {
+    "0": {
+      "0": {
+        "1": {
+          "level": 0,
+          "stageIndex": 0,
+          "nthTry": 1,
+          "corrAns": [
+            "글",
+            null,
+            null,
+            null,
+            null
+          ],
+          "chosenAns": [
+            "끌"
+          ],
+          "isUserRight": false,
+          "responseTime": 1969.0,
+          "gameType": "탐지",
+          "accumulatedCntClick": 1
+        }
+      },
+      "1": {
+        "1": {
+          "level": 0,
+          "stageIndex": 1,
+          "nthTry": 1,
+          "corrAns": [
+            "부",
+            null,
+            null,
+            null,
+            null
+          ],
+          "chosenAns": [
+            "부"
+          ],
+          "isUserRight": true,
+          "responseTime": 3065.0,
+          "gameType": "탐지",
+          "accumulatedCntClick": 2
+        }
+      },
+      "2": {
+        "1": {
+          "level": 0,
+          "stageIndex": 2,
+          "nthTry": 1,
+          "corrAns": [
+            "남",
+            null,
+            null,
+            null,
+            null
+          ],
+          "chosenAns": [
+            "날"
+          ],
+          "isUserRight": true,
+          "responseTime": 2002.0,
+          "gameType": "탐지",
+          "accumulatedCntClick": 3
+        }
+      }
+    }
+  }
+>>>>>>> develop:SDWGAME/Assets/Detection.json
 }

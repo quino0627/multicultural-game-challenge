@@ -3,15 +3,15 @@
     "startTime": "0001-01-01T00:00:00",
     "endTime": "0001-01-01T00:00:00",
     "userMaxLevel": {
-      "Alternative": 0,
-      "Elimination": 0,
-      "Synthesis": 0,
-      "Detection": 0
+      "Alternative": 2,
+      "Elimination": 2,
+      "Synthesis": 2,
+      "Detection": 2
     },
     "userMaxStage": {
       "Alternative": 0,
       "Elimination": 0,
-      "Synthesis": 0,
+      "Synthesis": 13,
       "Detection": 1
     },
     "perfection": 0,
@@ -26,30 +26,62 @@
     "IES": 0,
     "totalRate": {
       "Detection": {
-        "0": 0,
-        "1": 0,
-        "2": 0
+        "0": 3,
+        "1": 3,
+        "2": 3
       },
       "Synthesis": {
-        "0": 0,
-        "1": 0,
-        "2": 0
+        "0": 3,
+        "1": 3,
+        "2": 3
       },
       "Elimination": {
-        "0": 0,
-        "1": 0,
-        "2": 0
+        "0": 3,
+        "1": 3,
+        "2": 3
       },
       "Alternative": {
-        "0": 0,
-        "1": 0,
-        "2": 0
+        "0": 3,
+        "1": 3,
+        "2": 3
       }
     },
     "triedCnt": {
       "Detection": [
         [
-          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
           0,
           0,
           0,
@@ -146,6 +178,38 @@
         ]
       ],
       "Synthesis": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
         [
           0,
           0,
@@ -339,9 +403,73 @@
           0,
           0,
           0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
         ]
       ],
       "Alternative": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
         [
           0,
           0,
@@ -1895,7 +2023,11 @@
       ]
     }
   },
+<<<<<<< HEAD:SDWGAME/Assets/Resources/Conclusion.json
   "wat": {
+=======
+  "sdw627": {
+>>>>>>> develop:SDWGAME/Assets/Conclusion.json
     "startTime": "0001-01-01T00:00:00",
     "endTime": "0001-01-01T00:00:00",
     "userMaxLevel": {
@@ -1907,8 +2039,13 @@
     "userMaxStage": {
       "Alternative": 0,
       "Elimination": 0,
+<<<<<<< HEAD:SDWGAME/Assets/Resources/Conclusion.json
       "Synthesis": 0,
       "Detection": 0
+=======
+      "Synthesis": 2,
+      "Detection": 3
+>>>>>>> develop:SDWGAME/Assets/Conclusion.json
     },
     "perfection": 0,
     "minorPerfection": {
@@ -1945,9 +2082,15 @@
     "triedCnt": {
       "Detection": [
         [
+<<<<<<< HEAD:SDWGAME/Assets/Resources/Conclusion.json
           0,
           0,
           0,
+=======
+          1,
+          1,
+          1,
+>>>>>>> develop:SDWGAME/Assets/Conclusion.json
           0,
           0,
           0,
@@ -2043,9 +2186,15 @@
       ],
       "Synthesis": [
         [
+<<<<<<< HEAD:SDWGAME/Assets/Resources/Conclusion.json
           0,
           0,
           0,
+=======
+          1,
+          1,
+          1,
+>>>>>>> develop:SDWGAME/Assets/Conclusion.json
           0,
           0,
           0,
