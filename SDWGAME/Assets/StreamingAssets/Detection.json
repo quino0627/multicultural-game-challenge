@@ -66,5 +66,30 @@
         }
       }
     }
+  },
+  "zxcv": {
+    "0": {
+      "0": {
+        "1": {
+          "level": 0,
+          "stageIndex": 0,
+          "nthTry": 1,
+          "corrAns": [
+            "글",
+            null,
+            null,
+            null,
+            null
+          ],
+          "chosenAns": [
+            "클"
+          ],
+          "isUserRight": false,
+          "responseTime": 1502.0,
+          "gameType": "탐지",
+          "accumulatedCntClick": 1
+        }
+      }
+    }
   }
 }
