@@ -32,7 +32,7 @@ class ConclusionData
     //public int[,] triedCnt;
     public Dictionary<string, int[,]> triedCnt; // 게임이름, level
     //public Dictionary<string, int[,]> clickCnt; 
-    
+
     public ConclusionData()
     {
         startTime = new DateTime();
@@ -104,6 +104,7 @@ public class KeepTrackController : MonoBehaviour
     public bool[] isLevelOpen;
     public bool bLogin;
     private static KeepTrackController instance;
+    private string conclusionPath;
 
     // Public static reference that can be accesd from anywhere
     public static KeepTrackController Instance
@@ -124,6 +125,10 @@ public class KeepTrackController : MonoBehaviour
 
     void Awake()
     {
+        if (!Directory.Exists(Application.streamingAssetsPath))
+        {
+            Directory.CreateDirectory(Application.streamingAssetsPath);
+        }
         Debug.Log("AWAKE");
         if (instance == null)
         {
@@ -150,6 +155,9 @@ public class KeepTrackController : MonoBehaviour
         StageStorage = GameObject.Find("StageStorage");
         StageStorageScript = StageStorage.GetComponent<DataController>();
 
+        Debug.Log(Application.streamingAssetsPath);
+        conclusionPath = Path.Combine(Application.streamingAssetsPath + "/Conclusion.json");
+        Debug.Log("ConclusionPath: " + conclusionPath);
 
         bLogin = false;
         isLevelOpen = new bool[3];
@@ -175,14 +183,54 @@ public class KeepTrackController : MonoBehaviour
 
 
         //진짜 코드
-        string jdata = File.ReadAllText(Application.dataPath + "/Conclusion.json");
+        //var jdataTextAsset = (TextAsset) Resources.Load("Conclusion.json");
+
+
+        if (!File.Exists(conclusionPath))
+        {
+            //Directory.CreateDirectory(Application.persistentDataPath + "/Conclusion.json");
+            //File.Create(conclusionPath);
+            allData = new Dictionary<string, ConclusionData>();
+            allData.Add("initial", new ConclusionData());
+            string tmpJdata = JsonConvert.SerializeObject(allData, Formatting.Indented);
+            //File.WriteAllText(conclusionPath, tmpJdata);
+            WriteFile(conclusionPath, tmpJdata);
+        }
+
+        string jdata = "";
+        jdata = File.ReadAllText(conclusionPath);
+        //ReadFile(conclusionPath, jdata);
         allData = JsonConvert.DeserializeObject<Dictionary<string, ConclusionData>>(jdata);
+        Debug.Log("alldata: "+JsonConvert.SerializeObject(allData,Formatting.Indented));
+        
 
 
         //data = new ConclusionData();
         //allData = new Dictionary<string, ConclusionData>();
     }
 
+    private void WriteFile(string filePath, string json)
+    {
+        using (var fileStream = new FileStream(filePath, FileMode.Create))
+        {
+            using (StreamWriter writer = new StreamWriter(fileStream))
+            {
+                writer.Write(json);
+            }
+        }
+
+        //AssetDataBase.Refresh();
+    }
+
+    private string ReadFile(string filePath, string json)
+    {
+        using (StreamReader reader = new StreamReader(filePath))
+        {
+            json = reader.ReadToEnd();
+        }
+
+        return json;
+    }
 
     public bool makeNewId(string id)
     {
@@ -192,7 +240,8 @@ public class KeepTrackController : MonoBehaviour
             //allData.Add(id,tmp);
             allData[id] = tmp;
             string jdata = JsonConvert.SerializeObject(allData, Formatting.Indented);
-            File.WriteAllText(Application.dataPath + "/Conclusion.json", jdata);
+            //File.WriteAllText(conclusionPath, jdata);
+            WriteFile(conclusionPath, jdata);
             return true;
         }
         else
@@ -213,7 +262,8 @@ public class KeepTrackController : MonoBehaviour
         }
 
         string jdata = JsonConvert.SerializeObject(allData, Formatting.Indented);
-        File.WriteAllText(Application.dataPath + "/Conclusion.json", jdata);
+        // File.WriteAllText(conclusionPath, jdata);
+        WriteFile(conclusionPath, jdata);
     }
 
     public void Save()
@@ -224,7 +274,7 @@ public class KeepTrackController : MonoBehaviour
         data.userMaxLevel["Detection"] = tmpMaxLevel[0];
 
 
-        if (data.userMaxStage["Detection"] < tmpStage[0])
+        /*if (data.userMaxStage["Detection"] < tmpStage[0])
         {
             data.userMaxStage["Detection"] = tmpStage[0];
         }
@@ -242,7 +292,7 @@ public class KeepTrackController : MonoBehaviour
         if (data.userMaxStage["Alternative"] < tmpStage[3])
         {
             data.userMaxStage["Alternative"] = tmpStage[3];
-        }
+        }*/
 
         //perfection
         //minorPerfection 4게임 다
@@ -273,7 +323,8 @@ public class KeepTrackController : MonoBehaviour
 
         allData[currId] = data;
         string jdata = JsonConvert.SerializeObject(allData, Formatting.Indented);
-        File.WriteAllText(Application.dataPath + "/Conclusion.json", jdata);
+        //File.WriteAllText(conclusionPath, jdata);
+        WriteFile(conclusionPath, jdata);
 
         //Debug.Log("Save" + "\n" + jdata);
     }

@@ -421,13 +421,17 @@ public class AlternativeQuizManager : MonoBehaviour
         {
             // 지워야할 코드
             stage_no++;
-            totalStorageScript.tmpStage[3] = stage_no;
-            totalStorageScript.Save();
-            totalStorageScript.InitStageData();
+            
+            totalStorageScript.tmpStage[3] = 0;
+            
+            
+            //totalStorageScript.InitStageData();
 //            Debug.Log("결과창 setActive");
             // Game 이 끝났다는 효과 보여주기
             totalStorageScript.tmpLevel[3]++;
+
             yield return DecideResult(this.total_clicked, this.total_correct);
+            totalStorageScript.Save();
         }
 
 //        this.GoNextStage();

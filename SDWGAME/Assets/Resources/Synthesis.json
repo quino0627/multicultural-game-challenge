@@ -1,0 +1,29 @@
+{
+  "test": {},
+  "clean": {},
+  "a": {},
+  "c": {
+    "0": {
+      "0": {
+        "1": {
+          "level": 0,
+          "stageIndex": 0,
+          "nthTry": 1,
+          "corrAns": [
+            "길",
+            null,
+            null,
+            null,
+            null
+          ],
+          "chosenAns": [],
+          "isUserRight": false,
+          "responseTime": 64712.0,
+          "gameType": "합성",
+          "accumulatedCntClick": 0
+        }
+      }
+    }
+  },
+  "wat": {}
+}

@@ -148,7 +148,8 @@ public class SpreadChoices : MonoBehaviour
         }
 
         refStageIndex = stageIndex = totalStorageScript.tmpStage[1];
-
+        //refStageIndex = stageIndex;
+        
         if (bTwoAns)
         {
             stageIndex = totalStorageScript.tmpStage[1] - levelOneStageMaxIndex - 1;
@@ -460,8 +461,7 @@ public class SpreadChoices : MonoBehaviour
     {
         StageStorageScript.SC = this;
         StageStorageScript.SaveSynthesis();
-        totalStorageScript.Save();
-
+       
         watch.Stop();
         /*if (stageIndex == 29)
         {
@@ -506,13 +506,18 @@ public class SpreadChoices : MonoBehaviour
         {
             Debug.Log("Game Is Over");
             totalStorageScript.tmpLevel[1]++;
-            totalStorageScript.InitStageData();
+            //totalStorageScript.InitStageData();
             if (bTwoAns)
             {
                 bTwoAns = false;
             }
 
+            stageIndex = 0;
+            totalStorageScript.tmpStage[1] = 0;
             yield return DecideResult(total_tried, total_correct, total_correct_stage);
+            totalStorageScript.Save();
+
+            
         }
 
         if (refStageIndex+1 < stageMaxIndex)

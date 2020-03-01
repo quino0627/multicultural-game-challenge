@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using UnityEditor.Animations;
 using UnityEngine;
 
 public class FishType : MonoBehaviour
@@ -14,10 +13,12 @@ public class FishType : MonoBehaviour
     public Sprite Fish2IdleGreenSprite;
     public Sprite Fish4IdleYellowSprite;
 
-    public AnimatorController fish1IdleRedAnimatorController;
-    public AnimatorController fish2IdleGreenAnimatorController;
-    public AnimatorController fish4IdleYellowAnimatorController;
+    public RuntimeAnimatorController fish1IdleRedAnimatorController;
+    public RuntimeAnimatorController fish2IdleGreenAnimatorController;
+    public RuntimeAnimatorController fish4IdleYellowAnimatorController;
 
+    
+    
     public GameObject[] choices;
     public int NUM_OF_CHOICES;
     private int level;

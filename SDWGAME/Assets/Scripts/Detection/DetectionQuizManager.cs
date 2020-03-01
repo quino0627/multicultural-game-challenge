@@ -338,11 +338,14 @@ public class DetectionQuizManager : MonoBehaviour
 
             // 지워야할 코드
             stage_no++;
-            totalStorageScript.tmpStage[0] = stage_no;
-            totalStorageScript.Save();
-            totalStorageScript.InitStageData();
+            totalStorageScript.tmpStage[0] = 0;
+            
+            //totalStorageScript.InitStageData();
             Debug.Log("결과창 setActive");
+            
+            
             yield return DecideResult(total_clicked, total_correct);
+            totalStorageScript.Save();
         }
     }
 
