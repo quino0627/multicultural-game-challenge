@@ -90,7 +90,15 @@ public class SelectMenu : MonoBehaviour
     {
         GR.enabled = false;
         SoundManager.Instance.Play_SoundClick();
-        SceneManager.LoadScene("DetectionGame");
+        if (TotalStorageScript.chosenLevel == 0)
+        {
+            SceneManager.LoadScene("TutorialDetectionGame");    
+        }
+        else
+        {
+            SceneManager.LoadScene("DetectionGame");    
+        }
+        
     }
 
     public void Synthesis()
@@ -99,15 +107,16 @@ public class SelectMenu : MonoBehaviour
         SoundManager.Instance.Play_SoundClick();
         if (TotalStorageScript.chosenLevel == 0)
         {
+            SceneManager.LoadScene("TutorialSynthesisGame");
             //매직넘버
-            if (TotalStorageScript.tmpStage[1] < 14)
-            {
-                SceneManager.LoadScene("CrabLevel1");
-            }
-            else
-            {
-                SceneManager.LoadScene("CrabLevel2");
-            }
+//            if (TotalStorageScript.tmpStage[1] < 14)
+//            {
+//                SceneManager.LoadScene("CrabLevel1");
+//            }
+//            else
+//            {
+//                SceneManager.LoadScene("CrabLevel2");
+//            }
         }
 
         if (TotalStorageScript.chosenLevel == 1)
@@ -125,14 +134,16 @@ public class SelectMenu : MonoBehaviour
     {
         GR.enabled = false;
         SoundManager.Instance.Play_SoundClick();
-        SceneManager.LoadScene("EliminationEscape");
+        SceneManager.LoadScene("TutorialEliminationGame");
+//        SceneManager.LoadScene("EliminationEscape");
     }
 
     public void Alternative()
     {
         GR.enabled = false;
         SoundManager.Instance.Play_SoundClick();
-        SceneManager.LoadScene("AlternativeGame");
+        SceneManager.LoadScene("TutorialAlternativeGame");
+//        SceneManager.LoadScene("AlternativeGame");
     }
 
     public void ToggleSettingPanel()

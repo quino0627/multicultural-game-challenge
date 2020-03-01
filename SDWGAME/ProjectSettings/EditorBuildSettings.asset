@@ -44,4 +44,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SelectMenu.unity
     guid: 436098e31250cf94b9cfeb9abc01203c
+  - enabled: 1
+    path: Assets/Scenes/TutorialAlternativeGame.unity
+    guid: 86a68b6bc9fb846569b2133352506c2c
+  - enabled: 1
+    path: Assets/Scenes/TutorialDetectionGame.unity
+    guid: 1cca25c623c9c41b184474573ceff098
+  - enabled: 1
+    path: Assets/Scenes/TutorialEliminationGame.unity
+    guid: 99ef409e4ab8d4771a245966b57bffa2
+  - enabled: 1
+    path: Assets/Scenes/TutorialSynthesisGame.unity
+    guid: 8123e5e9588624229aa069575d06d23e
   m_configObjects: {}

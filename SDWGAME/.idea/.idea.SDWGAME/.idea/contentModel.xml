@@ -6,6 +6,11 @@
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="DontDestroyScript.cs" t="Include" />
+        <e p="Editor" t="Include">
+          <e p="Elimination" t="Include">
+            <e p="FishType.cs" t="Include" />
+          </e>
+        </e>
         <e p="Import" t="Include">
           <e p="GUI Animator" t="Include">
             <e p="GUI Animator" t="Include">
@@ -136,11 +141,15 @@
             <e p="GameDirector.cs" t="Include" />
           </e>
           <e p="Dialogue" t="Include">
+            <e p="AlternativeBubbleClickSound.cs" t="Include" />
             <e p="AlternativeDialogue.cs" t="Include" />
+            <e p="CheckClicks.cs" t="Include" />
             <e p="DetectionDialogue.cs" t="Include" />
             <e p="Dialogue.cs" t="Include" />
             <e p="DialogueManager.cs" t="Include" />
             <e p="EliminationDialogue.cs" t="Include" />
+            <e p="EliminationFishSoundController.cs" t="Include" />
+            <e p="EliminationSpeakerSoundController.cs" t="Include" />
             <e p="SynthesisDialogue.cs" t="Include" />
           </e>
           <e p="Elimination" t="Include">
@@ -150,7 +159,6 @@
             </e>
             <e p="FishController.cs" t="Include" />
             <e p="FishShowAnswer.cs" t="Include" />
-            <e p="FishType.cs" t="Include" />
             <e p="SpeakerController.cs" t="Include" />
           </e>
           <e p="FadeIn.cs" t="Include" />

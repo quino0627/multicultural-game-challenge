@@ -46,7 +46,6 @@ public class BarrelController : MonoBehaviour
     {
 //        Debug.Log(!IsPointerOverUIObject()); //true
 //        if (IsPointerOverUIObject()) //false
-        Debug.Log(EventSystem.current.IsPointerOverGameObject());
         if (EventSystem.current.IsPointerOverGameObject())
         {
             return;
@@ -65,6 +64,7 @@ public class BarrelController : MonoBehaviour
         Transform tmpTransform = GameObject.Find("QuizContainer").transform;
         
         GameObject childText = transform.Find("Word").gameObject;
+        Animator aniCoin = transform.Find("Coin").gameObject.GetComponent<Animator>();
         // 현재 클릭된 배럴의 글자
         string currentBarrelText = childText.GetComponent<TextMeshPro>().text;
         
@@ -82,7 +82,7 @@ public class BarrelController : MonoBehaviour
             preventSeveralTouch = true;
             // 점수 올리기
             this.director.GetComponent<GameDirector>().GetPoint(100);
-            
+            aniCoin.SetBool("Appear", true);
             // 다음 stage로 넘어가기
             //Transform tmpTransform = GameObject.Find("QuizContainer").transform;
             tmpTransform.GetComponent<DetectionQuizManager>().StageOver();

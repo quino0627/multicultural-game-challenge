@@ -17,6 +17,7 @@ public class EliminationDialogue : MonoBehaviour
 //    public Animator aniPointer;
     public Animator aniSpeechBubble;
     public Animator aniFishes;
+    public Animator aniPointer;
     
     private int? tmpCount = null;
     
@@ -40,28 +41,27 @@ public class EliminationDialogue : MonoBehaviour
         else
         {
             tmpCount = theDM.GetCurrentSentenceNumber();
-            // 다리가 없
             if (theDM.GetCurrentSentenceNumber() == 0)
             {
 
 //                aniBubbles.SetBool("Appear", true);
             }
-            // 해파리들이~
             if (theDM.GetCurrentSentenceNumber() == 1)
             {
                 
                 aniFishes.SetBool("Appear", true);
 //                aniWords.SetBool("Appear", true);
             }
-            // 해당하는~
             if (theDM.GetCurrentSentenceNumber() == 2)
             {
+                Invoke("SpeakWord", .5f);
                 aniSpeechBubble.SetBool("Appear", true);
 //                aniPointer.SetBool("Appear", true);
             }
             
             if (theDM.GetCurrentSentenceNumber() == 3)
             {
+                aniPointer.SetBool("Appear", true);
 //                aniPointer.SetBool("Drag", true);
             }
             
@@ -74,6 +74,11 @@ public class EliminationDialogue : MonoBehaviour
         
         
         
+    }
+
+    public void SpeakWord()
+    {
+        SoundManager.Instance.Play_EliminationTutorialSampleSound();
     }
 
     private void OnEnable()
