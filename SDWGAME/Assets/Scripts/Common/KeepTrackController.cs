@@ -154,7 +154,7 @@ public class KeepTrackController : MonoBehaviour
     {
         StageStorage = GameObject.Find("StageStorage");
         StageStorageScript = StageStorage.GetComponent<DataController>();
-
+        Debug.Log(Application.persistentDataPath);
         Debug.Log(Application.streamingAssetsPath);
         conclusionPath = Path.Combine(Application.streamingAssetsPath + "/Conclusion.json");
         Debug.Log("ConclusionPath: " + conclusionPath);

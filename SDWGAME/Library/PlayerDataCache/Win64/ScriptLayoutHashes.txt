@@ -1,6 +1,6 @@
 Win64
 PlayerPath?
-C:/Users/singi/Desktop/새 폴더/HangeulGame.exe
+C:/Users/singi/Documents/새 폴더 (2)/HangeulGame.exe
 SceneListBegin?
 Assets/Scenes/StartMenu.unity
 Assets/Scenes/AlternativeGame.unity
@@ -42,11 +42,13 @@ e1bbf0ab858085e38fae6b12ebbdcd35 UnityEngine.Timeline.dll:UnityEngine.Timeline.P
 201e3fde670b00545944bb3db215c80a UnityEngine.Timeline.dll:UnityEngine.Timeline.TimelineAsset
 bb1b5d983e81560c84aee567a9fc61f3 Assembly-CSharp.dll:.GSui
 810456ce3f9f56905be1c4047798bbaa Assembly-CSharp.dll:.CloseController
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.EliminationFishSoundController
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.DontDestroyScript
 71f7f12b8d0f4fd73590db8bcb6d453c Unity.Postprocessing.Runtime.dll:UnityEngine.Rendering.PostProcessing.Bloom
 e7a73f5f78ba6445195ec23b74a1ce2d Unity.TextMeshPro.dll:TMPro.TMP_ScrollbarEventHandler
 9a072c0adf73cadd4b75ccf0960af0ca Assembly-CSharp.dll:.UIPT_PRO_Demo05_Ranks
 af93f9c42e90877a9ba31e37adfd900c Unity.Postprocessing.Runtime.dll:UnityEngine.Rendering.PostProcessing.MotionBlur
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.AlternativeBubbleClickSound
 ca53770668af2930f8b824ed13c0ffd8 Assembly-CSharp.dll:.UIPT_PRO_Demo_Settings
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.PanelController
 8c3d60fad44c15904638b6cc98c3fccd Assembly-CSharp.dll:.SeahorseLeftController
@@ -143,6 +145,7 @@ e1bbf0ab858085e38fae6b12ebbdcd35 UnityEngine.Timeline.dll:UnityEngine.Timeline.P
 201e3fde670b00545944bb3db215c80a UnityEngine.Timeline.dll:UnityEngine.Timeline.TimelineAsset
 5035cc25f1a7c7d2a8f9fc9868ae4919 Assembly-CSharp.dll:.FadeIn
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.SettingButtonScript
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.CheckClicks
 7e72eb638d6c6ad91ccd08abb7b22e65 Assembly-CSharp.dll:.OctoSinusodialMove
 ff480acec67d8ff513069399e20ee6a8 Assembly-CSharp.dll:.UIPT_PRO_Demo_Achievement
 4e9333594897a1fb8b136ad2eae996c7 Unity.TextMeshPro.dll:TMPro.TMP_SubMeshUI
@@ -169,6 +172,7 @@ ad9173d3a69d99153f38ed4b62226129 UnityEngine.Networking.dll:UnityEngine.Networki
 d0cd0c743e9c42b9f00a90d62bfa139a Assembly-CSharp.dll:.GameData
 d251bf88db6c95a6b1aa0b69298da9ef UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 810456ce3f9f56905be1c4047798bbaa Assembly-CSharp.dll:.ResultHandler
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.EliminationSpeakerSoundController
 4d16cfbaa8e821a2b370e80844a0e9bc Assembly-CSharp.dll:TMPro.Examples.Benchmark03
 a0518b18ff23ae2366cd318ad9650c69 Assembly-CSharp.dll:.Entity_EliminationTestCnt10
 3d5ea869f6f9d85e3171edfd937d72b5 Assembly-CSharp.dll:.FishController
@@ -236,6 +240,7 @@ ad9173d3a69d99153f38ed4b62226129 UnityEngine.Networking.dll:UnityEngine.Networki
 bafa8e90733dda2f71123afff8397ec7 Assembly-CSharp.dll:.SliderTimer
 98e0a42ef031e43feb69a49da1e94b19 Assembly-CSharp.dll:.EliminationDialogue
 11319334e5365797f8056694f9b5dae4 Assembly-CSharp.dll:TMPro.Examples.ObjectSpin
+6d9ef67e4ee8780c19ad9a14e316d286 Assembly-CSharp-Editor.dll:.FishType
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:TMPro.TMP_DigitValidator
 35a9693c388776aaf487636491a20f11 Unity.TextMeshPro.dll:TMPro.TMP_FontAsset
 0beeaef9afd717c935b9c92db008df4a Assembly-CSharp.dll:.GameDirector
@@ -334,7 +339,3 @@ a47f3a3bb5ee8a92609a7a8d4bd1f45f Assembly-CSharp.dll:.Entity_Detection
 399a68023002d11056f5d32d73c7ec0a Assembly-CSharp.dll:.DragAndDrop
 d68ab92741f0dd0a458f688d7572660a Assembly-CSharp.dll:.Demo02
 7c3c235ba43b0a79ea410a52722ab6ad Assembly-CSharp.dll:.MovingScript
-71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.EliminationFishSoundController
-71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.AlternativeBubbleClickSound
-71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.CheckClicks
-71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.EliminationSpeakerSoundController
