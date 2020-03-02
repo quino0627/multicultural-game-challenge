@@ -412,12 +412,12 @@ public class FishShowAnswer : MonoBehaviour
         if (stageIndex >= stageMaxIndex)
         {
             Debug.Log("Game Is Over");
-            shark.SetActive(false);
-            Fishes.gameObject.SetActive(false);
+            //shark.SetActive(false);
+            //Fishes.gameObject.SetActive(false);
             totalStorageScript.tmpLevel[2]++;
             //totalStorageScript.InitStageData();
             yield return new WaitForSeconds(1f);
-            stageIndex = 0;
+            //stageIndex = 0;
             totalStorageScript.tmpStage[2] = 0;
             yield return DecideResult(total_clicked, total_correct);
             totalStorageScript.Save();

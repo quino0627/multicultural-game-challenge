@@ -477,7 +477,7 @@ public class SpreadChoices : MonoBehaviour
                 totalStorageScript.tmpStage[1] = stageIndex + levelOneStageMaxIndex + 1;
             }
         }
-
+        totalStorageScript.Save();
         watch.Reset();
         Debug.Log("In GoNext Invoke HideAnswer");
         StartCoroutine(HideAnswers());
@@ -512,12 +512,12 @@ public class SpreadChoices : MonoBehaviour
                 bTwoAns = false;
             }
 
-            stageIndex = 0;
+            //stageIndex = 0;
             totalStorageScript.tmpStage[1] = 0;
             yield return DecideResult(total_tried, total_correct, total_correct_stage);
-            totalStorageScript.Save();
+           
+            Debug.Log("save synthesis");
 
-            
         }
 
         if (refStageIndex+1 < stageMaxIndex)
@@ -655,6 +655,7 @@ public class SpreadChoices : MonoBehaviour
         {
             totalStorageScript.tmpStars[1, level] = 3;
         }
+        totalStorageScript.Save();
     }
 
     public void PlusTotalTry()

@@ -367,6 +367,8 @@ public class DataController : MonoBehaviour
         tmp.gameType = "탐지";
         tmp.accumulatedCntClick = DQM.total_clicked;
 
+       
+        
         //data["Detection"].Add(tmp);
         /*detectionData[DQM.level][DQM.ref_stage_no].Add(tmp);
         detectionStageDatas[TotalStorageScript.currId] = detectionData;*/
@@ -460,6 +462,8 @@ public class DataController : MonoBehaviour
         /*List<userStageData> tmpList = synthesisStageDatas[TotalStorageScript.currId][tmp.level][tmp.stageIndex];
         tmpList.Add(tmp);
         synthesisStageDatas[TotalStorageScript.currId][tmp.level][tmp.stageIndex] = tmpList;*/
+        
+        Debug.Log("tmp.nthTry" + tmp.nthTry);
         synthesisStageDatas.Add(TotalStorageScript.currId, tmp.level, tmp.stageIndex, tmp.nthTry, tmp);
 
 

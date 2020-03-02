@@ -441,14 +441,14 @@
       ]
     }
   },
-  "we": {
+  "tr": {
     "startTime": "0001-01-01T00:00:00",
     "endTime": "0001-01-01T00:00:00",
     "userMaxLevel": {
       "Alternative": 0,
-      "Elimination": 0,
+      "Elimination": 1,
       "Synthesis": 0,
-      "Detection": 1
+      "Detection": 0
     },
     "userMaxStage": {
       "Alternative": 0,
@@ -468,7 +468,7 @@
     "IES": 0,
     "totalRate": {
       "Detection": {
-        "0": 3,
+        "0": 0,
         "1": 0,
         "2": 0
       },
@@ -478,7 +478,7 @@
         "2": 0
       },
       "Elimination": {
-        "0": 0,
+        "0": 3,
         "1": 0,
         "2": 0
       },
@@ -491,9 +491,9 @@
     "triedCnt": {
       "Detection": [
         [
-          1,
-          1,
-          1,
+          0,
+          0,
+          0,
           0,
           0,
           0,
@@ -589,8 +589,8 @@
       ],
       "Synthesis": [
         [
-          0,
-          0,
+          3,
+          2,
           0,
           0,
           0,
@@ -687,9 +687,9 @@
       ],
       "Elimination": [
         [
-          0,
-          0,
-          0,
+          3,
+          1,
+          2,
           0,
           0,
           0,

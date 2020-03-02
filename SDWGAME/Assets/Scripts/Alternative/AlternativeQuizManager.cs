@@ -431,7 +431,7 @@ public class AlternativeQuizManager : MonoBehaviour
             totalStorageScript.tmpLevel[3]++;
 
             yield return DecideResult(this.total_clicked, this.total_correct);
-            totalStorageScript.Save();
+           
         }
 
 //        this.GoNextStage();
@@ -519,5 +519,6 @@ public class AlternativeQuizManager : MonoBehaviour
         {
             totalStorageScript.tmpStars[3, level] = 3;
         }
+        totalStorageScript.Save();
     }
 }
