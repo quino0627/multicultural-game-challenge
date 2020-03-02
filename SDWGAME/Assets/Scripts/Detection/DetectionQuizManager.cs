@@ -54,9 +54,12 @@ public class DetectionQuizManager : MonoBehaviour
     public int total_clicked = 0;
     public int total_correct = 0;
 
-    //Barrel1, Barrel2, Barrel3, Barrel4, Barrel5 -> 텍스트를 담고 있는 Object
+    // Barrel1, Barrel2, Barrel3, Barrel4, Barrel5 -> 텍스트를 담고 있는 Object
     [HideInInspector] public GameObject[] Barrels = new GameObject[5];
-
+    // Barrel 안 Coin들
+    [HideInInspector] public GameObject[] CoinInBarrel = new GameObject[5];
+    
+    
     //문어새기
     public GameObject Octo;
 
@@ -113,6 +116,12 @@ public class DetectionQuizManager : MonoBehaviour
         this.Barrels[2] = transform.Find("Barrel3").gameObject;
         this.Barrels[3] = transform.Find("Barrel4").gameObject;
         this.Barrels[4] = transform.Find("Barrel5").gameObject;
+
+        this.CoinInBarrel[0] = Barrels[0].transform.Find("Coin").gameObject;
+        this.CoinInBarrel[1] = Barrels[1].transform.Find("Coin").gameObject;
+        this.CoinInBarrel[2] = Barrels[2].transform.Find("Coin").gameObject;
+        this.CoinInBarrel[3] = Barrels[3].transform.Find("Coin").gameObject;
+        this.CoinInBarrel[4] = Barrels[4].transform.Find("Coin").gameObject;
 
         this.QuizTextList[0] = this.Barrels[0].transform.Find("Word").GetComponent<TextMeshPro>();
         this.QuizTextList[1] = this.Barrels[1].transform.Find("Word").GetComponent<TextMeshPro>();
@@ -258,7 +267,14 @@ public class DetectionQuizManager : MonoBehaviour
             Octo.transform.Find("DescriptionBubble").gameObject.SetActive(true);
             yield return new WaitForSeconds(1f);
 
-
+            int k = 0;
+            while (k < 5)
+            {
+                CoinInBarrel[k].SetActive(true);
+                CoinInBarrel[k].GetComponent<Animator>().SetBool("Appear", false);
+                k = k + 1;
+            }
+            
             int i = 0;
             while (i < 5)
             {
@@ -300,14 +316,17 @@ public class DetectionQuizManager : MonoBehaviour
         //기록 남기기
         Debug.Log($"{watch.ElapsedMilliseconds}ms 이후 종 ");
         watch.Reset();
+        
         StartCoroutine(HideAnswers());
     }
 
     IEnumerator HideAnswers()
     {
+        yield return new WaitForSeconds(1f);
         int i = 0;
         while (i < 5)
         {
+            CoinInBarrel[i].SetActive(false);
             animators[i].Play("BarrelDestroy");
 //            yield return new WaitForSeconds(2f);
             Debug.Log(GetAnimationClip(animators[i], "BarrelDestroy").length);

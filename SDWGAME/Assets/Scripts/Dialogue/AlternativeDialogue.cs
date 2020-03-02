@@ -14,6 +14,9 @@ public class AlternativeDialogue : MonoBehaviour
     public Animator aniBubbles;
     public Animator aniWords;
     public Animator aniPointer;
+    public Animator aniOriginWord;
+    public Animator aniExpectWord;
+    public GameObject objSpeechBubble;
 
     private int? tmpCount = null;
     
@@ -50,12 +53,15 @@ public class AlternativeDialogue : MonoBehaviour
                 
                 aniWords.SetBool("Appear", true);
             }
-
+            // 왼쪽에서 어떤~ 
             if (theDM.GetCurrentSentenceNumber() == 2)
             {
-                aniPointer.SetBool("Appear", true);
+                aniOriginWord.SetBool("Center", true);
+                aniExpectWord.SetBool("Center", true);
+//                aniPointer.SetBool("Appear", true);
+                objSpeechBubble.SetActive(true);
             }
-            
+            // 바꾸면 되는 음소가~
             if (theDM.GetCurrentSentenceNumber() == 3)
             {
             }

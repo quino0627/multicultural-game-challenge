@@ -1,6 +1,6 @@
 Win64
 PlayerPath?
-C:/Users/singi/Documents/SDWGAME.exe
+C:/Users/singi/Desktop/새 폴더/HangeulGame.exe
 SceneListBegin?
 Assets/Scenes/StartMenu.unity
 Assets/Scenes/AlternativeGame.unity
@@ -14,6 +14,10 @@ Assets/Scenes/Elimination.unity
 Assets/Scenes/EliminationEscape.unity
 Assets/Scenes/LevelMenu.unity
 Assets/Scenes/SelectMenu.unity
+Assets/Scenes/TutorialAlternativeGame.unity
+Assets/Scenes/TutorialDetectionGame.unity
+Assets/Scenes/TutorialEliminationGame.unity
+Assets/Scenes/TutorialSynthesisGame.unity
 SceneListEnd?
 a1f19ad47d3094e235f21b74dfc423a8 Unity.Postprocessing.Runtime.dll:UnityEngine.Rendering.PostProcessing.PostProcessLayer
 726fcf7961cbb4108aa5be5e55b8c8bf Unity.Postprocessing.Runtime.dll:UnityEngine.Rendering.PostProcessing.ColorGrading
@@ -146,7 +150,7 @@ ff480acec67d8ff513069399e20ee6a8 Assembly-CSharp.dll:.UIPT_PRO_Demo_Achievement
 7f1eb9b932a517e55222850395fa4897 Assembly-CSharp.dll:.BubbleController
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.MousePointer
 9af8030bfce572f98389030750a77b6d Assembly-CSharp.dll:.DataController
-62d39522c648837a814c6b44daea9c63 Assembly-CSharp.dll:.SoundManager
+90684f0ccd9f6c82910173fea0161d4e Assembly-CSharp.dll:.SoundManager
 e6ae40841db498b6e673877ac45ad208 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkAnimator
 71bb6a6b6c8f052f948db64c7dd3ca4f UnityEngine.Networking.dll:UnityEngine.Networking.NetworkBehaviour
 1dcb82730d983b77cec736c6ef19f814 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkDiscovery
@@ -183,7 +187,7 @@ c0558fe903a7b73f2e3a964e15238da0 Assembly-CSharp.dll:.UIPT_PRO_CloudManager
 61b9d9b6f4b6a222dfea8b131b3d3227 Unity.Postprocessing.Runtime.dll:UnityEngine.Rendering.PostProcessing.ChromaticAberration
 3e345838d555e3f0f0a651f8c577cd84 Unity.RenderPipelines.Lightweight.Runtime.dll:UnityEngine.Experimental.Rendering.LightweightPipeline.LightweightRenderPipelineAsset
 b94c68df884a02bfd310d43e5d04859a Assembly-CSharp.dll:.UIPT_PRO_Demo07_Social
-24481acf2a8a68c8b77d3e26a85542f1 Assembly-CSharp.dll:.DetectionDialogue
+c7e4c05a7123ef7b39d91e86757954bc Assembly-CSharp.dll:.DetectionDialogue
 2dde60872d439ed132da806abcd99a58 Assembly-CSharp.dll:.SelectMenu
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.UIPT_PRO_Demo_ParticleMask
 0ecdf3d5ff514de6d9c4396901b74950 Assembly-CSharp.dll:.UIPT_PRO_Demo_Pause
@@ -192,7 +196,7 @@ b94c68df884a02bfd310d43e5d04859a Assembly-CSharp.dll:.UIPT_PRO_Demo07_Social
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.AlternativeDescriptionController
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.CheckAnswer
 b3ab2106268377ffe25dd18ac23dca28 Unity.TextMeshPro.dll:TMPro.TMP_Asset
-81838773269a7dad301748a449e1fd70 Assembly-CSharp.dll:.DetectionQuizManager
+cd2dc9bb62390c99a8a3e4a17fa7f14a Assembly-CSharp.dll:.DetectionQuizManager
 0fb28052108a9578b63ec723737a9345 Elringus.SpriteGlow.Runtime.dll:SpriteGlow.SpriteGlowEffect
 3375c3d749f8f4cad889721b431bdc27 Assembly-CSharp.dll:TMPro.Examples.CameraController
 e63944317d2f5958e31963668bb29158 Assembly-CSharp.dll:TMPro.Examples.VertexJitter
@@ -230,9 +234,8 @@ ad9173d3a69d99153f38ed4b62226129 UnityEngine.Networking.dll:UnityEngine.Networki
 5887ef1bc706b22b773d253fd443ceef UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformVisualizer
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.UIPT_PRO_2DBGSky
 bafa8e90733dda2f71123afff8397ec7 Assembly-CSharp.dll:.SliderTimer
-83a425fa5f5c5a7d1269a907e8588b45 Assembly-CSharp.dll:.EliminationDialogue
+98e0a42ef031e43feb69a49da1e94b19 Assembly-CSharp.dll:.EliminationDialogue
 11319334e5365797f8056694f9b5dae4 Assembly-CSharp.dll:TMPro.Examples.ObjectSpin
-6d9ef67e4ee8780c19ad9a14e316d286 Assembly-CSharp.dll:.FishType
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:TMPro.TMP_DigitValidator
 35a9693c388776aaf487636491a20f11 Unity.TextMeshPro.dll:TMPro.TMP_FontAsset
 0beeaef9afd717c935b9c92db008df4a Assembly-CSharp.dll:.GameDirector
@@ -293,7 +296,7 @@ fe2d355deb0ca31d59a0a7cf4d141fc3 Assembly-CSharp.dll:TMPro.Examples.Benchmark04
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.GameMenuUIController
 4d16cfbaa8e821a2b370e80844a0e9bc Assembly-CSharp.dll:TMPro.Examples.TextMeshSpawner
 e63944317d2f5958e31963668bb29158 Assembly-CSharp.dll:TMPro.Examples.VertexShakeB
-453c73cc7494738b0ed49ef4ae59fc70 Assembly-CSharp.dll:.AlternativeDialogue
+952e25913ec9262aba081f1e1971a765 Assembly-CSharp.dll:.AlternativeDialogue
 5bb0c23ac2810973880e592724a69354 Assembly-CSharp.dll:TMPro.Examples.Benchmark02
 74deec403475c6f930a037d188e89407 Assembly-CSharp.dll:.MovingJfScript
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.EliminationDirector
@@ -305,7 +308,7 @@ e63944317d2f5958e31963668bb29158 Assembly-CSharp.dll:TMPro.Examples.VertexZoom
 c5d3cb392bc89861367293cf9a727c9e Assembly-CSharp.dll:.UIPT_PRO_Demo_LevelClear
 d791aa6007fa3640be1164ea75bb087d Unity.TextMeshPro.dll:TMPro.TMP_StyleSheet
 b6ae07b272c46c9972c5bdefeba54447 Assembly-CSharp.dll:.DemoPlaySound
-c1283aed3e3deec266a86745daaedfb3 Assembly-CSharp.dll:.SynthesisDialogue
+c98571848828c708132ecb787d87fe71 Assembly-CSharp.dll:.SynthesisDialogue
 e80c1450883443c68d6c2dade213536f Assembly-CSharp.dll:TMPro.Examples.TMPro_InstructionOverlay
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.RepeatSoundBubble
 41d303d4e8c2190105c0d3bd29b481bb Assembly-CSharp.dll:.Demo03
@@ -325,9 +328,13 @@ ac6acd886c54c48c599ab5fed5781ea7 Unity.Postprocessing.Runtime.dll:UnityEngine.Re
 a47f3a3bb5ee8a92609a7a8d4bd1f45f Assembly-CSharp.dll:.Entity_Detection
 8649814970b42d345b89944b862453cc Unity.TextMeshPro.dll:TMPro.TMP_SubMesh
 8424edc4dc7caa1ef0c7c4bdd341cac7 Assembly-CSharp.dll:.UIPT_PRO_Demo_RankInfo
-6954f059c7cbccf6718e469a54ba1ec8 Assembly-CSharp.dll:.DialogueManager
+40aabd240e84affb165bd1cf4b424799 Assembly-CSharp.dll:.DialogueManager
 853a4d2b44a622267bd0bf619e7f413b Assembly-CSharp.dll:.UIPT_PRO_Demo01_IntroAndLoading
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.GA_UUI_DemoBasicControlledByScripts
 399a68023002d11056f5d32d73c7ec0a Assembly-CSharp.dll:.DragAndDrop
 d68ab92741f0dd0a458f688d7572660a Assembly-CSharp.dll:.Demo02
 7c3c235ba43b0a79ea410a52722ab6ad Assembly-CSharp.dll:.MovingScript
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.EliminationFishSoundController
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.AlternativeBubbleClickSound
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.CheckClicks
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.EliminationSpeakerSoundController

@@ -97,6 +97,631 @@
         }
       }
     }
+  },
+  "quino": {
+    "0": {
+      "0": {
+        "1": {
+          "level": 0,
+          "stageIndex": 0,
+          "nthTry": 1,
+          "corrAns": [
+            "글",
+            null,
+            null,
+            null,
+            null
+          ],
+          "chosenAns": [
+            "글"
+          ],
+          "isUserRight": true,
+          "responseTime": 3526.0,
+          "gameType": "탐지",
+          "accumulatedCntClick": 1
+        }
+      },
+      "1": {
+        "1": {
+          "level": 0,
+          "stageIndex": 1,
+          "nthTry": 1,
+          "corrAns": [
+            "부",
+            null,
+            null,
+            null,
+            null
+          ],
+          "chosenAns": [
+            "부"
+          ],
+          "isUserRight": true,
+          "responseTime": 5463.0,
+          "gameType": "탐지",
+          "accumulatedCntClick": 1
+        }
+      },
+      "2": {
+        "1": {
+          "level": 0,
+          "stageIndex": 2,
+          "nthTry": 1,
+          "corrAns": [
+            "남",
+            null,
+            null,
+            null,
+            null
+          ],
+          "chosenAns": [
+            "남"
+          ],
+          "isUserRight": true,
+          "responseTime": 1190.0,
+          "gameType": "탐지",
+          "accumulatedCntClick": 1
+        }
+      }
+    }
+  },
+  "asdf": {
+    "0": {
+      "0": {
+        "1": {
+          "level": 0,
+          "stageIndex": 0,
+          "nthTry": 1,
+          "corrAns": [
+            "글",
+            null,
+            null,
+            null,
+            null
+          ],
+          "chosenAns": [
+            "글"
+          ],
+          "isUserRight": true,
+          "responseTime": 2085.0,
+          "gameType": "탐지",
+          "accumulatedCntClick": 1
+        }
+      },
+      "1": {
+        "1": {
+          "level": 0,
+          "stageIndex": 1,
+          "nthTry": 1,
+          "corrAns": [
+            "부",
+            null,
+            null,
+            null,
+            null
+          ],
+          "chosenAns": [
+            "부"
+          ],
+          "isUserRight": true,
+          "responseTime": 17689.0,
+          "gameType": "탐지",
+          "accumulatedCntClick": 2
+        }
+      },
+      "2": {
+        "1": {
+          "level": 0,
+          "stageIndex": 2,
+          "nthTry": 1,
+          "corrAns": [
+            "남",
+            null,
+            null,
+            null,
+            null
+          ],
+          "chosenAns": [
+            "남"
+          ],
+          "isUserRight": true,
+          "responseTime": 4942.0,
+          "gameType": "탐지",
+          "accumulatedCntClick": 1
+        }
+      }
+    }
+  },
+  "zxcv": {
+    "0": {
+      "0": {
+        "1": {
+          "level": 0,
+          "stageIndex": 0,
+          "nthTry": 1,
+          "corrAns": [
+            "글",
+            null,
+            null,
+            null,
+            null
+          ],
+          "chosenAns": [
+            "글"
+          ],
+          "isUserRight": true,
+          "responseTime": 2083.0,
+          "gameType": "탐지",
+          "accumulatedCntClick": 1
+        }
+      },
+      "1": {
+        "1": {
+          "level": 0,
+          "stageIndex": 1,
+          "nthTry": 1,
+          "corrAns": [
+            "부",
+            null,
+            null,
+            null,
+            null
+          ],
+          "chosenAns": [
+            "부"
+          ],
+          "isUserRight": true,
+          "responseTime": 5566.0,
+          "gameType": "탐지",
+          "accumulatedCntClick": 1
+        }
+      },
+      "2": {
+        "1": {
+          "level": 0,
+          "stageIndex": 2,
+          "nthTry": 1,
+          "corrAns": [
+            "남",
+            null,
+            null,
+            null,
+            null
+          ],
+          "chosenAns": [
+            "남"
+          ],
+          "isUserRight": true,
+          "responseTime": 1969.0,
+          "gameType": "탐지",
+          "accumulatedCntClick": 1
+        }
+      }
+    }
+  },
+  "zzzz": {
+    "0": {
+      "0": {
+        "1": {
+          "level": 0,
+          "stageIndex": 0,
+          "nthTry": 1,
+          "corrAns": [
+            "글",
+            null,
+            null,
+            null,
+            null
+          ],
+          "chosenAns": [
+            "글"
+          ],
+          "isUserRight": true,
+          "responseTime": 942.0,
+          "gameType": "탐지",
+          "accumulatedCntClick": 1
+        }
+      },
+      "1": {
+        "1": {
+          "level": 0,
+          "stageIndex": 1,
+          "nthTry": 1,
+          "corrAns": [
+            "부",
+            null,
+            null,
+            null,
+            null
+          ],
+          "chosenAns": [
+            "부"
+          ],
+          "isUserRight": true,
+          "responseTime": 860.0,
+          "gameType": "탐지",
+          "accumulatedCntClick": 1
+        }
+      },
+      "2": {
+        "1": {
+          "level": 0,
+          "stageIndex": 2,
+          "nthTry": 1,
+          "corrAns": [
+            "남",
+            null,
+            null,
+            null,
+            null
+          ],
+          "chosenAns": [
+            "남"
+          ],
+          "isUserRight": true,
+          "responseTime": 2596.0,
+          "gameType": "탐지",
+          "accumulatedCntClick": 1
+        }
+      }
+    }
+  },
+  "xxxx": {
+    "0": {
+      "0": {
+        "1": {
+          "level": 0,
+          "stageIndex": 0,
+          "nthTry": 1,
+          "corrAns": [
+            "글",
+            null,
+            null,
+            null,
+            null
+          ],
+          "chosenAns": [
+            "글"
+          ],
+          "isUserRight": true,
+          "responseTime": 7404.0,
+          "gameType": "탐지",
+          "accumulatedCntClick": 1
+        }
+      },
+      "1": {
+        "1": {
+          "level": 0,
+          "stageIndex": 1,
+          "nthTry": 1,
+          "corrAns": [
+            "부",
+            null,
+            null,
+            null,
+            null
+          ],
+          "chosenAns": [
+            "부"
+          ],
+          "isUserRight": true,
+          "responseTime": 3913.0,
+          "gameType": "탐지",
+          "accumulatedCntClick": 1
+        }
+      }
+    }
+  },
+  "": {},
+  "cccc": {
+    "0": {
+      "0": {
+        "1": {
+          "level": 0,
+          "stageIndex": 0,
+          "nthTry": 1,
+          "corrAns": [
+            "글",
+            null,
+            null,
+            null,
+            null
+          ],
+          "chosenAns": [
+            "글"
+          ],
+          "isUserRight": true,
+          "responseTime": 2250.0,
+          "gameType": "탐지",
+          "accumulatedCntClick": 1
+        }
+      },
+      "1": {
+        "1": {
+          "level": 0,
+          "stageIndex": 1,
+          "nthTry": 1,
+          "corrAns": [
+            "부",
+            null,
+            null,
+            null,
+            null
+          ],
+          "chosenAns": [
+            "부"
+          ],
+          "isUserRight": true,
+          "responseTime": 1388.0,
+          "gameType": "탐지",
+          "accumulatedCntClick": 1
+        }
+      },
+      "2": {
+        "1": {
+          "level": 0,
+          "stageIndex": 2,
+          "nthTry": 1,
+          "corrAns": [
+            "남",
+            null,
+            null,
+            null,
+            null
+          ],
+          "chosenAns": [
+            "남"
+          ],
+          "isUserRight": true,
+          "responseTime": 1883.0,
+          "gameType": "탐지",
+          "accumulatedCntClick": 2
+        }
+      }
+    }
+  },
+  "zzz": {},
+  "xxx": {
+    "0": {
+      "0": {
+        "1": {
+          "level": 0,
+          "stageIndex": 0,
+          "nthTry": 1,
+          "corrAns": [
+            "글",
+            null,
+            null,
+            null,
+            null
+          ],
+          "chosenAns": [
+            "극",
+            "글"
+          ],
+          "isUserRight": true,
+          "responseTime": 0.0,
+          "gameType": "탐지",
+          "accumulatedCntClick": 2
+        }
+      },
+      "1": {
+        "1": {
+          "level": 0,
+          "stageIndex": 1,
+          "nthTry": 1,
+          "corrAns": [
+            "부",
+            null,
+            null,
+            null,
+            null
+          ],
+          "chosenAns": [],
+          "isUserRight": true,
+          "responseTime": 0.0,
+          "gameType": "탐지",
+          "accumulatedCntClick": 2
+        }
+      },
+      "2": {
+        "1": {
+          "level": 0,
+          "stageIndex": 2,
+          "nthTry": 1,
+          "corrAns": [
+            "남",
+            null,
+            null,
+            null,
+            null
+          ],
+          "chosenAns": [
+            "남"
+          ],
+          "isUserRight": true,
+          "responseTime": 2355.0,
+          "gameType": "탐지",
+          "accumulatedCntClick": 1
+        }
+      }
+    }
+  },
+  "ccc": {
+    "0": {
+      "0": {
+        "1": {
+          "level": 0,
+          "stageIndex": 0,
+          "nthTry": 1,
+          "corrAns": [
+            "글",
+            null,
+            null,
+            null,
+            null
+          ],
+          "chosenAns": [
+            "글"
+          ],
+          "isUserRight": true,
+          "responseTime": 872.0,
+          "gameType": "탐지",
+          "accumulatedCntClick": 1
+        }
+      },
+      "1": {
+        "1": {
+          "level": 0,
+          "stageIndex": 1,
+          "nthTry": 1,
+          "corrAns": [
+            "부",
+            null,
+            null,
+            null,
+            null
+          ],
+          "chosenAns": [
+            "부"
+          ],
+          "isUserRight": true,
+          "responseTime": 1044.0,
+          "gameType": "탐지",
+          "accumulatedCntClick": 1
+        }
+      }
+    }
+  },
+  "vvvv": {
+    "0": {
+      "0": {
+        "1": {
+          "level": 0,
+          "stageIndex": 0,
+          "nthTry": 1,
+          "corrAns": [
+            "글",
+            null,
+            null,
+            null,
+            null
+          ],
+          "chosenAns": [
+            "글"
+          ],
+          "isUserRight": true,
+          "responseTime": 1170.0,
+          "gameType": "탐지",
+          "accumulatedCntClick": 1
+        },
+        "2": {
+          "level": 0,
+          "stageIndex": 0,
+          "nthTry": 2,
+          "corrAns": [
+            "글",
+            null,
+            null,
+            null,
+            null
+          ],
+          "chosenAns": [
+            "글"
+          ],
+          "isUserRight": true,
+          "responseTime": 1023.0,
+          "gameType": "탐지",
+          "accumulatedCntClick": 1
+        }
+      },
+      "1": {
+        "1": {
+          "level": 0,
+          "stageIndex": 1,
+          "nthTry": 1,
+          "corrAns": [
+            "부",
+            null,
+            null,
+            null,
+            null
+          ],
+          "chosenAns": [
+            "부"
+          ],
+          "isUserRight": true,
+          "responseTime": 1092.0,
+          "gameType": "탐지",
+          "accumulatedCntClick": 2
+        },
+        "2": {
+          "level": 0,
+          "stageIndex": 1,
+          "nthTry": 2,
+          "corrAns": [
+            "부",
+            null,
+            null,
+            null,
+            null
+          ],
+          "chosenAns": [
+            "부"
+          ],
+          "isUserRight": true,
+          "responseTime": 926.0,
+          "gameType": "탐지",
+          "accumulatedCntClick": 2
+        }
+      },
+      "2": {
+        "1": {
+          "level": 0,
+          "stageIndex": 2,
+          "nthTry": 1,
+          "corrAns": [
+            "남",
+            null,
+            null,
+            null,
+            null
+          ],
+          "chosenAns": [
+            "남"
+          ],
+          "isUserRight": true,
+          "responseTime": 975.0,
+          "gameType": "탐지",
+          "accumulatedCntClick": 1
+        }
+      }
+    }
+  },
+  "aaa": {
+    "0": {
+      "0": {
+        "1": {
+          "level": 0,
+          "stageIndex": 0,
+          "nthTry": 1,
+          "corrAns": [
+            "글",
+            null,
+            null,
+            null,
+            null
+          ],
+          "chosenAns": [
+            "글"
+          ],
+          "isUserRight": true,
+          "responseTime": 659.0,
+          "gameType": "탐지",
+          "accumulatedCntClick": 1
+        }
+      }
+    }
   }
 >>>>>>> develop:SDWGAME/Assets/Detection.json
 }

@@ -114,7 +114,12 @@ public class SoundManager : MonoBehaviour
 
 	// 해파리가 틀렸을 때 전기충격
 	public AudioClip m_JellyFishShocked = null;
+	
+	// EliminationTutorialSampleSound
+	public AudioClip m_EliminationTutorialSampleSound = null;
 
+	// EliminationTutorial에서 생선을 클릭했을 때 맞췄습니다 ~ 소리
+	public AudioClip m_EliminationTutorialFishClickedSound = null;
 
 
 	// Sound volume
@@ -529,6 +534,16 @@ public class SoundManager : MonoBehaviour
 	public void Play_JellyFishShocked()
 	{
 		PlaySoundOneShot(m_JellyFishShocked);
+	}
+
+	public void Play_EliminationTutorialSampleSound()
+	{
+		PlaySoundOneShot(m_EliminationTutorialSampleSound);
+	}
+
+	public void Play_EliminationTutorialFishClickedSound()
+	{
+		PlaySoundOneShot(m_EliminationTutorialFishClickedSound);
 	}
 
 	#endregion // Functions

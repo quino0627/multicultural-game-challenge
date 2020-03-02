@@ -22,8 +22,8 @@ public class DragAndDrop : MonoBehaviour
     private void Start()
     {
         //initialPosition은 SpreadChoices.cs에서 세팅됨
-        QuizManager = GameObject.FindWithTag("QuizManager");
-        spreadChoicesScript = QuizManager.GetComponent<SpreadChoices>();
+//        QuizManager = GameObject.FindWithTag("QuizManager");
+//        spreadChoicesScript = QuizManager.GetComponent<SpreadChoices>();
     }
 
     private void OnMouseDown()
