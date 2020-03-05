@@ -21,7 +21,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 6}
-  m_MinSize: {x: 950, y: 524}
+  m_MinSize: {x: 950, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -39,9 +39,9 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
-    y: 213
+    y: 345
     width: 442
-    height: 518
+    height: 386
   m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 15}
@@ -71,9 +71,9 @@ MonoBehaviour:
     width: 442
     height: 731
   m_MinSize: {x: 277, y: 198}
-  m_MaxSize: {x: 4004, y: 8048}
+  m_MaxSize: {x: 4002, y: 8048}
   vertical: 1
-  controlID: 1056
+  controlID: 178
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -90,9 +90,9 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
-    y: 285
+    y: 387
     width: 431
-    height: 446
+    height: 344
   m_MinSize: {x: 234, y: 274}
   m_MaxSize: {x: 10004, y: 10024}
   m_ActualView: {fileID: 18}
@@ -121,10 +121,10 @@ MonoBehaviour:
     y: 0
     width: 431
     height: 731
-  m_MinSize: {x: 234, y: 474}
-  m_MaxSize: {x: 10004, y: 14024}
+  m_MinSize: {x: 234, y: 498}
+  m_MaxSize: {x: 10004, y: 14048}
   vertical: 1
-  controlID: 13
+  controlID: 108
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -193,10 +193,10 @@ MonoBehaviour:
     y: 30
     width: 1536
     height: 731
-  m_MinSize: {x: 713, y: 474}
-  m_MaxSize: {x: 18010, y: 14024}
+  m_MinSize: {x: 713, y: 498}
+  m_MaxSize: {x: 18008, y: 14048}
   vertical: 0
-  controlID: 134
+  controlID: 177
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -239,10 +239,10 @@ MonoBehaviour:
     y: 0
     width: 663
     height: 731
-  m_MinSize: {x: 202, y: 424}
-  m_MaxSize: {x: 4002, y: 8024}
+  m_MinSize: {x: 202, y: 448}
+  m_MaxSize: {x: 4002, y: 8048}
   vertical: 1
-  controlID: 135
+  controlID: 158
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -261,9 +261,9 @@ MonoBehaviour:
     x: 0
     y: 0
     width: 431
-    height: 285
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+    height: 387
+  m_MinSize: {x: 204, y: 224}
+  m_MaxSize: {x: 4004, y: 4024}
   m_ActualView: {fileID: 16}
   m_Panes:
   - {fileID: 16}
@@ -287,7 +287,7 @@ MonoBehaviour:
     x: 0
     y: 0
     width: 442
-    height: 213
+    height: 345
   m_MinSize: {x: 277, y: 74}
   m_MaxSize: {x: 4002, y: 4024}
   m_ActualView: {fileID: 17}
@@ -369,9 +369,9 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 1094.4
-    y: 286.4
+    y: 418.4
     width: 440
-    height: 498
+    height: 366
   m_PersistentViewDataDictionary: {fileID: 0}
 --- !u!114 &16
 MonoBehaviour:
@@ -397,14 +397,14 @@ MonoBehaviour:
     x: 663.2
     y: 73.6
     width: 427
-    height: 265
+    height: 367
   m_PersistentViewDataDictionary: {fileID: 0}
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
+      m_SelectedIDs: a23c0000
       m_LastClickedID: 0
-      m_ExpandedIDs: e694ffff0895ffff0897ffff2a97ffff4697ffff6a97ffff6c9affffd69cffffe29cfffffea0ffff44a5ffff1ea9ffff0eadfffffeb0ffff26b8ffff36bcffff50c0ffff92c0ffffdcc8fffffec8fffffecaffff20cbffff3ccbffff60cbffff62ceffffccd0ffffd8d0fffff2d4ffff38d9ffff12ddffff02e1fffff2e4ffff1aecffff2af0ffff44f4ffff86f4ffffa2fbfffff4ffffff
+      m_ExpandedIDs: b03affff243effffb243ffff4846ffff4650ffffb050ffffde50ffff4a52ffff505cffff1a65ffff2e67ffff6e6bffffae6fffff2677ffff847bffff2e8affff1ad7ffffb2e1ffff8ce3ffff96f0ffffa2fbfffff4ffffff72750000be750000548200004ac700001ed700004eee000066ee00007eee0000ecee000084f0000092f10000aaf10000c2f1000030f20000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -452,7 +452,7 @@ MonoBehaviour:
     x: 1094.4
     y: 73.6
     width: 440
-    height: 193
+    height: 325
   m_PersistentViewDataDictionary: {fileID: 0}
   m_ObjectsLockedBeforeSerialization: []
   m_InstanceIDsLockedBeforeSerialization: 
@@ -485,9 +485,9 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 663.2
-    y: 358.4
+    y: 460
     width: 427
-    height: 426
+    height: 324
   m_PersistentViewDataDictionary: {fileID: 0}
   m_SearchFilter:
     m_NameFilter: 
@@ -501,20 +501,20 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts
+    - Assets/Scenes
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Scripts
+  - Assets/Scenes
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\singi\Documents\GitHub\2019outsource\multicultural-game-challenge\SDWGAME
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 264}
-    m_SelectedIDs: fc1a0000
-    m_LastClickedID: 6908
-    m_ExpandedIDs: 000000000011000052110000001200009a18000006190000fc1a0000fe1b0000ce1c00003c1e00000a200000802000008c20000098290000d82a00007e2c0000da2d00001a2e00002e2e00000831000096320000ec330000b0350000aa360000e636000058370000a6370000c8370000fa3900003e3a0000d43a00002a3c0000cc3c0000a23e0000c23f00001a400000b4400000464400000e4500005645000064450000c8450000f04700009c4a000000ca9a3b
+    scrollPos: {x: 0, y: 288.50012}
+    m_SelectedIDs: ee470000
+    m_LastClickedID: 18414
+    m_ExpandedIDs: 000000000011000052110000001200009a18000006190000fc1a0000ce1c00003c1e00000a200000802000008c20000098290000d82a00007e2c0000da2d00001a2e00000831000096320000ec330000b0350000aa360000e636000058370000a6370000c8370000fa3900003e3a0000d43a00002a3c0000a23e0000c03f000018400000b24000000c4500005445000062450000c64500009a4a000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -542,7 +542,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000000011000052110000001200009a18000006190000fc1a0000fe1b0000ce1c00003c1e00000a200000802000008c20000098290000d82a00007e2c0000da2d00001a2e00002e2e00000831000096320000ec330000b0350000aa360000e636000058370000a6370000c8370000fa3900003e3a0000d43a00002a3c0000cc3c0000a23e0000c23f00001a400000b4400000464400000e4500005645000064450000c8450000f04700009c4a0000
+    m_ExpandedIDs: 000000000011000052110000001200009a18000006190000fc1a0000fe1b0000ce1c00003c1e00000a200000802000008c20000098290000d82a00007e2c0000da2d00001a2e00002e2e00000831000096320000ec330000b0350000aa360000e636000058370000a6370000c8370000fa3900003e3a0000d43a00002a3c0000cc3c0000a23e0000c03f000018400000b2400000444400000c4500005445000062450000c6450000ee4700009a4a0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -570,21 +570,21 @@ MonoBehaviour:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: 
+    m_ExpandedInstanceIDs: a6090000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: TutorialSynthesisGame
+      m_OriginalName: TutorialSynthesisGame
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 13622
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 4}
     m_CreateAssetUtility:
@@ -594,9 +594,9 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 0}
+    m_ScrollPosition: {x: 0, y: 49}
     m_GridSize: 16
-  m_DirectoriesAreaWidth: 110
+  m_DirectoriesAreaWidth: 180
 --- !u!114 &19
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -708,9 +708,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 0, y: 0, z: 0}
+    m_Target: {x: -10.9909525, y: -2.9214287, z: -0.33058706}
     speed: 2
-    m_Value: {x: 0, y: 0, z: 0}
+    m_Value: {x: -10.9909525, y: -2.9214287, z: -0.33058706}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -742,9 +742,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 10
+    m_Target: 43.070293
     speed: 2
-    m_Value: 10
+    m_Value: 43.070293
   m_Ortho:
     m_Target: 1
     speed: 2

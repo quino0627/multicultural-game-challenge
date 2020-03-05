@@ -1,3 +1,28 @@
 {
-  "initial": {}
+  "initial": {},
+  "test": {
+    "0": {
+      "0": {
+        "1": {
+          "level": 0,
+          "stageIndex": 0,
+          "nthTry": 1,
+          "corrAns": [
+            "일",
+            null,
+            null,
+            null,
+            null
+          ],
+          "chosenAns": [
+            "일"
+          ],
+          "isUserRight": true,
+          "responseTime": 599.0,
+          "gameType": "탈락",
+          "accumulatedCntClick": 1
+        }
+      }
+    }
+  }
 }

@@ -16,14 +16,17 @@ public class DragAndDrop : MonoBehaviour
 
     private bool isRight;
 
-    private GameObject QuizManager;
+    private GameObject QuizManager; 
     private SpreadChoices spreadChoicesScript;
-    
+
     private void Start()
     {
         //initialPosition은 SpreadChoices.cs에서 세팅됨
-//        QuizManager = GameObject.FindWithTag("QuizManager");
-//        spreadChoicesScript = QuizManager.GetComponent<SpreadChoices>();
+        if (QuizManager = GameObject.FindWithTag("QuizManager"))
+        {
+            //QuizManager = GameObject.FindWithTag("QuizManager");
+            spreadChoicesScript = QuizManager.GetComponent<SpreadChoices>();
+        }
     }
 
     private void OnMouseDown()

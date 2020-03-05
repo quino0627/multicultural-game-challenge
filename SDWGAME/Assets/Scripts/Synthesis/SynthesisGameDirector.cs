@@ -34,6 +34,7 @@ public class SynthesisGameDirector : MonoBehaviour
     void Update()
     {
         this.stageText.GetComponent<TextMeshProUGUI>().text = $"{this.stage + 1}단계";
+        // 두글자인 경우 stage+maxLevel0Stage를 더해야하는 코드 추가해됨.
         this.levelText.GetComponent<TextMeshProUGUI>().text = level;
         GameObject.Find("UIP_ClockBar").GetComponent<TimerScript>().remainedTime = time;
     }
