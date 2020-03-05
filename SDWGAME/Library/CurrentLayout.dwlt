@@ -21,7 +21,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 6}
-  m_MinSize: {x: 950, y: 300}
+  m_MinSize: {x: 950, y: 548}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -73,7 +73,11 @@ MonoBehaviour:
   m_MinSize: {x: 277, y: 198}
   m_MaxSize: {x: 4002, y: 8048}
   vertical: 1
+<<<<<<< Updated upstream
   controlID: 178
+=======
+  controlID: 125
+>>>>>>> Stashed changes
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -124,7 +128,11 @@ MonoBehaviour:
   m_MinSize: {x: 234, y: 498}
   m_MaxSize: {x: 10004, y: 14048}
   vertical: 1
+<<<<<<< Updated upstream
   controlID: 108
+=======
+  controlID: 99
+>>>>>>> Stashed changes
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -145,9 +153,15 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< Updated upstream
     width: 1536
     height: 781
   m_MinSize: {x: 950, y: 300}
+=======
+    width: 1680
+    height: 1006
+  m_MinSize: {x: 950, y: 548}
+>>>>>>> Stashed changes
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &7
 MonoBehaviour:
@@ -196,7 +210,11 @@ MonoBehaviour:
   m_MinSize: {x: 713, y: 498}
   m_MaxSize: {x: 18008, y: 14048}
   vertical: 0
+<<<<<<< Updated upstream
   controlID: 177
+=======
+  controlID: 157
+>>>>>>> Stashed changes
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -404,7 +422,11 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: a23c0000
       m_LastClickedID: 0
+<<<<<<< Updated upstream
       m_ExpandedIDs: b03affff243effffb243ffff4846ffff4650ffffb050ffffde50ffff4a52ffff505cffff1a65ffff2e67ffff6e6bffffae6fffff2677ffff847bffff2e8affff1ad7ffffb2e1ffff8ce3ffff96f0ffffa2fbfffff4ffffff72750000be750000548200004ac700001ed700004eee000066ee00007eee0000ecee000084f0000092f10000aaf10000c2f1000030f20000
+=======
+      m_ExpandedIDs: d2fbffff
+>>>>>>> Stashed changes
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -501,10 +523,15 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
+<<<<<<< Updated upstream
     - Assets/Scenes
+=======
+    - Assets/Scripts
+>>>>>>> Stashed changes
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
+<<<<<<< Updated upstream
   - Assets/Scenes
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\singi\Documents\GitHub\2019outsource\multicultural-game-challenge\SDWGAME
@@ -515,6 +542,18 @@ MonoBehaviour:
     m_SelectedIDs: ee470000
     m_LastClickedID: 18414
     m_ExpandedIDs: 000000000011000052110000001200009a18000006190000fc1a0000ce1c00003c1e00000a200000802000008c20000098290000d82a00007e2c0000da2d00001a2e00000831000096320000ec330000b0350000aa360000e636000058370000a6370000c8370000fa3900003e3a0000d43a00002a3c0000a23e0000c03f000018400000b24000000c4500005445000062450000c64500009a4a000000ca9a3b
+=======
+  - Assets/Scripts
+  m_LastFoldersGridSize: -1
+  m_LastProjectPath: /Users/quino0627/Documents/multicultural/multicultural-game-challenge/SDWGAME
+  m_LockTracker:
+    m_IsLocked: 0
+  m_FolderTreeState:
+    scrollPos: {x: 0, y: 268.0519}
+    m_SelectedIDs: 74370000
+    m_LastClickedID: 14196
+    m_ExpandedIDs: 000000007e2d0000f62f00007437000046390000823c0000f83c0000043d0000603d00001a42000010460000504700005c480000f6480000ae4c0000ea4d00000e4e000028520000d0530000d8530000405400003e560000b65600004c570000a2580000685a00003a5c00002c5d0000ce610000406200000e64000024640000d0650000146700006868000000ca9a3b
+>>>>>>> Stashed changes
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -594,9 +633,15 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
+<<<<<<< Updated upstream
     m_ScrollPosition: {x: 0, y: 49}
     m_GridSize: 16
   m_DirectoriesAreaWidth: 180
+=======
+    m_ScrollPosition: {x: 0, y: 131}
+    m_GridSize: 64
+  m_DirectoriesAreaWidth: 115
+>>>>>>> Stashed changes
 --- !u!114 &19
 MonoBehaviour:
   m_ObjectHideFlags: 52

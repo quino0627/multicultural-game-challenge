@@ -1,6 +1,8 @@
 {
   "initial": {},
-  "test": {
+  "we": {},
+  "zxcv": {},
+  "ggg": {
     "0": {
       "0": {
         "1": {
@@ -18,9 +20,51 @@
             "일"
           ],
           "isUserRight": true,
-          "responseTime": 599.0,
+          "responseTime": 334.0,
           "gameType": "탈락",
           "accumulatedCntClick": 1
+        }
+      },
+      "1": {
+        "1": {
+          "level": 0,
+          "stageIndex": 1,
+          "nthTry": 1,
+          "corrAns": [
+            "서",
+            null,
+            null,
+            null,
+            null
+          ],
+          "chosenAns": [
+            "서"
+          ],
+          "isUserRight": true,
+          "responseTime": 433.0,
+          "gameType": "탈락",
+          "accumulatedCntClick": 2
+        }
+      },
+      "2": {
+        "1": {
+          "level": 0,
+          "stageIndex": 2,
+          "nthTry": 1,
+          "corrAns": [
+            "암",
+            null,
+            null,
+            null,
+            null
+          ],
+          "chosenAns": [
+            "암"
+          ],
+          "isUserRight": true,
+          "responseTime": 3486.0,
+          "gameType": "탈락",
+          "accumulatedCntClick": 3
         }
       }
     }
