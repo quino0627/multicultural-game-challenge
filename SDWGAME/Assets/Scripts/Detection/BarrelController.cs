@@ -20,6 +20,9 @@ public class BarrelController : MonoBehaviour
     private GameObject director;
     private GameObject description;
 
+    private Animator aniCoin;
+    private Animator aniTrash;
+    
     // 배럴이 여러번 클릭되는 것을 방지한다.
     // 기본값은 false, 정답일 경우 한번 클릭된 이후에는 true로 
     private bool preventSeveralTouch = false;
@@ -30,6 +33,8 @@ public class BarrelController : MonoBehaviour
         this.director = GameObject.Find("GameDirector");
         this.description = GameObject.Find("DescriptionBubble");
         preventSeveralTouch = false;
+        aniCoin = transform.Find("Coin").gameObject.GetComponent<Animator>();
+        aniTrash = transform.Find("Trash").gameObject.GetComponent<Animator>();
     }
 
     private void OnEnable()
@@ -64,7 +69,7 @@ public class BarrelController : MonoBehaviour
         Transform tmpTransform = GameObject.Find("QuizContainer").transform;
         
         GameObject childText = transform.Find("Word").gameObject;
-        Animator aniCoin = transform.Find("Coin").gameObject.GetComponent<Animator>();
+        
         // 현재 클릭된 배럴의 글자
         string currentBarrelText = childText.GetComponent<TextMeshPro>().text;
         
@@ -102,6 +107,8 @@ public class BarrelController : MonoBehaviour
             
             // 틀렸으니 까 total clicked만 올린다.
             SoundManager.Instance.Play_ClickedWrongAnswer();
+            aniTrash.SetTrigger("Appear");
+            Invoke(nameof(DisappearTrashAfterSeconds), 1f);
             description.GetComponent<DetectionDescriptionController>().WrongAnswer();
 //            Transform tmpTransform = GameObject.Find("QuizContainer").transform;
             tmpTransform.GetComponent<DetectionQuizManager>().total_clicked++;
@@ -112,6 +119,11 @@ public class BarrelController : MonoBehaviour
 
 
 
+    }
+
+    private void DisappearTrashAfterSeconds()
+    {
+        aniTrash.SetTrigger("Disappear");
     }
 
     private bool IsPointerOverUIObject()

@@ -2,5 +2,68 @@
   "initial": {},
   "we": {},
   "zxcv": {},
-  "ggg": {}
+  "ggg": {},
+  "test": {
+    "0": {
+      "0": {
+        "2": {
+          "level": 0,
+          "stageIndex": 0,
+          "nthTry": 2,
+          "corrAns": [
+            "길",
+            null,
+            null,
+            null,
+            null
+          ],
+          "chosenAns": [
+            "길"
+          ],
+          "isUserRight": true,
+          "responseTime": 8125.0,
+          "gameType": "합성",
+          "accumulatedCntClick": 1
+        },
+        "3": {
+          "level": 0,
+          "stageIndex": 0,
+          "nthTry": 3,
+          "corrAns": [
+            "길",
+            null,
+            null,
+            null,
+            null
+          ],
+          "chosenAns": [
+            "길"
+          ],
+          "isUserRight": true,
+          "responseTime": 8859.0,
+          "gameType": "합성",
+          "accumulatedCntClick": 1
+        }
+      },
+      "1": {
+        "2": {
+          "level": 0,
+          "stageIndex": 1,
+          "nthTry": 2,
+          "corrAns": [
+            "집",
+            null,
+            null,
+            null,
+            null
+          ],
+          "chosenAns": [],
+          "isUserRight": false,
+          "responseTime": 60007.0,
+          "gameType": "합성",
+          "accumulatedCntClick": 1
+        }
+      }
+    }
+  }
 }

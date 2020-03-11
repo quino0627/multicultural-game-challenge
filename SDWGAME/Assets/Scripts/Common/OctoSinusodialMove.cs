@@ -17,7 +17,8 @@ public class OctoSinusodialMove : MonoBehaviour
     private bool facingRight = true;
     // 이게 true가 되는 위치까지 이동하게 되면 게임이 시작한다.
     public bool originPosition = false;
-
+    public bool tutorialOriginPosition = false;
+    
     private Vector3 pos, localScale;
     // Start is called before the first frame update
     void Start()
@@ -58,12 +59,44 @@ public class OctoSinusodialMove : MonoBehaviour
         }
     }
 
+    // 튜토리얼에서 사용되는 
+    public IEnumerator TutorialMoveOctopus()
+    {
+        while (!tutorialOriginPosition)
+        {
+            yield return new WaitForEndOfFrame();
+            CheckTutorialOriginPosition();
+            CheckWhereToFace();
+            ChangeBubbleTextFlipX();
+            if (facingRight)
+            {
+                MoveRight();
+            }
+            else
+            {
+                MoveLeft();
+            }
+        }
+    }
+    
+
     void CheckOriginPosition()
     {
-        if(transform.position.x > -7 && transform.position.y < -2)
+        if(transform.position.x > -6 && transform.position.y < -1.5)
         {
             
             originPosition = true;
+            SoundManager.Instance.StopMusic();
+            Debug.Log("STOP MUSIC");
+        }
+    }
+
+    void CheckTutorialOriginPosition()
+    {
+        if(transform.position.x > -6 && transform.position.y < 0)
+        {
+            
+            tutorialOriginPosition = true;
             SoundManager.Instance.StopMusic();
             Debug.Log("STOP MUSIC");
         }

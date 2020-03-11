@@ -58,6 +58,7 @@ public class DetectionQuizManager : MonoBehaviour
     [HideInInspector] public GameObject[] Barrels = new GameObject[5];
     // Barrel 안 Coin들
     [HideInInspector] public GameObject[] CoinInBarrel = new GameObject[5];
+    [HideInInspector] public GameObject[] TrashInBarrel = new GameObject[5];
     
     
     //문어새기
@@ -122,6 +123,12 @@ public class DetectionQuizManager : MonoBehaviour
         this.CoinInBarrel[2] = Barrels[2].transform.Find("Coin").gameObject;
         this.CoinInBarrel[3] = Barrels[3].transform.Find("Coin").gameObject;
         this.CoinInBarrel[4] = Barrels[4].transform.Find("Coin").gameObject;
+
+        this.TrashInBarrel[0] = Barrels[0].transform.Find("Trash").gameObject;
+        this.TrashInBarrel[1] = Barrels[1].transform.Find("Trash").gameObject;
+        this.TrashInBarrel[2] = Barrels[2].transform.Find("Trash").gameObject;
+        this.TrashInBarrel[3] = Barrels[3].transform.Find("Trash").gameObject;
+        this.TrashInBarrel[4] = Barrels[4].transform.Find("Trash").gameObject;
 
         this.QuizTextList[0] = this.Barrels[0].transform.Find("Word").GetComponent<TextMeshPro>();
         this.QuizTextList[1] = this.Barrels[1].transform.Find("Word").GetComponent<TextMeshPro>();
@@ -270,6 +277,7 @@ public class DetectionQuizManager : MonoBehaviour
             int k = 0;
             while (k < 5)
             {
+                TrashInBarrel[k].SetActive(true);
                 CoinInBarrel[k].SetActive(true);
                 CoinInBarrel[k].GetComponent<Animator>().SetBool("Appear", false);
                 k = k + 1;
@@ -326,6 +334,7 @@ public class DetectionQuizManager : MonoBehaviour
         int i = 0;
         while (i < 5)
         {
+            TrashInBarrel[i].SetActive(false);
             CoinInBarrel[i].SetActive(false);
             animators[i].Play("BarrelDestroy");
 //            yield return new WaitForSeconds(2f);

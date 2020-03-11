@@ -23,6 +23,11 @@ public class LevelMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        if (!SoundManager.Instance.IsMusicPlaying())
+        {
+            SoundManager.Instance.Play_MenuMusic();
+        }
         totalStorageObject = GameObject.Find("TotalStorage");
         totalStorageScript = totalStorageObject.GetComponent<KeepTrackController>();
 

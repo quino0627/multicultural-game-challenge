@@ -51,6 +51,9 @@ EditorBuildSettings:
     path: Assets/Scenes/TutorialDetectionGame.unity
     guid: 1cca25c623c9c41b184474573ceff098
   - enabled: 1
+    path: Assets/Scenes/TutorialDetectionGameV2.unity
+    guid: 3d1aca0f8574c40b59c8e7d20c47bd42
+  - enabled: 1
     path: Assets/Scenes/TutorialEliminationGame.unity
     guid: 99ef409e4ab8d4771a245966b57bffa2
   - enabled: 1

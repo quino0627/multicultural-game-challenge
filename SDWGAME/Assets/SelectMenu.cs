@@ -44,6 +44,11 @@ public class SelectMenu : MonoBehaviour
         currentLevel = TotalStorageScript.chosenLevel;
 
 
+        if (!SoundManager.Instance.IsMusicPlaying())
+        {
+            SoundManager.Instance.Play_MenuMusic();
+        }
+        
         //Debug.Log(emptyStar);
         //Debug.Log(filledStar);
 
@@ -92,7 +97,7 @@ public class SelectMenu : MonoBehaviour
         SoundManager.Instance.Play_SoundClick();
         if (TotalStorageScript.chosenLevel == 0)
         {
-            SceneManager.LoadScene("TutorialDetectionGame");    
+            SceneManager.LoadScene("TutorialDetectionGameV2");    
         }
         else
         {

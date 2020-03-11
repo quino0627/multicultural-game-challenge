@@ -19,6 +19,7 @@ public class RepeatSoundBubble : MonoBehaviour
 
     private void OnMouseDown()
     {
+        if (Time.timeScale == 0) return;
         transform.parent.GetComponent<SeahorseRightController>().ClickBubble();
     }
 }

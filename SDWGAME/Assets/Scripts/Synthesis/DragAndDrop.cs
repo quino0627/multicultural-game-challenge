@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Experimental.PlayerLoop;
 
 public class DragAndDrop : MonoBehaviour
 {
@@ -29,8 +30,10 @@ public class DragAndDrop : MonoBehaviour
         }
     }
 
+ 
     private void OnMouseDown()
     {
+        if (Time.timeScale == 0) return;
         Debug.Log("Crab2 OnMouseDown");
         /*if (EventSystem.current.IsPointerOverGameObject())
         {
@@ -47,6 +50,7 @@ public class DragAndDrop : MonoBehaviour
 
     private void OnMouseDrag()
     {
+        if (Time.timeScale == 0) return;
         Debug.Log("Crab2 OnMouseDrag");
         /*if (EventSystem.current.IsPointerOverGameObject())
         {

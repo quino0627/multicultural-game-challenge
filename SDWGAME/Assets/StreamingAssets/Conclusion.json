@@ -445,7 +445,7 @@
     "startTime": "0001-01-01T00:00:00",
     "endTime": "0001-01-01T00:00:00",
     "userMaxLevel": {
-      "Alternative": 0,
+      "Alternative": 1,
       "Elimination": 0,
       "Synthesis": 0,
       "Detection": 0
@@ -483,7 +483,7 @@
         "2": 0
       },
       "Alternative": {
-        "0": 0,
+        "0": 3,
         "1": 0,
         "2": 0
       }
@@ -491,10 +491,10 @@
     "triedCnt": {
       "Detection": [
         [
-          0,
-          0,
-          0,
-          0,
+          11,
+          6,
+          3,
+          1,
           0,
           0,
           0,
@@ -589,8 +589,8 @@
       ],
       "Synthesis": [
         [
-          1,
-          1,
+          3,
+          2,
           1,
           1,
           1,
@@ -785,9 +785,9 @@
       ],
       "Alternative": [
         [
-          0,
-          0,
-          0,
+          3,
+          1,
+          1,
           0,
           0,
           0,

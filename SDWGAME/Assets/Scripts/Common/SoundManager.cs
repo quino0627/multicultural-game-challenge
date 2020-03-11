@@ -392,6 +392,11 @@ public class SoundManager : MonoBehaviour
 		PlayMusic(clip);
 	}
 
+	public void Play_MenuMusic()
+	{
+		PlayMusic(m_Music);
+	}
+
 	public void Play_DetectionMusic()
 	{
 		PlayMusic(DetectionMusic);

@@ -9,4 +9,5 @@ public class Dialogue
     public Sprite[] sprites;
     public Sprite[] dialogueWindow;
     public GameObject[] clickNeedObject;
+    
 }

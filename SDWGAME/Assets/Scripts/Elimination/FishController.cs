@@ -40,6 +40,7 @@ public class FishController : MonoBehaviour
 
     private void OnMouseDown()
     {
+        if (Time.timeScale == 0) return;
         Debug.Log("OnMouseDown");
         if (script.canClick)
         {

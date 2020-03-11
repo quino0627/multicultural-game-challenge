@@ -24,6 +24,7 @@ public class SpeakerController : MonoBehaviour
 
     private void OnMouseDown()
     {
+        if (Time.timeScale == 0) return;
         Debug.Log("OnMouseDown");
         SpeakerClicked();
     }
