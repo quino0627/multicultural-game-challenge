@@ -144,18 +144,21 @@
             <e p="GameDirector.cs" t="Include" />
           </e>
           <e p="Dialogue" t="Include">
-            <e p="AlternativeBubbleClickSound.cs" t="Include" />
-            <e p="AlternativeDialogue.cs" t="Include" />
-            <e p="CheckClicks.cs" t="Include" />
-            <e p="Common" t="Include">
+            <e p="01.Common" t="Include">
               <e p="DialogueManagerV2.cs" t="Include" />
               <e p="DialogueV2.cs" t="Include" />
             </e>
-            <e p="Detection" t="Include">
+            <e p="02.Detection" t="Include">
               <e p="ClickCorrectBarrel.cs" t="Include" />
               <e p="ClickWrongBarrel.cs" t="Include" />
               <e p="TutorialDetectionManager.cs" t="Include" />
             </e>
+            <e p="05.Alternative" t="Include">
+              <e p="TutorialAlternativeManager.cs" t="Include" />
+            </e>
+            <e p="AlternativeBubbleClickSound.cs" t="Include" />
+            <e p="AlternativeDialogue.cs" t="Include" />
+            <e p="CheckClicks.cs" t="Include" />
             <e p="DetectionDialogue.cs" t="Include" />
             <e p="Dialogue.cs" t="Include" />
             <e p="DialogueManager.cs" t="Include" />
