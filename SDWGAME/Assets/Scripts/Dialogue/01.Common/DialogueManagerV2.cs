@@ -110,6 +110,7 @@ public class DialogueManagerV2 : MonoBehaviour
     public void AllowNextStep()
     {
         dialogue.flags[count] = true;
+        SoundManager.Instance.Play_SpeechBubblePop();
     }
     
     public void StartNextScript()
@@ -117,6 +118,7 @@ public class DialogueManagerV2 : MonoBehaviour
         dialogue.flags[count] = true;
         count++;
         StopAllCoroutines();
+        SoundManager.Instance.Play_SoundYes();
         StartCoroutine(StartDialogueCoroutine());
     }
 

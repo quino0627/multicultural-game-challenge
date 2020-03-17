@@ -153,7 +153,21 @@
               <e p="ClickWrongBarrel.cs" t="Include" />
               <e p="TutorialDetectionManager.cs" t="Include" />
             </e>
+            <e p="03.Synthesis" t="Include">
+              <e p="TutorialCorrectJellyfishController.cs" t="Include" />
+              <e p="TutorialDragAndDrop.cs" t="Include" />
+              <e p="TutorialSynthesisManager.cs" t="Include" />
+              <e p="TutorialWrongJellyfishController.cs" t="Include" />
+            </e>
+            <e p="04.Elimination" t="Include">
+              <e p="TutorialCorrectFishController.cs" t="Include" />
+              <e p="TutorialEliminationManager.cs" t="Include" />
+              <e p="TutorialSpeakerController.cs" t="Include" />
+              <e p="TutorialWrongFishController.cs" t="Include" />
+            </e>
             <e p="05.Alternative" t="Include">
+              <e p="ClickCorrectBubble.cs" t="Include" />
+              <e p="ClickWrongBubble.cs" t="Include" />
               <e p="TutorialAlternativeManager.cs" t="Include" />
             </e>
             <e p="AlternativeBubbleClickSound.cs" t="Include" />

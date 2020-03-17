@@ -28,17 +28,64 @@ public class TutorialAlternativeManager : MonoBehaviour
 
     [HideInInspector] private string[] answerStrings = new string[5];
 
-    public Boolean clickedCorretAnswer;
+    public Boolean clickedCorrectAnswer;
+    public Boolean clickedSpeechBubble;
+    public Boolean is_loading;
+    
+    
+    [SerializeField] private float moveSpeed = 5f;
+    public Boolean isMoving = false;
+    private float previousDistanceToTouchPos, currentDistanceToTouchPos;
+    private Vector3 centerPosition, whereToMove;
+    private Rigidbody2D rb;
+    
+    
 
     // Start is called before the first frame update
     void Start()
     {
         theDM = FindObjectOfType<DialogueManagerV2>();
 
-        clickedCorretAnswer = false;
+        clickedCorrectAnswer = false;
+        clickedSpeechBubble = false;
+        is_loading = true;
+        
+        centerPosition = transform.Find("Words").transform.Find("WordCenterPosition").position;
+        rb = WordBoxOrigin.GetComponent<Rigidbody2D>();
 
         QuizInit();
 
+    }
+
+    private void Update()
+    {
+        if (isMoving)
+        {
+            currentDistanceToTouchPos = (centerPosition - WordBoxOrigin.transform.position).magnitude;
+        }
+
+        if (!is_loading)
+        {
+            // origin box moving
+            previousDistanceToTouchPos = 0;
+            currentDistanceToTouchPos = 0;
+            isMoving = true;
+            whereToMove = (centerPosition - WordBoxOrigin.transform.position).normalized;
+            rb.velocity = new Vector2(whereToMove.x * moveSpeed, whereToMove.y * moveSpeed);
+        }
+
+
+        if (currentDistanceToTouchPos > previousDistanceToTouchPos)
+        {
+            isMoving = false;
+            rb.velocity = Vector2.zero;
+        }
+
+
+        if (isMoving)
+        {
+            previousDistanceToTouchPos = (centerPosition - WordBoxOrigin.transform.position).magnitude;
+        }
     }
 
     public void QuizInit()
@@ -53,8 +100,7 @@ public class TutorialAlternativeManager : MonoBehaviour
 
     IEnumerator AlternativeTutorialStage()
     {
-        yield return new WaitForSeconds(1f);
-        
+                
         yield return new WaitForSeconds(1f);
         SoundManager.Instance.Play_SeahorseWaves();
         SeahorseLeft.transform.Find("WaterFallAnimation").gameObject.SetActive(true);
@@ -85,6 +131,17 @@ public class TutorialAlternativeManager : MonoBehaviour
         SoundManager.Instance.Play_AlterWordShowedUp();
         yield return new WaitForSeconds(.4f);
         
+        theDM.ShowDialogue();
+        
+        var tmpCount = theDM.GetCurrentSentenceNumber();
+        theDM.AllowNextStep();
+        while (tmpCount == theDM.GetCurrentSentenceNumber())
+        {
+            yield return new WaitForFixedUpdate();
+        }
+        
+        yield return new WaitForSeconds(1.0f);
+        
         SoundManager.Instance.Play_AlterBubbleShowedUp();
         WrongBubble_1.SetActive(true);
         yield return new WaitForSeconds(0.6f);
@@ -102,15 +159,63 @@ public class TutorialAlternativeManager : MonoBehaviour
         yield return new WaitForSeconds(0.6f);
         
         
-        theDM.ShowDialogue();
         
-        var tmpCount = theDM.GetCurrentSentenceNumber();
+        
+        tmpCount = theDM.GetCurrentSentenceNumber();
+        theDM.AllowNextStep();
+        while (tmpCount == theDM.GetCurrentSentenceNumber())
+        {
+            yield return new WaitForFixedUpdate();
+        }
+
+        yield return new WaitForSeconds(1f);
+        Color color = WordBoxExpect.GetComponent<SpriteRenderer>().color;
+        while (color.a > 0.0f)
+        {
+            color.a -= 0.2f;
+            WordBoxExpect.GetComponent<SpriteRenderer>().color = color;
+            WordBoxExpect.transform.Find("Text").GetComponent<TextMeshPro>().color = color;
+            yield return new WaitForSeconds(0.1f);
+        }
+        is_loading = false;
+        
+        yield return new WaitForSeconds(2.0f);
+        // 샘플 사운드
+        SoundManager.Instance.Play_EliminationTutorialSampleSound();
+
+        yield return new WaitForSeconds(2.0f);
+        
+        tmpCount = theDM.GetCurrentSentenceNumber();
         theDM.AllowNextStep();
         while (tmpCount == theDM.GetCurrentSentenceNumber())
         {
             yield return new WaitForFixedUpdate();
         }
         
+        yield return new WaitForSeconds(2.0f);
+        
+        // 다시 듣기 말풍선 띄우기
+        SeahorseRight.transform.Find("RepeatSound").gameObject.SetActive(true);
+
+
+        while (!clickedSpeechBubble)
+        {
+            yield return new WaitForEndOfFrame();
+        }
+        theDM.StartNextScript();
+        
+        
+        while (!clickedCorrectAnswer)
+        {
+            yield return new WaitForEndOfFrame();
+        }
+        
+        theDM.StartNextScript();
+        
+        yield return new WaitForSeconds(2.0f);
+        
+        theDM.AllowNextStep();
+
         
         
         

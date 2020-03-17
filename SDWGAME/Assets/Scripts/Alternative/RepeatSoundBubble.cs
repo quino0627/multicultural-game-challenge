@@ -21,5 +21,7 @@ public class RepeatSoundBubble : MonoBehaviour
     {
         if (Time.timeScale == 0) return;
         transform.parent.GetComponent<SeahorseRightController>().ClickBubble();
+        GameObject.FindObjectOfType<TutorialAlternativeManager>().clickedSpeechBubble = true;
+        
     }
 }
