@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Xml.Schema;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -9,16 +10,30 @@ public class LevelMenu : MonoBehaviour
 {
     //KeepTrackController ConclusionData
     private GameObject totalStorageObject;
-    private KeepTrackController totalStorageScript;
+    private TotalDataManager totalStorageScript;
 
-    public Button Easy;
+    private GameObject levelStorage;
+    private LevelDataManager levelStorageScript;
 
-    public Button Normal;
+    public Button EasyStage1;
+    public Button EasyStage2;
+    public Button EasyStage3;
 
-    public Button Hard;
+    public Button NormalStage1;
+    public Button NormalStage2;
+    public Button NormalStage3;
+
+    public Button HardStage1;
+    public Button HardStage2;
+    public Button HardStage3;
 
     public SettingsHandler m_Settings = null;
 
+    public EGameName chosenGame;
+
+    public int[,] starData;
+
+    public GameObject[] Stars;
 
     // Start is called before the first frame update
     void Start()
@@ -29,85 +44,252 @@ public class LevelMenu : MonoBehaviour
             SoundManager.Instance.Play_MenuMusic();
         }
         totalStorageObject = GameObject.Find("TotalStorage");
-        totalStorageScript = totalStorageObject.GetComponent<KeepTrackController>();
+        totalStorageScript = totalStorageObject.GetComponent<TotalDataManager>();
 
-        if (totalStorageScript.bLogin)
+        levelStorage = GameObject.Find("LevelStorage");
+        levelStorageScript = levelStorage.GetComponent<LevelDataManager>();
+
+        chosenGame = (EGameName) totalStorageScript.chosenGame;
+        starData = levelStorageScript.LoadLevelSceneStar(chosenGame, totalStorageScript.currId);
+        /*if (_totalStorageScript.bLogin)
         {
-            if (totalStorageScript.tmpStars[0, 0] < 3 ||
-                totalStorageScript.tmpStars[1, 0] < 3 ||
-                totalStorageScript.tmpStars[2, 0] < 3 ||
-                totalStorageScript.tmpStars[3, 0] < 3)
+            if (_totalStorageScript.tmpStars[0, 0] < 3 ||
+                _totalStorageScript.tmpStars[1, 0] < 3 ||
+                _totalStorageScript.tmpStars[2, 0] < 3 ||
+                _totalStorageScript.tmpStars[3, 0] < 3)
             {
                 //초급
-                totalStorageScript.isLevelOpen[0] = true;
-                totalStorageScript.isLevelOpen[1] = false;
-                totalStorageScript.isLevelOpen[2] = false;
+                _totalStorageScript.isLevelOpen[0] = true;
+                _totalStorageScript.isLevelOpen[1] = false;
+                _totalStorageScript.isLevelOpen[2] = false;
             }
-            else if (totalStorageScript.tmpStars[0, 1] < 3 ||
-                     totalStorageScript.tmpStars[1, 1] < 3 ||
-                     totalStorageScript.tmpStars[2, 1] < 3 ||
-                     totalStorageScript.tmpStars[3, 1] < 3)
+            else if (_totalStorageScript.tmpStars[0, 1] < 3 ||
+                     _totalStorageScript.tmpStars[1, 1] < 3 ||
+                     _totalStorageScript.tmpStars[2, 1] < 3 ||
+                     _totalStorageScript.tmpStars[3, 1] < 3)
             {
                 //중급
 
-                if (!totalStorageScript.isLevelOpen[1])
+                if (!_totalStorageScript.isLevelOpen[1])
                 {
-                    totalStorageScript.tmpTriedCnt = new Dictionary<string, int[,]>()
+                    /*totalStorageScript.tmpTriedCnt = new Dictionary<string, int[,]>()
                     {
-                        {"Detection", new int[4, 30]},
-                        {"Synthesis", new int[4, 30]},
-                        {"Elimination", new int[4, 30]},
-                        {"Alternative", new int[4, 30]}
-                    };
+                        {"Detection", new int[3, 30]},
+                        {"Synthesis", new int[3, 30]},
+                        {"Elimination", new int[3, 30]},
+                        {"Alternative", new int[3, 30]}
+                    };#1#
                 }
 
-                totalStorageScript.isLevelOpen[0] = totalStorageScript.isLevelOpen[1] = true;
-                totalStorageScript.isLevelOpen[2] = false;
+                _totalStorageScript.isLevelOpen[0] = _totalStorageScript.isLevelOpen[1] = true;
+                _totalStorageScript.isLevelOpen[2] = false;
             }
             else
             {
                 //고급
-                if (!totalStorageScript.isLevelOpen[2])
+                if (!_totalStorageScript.isLevelOpen[2])
                 {
-                    totalStorageScript.tmpTriedCnt = new Dictionary<string, int[,]>()
+                    /*totalStorageScript.tmpTriedCnt = new Dictionary<string, int[,]>()
                     {
-                        {"Detection", new int[4, 30]},
-                        {"Synthesis", new int[4, 30]},
-                        {"Elimination", new int[4, 30]},
-                        {"Alternative", new int[4, 30]}
-                    };
+                        {"Detection", new int[3, 30]},
+                        {"Synthesis", new int[3, 30]},
+                        {"Elimination", new int[3, 30]},
+                        {"Alternative", new int[3, 30]}
+                    };#1#
                 }
                 
                 
-                totalStorageScript.isLevelOpen[0]
-                    = totalStorageScript.isLevelOpen[1]
-                        = totalStorageScript.isLevelOpen[2] = true;
+                _totalStorageScript.isLevelOpen[0]
+                    = _totalStorageScript.isLevelOpen[1]
+                        = _totalStorageScript.isLevelOpen[2] = true;
+            }
+        }*/
+        
+        // 3 -> 12 수정필요
+        if (totalStorageScript.bLogin)
+        {
+            if (starData[0, 0] + starData[0, 1] + starData[0, 2] == 4)
+            {
+                totalStorageScript.isLevelOpen[(int)chosenGame, 1] = true;
+            }
+
+            if (starData[1, 0] + starData[1, 1] + starData[1, 2] == 4)
+            {
+                totalStorageScript.isLevelOpen[(int)chosenGame,2] = true;
             }
         }
 
-        if (totalStorageScript.isLevelOpen[1])
+        if (totalStorageScript.isLevelOpen[(int)chosenGame,1])
         {
-            Normal.interactable = true;
+            NormalStage1.interactable = true;
+            NormalStage2.interactable = true;
+            NormalStage3.interactable = true;
         }
         else
         {
-            Normal.interactable = false;
+            NormalStage1.interactable = false;
+            NormalStage2.interactable = false;
+            NormalStage3.interactable = false;
         }
 
-        if (totalStorageScript.isLevelOpen[2])
+        if (totalStorageScript.isLevelOpen[(int)chosenGame,2])
         {
-            Hard.interactable = true;
+            HardStage1.interactable = true;
+            HardStage2.interactable = true;
+            HardStage3.interactable = true;
         }
         else
         {
-            Hard.interactable = false;
+            HardStage1.interactable = false;
+            HardStage2.interactable = false;
+            HardStage3.interactable = false;
+        }
+
+        if (starData[0, 0] == 4)
+        {
+            Stars[0].SetActive(true);
+        }
+
+        if (starData[0, 1] == 4)
+        {
+            Stars[1].SetActive(true);
+        }
+
+        if (starData[0, 2] == 4)
+        {
+            Stars[2].SetActive(true);
+        }
+
+        if (starData[1, 0] == 4)
+        {
+            Stars[3].SetActive(true);
+        }
+
+        if (starData[1, 1] == 4)
+        {
+            Stars[4].SetActive(true);
+        }
+        if (starData[1, 2] == 4)
+        {
+            Stars[5].SetActive(true);
+        }
+        if (starData[2, 0] == 4)
+        {
+            Stars[6].SetActive(true);
+        }
+        if (starData[2, 1] == 4)
+        {
+            Stars[7].SetActive(true);
+        }
+        if (starData[2, 2] == 4)
+        {
+            Stars[8].SetActive(true);
         }
     }
 
-    public void EasySelectMenu()
+
+    public void LoadGame()
+    {
+        switch (chosenGame)
+        {
+            case EGameName.Detection:
+                if (totalStorageScript.chosenLevel == 0)
+                {
+                    SceneManager.LoadScene("TutorialDetectionGame");
+                }
+                else
+                {
+                    SceneManager.LoadScene("DetectionGame");
+                }
+
+                break;
+            case EGameName.Synthesis:
+                if (totalStorageScript.chosenLevel == 0)
+                {
+                    SceneManager.LoadScene("TutorialSynthesisGame");
+                }
+
+                if (totalStorageScript.chosenLevel == 1)
+                {
+                    SceneManager.LoadScene("CrabLevel3");
+                }
+
+                if (totalStorageScript.chosenLevel == 2)
+                {
+                    SceneManager.LoadScene("CrabLevel4");
+                }
+
+                break;
+            case EGameName.Elimination:
+                SceneManager.LoadScene("TutorialEliminationGame");
+                break;
+            case EGameName.Alternative:
+                SceneManager.LoadScene("TutorialAlternativeGame");
+                break;
+        }
+    }
+
+    public void EasyStage1SelectMenu()
     {
         totalStorageScript.chosenLevel = 0;
-        SceneManager.LoadScene("SelectMenu");
+        totalStorageScript.chosenStage = 0;
+        LoadGame();
+    }
+
+    public void EasyStage2SelectMenu()
+    {
+        totalStorageScript.chosenLevel = 0;
+        totalStorageScript.chosenStage = 1;
+        LoadGame();
+    }
+
+    public void EasyStage3SelectMenu()
+    {
+        totalStorageScript.chosenLevel = 0;
+        totalStorageScript.chosenStage = 2;
+        LoadGame();
+    }
+
+    public void NormalStage1SelectMenu()
+    {
+        totalStorageScript.chosenLevel = 1;
+        totalStorageScript.chosenStage = 0;
+        LoadGame();
+    }
+
+    public void NormalStage2SelectMenu()
+    {
+        totalStorageScript.chosenLevel = 1;
+        totalStorageScript.chosenStage = 1;
+        LoadGame();
+    }
+
+    public void NormalStage3SelectMenu()
+    {
+        totalStorageScript.chosenLevel = 1;
+        totalStorageScript.chosenStage = 2;
+        LoadGame();
+    }
+
+    public void HardStage1SelectMenu()
+    {
+        totalStorageScript.chosenLevel = 2;
+        totalStorageScript.chosenStage = 0;
+        LoadGame();
+    }
+
+    public void HardStage2SelectMenu()
+    {
+        totalStorageScript.chosenLevel = 2;
+        totalStorageScript.chosenStage = 1;
+        LoadGame();
+    }
+
+    public void HardStage3SelectMenu()
+    {
+        totalStorageScript.chosenLevel = 2;
+        totalStorageScript.chosenStage = 2;
+        LoadGame();
     }
 
     public void NormalSelectMenu()

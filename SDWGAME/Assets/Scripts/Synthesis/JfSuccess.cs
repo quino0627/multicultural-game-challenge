@@ -84,7 +84,7 @@ public class JfSuccess : MonoBehaviour
         //willCrabReturn = false; //Crab will not return to startPosition
 
         // 2. when arrive, invoke crab animation
-        if (Mathf.Abs(Carrier.transform.position.x - aboardPosition.x) <= 0.01f &&
+        if (Mathf.Abs(Carrier.transform.position.x - aboardPosition.x) <= 0.05f &&
             !isCrabAboard)
         {
             //Debug.Log("Jellyfish aboard ready");

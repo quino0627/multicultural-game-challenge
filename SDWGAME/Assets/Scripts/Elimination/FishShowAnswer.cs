@@ -12,10 +12,17 @@ public class FishShowAnswer : MonoBehaviour
 {
     //KeepTrackController ConclusionData
     public GameObject totalStorageObject;
-    private KeepTrackController totalStorageScript;
+    private TotalDataManager _totalStorageScript;
 
-    private GameObject StageStorage;
-    private DataController StageStorageScript;
+    private GameObject eachQuestionStorage;
+    private EachQuestionDataManager eachQuestionStorageScript;
+
+    private GameObject stageStorage;
+    private StageDataManager stageStorageScript;
+
+    private GameObject levelStorage;
+    private LevelDataManager levelStorageScript;
+
 
     // director
     private GameObject director;
@@ -45,6 +52,13 @@ public class FishShowAnswer : MonoBehaviour
 
     // 초급/중급/고급
     public int level;
+
+    // 각 난이도 안의 step
+    public int stage; //0,1,2
+
+    //문제 엑셀 ID
+    public int questionId;
+    private static List<int> randomNoDuplicates;
 
     // 각 난이도 안의 stage index
     public static int stageIndex;
@@ -104,18 +118,23 @@ public class FishShowAnswer : MonoBehaviour
     // Start is called before the first frame update
 
     private bool CheckPaused = false;
-    public bool bFail;
+    public bool bFail; // 틀리면 바로 넘어가기 위한 코드인데 이제 이 변수 안씀 그냥 다시 수정이 필요함을 위해서 집어넣음
+
     void Start()
     {
         totalStorageObject = GameObject.Find("TotalStorage");
-        totalStorageScript = totalStorageObject.GetComponent<KeepTrackController>();
-        StageStorage = GameObject.Find("StageStorage");
-        StageStorageScript = StageStorage.GetComponent<DataController>();
+        _totalStorageScript = totalStorageObject.GetComponent<TotalDataManager>();
+        eachQuestionStorage = GameObject.Find("EachQuestionStorage");
+        eachQuestionStorageScript = eachQuestionStorage.GetComponent<EachQuestionDataManager>();
+        stageStorage = GameObject.Find("StageStorage");
+        stageStorageScript = stageStorage.GetComponent<StageDataManager>();
+        levelStorage = GameObject.Find("LevelStorage");
+        levelStorageScript = levelStorage.GetComponent<LevelDataManager>();
 
         director = GameObject.Find("EliminationGameDirector");
 
-        level = totalStorageScript.chosenLevel;
-        stageIndex = totalStorageScript.tmpStage[2];
+        level = _totalStorageScript.chosenLevel;
+        stage = _totalStorageScript.chosenStage;
         refStageIndex = stageIndex;
         //chosenAns = new List<string>();
         QuizManager = GameObject.Find("QuizManager");
@@ -128,6 +147,25 @@ public class FishShowAnswer : MonoBehaviour
         // 전체 stage 개수를 3으로 한다.
         stageMaxIndex = 3;
 
+        total_clicked = 0;
+
+       
+        if (refStageIndex == 0)
+        {
+            randomNoDuplicates = new List<int>();
+            for (int i = 0; i < stageMaxIndex; ++i)
+            {
+                int tmp = Random.Range(0, stageMaxIndex);
+                while (randomNoDuplicates.Contains(tmp))
+                {
+                    tmp = Random.Range(0, stageMaxIndex);
+                }
+
+                randomNoDuplicates.Add(tmp);
+            }
+        }
+
+        questionId = stage * 10 + randomNoDuplicates[refStageIndex];
         QuizInit();
     }
 
@@ -162,7 +200,6 @@ public class FishShowAnswer : MonoBehaviour
             isTimeOver = true;
             bFail = false;
             this.GoNextStage(FAIL_INDEX, false);
-            
         }
 
         //이제 왼쪽으로 서서히 움직일꺼야
@@ -214,7 +251,7 @@ public class FishShowAnswer : MonoBehaviour
 
         //정답 물고기에 정답음성 넣기
         string wordFileLink =
-            $"Sounds/Detection/{data.sheets[level].list[stageIndex].정답음성}";
+            $"Sounds/Detection/{data.sheets[level].list[questionId].정답음성}";
         AudioSource corrFish =
             choices[ansPosIndex[0]].GetComponentInChildren<AudioSource>();
         corrFish.loop = false;
@@ -222,7 +259,7 @@ public class FishShowAnswer : MonoBehaviour
 
         //테스트로 글자 넣기
         choiceTexts[ansPosIndex[0]].text =
-            data.sheets[level].list[stageIndex].정답;
+            data.sheets[level].list[questionId].정답;
 
         //오답 물고기에 오답음성 넣기
         int j = 1;
@@ -235,41 +272,41 @@ public class FishShowAnswer : MonoBehaviour
 
             if (i == 1)
             {
-                link = $"Sounds/Detection/{data.sheets[level].list[stageIndex].오답음성1}";
+                link = $"Sounds/Detection/{data.sheets[level].list[questionId].오답음성1}";
                 fishSpeaker.loop = false;
                 fishSpeaker.clip = Resources.Load(link) as AudioClip;
 
                 choiceTexts[ansPosIndex[i]].text =
-                    data.sheets[level].list[stageIndex].오답1;
+                    data.sheets[level].list[questionId].오답1;
             }
 
             else if (i == 2)
             {
-                link = $"Sounds/Detection/{data.sheets[level].list[stageIndex].오답음성2}";
+                link = $"Sounds/Detection/{data.sheets[level].list[questionId].오답음성2}";
                 fishSpeaker.loop = false;
                 fishSpeaker.clip = Resources.Load(link) as AudioClip;
 
                 choiceTexts[ansPosIndex[i]].text =
-                    data.sheets[level].list[stageIndex].오답2;
+                    data.sheets[level].list[questionId].오답2;
             }
 
             else if (i == 3)
             {
-                link = $"Sounds/Detection/{data.sheets[level].list[stageIndex].오답음성3}";
+                link = $"Sounds/Detection/{data.sheets[level].list[questionId].오답음성3}";
                 fishSpeaker.loop = false;
                 fishSpeaker.clip = Resources.Load(link) as AudioClip;
 
                 choiceTexts[ansPosIndex[i]].text =
-                    data.sheets[level].list[stageIndex].오답3;
+                    data.sheets[level].list[questionId].오답3;
             }
             else if (i == 4)
             {
-                link = $"Sounds/Detection/{data.sheets[level].list[stageIndex].오답음성4}";
+                link = $"Sounds/Detection/{data.sheets[level].list[questionId].오답음성4}";
                 fishSpeaker.loop = false;
                 fishSpeaker.clip = Resources.Load(link) as AudioClip;
 
                 choiceTexts[ansPosIndex[i]].text =
-                    data.sheets[level].list[stageIndex].오답4;
+                    data.sheets[level].list[questionId].오답4;
             }
         }
 
@@ -301,12 +338,12 @@ public class FishShowAnswer : MonoBehaviour
         }
 
         //초성 종성 표시
-        syllableText.text = $"<{data.sheets[level].list[stageIndex].초성종성}>";
+        syllableText.text = $"<{data.sheets[level].list[questionId].초성종성}>";
 
         //syllable.SetActive(true);
 
         // 자극 제시 ex) 만들
-        stimulText.text = data.sheets[level].list[stageIndex].자극;
+        stimulText.text = data.sheets[level].list[questionId].자극;
         SoundManager.Instance.Play_SpeechBubblePop();
         stimulation.SetActive(true);
         yield return new WaitForSeconds(2f);
@@ -314,7 +351,7 @@ public class FishShowAnswer : MonoBehaviour
         // 탈락 자극 제시 ex) ㄴ
         stimulation.SetActive(false);
         SoundManager.Instance.Play_SpeechBubblePop();
-        eliminText.text = data.sheets[level].list[stageIndex].탈락자극;
+        eliminText.text = data.sheets[level].list[questionId].탈락자극;
         eliminStimul.SetActive(true);
 
         Debug.Log("HEHEHEHE");
@@ -414,13 +451,19 @@ public class FishShowAnswer : MonoBehaviour
             Debug.Log("Game Is Over");
             //shark.SetActive(false);
             //Fishes.gameObject.SetActive(false);
-            totalStorageScript.tmpLevel[2]++;
+            _totalStorageScript.tmpLevel[2]++;
             //totalStorageScript.InitStageData();
             yield return new WaitForSeconds(1f);
             //stageIndex = 0;
-            totalStorageScript.tmpStage[2] = 0;
+
+            //_totalStorageScript.tmpStage[2] = 0;
+
+            //totalStorageScript.tmpPerfection = total_correct * 100;
+            //totalStorageScript.CheckObtainedStarSlider((uint) total_correct);
+            //StageStorageScript.SaveGameOver(EGameName.Elimination);
+            //totalStorageScript.Save(EGameName.Elimination, level);
+
             yield return DecideResult(total_clicked, total_correct);
-            totalStorageScript.Save();
         }
 
         yield return new WaitForSeconds(1.0f);
@@ -478,18 +521,77 @@ public class FishShowAnswer : MonoBehaviour
         responseTime = watch.ElapsedMilliseconds;
         watch.Stop();
         isTimeSetted = false;
-        StageStorageScript.FSA = this;
-        StageStorageScript.SaveElimination();
-       
+        eachQuestionStorageScript.FSA = this;
+        eachQuestionStorageScript.SaveEliminationDataForEachData();
+
         stageIndex++;
-        totalStorageScript.tmpStage[2] = stageIndex;
+        // _totalStorageScript.tmpStage[2] = stageIndex;
         watch.Reset();
+
+
         //Debug.Log("In GoNextSTage Invoke HideAnswer");
         StartCoroutine(HideAnswers(poorFishIndex, bSharkSuccess));
     }
 
+    IEnumerator DecideResult(int totalClicked, int totalCorrect)
+    {
+        yield return new WaitForSeconds(1.0f);
+        _resultHandler.OpenResult();
 
-    IEnumerator DecideResult(float tcl, float tco)
+        
+        ///////임시코드
+        if (totalCorrect == stageMaxIndex)
+        {
+            // 별 1개 채워짐
+            levelStorageScript.obtainedStarCnt[level, stage] = 4;
+        }
+///////////////////
+
+        /*if (totalCorrect <= 3)
+        {
+            // 별 1/4
+            levelStorageScript.obtainedStarCnt[level, stage] = 1;
+        }
+        else if (totalCorrect <= 6)
+        {
+            // 별 2/4
+            levelStorageScript.obtainedStarCnt[level, stage] = 2;
+        }
+        else if (totalCorrect <= 9)
+        {
+            // 별 3/4
+            levelStorageScript.obtainedStarCnt[level, stage] = 3;
+        }
+        else if (totalCorrect == stageMaxIndex)
+        {
+            // 별 1개 채워짐
+            levelStorageScript.obtainedStarCnt[level, stage] = 4;
+        }
+        else
+        {
+            Debug.Assert(false, "문제가 10개 초과");
+        }*/
+
+        eachQuestionStorageScript.SaveGameOver(EGameName.Elimination,level,stage,questionId,stageStorageScript.playCnt);
+        
+        stageStorageScript.LoadGameStageData(EGameName.Elimination, _totalStorageScript.currId, level, stage);
+        stageStorageScript.playCnt++;
+        stageStorageScript.SaveGameStageData(EGameName.Elimination, _totalStorageScript.currId, level, stage,
+            totalCorrect);
+
+        //levelData 계산
+        levelStorageScript.avgPerfection[level] =
+            stageStorageScript.GetAvgCorrectAnswerCountForLevel(_totalStorageScript.currId, level,
+                EGameName.Elimination);
+        levelStorageScript.avgResponseTime[level] =
+            stageStorageScript.GetAvgResponseTimeForLevel(_totalStorageScript.currId, level, EGameName.Elimination);
+        levelStorageScript.SaveLevelData(EGameName.Elimination, _totalStorageScript.currId, level);
+
+        _totalStorageScript.Save(EGameName.Elimination, level, stage);
+        
+        eachQuestionStorageScript.initializeQuestionData();
+    }
+    /*IEnumerator DecideResult(float tcl, float tco)
     {
         yield return new WaitForSeconds(1.0f);
         _resultHandler.OpenResult();
@@ -509,14 +611,14 @@ public class FishShowAnswer : MonoBehaviour
             SoundManager.Instance.Play_NoStarShowedUp();
             StarLeft.SetActive(false);
             onesentenceText.text = sentences[2];
-            totalStorageScript.tmpStars[2, level] = 0;
+            _totalStorageScript.tmpStars[2, level] = 0;
         }
         else
         {
             SoundManager.Instance.Play_StarShowedUp();
             onesentenceText.text = sentences[2];
             StarLeft.SetActive(true);
-            totalStorageScript.tmpStars[2, level]++;
+            _totalStorageScript.tmpStars[2, level]++;
             yield return new WaitForSeconds(.5f);
         }
 
@@ -529,7 +631,7 @@ public class FishShowAnswer : MonoBehaviour
             SoundManager.Instance.Play_StarShowedUp();
             onesentenceText.text = sentences[1];
             StarMiddle.SetActive(true);
-            totalStorageScript.tmpStars[2, level]++;
+            _totalStorageScript.tmpStars[2, level]++;
             yield return new WaitForSeconds(.5f);
         }
 
@@ -542,20 +644,21 @@ public class FishShowAnswer : MonoBehaviour
             SoundManager.Instance.Play_StarShowedUp();
             onesentenceText.text = sentences[0];
             StarRight.SetActive(true);
-            totalStorageScript.tmpStars[2, level]++;
-            if (totalStorageScript.tmpMaxLevel[2] == level)
+            _totalStorageScript.tmpStars[2, level]++;
+            if (_totalStorageScript.tmpMaxLevel[2] == level)
             {
-                totalStorageScript.tmpMaxLevel[2] = level + 1;
+                _totalStorageScript.tmpMaxLevel[2] = level + 1;
             }
 
             yield return new WaitForSeconds(.5f);
         }
 
-        if (totalStorageScript.tmpMaxLevel[2] > level)
+        if (_totalStorageScript.tmpMaxLevel[2] > level)
         {
-            totalStorageScript.tmpStars[2, level] = 3;
+            _totalStorageScript.tmpStars[2, level] = 3;
         }
     }
+*/
 
     // Total Click과 Total Correct를 증가시키기 위한 함수들
     public void PlusTotalClick()

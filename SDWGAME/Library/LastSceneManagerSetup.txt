@@ -1,4 +1,8 @@
 sceneSetups:
+<<<<<<< HEAD
 - path: Assets/Scenes/TutorialSynthesisGameV2.unity
+=======
+- path: Assets/Scenes/Elimination.unity
+>>>>>>> develop
   isLoaded: 1
   isActive: 1

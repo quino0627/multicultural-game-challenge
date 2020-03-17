@@ -96,11 +96,11 @@ public class FishController : MonoBehaviour
             yield return new WaitForSeconds(1f);
 
             //그리고 다시 자극 제시 
-            /*script.eliminStimul.SetActive(true);
-            xSign.SetActive(false);*/
+            script.eliminStimul.SetActive(true);
+            xSign.SetActive(false);
             
             //가 아닌 넘어감.
-            script.bFail = true;
+            //script.bFail = true;
         }
     }
 
