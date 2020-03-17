@@ -116,7 +116,7 @@
           </e>
           <e p="Common" t="Include">
             <e p="CloseController.cs" t="Include" />
-            <e p="DataManagerScripts" t="Include">
+            <e p="DataManager" t="Include">
               <e p="EachQuestionDataManager.cs" t="Include" />
               <e p="LevelDataManager.cs" t="Include" />
               <e p="StageDataManager.cs" t="Include" />
@@ -187,12 +187,10 @@
             </e>
             <e p="FishController.cs" t="Include" />
             <e p="FishShowAnswer.cs" t="Include" />
-            <e p="FishType.cs" t="Include" />
             <e p="SpeakerController.cs" t="Include" />
           </e>
           <e p="FadeIn.cs" t="Include" />
           <e p="LevelMenu.cs" t="Include" />
-          <e p="OnMouseHover.cs" t="Include" />
           <e p="Practice" t="Include">
             <e p="PracticeManager.cs" t="Include" />
           </e>

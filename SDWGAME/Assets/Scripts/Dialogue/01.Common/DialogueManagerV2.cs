@@ -11,7 +11,7 @@ public class DialogueManagerV2 : MonoBehaviour
 {
     public string type;
     public GameObject TotalStorage;
-    public KeepTrackController TotalStorageScript;
+    public TotalDataManager totalStorageScript;
     public int currentLevel;
 
     public GameObject DisplayClickable;
@@ -38,9 +38,9 @@ public class DialogueManagerV2 : MonoBehaviour
    
     private void Start()
     {
-//        TotalStorage = GameObject.Find("TotalStorage");
-//        TotalStorageScript = TotalStorage.GetComponent<KeepTrackController>();
-//        currentLevel = TotalStorageScript.chosenLevel;
+        TotalStorage = GameObject.Find("TotalStorage");
+        totalStorageScript = TotalStorage.GetComponent<TotalDataManager>();
+        currentLevel = totalStorageScript.chosenLevel;
     }
 
     // Update is called once per frame
@@ -172,14 +172,14 @@ public class DialogueManagerV2 : MonoBehaviour
         if (type == "Synthesis")
         {
             //매직넘버
-            if (TotalStorageScript.tmpStage[1] < 14)
-            {
-                SceneManager.LoadScene("CrabLevel1");
-            }
-            else
-            {
-                SceneManager.LoadScene("CrabLevel2");
-            }
+            //if (totalStorageScript.tmpStage[1] < 14)
+            //{
+            SceneManager.LoadScene("CrabLevel1");
+            //}
+            //else
+            //{
+            //    SceneManager.LoadScene("CrabLevel2");
+            //}
         }
 
         if (type == "Elimination")

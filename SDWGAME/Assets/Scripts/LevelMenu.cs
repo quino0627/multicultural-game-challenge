@@ -195,7 +195,7 @@ public class LevelMenu : MonoBehaviour
             case EGameName.Detection:
                 if (totalStorageScript.chosenLevel == 0)
                 {
-                    SceneManager.LoadScene("TutorialDetectionGame");
+                    SceneManager.LoadScene("TutorialDetectionGameV2");
                 }
                 else
                 {
@@ -206,7 +206,7 @@ public class LevelMenu : MonoBehaviour
             case EGameName.Synthesis:
                 if (totalStorageScript.chosenLevel == 0)
                 {
-                    SceneManager.LoadScene("TutorialSynthesisGame");
+                    SceneManager.LoadScene("TutorialSynthesisGameV2");
                 }
 
                 if (totalStorageScript.chosenLevel == 1)
@@ -218,14 +218,30 @@ public class LevelMenu : MonoBehaviour
                 {
                     SceneManager.LoadScene("CrabLevel4");
                 }
-
                 break;
+            
             case EGameName.Elimination:
-                SceneManager.LoadScene("TutorialEliminationGame");
+                if (totalStorageScript.chosenLevel == 0)
+                {
+                    SceneManager.LoadScene("TutorialEliminationGameV2");
+                }
+                else
+                {
+                    SceneManager.LoadScene("EliminationEscape");
+                }
                 break;
+            
             case EGameName.Alternative:
-                SceneManager.LoadScene("TutorialAlternativeGame");
+                if (totalStorageScript.chosenLevel == 0)
+                {
+                    SceneManager.LoadScene("TutorialAlternativeGameV2");
+                }
+                else
+                {
+                    SceneManager.LoadScene("AlternativeGame");
+                }
                 break;
+              
         }
     }
 
