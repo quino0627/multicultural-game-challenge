@@ -15,7 +15,7 @@ public class DialogueManager : MonoBehaviour
     private GraphicRaycaster raycaster;
     
     public GameObject TotalStorage;
-    public KeepTrackController TotalStorageScript;
+    public TotalDataManager totalStorageScript;
     public int currentLevel;
     
     #region Singleton
@@ -57,8 +57,8 @@ public class DialogueManager : MonoBehaviour
     private void Start()
     {
         TotalStorage = GameObject.Find("TotalStorage");
-        TotalStorageScript = TotalStorage.GetComponent<KeepTrackController>();
-        currentLevel = TotalStorageScript.chosenLevel;
+        totalStorageScript = TotalStorage.GetComponent<TotalDataManager>();
+        currentLevel = totalStorageScript.chosenLevel;
     }
 
 
@@ -210,14 +210,14 @@ public class DialogueManager : MonoBehaviour
         if (type == "Synthesis")
         {
             //매직넘버
-            if (TotalStorageScript.tmpStage[1] < 14)
-            {
+            //if (totalStorageScript.tmpStage[1] < 14)
+            //{
                 SceneManager.LoadScene("CrabLevel1");
-            }
-            else
-            {
-                SceneManager.LoadScene("CrabLevel2");
-            }
+            //}
+            //else
+            //{
+            //    SceneManager.LoadScene("CrabLevel2");
+            //}
         }
 
         if (type == "Elimination")

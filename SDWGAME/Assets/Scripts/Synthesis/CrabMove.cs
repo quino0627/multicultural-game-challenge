@@ -58,7 +58,7 @@ public class CrabMove : MonoBehaviour
         }
         
         // 4. when crab is safely on jellyfish, stop
-        if (Mathf.Abs(transform.position.x - jellyfish.transform.position.x) <= 0.01f
+        if (Mathf.Abs(transform.position.x - jellyfish.transform.position.x) <= 0.05f
             && isAboarding)
         {
             Debug.Log("Crab should stop...");
@@ -72,7 +72,7 @@ public class CrabMove : MonoBehaviour
         // 7. when jellyfish stops crab walks
         
         // 8. when crab goes to clear position crab snaps and stand(rotate)
-        if (Mathf.Abs(transform.position.x - clearPosition.x) <= 0.01f)
+        if (Mathf.Abs(transform.position.x - clearPosition.x) <= 0.05f)
         {
             
             //transform.SetParent(null);

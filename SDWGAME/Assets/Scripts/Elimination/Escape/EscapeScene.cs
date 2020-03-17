@@ -8,10 +8,10 @@ public class EscapeScene : MonoBehaviour
 {
     //KeepTrackController ConclusionData
     public GameObject totalStorageObject;
-    private KeepTrackController totalStorageScript;
+    private TotalDataManager _totalStorageScript;
     
     private GameObject StageStorage;
-    private DataController StageStorageScript;
+    private EachQuestionDataManager StageStorageScript;
     
     private GameObject shark;
     public GameObject sharkBubble;
@@ -49,12 +49,12 @@ public class EscapeScene : MonoBehaviour
     {
         Cursor.visible = false;
         totalStorageObject = GameObject.Find("TotalStorage");
-        totalStorageScript = totalStorageObject.GetComponent<KeepTrackController>();
+        _totalStorageScript = totalStorageObject.GetComponent<TotalDataManager>();
         StageStorage = GameObject.Find("StageStorage");
-        StageStorageScript = StageStorage.GetComponent<DataController>();
+        StageStorageScript = StageStorage.GetComponent<EachQuestionDataManager>();
 
-        level = totalStorageScript.chosenLevel;
-        stageIndex = totalStorageScript.tmpStage[2];
+        level = _totalStorageScript.chosenLevel;
+//        stageIndex = _totalStorageScript.tmpStage[2];
         
         dongExitPos = GameObject.Find("DongExitPos").transform;
         shark = GameObject.Find("Shark");

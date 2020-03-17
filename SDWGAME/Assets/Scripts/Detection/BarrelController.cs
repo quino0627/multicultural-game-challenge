@@ -114,7 +114,7 @@ public class BarrelController : MonoBehaviour
             tmpTransform.GetComponent<DetectionQuizManager>().total_clicked++;
             
             // 다음 stage로 넘어가기
-            tmpTransform.GetComponent<DetectionQuizManager>().StageOver();
+            //tmpTransform.GetComponent<DetectionQuizManager>().StageOver();
         }
 
 

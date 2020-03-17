@@ -17,15 +17,15 @@ using UnityEditor;
 
 class userStageData
 {
-    //public string userId; //학습자 ID
     public int level; //난이도
-    public int stageIndex; //문제 번호
+    public int step; // 세션/단계
+    public int stageIndex; //stageIndex
+    public int questionId; //문제 번호
     public int nthTry;
     public string[] corrAns; // 정답 보기 글자
     public List<string> chosenAns; //반응 보기 글자
     public bool isUserRight; //정오표시(60초가 지날 때까지 정답을 고르지 못하면 오답)
     public float responseTime; // 반응시간
-    public string gameType; // 자극 유형/ 현재 문제에서 제시한 자극의 유형/숫자
     public int accumulatedCntClick; //각 stage마다 정답을 클릭하기까지 클릭 횟수
 
 
@@ -46,6 +46,8 @@ class userStageData
 
 public class DataController : MonoBehaviour
 {
+    private string tmpJsonData;
+
     private string detectionPath;
     private string eliminationPath;
     private string alternativePath;
@@ -55,6 +57,9 @@ public class DataController : MonoBehaviour
 
     private GameObject TotalStorage;
     private KeepTrackController TotalStorageScript;
+
+    private GameObject StageStorage;
+    private GameStageDataManager StageStorageScript;
 
     public DetectionQuizManager DQM;
     public SpreadChoices SC;
@@ -68,24 +73,24 @@ public class DataController : MonoBehaviour
     Dictionary<int, Dictionary<int, userStageData>> data; //level,stage
 
     //Dictionary<string, Dictionary<int, Dictionary<int, List<userStageData>>>> detectionStageDatas; //string은 id
-    private NestedDictionary<string, int, int, int, userStageData> detectionStageDatas;
+    private NestedDictionary<string, int, int, int, userStageData> detectionDataForEachQuestion;
     private NestedDictionary<int, NestedDictionary<int, int, userStageData>> detectionData; //level stage
 
-    private NestedDictionary<string, int, int, int, userStageData> synthesisStageDatas;
+    private NestedDictionary<string, int, int, int, userStageData> synthesisDataForEachQuestion;
     private NestedDictionary<int, NestedDictionary<int, int, userStageData>> synthesisData;
 
-    private NestedDictionary<string, int, int, int, userStageData> eliminationStageDatas; //string은 id
+    private NestedDictionary<string, int, int, int, userStageData> eliminationDataForEachQuestion; //string은 id
     private NestedDictionary<int, NestedDictionary<int, int, userStageData>> eliminationData;
 
-    private NestedDictionary<string, int, int, int, userStageData> alternativeStageDatas; //string은 id
+    private NestedDictionary<string, int, int, int, userStageData> alternativeDataForEachQuestion; //string은 id
     private NestedDictionary<int, NestedDictionary<int, int, userStageData>> alternativeData;
 
     public void Start()
     {
-        detectionPath = Path.Combine(Application.streamingAssetsPath, "Detection.json");
-        synthesisPath = Path.Combine(Application.streamingAssetsPath, "Synthesis.json");
-        eliminationPath = Path.Combine(Application.streamingAssetsPath, "Elimination.json");
-        alternativePath = Path.Combine(Application.streamingAssetsPath, "Alternative.json");
+        detectionPath = Path.Combine(Application.persistentDataPath, "Detection.json");
+        synthesisPath = Path.Combine(Application.persistentDataPath, "Synthesis.json");
+        eliminationPath = Path.Combine(Application.persistentDataPath, "Elimination.json");
+        alternativePath = Path.Combine(Application.persistentDataPath, "Alternative.json");
 
         Debug.Log("datacontroller start");
         DontDestroyOnLoad(gameObject);
@@ -95,6 +100,7 @@ public class DataController : MonoBehaviour
         TotalStorageScript = TotalStorage.GetComponent<KeepTrackController>();
 
         LoadStageData();
+        //미리 다 받아놔야 회원가입 중복방지, 로그인 오류방지
 
         /*List<userStageData> tmp1 = new List<userStageData>();
         tmp1.Add(new userStageData());
@@ -132,28 +138,16 @@ public class DataController : MonoBehaviour
     {
         Debug.Log("makeNewId");
 
-        detectionStageDatas.Add(id, new NestedDictionary<int, int, int, userStageData>());
-        synthesisStageDatas.Add(id, new NestedDictionary<int, int, int, userStageData>());
-        eliminationStageDatas.Add(id, new NestedDictionary<int, int, int, userStageData>());
-        alternativeStageDatas.Add(id, new NestedDictionary<int, int, int, userStageData>());
-
-        /*string jdata = JsonConvert.SerializeObject(detectionStageDatas, Formatting.Indented);
-        File.WriteAllText(Application.dataPath + "/Detection.json", jdata);
-
-        jdata = JsonConvert.SerializeObject(synthesisStageDatas, Formatting.Indented);
-        File.WriteAllText(Application.dataPath + "/Synthesis.json", jdata);
-
-        jdata = JsonConvert.SerializeObject(eliminationStageDatas, Formatting.Indented);
-        File.WriteAllText(Application.dataPath + "/Elimination.json", jdata);
-
-        jdata = JsonConvert.SerializeObject(alternativeStageDatas, Formatting.Indented);
-        File.WriteAllText(Application.dataPath + "/Alternative.json", jdata);*/
+        detectionDataForEachQuestion.Add(id, new NestedDictionary<int, int, int, userStageData>());
+        synthesisDataForEachQuestion.Add(id, new NestedDictionary<int, int, int, userStageData>());
+        eliminationDataForEachQuestion.Add(id, new NestedDictionary<int, int, int, userStageData>());
+        alternativeDataForEachQuestion.Add(id, new NestedDictionary<int, int, int, userStageData>());
         SaveAllAtOnce();
     }
 
     public void deleteStageInfoOfCurrentId(string id)
     {
-        if (detectionStageDatas.Remove(id))
+        if (detectionDataForEachQuestion.Remove(id))
         {
             Debug.Log("Removed " + id + "'s 탐지과제 정보");
         }
@@ -162,7 +156,7 @@ public class DataController : MonoBehaviour
             Debug.Log("No such id");
         }
 
-        if (synthesisStageDatas.Remove(id))
+        if (synthesisDataForEachQuestion.Remove(id))
         {
             Debug.Log("Removed " + id + "'s 탐지과제 정보");
         }
@@ -171,7 +165,7 @@ public class DataController : MonoBehaviour
             Debug.Log("No such id");
         }
 
-        if (eliminationStageDatas.Remove(id))
+        if (eliminationDataForEachQuestion.Remove(id))
         {
             Debug.Log("Removed " + id + "'s 탐지과제 정보");
         }
@@ -180,7 +174,7 @@ public class DataController : MonoBehaviour
             Debug.Log("No such id");
         }
 
-        if (alternativeStageDatas.Remove(id))
+        if (alternativeDataForEachQuestion.Remove(id))
         {
             Debug.Log("Removed " + id + "'s 탐지과제 정보");
         }
@@ -202,10 +196,9 @@ public class DataController : MonoBehaviour
         return json;
     }
 
+
     public void LoadStageData()
     {
-        Debug.Log("LoadStageData");
-
         NestedDictionary<string, int, int, int, userStageData> tmp4 =
             new NestedDictionary<string, int, int, int, userStageData>();
         tmp4.Add("initial", new NestedDictionary<int, int, int, userStageData>());
@@ -229,9 +222,12 @@ public class DataController : MonoBehaviour
 
         string jdata1 = "";
         jdata1 = File.ReadAllText(detectionPath);
-        //(detectionPath, jdata1);
-        //var jdata1TextAsset = (TextAsset) Resources.Load("Detection.json");
-        detectionStageDatas =
+
+        //StartCoroutine(WebGLPath(detectionPath));
+        //WebGLPath(detectionPath);
+        //jdata = tmpJsonData;
+
+        detectionDataForEachQuestion =
             JsonConvert.DeserializeObject<NestedDictionary<string, int, int, int, userStageData>>(
                 jdata1);
 
@@ -251,12 +247,13 @@ public class DataController : MonoBehaviour
             }
         }
 
-
-        string jdata2 = File.ReadAllText(synthesisPath);
         //string jdata2 = "";
-        //ReadFile(synthesisPath,jdata2);
-        //var jdata2TextAsset = (TextAsset) Resources.Load("Synthesis.json");
-        synthesisStageDatas =
+        string jdata2 = File.ReadAllText(synthesisPath);
+        //StartCoroutine(WebGLPath(synthesisPath));
+        //WebGLPath(synthesisPath);
+        //jdata2 = tmpJsonData;
+
+        synthesisDataForEachQuestion =
             JsonConvert.DeserializeObject<NestedDictionary<string, int, int, int, userStageData>>(
                 jdata2);
 
@@ -280,7 +277,11 @@ public class DataController : MonoBehaviour
         //string jdata3 = "";
         //ReadFile(eliminationPath,jdata3);
         //var jdata3TextAsset = (TextAsset) Resources.Load("Elimination.json");
-        eliminationStageDatas =
+
+        //StartCoroutine(WebGLPath(eliminationPath));
+        //WebGLPath(eliminationPath);
+        //jdata3 = tmpJsonData;
+        eliminationDataForEachQuestion =
             JsonConvert.DeserializeObject<NestedDictionary<string, int, int, int, userStageData>>(
                 jdata3);
 
@@ -304,7 +305,12 @@ public class DataController : MonoBehaviour
         //string jdata4 = "";
         //ReadFile(alternativePath, jdata4);
         //var jdata4TextAsset = (TextAsset) Resources.Load("Alternative.json");
-        alternativeStageDatas =
+
+        //StartCoroutine(WebGLPath(alternativePath));
+        //WebGLPath(alternativePath);
+        //jdata4 = tmpJsonData;
+
+        alternativeDataForEachQuestion =
             JsonConvert.DeserializeObject<NestedDictionary<string, int, int, int, userStageData>>(
                 jdata4);
     }
@@ -320,42 +326,60 @@ public class DataController : MonoBehaviour
         }
     }
 
-    public void LoadUserStageData()
+   
+
+    public void SaveGameOver(EGameName eGameName)
     {
-        Debug.Log("LoadUserStageData");
-        detectionData = detectionStageDatas[TotalStorageScript.currId];
-        synthesisData = synthesisStageDatas[TotalStorageScript.currId];
-        eliminationData = eliminationStageDatas[TotalStorageScript.currId];
-        alternativeData = alternativeStageDatas[TotalStorageScript.currId];
+        string jdata = "";
+        switch (eGameName)
+        {
+            case EGameName.Detection:
+                jdata = JsonConvert.SerializeObject(detectionDataForEachQuestion, Formatting.Indented);
+                WriteFile(detectionPath, jdata);
+                break;
+
+            case EGameName.Synthesis:
+                jdata = JsonConvert.SerializeObject(synthesisDataForEachQuestion, Formatting.Indented);
+
+                WriteFile(synthesisPath, jdata);
+                break;
+
+            case EGameName.Alternative:
+                jdata = JsonConvert.SerializeObject(alternativeDataForEachQuestion, Formatting.Indented);
+                WriteFile(alternativePath, jdata);
+                break;
+
+            case EGameName.Elimination:
+                jdata = JsonConvert.SerializeObject(eliminationDataForEachQuestion, Formatting.Indented);
+                WriteFile(eliminationPath, jdata);
+                break;
+        }
     }
 
     public void SaveAllAtOnce()
     {
         Debug.Log("SaveAllAtonce");
-        string jdata = JsonConvert.SerializeObject(detectionStageDatas, Formatting.Indented);
+        string jdata = JsonConvert.SerializeObject(detectionDataForEachQuestion, Formatting.Indented);
         //File.WriteAllText(detectionPath, jdata);
         WriteFile(detectionPath, jdata);
 
-        jdata = JsonConvert.SerializeObject(synthesisStageDatas, Formatting.Indented);
+        jdata = JsonConvert.SerializeObject(synthesisDataForEachQuestion, Formatting.Indented);
         //File.WriteAllText(synthesisPath, jdata);
         WriteFile(synthesisPath, jdata);
 
-        jdata = JsonConvert.SerializeObject(eliminationStageDatas, Formatting.Indented);
+        jdata = JsonConvert.SerializeObject(eliminationDataForEachQuestion, Formatting.Indented);
         //File.WriteAllText(eliminationPath, jdata);
         WriteFile(eliminationPath, jdata);
 
-        jdata = JsonConvert.SerializeObject(alternativeStageDatas, Formatting.Indented);
+        jdata = JsonConvert.SerializeObject(alternativeDataForEachQuestion, Formatting.Indented);
         //File.WriteAllText(alternativePath, jdata);
         WriteFile(alternativePath, jdata);
     }
 
-    public void SaveDetection()
+    public void SaveDetectionDataForEachQuestion()
     {
-        /*Debug.Log("detectionStageDatas 자구 만들기 전: " + JsonConvert.SerializeObject(
-                      detectionStageDatas, Formatting.Indented));*/
         userStageData tmp = new userStageData();
-        //tmp.userId = 
-        //Debug.Log("DQM.level = " + DQM.level);
+
         tmp.level = DQM.level;
         tmp.stageIndex = DQM.ref_stage_no;
         //tmp.nthTry = ++TotalStorageScript.tmpTriedCnt[0, tmp.stageIndex];
@@ -364,41 +388,12 @@ public class DataController : MonoBehaviour
         tmp.chosenAns = DQM.chosenAns;
         tmp.isUserRight = DQM.isUserRight;
         tmp.responseTime = DQM.responseTime;
-        tmp.gameType = "탐지";
         tmp.accumulatedCntClick = DQM.total_clicked;
 
-       
-        
-        //data["Detection"].Add(tmp);
-        /*detectionData[DQM.level][DQM.ref_stage_no].Add(tmp);
-        detectionStageDatas[TotalStorageScript.currId] = detectionData;*/
-        //Debug.Log("data= " + JsonConvert.SerializeObject(tmp, Formatting.Indented));
-
-        /*Debug.Log("detectionStageDatas전: " + JsonConvert.SerializeObject(
-                      detectionStageDatas, Formatting.Indented));*/
-        /*
-        List<userStageData> tmpList = detectionStageDatas[TotalStorageScript.currId][tmp.level][tmp.stageIndex];
-        Debug.Log("tmpList전:" + JsonConvert.SerializeObject(tmpList, Formatting.Indented));
-        tmpList.Add(tmp);
-        Debug.Log("TmpList후: " + JsonConvert.SerializeObject(tmpList, Formatting.Indented));
-*/
-
-        // 문제가 되는 코드
-        //Debug.Log(TotalStorageScript.currId + tmp.level + tmp.stageIndex);
-        //((detectionStageDatas[TotalStorageScript.currId])[tmp.level])[tmp.stageIndex].Add(tmp);
-
-        detectionStageDatas.Add(TotalStorageScript.currId, tmp.level, tmp.stageIndex, tmp.nthTry, tmp);
-
-
-        /*Debug.Log("detectionStageDatas후: " + JsonConvert.SerializeObject(
-                      detectionStageDatas, Formatting.Indented));*/
-
-        string jdata = JsonConvert.SerializeObject(detectionStageDatas, Formatting.Indented);
-        //File.WriteAllText(detectionPath, jdata);
-        WriteFile(detectionPath, jdata);
+        detectionDataForEachQuestion.Add(TotalStorageScript.currId, tmp.level, tmp.stageIndex, tmp.nthTry, tmp);
     }
 
-    public void SaveAlternative()
+    public void SaveAlternativeDataForEachQuestion()
     {
         userStageData tmp = new userStageData();
         tmp.level = AQM.level;
@@ -408,31 +403,15 @@ public class DataController : MonoBehaviour
         tmp.corrAns[0] = AQM.ref_answer_string;
         tmp.chosenAns = AQM.chosenAns;
         tmp.isUserRight = AQM.isUserRight;
-        tmp.gameType = "대치";
+
         tmp.responseTime = AQM.responseTime;
         tmp.accumulatedCntClick = AQM.total_clicked;
+        
 
-        //Debug.Log("data= " + JsonConvert.SerializeObject(tmp, Formatting.Indented));
-
-        //이 코드로 하면 모든 list에 추가가됨... 왜그럴까...
-        //alternativeData[AQM.level][AQM.ref_stage_no].Add(tmp);
-        //alternativeStageDatas[TotalStorageScript.currId] = alternativeData;
-
-
-        //이제 이 코드도 그러네 하...
-        //아까는 되었는데!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!시발ㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹ
-        /*List<userStageData> tmpList = alternativeStageDatas[TotalStorageScript.currId][tmp.level][tmp.stageIndex];
-        tmpList.Add(tmp);
-        alternativeStageDatas[TotalStorageScript.currId][tmp.level][tmp.stageIndex] = tmpList;*/
-        alternativeStageDatas.Add(TotalStorageScript.currId, tmp.level, tmp.stageIndex, tmp.nthTry, tmp);
-
-
-        string jdata = JsonConvert.SerializeObject(alternativeStageDatas, Formatting.Indented);
-        //File.WriteAllText(alternativePath, jdata);
-        WriteFile(alternativePath, jdata);
+        alternativeDataForEachQuestion.Add(TotalStorageScript.currId, tmp.level, tmp.stageIndex, tmp.nthTry, tmp);
     }
 
-    public void SaveSynthesis()
+    public void SaveSynthesisDataForEachQuestion()
     {
         int curLevel;
         userStageData tmp = new userStageData();
@@ -453,26 +432,15 @@ public class DataController : MonoBehaviour
         tmp.chosenAns = SC.chosenAns;
         tmp.isUserRight = SC.isUserRight;
         tmp.responseTime = SC.responseTime;
-        tmp.gameType = "합성";
+
         tmp.accumulatedCntClick = SC.ref_total_tried;
 
-        /*synthesisData[curLevel][SC.refStageIndex].Add(tmp);
-        synthesisStageDatas[TotalStorageScript.currId] = synthesisData;*/
 
-        /*List<userStageData> tmpList = synthesisStageDatas[TotalStorageScript.currId][tmp.level][tmp.stageIndex];
-        tmpList.Add(tmp);
-        synthesisStageDatas[TotalStorageScript.currId][tmp.level][tmp.stageIndex] = tmpList;*/
-        
         Debug.Log("tmp.nthTry" + tmp.nthTry);
-        synthesisStageDatas.Add(TotalStorageScript.currId, tmp.level, tmp.stageIndex, tmp.nthTry, tmp);
-
-
-        string jdata = JsonConvert.SerializeObject(synthesisStageDatas, Formatting.Indented);
-        //File.WriteAllText(synthesisPath, jdata);
-        WriteFile(synthesisPath, jdata);
+        synthesisDataForEachQuestion.Add(TotalStorageScript.currId, tmp.level, tmp.stageIndex, tmp.nthTry, tmp);
     }
 
-    public void SaveElimination()
+    public void SaveEliminationDataForEachData()
     {
         userStageData tmp = new userStageData();
         tmp.level = FSA.level;
@@ -483,36 +451,10 @@ public class DataController : MonoBehaviour
         tmp.chosenAns = (FSA.chosenAns);
         tmp.isUserRight = FSA.isUserRight;
         tmp.responseTime = FSA.responseTime;
-        tmp.gameType = "탈락";
+
         tmp.accumulatedCntClick = FSA.ref_total_clicked;
 
-        /*eliminationData[FSA.level][FSA.refStageIndex].Add(tmp);
-        eliminationStageDatas[TotalStorageScript.currId] = eliminationData;*/
 
-        /*print(JsonConvert.SerializeObject(
-            eliminationStageDatas[TotalStorageScript.currId][tmp.level][tmp.stageIndex]
-            , Formatting.Indented
-        ));
-
-        List<userStageData> tmpList = eliminationStageDatas[TotalStorageScript.currId][tmp.level][tmp.stageIndex];
-
-        print("tmpList전: " + JsonConvert.SerializeObject(tmpList, Formatting.Indented));
-
-        tmpList.Add(tmp);
-
-        print("tmpList후: " + JsonConvert.SerializeObject(tmpList, Formatting.Indented));
-
-        eliminationStageDatas[TotalStorageScript.currId][tmp.level][tmp.stageIndex] = tmpList;
-
-        print(JsonConvert.SerializeObject(
-            eliminationStageDatas[TotalStorageScript.currId][tmp.level][tmp.stageIndex]
-            , Formatting.Indented));*/
-
-        eliminationStageDatas.Add(TotalStorageScript.currId, tmp.level, tmp.stageIndex, tmp.nthTry, tmp);
-
-
-        string jdata = JsonConvert.SerializeObject(eliminationStageDatas, Formatting.Indented);
-        //File.WriteAllText(eliminationPath, jdata);
-        WriteFile(eliminationPath, jdata);
+        eliminationDataForEachQuestion.Add(TotalStorageScript.currId, tmp.level, tmp.stageIndex, tmp.nthTry, tmp);
     }
 }

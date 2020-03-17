@@ -17,10 +17,16 @@ public class StartMenu : UIPT_PRO_Demo_GUIPanel
     public AudioClip MainMenuBgm;
     
     private GameObject TotalStorage;
-    private KeepTrackController TotalStorageScript;
+    private TotalDataManager _totalStorageScript;
 
-    private GameObject StageStorage;
-    private DataController StageStorageScript;
+    private GameObject EachQuestionStorage;
+    private EachQuestionDataManager eachQuestionStorageScript;
+
+    private GameObject levelStorage;
+    private LevelDataManager levelStorageScript;
+
+    private GameObject stageStorage;
+    private StageDataManager stageStorageScript;
     
     public GameObject idInputFieldGameObject;
     private TMP_InputField idInputField;
@@ -68,9 +74,14 @@ public class StartMenu : UIPT_PRO_Demo_GUIPanel
     public void Start()
     {
         TotalStorage = GameObject.Find("TotalStorage");
-        TotalStorageScript = TotalStorage.GetComponent<KeepTrackController>();
-        StageStorage = GameObject.Find("StageStorage");
-        StageStorageScript = StageStorage.GetComponent<DataController>();
+        _totalStorageScript = TotalStorage.GetComponent<TotalDataManager>();
+        EachQuestionStorage = GameObject.Find("EachQuestionStorage");
+        eachQuestionStorageScript = EachQuestionStorage.GetComponent<EachQuestionDataManager>();
+        stageStorage = GameObject.Find("StageStorage");
+        stageStorageScript = stageStorage.GetComponent<StageDataManager>();
+        levelStorage = GameObject.Find("LevelStorage");
+        levelStorageScript = levelStorage.GetComponent<LevelDataManager>();
+        
         
         idInputField = idInputFieldGameObject.GetComponent<TMP_InputField>();
         newIdInputField = newIdInputFieldGameObject.GetComponent<TMP_InputField>();
@@ -83,7 +94,7 @@ public class StartMenu : UIPT_PRO_Demo_GUIPanel
         StartCoroutine(Show());
         SoundManager.Instance.Play_Music(MainMenuBgm);
         
-        if (TotalStorageScript.bLogin)
+        if (_totalStorageScript.bLogin)
         {
             idInputFieldGameObject.SetActive(false);
             idEnterButtonGameObject.SetActive(false);
@@ -101,7 +112,7 @@ public class StartMenu : UIPT_PRO_Demo_GUIPanel
         SoundManager.Instance.Play_SoundPlay();
         GSui.Instance.MoveOut(this.transform, true);
         GSui.Instance.DontDestroyParticleWhenLoadNewScene(this.transform, true);
-        GSui.Instance.LoadLevel("LevelMenu", 1.0f);
+        GSui.Instance.LoadLevel("SelectMenu", 1.0f);
     }
 
     public void GoToResult()
@@ -157,17 +168,17 @@ public class StartMenu : UIPT_PRO_Demo_GUIPanel
         //button 눌러질때 불러짐
         //Debug.Log(idInputField.text);
 
-        if (!TotalStorageScript.GetDataWithID(idInputField.text))
+        if (!_totalStorageScript.GetDataWithID(idInputField.text))
         {
             idInputField.text = null;
             idInputPlaceholderTextMeshProUgui.text = "없는 ID\n다시입력하시오";
             
         }
         
-        if (TotalStorageScript.bLogin)
+        if (_totalStorageScript.bLogin)
         {
-            TotalStorageScript.LoadTmpData();
-            StageStorageScript.LoadUserStageData();
+            _totalStorageScript.LoadLevelData();
+            
 
             idInputFieldGameObject.SetActive(false);
             idEnterButtonGameObject.SetActive(false);
@@ -182,10 +193,12 @@ public class StartMenu : UIPT_PRO_Demo_GUIPanel
     public void makeNewID()
     {
         string newId = newIdInputField.text;
-        if (TotalStorageScript.makeNewId(newId))
+        if (!_totalStorageScript.checkIdExistence(newId))
         {
-            TotalStorageScript.makeNewId(newIdInputField.text);
-            StageStorageScript.makeNewId(newIdInputField.text);
+            _totalStorageScript.makeNewId(newId);
+            eachQuestionStorageScript.makeNewId(newId);
+            levelStorageScript.makeNewId(newId);
+            stageStorageScript.makeNewId(newId);
             newIdInputField.text = null;
         }
         else
@@ -200,12 +213,22 @@ public class StartMenu : UIPT_PRO_Demo_GUIPanel
 
     public void deleteTotalInfo()
     {
-        TotalStorageScript.deleteTotalInfoOfCurrentId(tmpInputfield.text);
+        _totalStorageScript.deleteTotalInfoOfCurrentId(tmpInputfield.text);
         
+    }
+
+    public void deleteEachQuestionInfo()
+    {
+        eachQuestionStorageScript.deleteStageInfoOfCurrentId(tmpInputfield.text);
     }
 
     public void deleteStageInfo()
     {
-        StageStorageScript.deleteStageInfoOfCurrentId(tmpInputfield.text);
+        stageStorageScript.deleteStageInfoOfCurrentId(tmpInputfield.text);
+    }
+
+    public void deleteLevelInfo()
+    {
+        levelStorageScript.deleteLevelInfoOfCurrentId(tmpInputfield.text);
     }
 } 

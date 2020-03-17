@@ -87,7 +87,7 @@ public class BubbleController : MonoBehaviour
             tmpTransform.GetComponent<AlternativeQuizManager>().total_clicked++;
             
             
-            tmpTransform.GetComponent<AlternativeQuizManager>().StageOver();
+            //tmpTransform.GetComponent<AlternativeQuizManager>().StageOver();
         }
     }
 }
