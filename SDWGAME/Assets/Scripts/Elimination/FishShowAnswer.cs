@@ -122,6 +122,13 @@ public class FishShowAnswer : MonoBehaviour
 
     void Start()
     {
+        Cursor.visible = true;
+        if (SoundManager.Instance.IsMusicPlaying())
+        {
+            SoundManager.Instance.StopMusic();
+            SoundManager.Instance.Play_MenuMusic();
+        }
+        
         totalStorageObject = GameObject.Find("TotalStorage");
         _totalStorageScript = totalStorageObject.GetComponent<TotalDataManager>();
         eachQuestionStorage = GameObject.Find("EachQuestionStorage");

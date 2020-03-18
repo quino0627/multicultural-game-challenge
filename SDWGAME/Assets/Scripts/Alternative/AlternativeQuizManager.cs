@@ -121,6 +121,8 @@ public class AlternativeQuizManager : MonoBehaviour
 
     void Start()
     {
+        SoundManager.Instance.StopMusic();
+        
         totalStorageObject = GameObject.Find("TotalStorage");
         _totalStorageScript = totalStorageObject.GetComponent<TotalDataManager>();
         eachQuestionStorage = GameObject.Find("EachQuestionStorage");

@@ -89,7 +89,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -2813,7 +2813,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: Alternative
   TotalStorage: {fileID: 0}
-  TotalStorageScript: {fileID: 0}
+  totalStorageScript: {fileID: 0}
   currentLevel: 0
   DisplayClickable: {fileID: 1003652161}
   count: 0
@@ -5324,7 +5324,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c7c8c3cf316b211438eafc81832ffdd1, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.47058824}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 1
@@ -6353,7 +6353,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c7c8c3cf316b211438eafc81832ffdd1, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.47058824}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 1
@@ -7001,8 +7001,10 @@ MonoBehaviour:
   WordBoxOrigin: {fileID: 1323464536}
   WordBoxExpect: {fileID: 1821597349}
   clickedCorrectAnswer: 0
+  clickedSpeechBubble: 0
   is_loading: 1
   moveSpeed: 5
+  isMoving: 0
 --- !u!114 &2089547612
 MonoBehaviour:
   m_ObjectHideFlags: 0

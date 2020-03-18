@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Runtime.CompilerServices;
 using System.Xml.Schema;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Debug = UnityEngine.Debug;
 
 public class LevelMenu : MonoBehaviour
 {
@@ -38,11 +40,13 @@ public class LevelMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        starData = new int[3, 3];
+        Debug.Log("stardata전: "+starData[0,0]);
         if (!SoundManager.Instance.IsMusicPlaying())
         {
             SoundManager.Instance.Play_MenuMusic();
         }
+
         totalStorageObject = GameObject.Find("TotalStorage");
         totalStorageScript = totalStorageObject.GetComponent<TotalDataManager>();
 
@@ -50,76 +54,25 @@ public class LevelMenu : MonoBehaviour
         levelStorageScript = levelStorage.GetComponent<LevelDataManager>();
 
         chosenGame = (EGameName) totalStorageScript.chosenGame;
+        Debug.Log("STart Level Menu, chosenGame: " + chosenGame);
         starData = levelStorageScript.LoadLevelSceneStar(chosenGame, totalStorageScript.currId);
-        /*if (_totalStorageScript.bLogin)
-        {
-            if (_totalStorageScript.tmpStars[0, 0] < 3 ||
-                _totalStorageScript.tmpStars[1, 0] < 3 ||
-                _totalStorageScript.tmpStars[2, 0] < 3 ||
-                _totalStorageScript.tmpStars[3, 0] < 3)
-            {
-                //초급
-                _totalStorageScript.isLevelOpen[0] = true;
-                _totalStorageScript.isLevelOpen[1] = false;
-                _totalStorageScript.isLevelOpen[2] = false;
-            }
-            else if (_totalStorageScript.tmpStars[0, 1] < 3 ||
-                     _totalStorageScript.tmpStars[1, 1] < 3 ||
-                     _totalStorageScript.tmpStars[2, 1] < 3 ||
-                     _totalStorageScript.tmpStars[3, 1] < 3)
-            {
-                //중급
-
-                if (!_totalStorageScript.isLevelOpen[1])
-                {
-                    /*totalStorageScript.tmpTriedCnt = new Dictionary<string, int[,]>()
-                    {
-                        {"Detection", new int[3, 30]},
-                        {"Synthesis", new int[3, 30]},
-                        {"Elimination", new int[3, 30]},
-                        {"Alternative", new int[3, 30]}
-                    };#1#
-                }
-
-                _totalStorageScript.isLevelOpen[0] = _totalStorageScript.isLevelOpen[1] = true;
-                _totalStorageScript.isLevelOpen[2] = false;
-            }
-            else
-            {
-                //고급
-                if (!_totalStorageScript.isLevelOpen[2])
-                {
-                    /*totalStorageScript.tmpTriedCnt = new Dictionary<string, int[,]>()
-                    {
-                        {"Detection", new int[3, 30]},
-                        {"Synthesis", new int[3, 30]},
-                        {"Elimination", new int[3, 30]},
-                        {"Alternative", new int[3, 30]}
-                    };#1#
-                }
-                
-                
-                _totalStorageScript.isLevelOpen[0]
-                    = _totalStorageScript.isLevelOpen[1]
-                        = _totalStorageScript.isLevelOpen[2] = true;
-            }
-        }*/
         
+        Debug.Log("Stardata[0,0]: "+starData[0,0]);
         // 3 -> 12 수정필요
         if (totalStorageScript.bLogin)
         {
             if (starData[0, 0] + starData[0, 1] + starData[0, 2] == 4)
             {
-                totalStorageScript.isLevelOpen[(int)chosenGame, 1] = true;
+                totalStorageScript.isLevelOpen[(int) chosenGame, 1] = true;
             }
 
             if (starData[1, 0] + starData[1, 1] + starData[1, 2] == 4)
             {
-                totalStorageScript.isLevelOpen[(int)chosenGame,2] = true;
+                totalStorageScript.isLevelOpen[(int) chosenGame, 2] = true;
             }
         }
 
-        if (totalStorageScript.isLevelOpen[(int)chosenGame,1])
+        if (totalStorageScript.isLevelOpen[(int) chosenGame, 1])
         {
             NormalStage1.interactable = true;
             NormalStage2.interactable = true;
@@ -132,7 +85,7 @@ public class LevelMenu : MonoBehaviour
             NormalStage3.interactable = false;
         }
 
-        if (totalStorageScript.isLevelOpen[(int)chosenGame,2])
+        if (totalStorageScript.isLevelOpen[(int) chosenGame, 2])
         {
             HardStage1.interactable = true;
             HardStage2.interactable = true;
@@ -169,18 +122,22 @@ public class LevelMenu : MonoBehaviour
         {
             Stars[4].SetActive(true);
         }
+
         if (starData[1, 2] == 4)
         {
             Stars[5].SetActive(true);
         }
+
         if (starData[2, 0] == 4)
         {
             Stars[6].SetActive(true);
         }
+
         if (starData[2, 1] == 4)
         {
             Stars[7].SetActive(true);
         }
+
         if (starData[2, 2] == 4)
         {
             Stars[8].SetActive(true);
@@ -218,8 +175,9 @@ public class LevelMenu : MonoBehaviour
                 {
                     SceneManager.LoadScene("CrabLevel4");
                 }
+
                 break;
-            
+
             case EGameName.Elimination:
                 if (totalStorageScript.chosenLevel == 0)
                 {
@@ -229,8 +187,9 @@ public class LevelMenu : MonoBehaviour
                 {
                     SceneManager.LoadScene("EliminationEscape");
                 }
+
                 break;
-            
+
             case EGameName.Alternative:
                 if (totalStorageScript.chosenLevel == 0)
                 {
@@ -240,8 +199,8 @@ public class LevelMenu : MonoBehaviour
                 {
                     SceneManager.LoadScene("AlternativeGame");
                 }
+
                 break;
-              
         }
     }
 

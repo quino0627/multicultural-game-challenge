@@ -9968,6 +9968,16 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8799329715339595891, guid: 85167f57e410c42d09db8d164adf1f1d,
+        type: 3}
+      propertyPath: m_CanvasesToDeactivated.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8799329715339595891, guid: 85167f57e410c42d09db8d164adf1f1d,
+        type: 3}
+      propertyPath: m_CanvasesToDeactivated.Array.data[0]
+      value: 
+      objectReference: {fileID: 220744729}
     - target: {fileID: 6644684302707236014, guid: 85167f57e410c42d09db8d164adf1f1d,
         type: 3}
       propertyPath: m_AnchorMax.x

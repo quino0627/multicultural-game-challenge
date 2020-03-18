@@ -83,7 +83,11 @@ public class LevelDataManager : MonoBehaviour
             File.WriteAllText(alternativeDataPath, tmpJdata);
         }
 
+LoadLevelData();
+       }
 
+    public void LoadLevelData()
+    {
         //Load data
         string jdata = File.ReadAllText(detectionLevelDataPath);
         tmpDetectionLevelData = JsonConvert.DeserializeObject<Dictionary<string, LevelDataForEachUser>>(jdata);
@@ -93,12 +97,14 @@ public class LevelDataManager : MonoBehaviour
         tmpEliminationLevelData = JsonConvert.DeserializeObject<Dictionary<string, LevelDataForEachUser>>(jdata);
         jdata = File.ReadAllText(alternativeDataPath);
         tmpAlternativeLevelData = JsonConvert.DeserializeObject<Dictionary<string, LevelDataForEachUser>>(jdata);
-    }
 
+    }
+    
     public int[,] LoadLevelSceneStar(EGameName eGameName, string id)
     {
+        LoadLevelData();
         string levelString = "";
-
+        obtainedStarCnt = new int[3, 3];
         for (int level = 0; level < 3; level++)
         {
             switch (level)
@@ -126,14 +132,20 @@ public class LevelDataManager : MonoBehaviour
                         tmpDetectionLevelData[id].levelData[levelString].obtainedStarCountForEachLevel[1];
                     obtainedStarCnt[level, 2] =
                         tmpDetectionLevelData[id].levelData[levelString].obtainedStarCountForEachLevel[2];
+                    Debug.Log("Load Star Data Detection");
+
                     break;
                 case EGameName.Synthesis:
+                    Debug.Log(
+                        "이거: " + tmpSynthesisLevelData[id].levelData[levelString].obtainedStarCountForEachLevel[0]);
+
                     obtainedStarCnt[level, 0] =
                         tmpSynthesisLevelData[id].levelData[levelString].obtainedStarCountForEachLevel[0];
                     obtainedStarCnt[level, 1] =
                         tmpSynthesisLevelData[id].levelData[levelString].obtainedStarCountForEachLevel[1];
                     obtainedStarCnt[level, 2] =
                         tmpSynthesisLevelData[id].levelData[levelString].obtainedStarCountForEachLevel[2];
+                    Debug.Log("Load Star Data S");
                     break;
                 case EGameName.Elimination:
                     obtainedStarCnt[level, 0] =
@@ -142,6 +154,7 @@ public class LevelDataManager : MonoBehaviour
                         tmpEliminationLevelData[id].levelData[levelString].obtainedStarCountForEachLevel[1];
                     obtainedStarCnt[level, 2] =
                         tmpEliminationLevelData[id].levelData[levelString].obtainedStarCountForEachLevel[2];
+                    Debug.Log("Load Star Data E");
                     break;
                 case EGameName.Alternative:
                     obtainedStarCnt[level, 0] =
@@ -150,6 +163,7 @@ public class LevelDataManager : MonoBehaviour
                         tmpAlternativeLevelData[id].levelData[levelString].obtainedStarCountForEachLevel[1];
                     obtainedStarCnt[level, 2] =
                         tmpAlternativeLevelData[id].levelData[levelString].obtainedStarCountForEachLevel[2];
+                    Debug.Log("Load Star Data alt");
                     break;
                 default:
                     Debug.Assert(false, "레벨 스타 불러오기 실패");
@@ -157,6 +171,7 @@ public class LevelDataManager : MonoBehaviour
             }
         }
 
+        Debug.Log("obtainedStarCnt[0,0]: " + obtainedStarCnt[0, 0]);
         return obtainedStarCnt;
     }
 
@@ -257,61 +272,62 @@ public class LevelDataManager : MonoBehaviour
 
                 jdata = JsonConvert.SerializeObject(tmpDetectionLevelData, Formatting.Indented);
                 File.WriteAllText(detectionLevelDataPath, jdata);
-
+                Debug.Log("Save Detection Level data");
                 break;
             case EGameName.Synthesis:
-                tmpDetectionLevelData[id].levelData[levelString].obtainedStarCountForEachLevel[0] =
+                tmpSynthesisLevelData[id].levelData[levelString].obtainedStarCountForEachLevel[0] =
                     obtainedStarCnt[level, 0];
-                tmpDetectionLevelData[id].levelData[levelString].obtainedStarCountForEachLevel[1] =
+                tmpSynthesisLevelData[id].levelData[levelString].obtainedStarCountForEachLevel[1] =
                     obtainedStarCnt[level, 1];
-                tmpDetectionLevelData[id].levelData[levelString].obtainedStarCountForEachLevel[2] =
+                tmpSynthesisLevelData[id].levelData[levelString].obtainedStarCountForEachLevel[2] =
                     obtainedStarCnt[level, 2];
 
-                a = tmpDetectionLevelData[id].levelData[levelString].avgPerfectionForEachLevel = avgPerfection[level];
-                b = tmpDetectionLevelData[id].levelData[levelString].avgResponseTimeForEachLevel =
+                a = tmpSynthesisLevelData[id].levelData[levelString].avgPerfectionForEachLevel = avgPerfection[level];
+                b = tmpSynthesisLevelData[id].levelData[levelString].avgResponseTimeForEachLevel =
                     avgResponseTime[level];
-                tmpDetectionLevelData[id].levelData[levelString].IESforEachLevel = a / b;
+                tmpSynthesisLevelData[id].levelData[levelString].IESforEachLevel = a / b;
 
                 jdata = JsonConvert.SerializeObject(tmpSynthesisLevelData, Formatting.Indented);
                 File.WriteAllText(synthesisLevelDataPath, jdata);
-
+                Debug.Log("Save Synthesis Level data");
                 break;
             case EGameName.Elimination:
-                tmpDetectionLevelData[id].levelData[levelString].obtainedStarCountForEachLevel[0] =
+                tmpEliminationLevelData[id].levelData[levelString].obtainedStarCountForEachLevel[0] =
                     obtainedStarCnt[level, 0];
-                tmpDetectionLevelData[id].levelData[levelString].obtainedStarCountForEachLevel[1] =
+                tmpEliminationLevelData[id].levelData[levelString].obtainedStarCountForEachLevel[1] =
                     obtainedStarCnt[level, 1];
-                tmpDetectionLevelData[id].levelData[levelString].obtainedStarCountForEachLevel[2] =
+                tmpEliminationLevelData[id].levelData[levelString].obtainedStarCountForEachLevel[2] =
                     obtainedStarCnt[level, 2];
 
-                a = tmpDetectionLevelData[id].levelData[levelString].avgPerfectionForEachLevel =
+                a = tmpEliminationLevelData[id].levelData[levelString].avgPerfectionForEachLevel =
                     avgPerfection[level]; //= 
-                b = tmpDetectionLevelData[id].levelData[levelString].avgResponseTimeForEachLevel =
+                b = tmpEliminationLevelData[id].levelData[levelString].avgResponseTimeForEachLevel =
                     avgResponseTime[level]; //= 
-                tmpDetectionLevelData[id].levelData[levelString].IESforEachLevel = a / b;
+                tmpEliminationLevelData[id].levelData[levelString].IESforEachLevel = a / b;
 
                 jdata = JsonConvert.SerializeObject(tmpEliminationLevelData, Formatting.Indented);
                 File.WriteAllText(eliminationDataPath, jdata);
 
+                Debug.Log("Save Eliminiation Level data");
                 break;
 
             case EGameName.Alternative:
-                tmpDetectionLevelData[id].levelData[levelString].obtainedStarCountForEachLevel[0] =
+                tmpAlternativeLevelData[id].levelData[levelString].obtainedStarCountForEachLevel[0] =
                     obtainedStarCnt[level, 0];
-                tmpDetectionLevelData[id].levelData[levelString].obtainedStarCountForEachLevel[1] =
+                tmpAlternativeLevelData[id].levelData[levelString].obtainedStarCountForEachLevel[1] =
                     obtainedStarCnt[level, 1];
-                tmpDetectionLevelData[id].levelData[levelString].obtainedStarCountForEachLevel[2] =
+                tmpAlternativeLevelData[id].levelData[levelString].obtainedStarCountForEachLevel[2] =
                     obtainedStarCnt[level, 2];
 
-                a = tmpDetectionLevelData[id].levelData[levelString].avgPerfectionForEachLevel =
+                a = tmpAlternativeLevelData[id].levelData[levelString].avgPerfectionForEachLevel =
                     avgPerfection[level]; //= 
-                b = tmpDetectionLevelData[id].levelData[levelString].avgResponseTimeForEachLevel =
+                b = tmpAlternativeLevelData[id].levelData[levelString].avgResponseTimeForEachLevel =
                     avgResponseTime[level]; //= 
-                tmpDetectionLevelData[id].levelData[levelString].IESforEachLevel = a / b;
+                tmpAlternativeLevelData[id].levelData[levelString].IESforEachLevel = a / b;
 
-                jdata = JsonConvert.SerializeObject(alternativeDataPath, Formatting.Indented);
+                jdata = JsonConvert.SerializeObject(tmpAlternativeLevelData, Formatting.Indented);
                 File.WriteAllText(alternativeDataPath, jdata);
-
+                Debug.Log("Save Alternative Level data");
                 break;
         }
     }

@@ -41,6 +41,9 @@ public class DialogueManagerV2 : MonoBehaviour
         TotalStorage = GameObject.Find("TotalStorage");
         totalStorageScript = TotalStorage.GetComponent<TotalDataManager>();
         currentLevel = totalStorageScript.chosenLevel;
+
+        Debug.Log("BEFORE IF");
+        SoundManager.Instance.StopMusic();
     }
 
     // Update is called once per frame

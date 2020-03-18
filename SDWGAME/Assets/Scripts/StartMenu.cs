@@ -14,7 +14,6 @@ public class StartMenu : UIPT_PRO_Demo_GUIPanel
     public GameObject SettingPanel;
     public SettingsHandler m_Settings = null;
     public GameObject ClosePanel;
-    public AudioClip MainMenuBgm;
     
     private GameObject TotalStorage;
     private TotalDataManager _totalStorageScript;
@@ -92,7 +91,11 @@ public class StartMenu : UIPT_PRO_Demo_GUIPanel
         newIdInputPlaceholderTextMeshProUgui = newIdInputPlaceholder.GetComponent<TextMeshProUGUI>();
         
         StartCoroutine(Show());
-        SoundManager.Instance.Play_Music(MainMenuBgm);
+        if (SoundManager.Instance.IsMusicPlaying())
+        {
+            SoundManager.Instance.StopMusic();
+        }
+        SoundManager.Instance.Play_MenuMusic();
         
         if (_totalStorageScript.bLogin)
         {
