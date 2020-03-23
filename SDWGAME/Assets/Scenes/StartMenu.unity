@@ -3696,10 +3696,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_CanvasesToDeactivated: []
   m_ReactivateCanvasesWhenFinished: 1
+  isShowed: 0
   SettingPanel: {fileID: 489311275}
   m_Settings: {fileID: 489311280}
   ClosePanel: {fileID: 1120682583}
-  MainMenuBgm: {fileID: 8300000, guid: 0d69a57e4a3f6b54dbca4fb6a11be49f, type: 3}
   idInputFieldGameObject: {fileID: 542043986}
   idInputPlaceholder: {fileID: 709569643}
   idEnterButtonGameObject: {fileID: 1385766064}
@@ -4856,6 +4856,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_CanvasesToDeactivated: []
   m_ReactivateCanvasesWhenFinished: 1
+  isShowed: 0
 --- !u!114 &1120682586
 MonoBehaviour:
   m_ObjectHideFlags: 0

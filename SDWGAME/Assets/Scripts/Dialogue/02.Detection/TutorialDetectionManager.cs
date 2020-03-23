@@ -70,7 +70,7 @@ public class TutorialDetectionManager : MonoBehaviour
         theDM.AllowNextStep();
         while (tmpCount == theDM.GetCurrentSentenceNumber())
         {
-            Debug.Log(theDM.GetCurrentSentenceNumber());
+//            Debug.Log(theDM.GetCurrentSentenceNumber());
             yield return new WaitForFixedUpdate();
         }
         // 내가 단어를 소리내서 말할건데, 그 단어가 적힌 통에 동전이 있다.

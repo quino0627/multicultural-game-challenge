@@ -80,5 +80,7 @@ MonoBehaviour:
     type: 3}
   m_EliminationTutorialFishClickedSound: {fileID: 8300000, guid: 7ca46b43ef14e436798aa2962084634a,
     type: 3}
+  m_HurryOutTime: {fileID: 8300000, guid: 13ece71ec4e04e641bbf09d1e4634561, type: 3}
+  m_TimeOver: {fileID: 8300000, guid: d6c3b28176fa44272aa0a730a9500dbd, type: 3}
   m_SoundVolume: 0.5
   m_MusicVolume: 0.5
