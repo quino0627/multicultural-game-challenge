@@ -111,6 +111,27 @@ public class TutorialEliminationManager : MonoBehaviour
             yield return new WaitForFixedUpdate();
         }
         
+        
+        WrongFish1.SetActive(true);
+        yield return new WaitForSeconds(0.6f);
+        CorrectFish.SetActive(true);
+        yield return new WaitForSeconds(0.6f);
+        WrongFish2.SetActive(true);
+        yield return new WaitForSeconds(0.6f);
+        WrongFish3.SetActive(true);
+        yield return new WaitForSeconds(0.6f);
+        WrongFish4.SetActive(true);
+        
+        yield return new WaitForSeconds(3.0f);
+        
+        
+        tmpCount = theDM.GetCurrentSentenceNumber();
+        theDM.AllowNextStep();
+        while (tmpCount == theDM.GetCurrentSentenceNumber())
+        {
+            yield return new WaitForFixedUpdate();
+        }
+        
         yield return new WaitForSeconds(3.0f);
         // 초성 종성 표시
         syllableText.text = "종성";
@@ -145,20 +166,7 @@ public class TutorialEliminationManager : MonoBehaviour
             yield return new WaitForFixedUpdate();
         }
         
-        yield return new WaitForSeconds(2.0f);
         
-        WrongFish1.SetActive(true);
-        yield return new WaitForSeconds(0.6f);
-        CorrectFish.SetActive(true);
-        yield return new WaitForSeconds(0.6f);
-        WrongFish2.SetActive(true);
-        yield return new WaitForSeconds(0.6f);
-        WrongFish3.SetActive(true);
-        yield return new WaitForSeconds(0.6f);
-        WrongFish4.SetActive(true);
-        
-        yield return new WaitForSeconds(3.0f);
-        theDM.AllowNextStep();
         
         // 스피커 클릭 연습하기
         isClickedSpeaker = false;

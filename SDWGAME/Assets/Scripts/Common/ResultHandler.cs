@@ -43,7 +43,7 @@ public class ResultHandler : UIPT_PRO_Demo_GUIPanel
     {
         GSui.Instance.MoveOut(this.transform, true);
         GSui.Instance.DontDestroyParticleWhenLoadNewScene(this.transform, true);
-        GSui.Instance.LoadLevel("StartMenu", 1.0f);
+        GSui.Instance.LoadLevel("StartMenu", 3.0f);
     }
 
     public void Button_Restart()
@@ -51,7 +51,7 @@ public class ResultHandler : UIPT_PRO_Demo_GUIPanel
         GSui.Instance.MoveOut(this.transform, true);
         GSui.Instance.DontDestroyParticleWhenLoadNewScene(this.transform, true);
         Scene currentScene = SceneManager.GetActiveScene();
-        GSui.Instance.LoadLevel(currentScene.name, 1.0f);
+        GSui.Instance.LoadLevel(currentScene.name, 3.0f);
         
     }
 
@@ -62,8 +62,8 @@ public class ResultHandler : UIPT_PRO_Demo_GUIPanel
         GSui.Instance.DontDestroyParticleWhenLoadNewScene(this.transform, true);
         Scene currentScene = SceneManager.GetActiveScene();
         // 씬 이름으로 씬을 불러오는 함수
-        GSui.Instance.LoadLevel(currentScene.name, 1.0f);
-        Invoke("Restart_HJ", 1.0f);
+        GSui.Instance.LoadLevel(currentScene.name, 3.0f);
+        Invoke("Restart_HJ", 3.0f);
     }
 
     private void Restart_HJ()

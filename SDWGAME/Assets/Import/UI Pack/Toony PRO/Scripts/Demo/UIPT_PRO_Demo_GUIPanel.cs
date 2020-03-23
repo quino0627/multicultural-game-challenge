@@ -33,6 +33,7 @@ public class UIPT_PRO_Demo_GUIPanel : MonoBehaviour
 
 	public Canvas[] m_CanvasesToDeactivated;                        // Canvases in this array will be ignored from raycasting.
 	public bool m_ReactivateCanvasesWhenFinished = true;
+	public bool isShowed;
 
 	#endregion // Variables
 	// ########################################
@@ -113,6 +114,8 @@ public class UIPT_PRO_Demo_GUIPanel : MonoBehaviour
 
 		// Play MoveIn animation
 		GSui.Instance.MoveIn(this.transform, true);
+
+		isShowed = true;
 	}
 
 	// Hide this panel
@@ -137,6 +140,8 @@ public class UIPT_PRO_Demo_GUIPanel : MonoBehaviour
 
 		// Play Move Out animation
 		GSui.Instance.MoveOut(this.transform, true);
+
+		isShowed = false;
 	}
 
 	#endregion // Functions

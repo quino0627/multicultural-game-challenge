@@ -351,7 +351,7 @@ public class AlternativeQuizManager : MonoBehaviour
             SeahorseRight.transform.Find("WaterFallAnimation").gameObject.SetActive(false);
 
             // 목적어 박스 살리기
-//            WordBoxExpect.GetComponent<SpriteRenderer>().color = Color.white;
+            WordBoxExpect.GetComponent<SpriteRenderer>().color = Color.white;
             WordBoxExpect.transform.Find("Text").GetComponent<TextMeshPro>().color = Color.white;
             WordBoxExpect.SetActive(true);
             SoundManager.Instance.Play_AlterWordShowedUp();
@@ -362,7 +362,7 @@ public class AlternativeQuizManager : MonoBehaviour
             {
                 yield return new WaitForSeconds(0.3f);
                 // 하나씩 setActive
-                Debug.Log($"{i}번째꺼 ");
+//                Debug.Log($"{i}번째꺼 ");
                 SoundManager.Instance.Play_AlterBubbleShowedUp();
                 Bubbles[i].SetActive(true);
 //                animators
@@ -496,6 +496,7 @@ public class AlternativeQuizManager : MonoBehaviour
         return null; // no clip by that name
     }
 
+    
     IEnumerator DecideResult(int totalClicked, int totalCorrect)
     {
         yield return new WaitForSeconds(1.0f);

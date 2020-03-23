@@ -791,7 +791,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -41.839783, y: 26.074127}
+  m_AnchoredPosition: {x: -41.839844, y: 26.074127}
   m_SizeDelta: {x: 83.3, y: 44.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &290059691
@@ -4367,21 +4367,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8799329715339595891, guid: 85167f57e410c42d09db8d164adf1f1d,
-        type: 3}
-      propertyPath: m_CanvasesToDeactivated.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8799329715339595891, guid: 85167f57e410c42d09db8d164adf1f1d,
-        type: 3}
-      propertyPath: m_CanvasesToDeactivated.Array.data[0]
-      value: 
-      objectReference: {fileID: 522680276}
-    - target: {fileID: 8799329715339595891, guid: 85167f57e410c42d09db8d164adf1f1d,
-        type: 3}
-      propertyPath: m_CanvasesToDeactivated.Array.data[1]
-      value: 
-      objectReference: {fileID: 220744729}
     - target: {fileID: 6644684302707236014, guid: 85167f57e410c42d09db8d164adf1f1d,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -4498,11 +4483,6 @@ PrefabInstance:
       propertyPath: m_isRightToLeft
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8799329715224668833, guid: 85167f57e410c42d09db8d164adf1f1d,
-        type: 3}
-      propertyPath: m_Text
-      value: "\uD68C\uC6D0\uD0C8\uD1F4"
-      objectReference: {fileID: 0}
     - target: {fileID: 8799329715597340148, guid: 85167f57e410c42d09db8d164adf1f1d,
         type: 3}
       propertyPath: m_RaycastTarget
@@ -4527,6 +4507,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textInfo.pageCount
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8799329715339595891, guid: 85167f57e410c42d09db8d164adf1f1d,
+        type: 3}
+      propertyPath: m_CanvasesToDeactivated.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8799329715339595891, guid: 85167f57e410c42d09db8d164adf1f1d,
+        type: 3}
+      propertyPath: m_CanvasesToDeactivated.Array.data[0]
+      value: 
+      objectReference: {fileID: 522680276}
+    - target: {fileID: 8799329715339595891, guid: 85167f57e410c42d09db8d164adf1f1d,
+        type: 3}
+      propertyPath: m_CanvasesToDeactivated.Array.data[1]
+      value: 
+      objectReference: {fileID: 220744729}
+    - target: {fileID: 8799329715339595886, guid: 85167f57e410c42d09db8d164adf1f1d,
+        type: 3}
+      propertyPath: m_BlockingObjects
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8799329715224668833, guid: 85167f57e410c42d09db8d164adf1f1d,
+        type: 3}
+      propertyPath: m_Text
+      value: "\uD68C\uC6D0\uD0C8\uD1F4"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85167f57e410c42d09db8d164adf1f1d, type: 3}

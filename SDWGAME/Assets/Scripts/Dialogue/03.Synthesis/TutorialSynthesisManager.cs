@@ -78,8 +78,27 @@ public class TutorialSynthesisManager : MonoBehaviour
         }
         // 게의 상황 설명
 //        yield return new WaitForSeconds(3.0f);
+
+        yield return new WaitForSeconds(3f);
         
-       
+        StartCoroutine(InitialJellyfish(0, CorrectJellyfish, CorrectJellyfishPosition));
+        
+        StartCoroutine(InitialJellyfish(1, WrongJellyfish1, WrongJellyfishPosition1));
+        StartCoroutine(InitialJellyfish(2, WrongJellyfish2, WrongJellyfishPosition2));
+        StartCoroutine(InitialJellyfish(3, WrongJellyfish3, WrongJellyfishPosition3));
+        StartCoroutine(InitialJellyfish(4, WrongJellyfish4, WrongJellyfishPosition4));
+        StartCoroutine(InitialJellyfish(5, WrongJellyfish5, WrongJellyfishPosition5));
+        
+        yield return new WaitForSeconds(3.0f);
+        
+        tmpCount = theDM.GetCurrentSentenceNumber();
+        theDM.AllowNextStep();
+        while (tmpCount == theDM.GetCurrentSentenceNumber())
+        {
+            yield return new WaitForFixedUpdate();
+        }
+
+
         // 게가 단어를 말 함
         yield return new WaitForSeconds(3.0f);
         SoundManager.Instance.Play_EliminationTutorialSampleSound();
@@ -95,17 +114,9 @@ public class TutorialSynthesisManager : MonoBehaviour
     
         yield return new WaitForSeconds(3.0f);
         
-        StartCoroutine(InitialJellyfish(0, CorrectJellyfish, CorrectJellyfishPosition));
         
-        StartCoroutine(InitialJellyfish(1, WrongJellyfish1, WrongJellyfishPosition1));
-        StartCoroutine(InitialJellyfish(2, WrongJellyfish2, WrongJellyfishPosition2));
-        StartCoroutine(InitialJellyfish(3, WrongJellyfish3, WrongJellyfishPosition3));
-        StartCoroutine(InitialJellyfish(4, WrongJellyfish4, WrongJellyfishPosition4));
-        StartCoroutine(InitialJellyfish(5, WrongJellyfish5, WrongJellyfishPosition5));
         
-        yield return new WaitForSeconds(3.0f);
         
-        theDM.AllowNextStep();
 
         isCorrected = false;
         while (!isCorrected)

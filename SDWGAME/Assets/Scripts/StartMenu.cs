@@ -95,7 +95,8 @@ public class StartMenu : UIPT_PRO_Demo_GUIPanel
         {
             SoundManager.Instance.StopMusic();
         }
-        SoundManager.Instance.Play_MenuMusic();
+        Invoke(nameof(MenuMusicStart), 1f);
+//        SoundManager.Instance.Play_MenuMusic();
         
         if (_totalStorageScript.bLogin)
         {
@@ -107,6 +108,12 @@ public class StartMenu : UIPT_PRO_Demo_GUIPanel
             startButtonGameObject.SetActive(true);
             statisticButtonGameObject.SetActive(true);
         }
+    }
+
+    // function invoke를 위해 따로 함수를 선업합니다.
+    private void MenuMusicStart()
+    {
+        SoundManager.Instance.Play_MenuMusic();
     }
 
     public void StartGame(GameObject startButton)

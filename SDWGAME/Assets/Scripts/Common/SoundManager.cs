@@ -408,6 +408,7 @@ public class SoundManager : MonoBehaviour
 
 	public void Play_MenuMusic()
 	{
+		Debug.Log("PLAY_MENUMUSIC");
 		PlayMusic(m_Music);
 	}
 

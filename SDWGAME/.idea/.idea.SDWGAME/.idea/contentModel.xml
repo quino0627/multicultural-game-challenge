@@ -110,6 +110,7 @@
             <e p="AlternativeGameDirector.cs" t="Include" />
             <e p="AlternativeQuizManager.cs" t="Include" />
             <e p="BubbleController.cs" t="Include" />
+            <e p="BubbleMovingController.cs" t="Include" />
             <e p="RepeatSoundBubble.cs" t="Include" />
             <e p="SeahorseLeftController.cs" t="Include" />
             <e p="SeahorseRightController.cs" t="Include" />
@@ -170,15 +171,9 @@
               <e p="TutorialAlternativeManager.cs" t="Include" />
             </e>
             <e p="AlternativeBubbleClickSound.cs" t="Include" />
-            <e p="AlternativeDialogue.cs" t="Include" />
             <e p="CheckClicks.cs" t="Include" />
-            <e p="DetectionDialogue.cs" t="Include" />
-            <e p="Dialogue.cs" t="Include" />
-            <e p="DialogueManager.cs" t="Include" />
-            <e p="EliminationDialogue.cs" t="Include" />
             <e p="EliminationFishSoundController.cs" t="Include" />
             <e p="EliminationSpeakerSoundController.cs" t="Include" />
-            <e p="SynthesisDialogue.cs" t="Include" />
           </e>
           <e p="Elimination" t="Include">
             <e p="EliminationDirector.cs" t="Include" />

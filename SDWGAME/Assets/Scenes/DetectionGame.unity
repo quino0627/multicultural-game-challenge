@@ -1737,6 +1737,12 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  TrashInBarrel:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   Octo: {fileID: 1553913798}
   responseTime: 0
   ref_answer_string: 
@@ -5576,11 +5582,6 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5028681059217851263, guid: 0cf2b19ba0df346f7b039c8e67240d40,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 231130919}
     - target: {fileID: 5028681059945522114, guid: 0cf2b19ba0df346f7b039c8e67240d40,
         type: 3}
       propertyPath: m_Mesh
@@ -5591,5 +5592,15 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5028681059945522127, guid: 0cf2b19ba0df346f7b039c8e67240d40,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5028681059217851263, guid: 0cf2b19ba0df346f7b039c8e67240d40,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 231130919}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0cf2b19ba0df346f7b039c8e67240d40, type: 3}
