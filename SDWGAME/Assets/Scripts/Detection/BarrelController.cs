@@ -86,7 +86,7 @@ public class BarrelController : MonoBehaviour
             description.GetComponent<DetectionDescriptionController>().CorrectAnswer();
             preventSeveralTouch = true;
             // 점수 올리기
-            this.director.GetComponent<GameDirector>().GetPoint(100);
+//            this.director.GetComponent<GameDirector>().GetPoint(100);
             aniCoin.SetBool("Appear", true);
             // 다음 stage로 넘어가기
             //Transform tmpTransform = GameObject.Find("QuizContainer").transform;

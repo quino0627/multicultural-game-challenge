@@ -27,11 +27,9 @@ public class BubbleMovingController : MonoBehaviour
         if(Time.timeScale == 0)return;
         if (!isMoving)
         {
-            Debug.Log("Hello?");
             return;
         }
         
-        Debug.Log("HOW ABOUT THIS");
         cnt += var;
         speed += acc * var2;
         this.transform.Translate(new Vector3(0, speed* var*-1, 0));  //이동

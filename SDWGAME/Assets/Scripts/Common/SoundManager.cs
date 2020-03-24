@@ -31,6 +31,7 @@ public class SoundManager : MonoBehaviour
 	// Private reference which can be accessed by this class only
 	private static SoundManager instance;
 
+	// 싱글톤
 	// Public static reference that can be accesd from anywhere
 	public static SoundManager Instance
 	{
@@ -51,6 +52,8 @@ public class SoundManager : MonoBehaviour
 	// Max number of AudioSource components
 	public int m_MaxAudioSource = 8;
 
+	//각각 효과음, 음악들을 변수로 생성한다.
+	
 	// AudioClip component for music
 	public AudioClip m_Music = null;
 	public AudioClip DetectionMusic = null;
@@ -120,6 +123,12 @@ public class SoundManager : MonoBehaviour
 
 	// EliminationTutorial에서 생선을 클릭했을 때 맞췄습니다 ~ 소리
 	public AudioClip m_EliminationTutorialFishClickedSound = null;
+
+	// 각 게임에서 시간이 5초 
+	public AudioClip m_HurryOutTime = null;
+	
+	// 타임오버 시 효과음
+	public AudioClip m_TimeOver = null;
 
 
 	// Sound volume
@@ -564,6 +573,16 @@ public class SoundManager : MonoBehaviour
 	public void Play_EliminationTutorialFishClickedSound()
 	{
 		PlaySoundOneShot(m_EliminationTutorialFishClickedSound);
+	}
+
+	public void Play_HurryOutTimeSound()
+	{
+		PlaySoundOneShot(m_HurryOutTime);
+	}
+
+	public void Play_TimeOverSound()
+	{
+		PlaySoundOneShot(m_TimeOver);
 	}
 
 	#endregion // Functions

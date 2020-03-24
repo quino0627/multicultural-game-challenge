@@ -73,7 +73,11 @@ MonoBehaviour:
   m_MinSize: {x: 277, y: 198}
   m_MaxSize: {x: 4002, y: 8048}
   vertical: 1
+<<<<<<< HEAD
   controlID: 149
+=======
+  controlID: 161
+>>>>>>> develop
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -124,7 +128,11 @@ MonoBehaviour:
   m_MinSize: {x: 234, y: 498}
   m_MaxSize: {x: 10004, y: 14048}
   vertical: 1
+<<<<<<< HEAD
   controlID: 130
+=======
+  controlID: 30
+>>>>>>> develop
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -196,7 +204,11 @@ MonoBehaviour:
   m_MinSize: {x: 713, y: 498}
   m_MaxSize: {x: 18008, y: 14048}
   vertical: 0
+<<<<<<< HEAD
   controlID: 148
+=======
+  controlID: 160
+>>>>>>> develop
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -242,7 +254,11 @@ MonoBehaviour:
   m_MinSize: {x: 202, y: 448}
   m_MaxSize: {x: 4002, y: 8048}
   vertical: 1
+<<<<<<< HEAD
   controlID: 111
+=======
+  controlID: 129
+>>>>>>> develop
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -260,10 +276,17 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
     width: 404
     height: 323
   m_MinSize: {x: 204, y: 224}
   m_MaxSize: {x: 4004, y: 4024}
+=======
+    width: 467
+    height: 422
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
+>>>>>>> develop
   m_ActualView: {fileID: 16}
   m_Panes:
   - {fileID: 16}
@@ -312,8 +335,13 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
     width: 763
     height: 313
+=======
+    width: 794
+    height: 490
+>>>>>>> develop
   m_MinSize: {x: 202, y: 224}
   m_MaxSize: {x: 4002, y: 4024}
   m_ActualView: {fileID: 20}
@@ -404,7 +432,11 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 46dc0000
       m_LastClickedID: 0
+<<<<<<< HEAD
       m_ExpandedIDs: 6e19fcff9c1ffcffd22ffcffc83dfcffc262fcffb48bfcff80dcfcffd6dffcffe4dffcffe0e2fcffb6e4fcffc4e4fcff0ee8fcff24ebfcff32ebfcfffcedfcffaef1fcffbcf1fcff24f4fcff0cfbfcff1afbfcff4cfbfcff0200fdff1000fdff2002fdff6e06fdfff60afdff460ffdffbe37fdffcc37fdff3c38fdff2a3dfdff56cbfdffded0fdfff0eafdffc602feff700afeffaa1ffeff5c36feffca3bfeff6e47feff02aefeffe4b3feffa6e5000020e60000a4e60000b0e60000dce60000f4e600000a4e0100ecc9010020ca010044ca010052ca0100d6ca0100e4ca010002cb0100facd010070fc0100ccfc01006a0802002c0f020044150200cc1a0200ba2002008426020020290200
+=======
+      m_ExpandedIDs: c668ffff02a8ffff2caeffff36b4ffff92b9ffffd0bbffff9cbcffffdcbcffff34c1ffff6ac6ffff3acfffffcee2ffff8aedffffeef6ffffd2fbffffd48000002c8100005e8e000092920000be97000014980000c6d50000
+>>>>>>> develop
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -459,7 +491,7 @@ MonoBehaviour:
   m_LockTracker:
     m_IsLocked: 0
   m_PreviewResizer:
-    m_CachedPref: -160
+    m_CachedPref: 155
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_PreviewWindow: {fileID: 0}
@@ -501,20 +533,35 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
+<<<<<<< HEAD
     - Assets/Resources
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
   - Assets/Resources
+=======
+    - Assets/Import/Speechbubbles--17495u2t6p9v418b03/pngs/greyscale
+  m_ViewMode: 1
+  m_StartGridSize: 16
+  m_LastFolders:
+  - Assets/Import/Speechbubbles--17495u2t6p9v418b03/pngs/greyscale
+>>>>>>> develop
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\singi\Documents\GitHub\2019outsource\multicultural-game-challenge\SDWGAME
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
+<<<<<<< HEAD
     scrollPos: {x: 0, y: 259}
     m_SelectedIDs: 02db0000
     m_LastClickedID: 56066
     m_ExpandedIDs: 0000000062cd0000bacd00007acf000090cf000000d0000050d000007cd00000d8d00000f8d000005ad100006ed1000076d1000074d2000032d30000ced3000084d40000ded40000eed400003cd6000020d7000062d7000074d7000098d70000a0d70000b8d700005cd800006cd8000086d80000fad9000022da00007eda00003edb00007cdb00000adc00001cdc000024dc00009adc0000eadc000000ca9a3b
+=======
+    scrollPos: {x: 0, y: 452}
+    m_SelectedIDs: b6350000
+    m_LastClickedID: 13750
+    m_ExpandedIDs: 000000009c2d0000a82e000042350000b0350000aa370000ae3800007e390000ee3a0000483b0000be3c0000343d0000403d00006c410000004400005a4600004e490000f24a00009a4b0000764f0000a652000022530000a4530000e0530000565400005e540000c65400003a550000fc56000040570000d65700002a5d0000c85d000022620000e0620000c6640000fe6400000c650000be67000000ca9a3b
+>>>>>>> develop
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: Prefabs
@@ -542,7 +589,11 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
+<<<<<<< HEAD
     m_ExpandedIDs: 0000000062cd0000bacd00007acf000090cf000000d0000050d000007cd00000d8d00000f8d000005ad100006ed1000076d1000074d2000032d30000ced3000084d40000ded40000eed400003cd600007cd6000020d7000062d7000074d7000098d70000a0d70000b8d700005cd800006cd8000086d80000fad9000022da00007eda00003edb00007cdb00000adc00001cdc000024dc0000eadc0000
+=======
+    m_ExpandedIDs: 000000009c2d0000a82e000042350000b0350000aa370000ae3800007e390000ee3a0000483b0000be3c0000343d0000403d00006c410000004400005a4600004e490000b24a0000f24a0000764f000046500000a6520000a4530000e0530000565400005e540000c6540000fc56000040570000d65700002a5d0000c85d00001a5f000022620000e0620000c6640000fe6400000c650000be670000
+>>>>>>> develop
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -570,21 +621,30 @@ MonoBehaviour:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: 4a3a0000ae680000
+    m_ExpandedInstanceIDs: 4a3a0000ae680000103a0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
+<<<<<<< HEAD
       m_Name: TotalDataManager
       m_OriginalName: TotalDataManager
+=======
+      m_Name: 
+      m_OriginalName: 
+>>>>>>> develop
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
+<<<<<<< HEAD
       m_UserData: 2124
+=======
+      m_UserData: 0
+>>>>>>> develop
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 4}
     m_CreateAssetUtility:
@@ -709,9 +769,15 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
+<<<<<<< HEAD
     m_Target: {x: 257.5116, y: 198.58542, z: -2.9537542}
     speed: 2
     m_Value: {x: 257.5116, y: 198.58542, z: -2.9537542}
+=======
+    m_Target: {x: 149.76785, y: 412.15234, z: 1.1331486}
+    speed: 2
+    m_Value: {x: 149.76785, y: 412.15234, z: 1.1331486}
+>>>>>>> develop
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -743,9 +809,15 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
+<<<<<<< HEAD
     m_Target: 311.5459
     speed: 2
     m_Value: 311.5459
+=======
+    m_Target: 176.28642
+    speed: 2
+    m_Value: 176.28642
+>>>>>>> develop
   m_Ortho:
     m_Target: 1
     speed: 2
