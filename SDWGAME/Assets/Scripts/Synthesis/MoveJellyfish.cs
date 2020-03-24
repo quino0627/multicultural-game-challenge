@@ -73,7 +73,7 @@ public class MoveJellyfish : MonoBehaviour
         //모든 글자 성공후 animation은 JfSuccess.js
         if (gameObject.CompareTag("CorrectAns") && !ischecked)
         {
-            Debug.Log("ZZZZZZZZ");
+            //Debug.Log("ZZZZZZZZ");
             Crab.transform.Find("DescriptionBubble").GetComponent<SynthesisDescriptionController>().CorrectOneWord();
             SoundManager.Instance.Play_ClickedCorrectAnswer();
 //            Crab.transform.Find("DescriptionBubble").GetComponent<SynthesisDescriptionController>().CorrectAnswer();
@@ -88,7 +88,11 @@ public class MoveJellyfish : MonoBehaviour
                 if (child.text == tmp.choiceTexts[tmp.corrAnsPosIndex[i]].text)
                 {
                     transform.SetParent(tmp.PickedJfPos[i]);
-                    transform.localPosition= Vector2.zero;
+                    transform.localPosition = Vector2.zero;
+                    //gameObject.layer = 2;
+                    gameObject.GetComponent<HoverResponse>().bLockHoverEffect = true;
+                    Debug.Log("Change LocalScale");
+                    transform.localScale = new Vector3(2.5f,2.5f,1f);
                 }
             }
             

@@ -64,6 +64,9 @@ class StageData
 
 public class StageDataManager : MonoBehaviour
 {
+    public GameObject totalStorageObject;
+    private TotalDataManager _totalStorageScript;
+
     public int playCnt;
     public float totalResponseTimeForEachStage;
     private const int TOTAL_QUESTION_CNT = 10;
@@ -86,6 +89,8 @@ public class StageDataManager : MonoBehaviour
     void Start()
     {
         DontDestroyOnLoad(gameObject);
+        totalStorageObject = GameObject.Find("TotalStorage");
+        _totalStorageScript = totalStorageObject.GetComponent<TotalDataManager>();
 
         detectionPath = Path.Combine(Application.persistentDataPath, "DetectionStageData.json");
         synthesisPath = Path.Combine(Application.persistentDataPath, "SynthesisStageData.json");
@@ -95,12 +100,12 @@ public class StageDataManager : MonoBehaviour
         if (!File.Exists(detectionPath))
         {
             tmpStageDatas = new Dictionary<string, StageData>();
-            tmpStageDatas.Add("initial",new StageData());
+            tmpStageDatas.Add("initial", new StageData());
             string tmpJdata = JsonConvert.SerializeObject(tmpStageDatas, Formatting.Indented);
-            File.WriteAllText(detectionPath,tmpJdata);
-            File.WriteAllText(synthesisPath,tmpJdata);
-            File.WriteAllText(eliminationPath,tmpJdata);
-            File.WriteAllText(alternativePath,tmpJdata);
+            File.WriteAllText(detectionPath, tmpJdata);
+            File.WriteAllText(synthesisPath, tmpJdata);
+            File.WriteAllText(eliminationPath, tmpJdata);
+            File.WriteAllText(alternativePath, tmpJdata);
         }
 
         LoadStageGameDataAtFirst();
@@ -119,8 +124,8 @@ public class StageDataManager : MonoBehaviour
 
         jdata = File.ReadAllText(alternativePath);
         tmpAStageDatas = JsonConvert.DeserializeObject<Dictionary<string, StageData>>(jdata);
-
     }
+
     public void makeNewId(string id)
     {
         tmpDStageDatas.Add(id, new StageData());
@@ -128,42 +133,41 @@ public class StageDataManager : MonoBehaviour
         tmpEStageDatas.Add(id, new StageData());
         tmpAStageDatas.Add(id, new StageData());
         string jdata = JsonConvert.SerializeObject(tmpDStageDatas, Formatting.Indented);
-        File.WriteAllText(detectionPath,jdata);
+        File.WriteAllText(detectionPath, jdata);
 
         jdata = JsonConvert.SerializeObject(tmpSStageDatas, Formatting.Indented);
-        File.WriteAllText(synthesisPath,jdata);
+        File.WriteAllText(synthesisPath, jdata);
 
         jdata = JsonConvert.SerializeObject(tmpEStageDatas, Formatting.Indented);
-        File.WriteAllText(eliminationPath,jdata);
+        File.WriteAllText(eliminationPath, jdata);
 
         jdata = JsonConvert.SerializeObject(tmpAStageDatas, Formatting.Indented);
-        File.WriteAllText(alternativePath,jdata);
-        
+        File.WriteAllText(alternativePath, jdata);
     }
 
-    
+
     public void deleteStageInfoOfCurrentId(string id)
     {
-        
         tmpDStageDatas.Remove(id);
         string jdata = JsonConvert.SerializeObject(tmpDStageDatas, Formatting.Indented);
-        File.WriteAllText(detectionPath,jdata);
-        
+        File.WriteAllText(detectionPath, jdata);
+
         tmpSStageDatas.Remove(id);
         jdata = JsonConvert.SerializeObject(tmpSStageDatas, Formatting.Indented);
-        File.WriteAllText(synthesisPath,jdata);
-        
+        File.WriteAllText(synthesisPath, jdata);
+
         tmpEStageDatas.Remove(id);
         jdata = JsonConvert.SerializeObject(tmpEStageDatas, Formatting.Indented);
-        File.WriteAllText(eliminationPath,jdata);
-        
+        File.WriteAllText(eliminationPath, jdata);
+
         tmpAStageDatas.Remove(id);
         jdata = JsonConvert.SerializeObject(tmpAStageDatas, Formatting.Indented);
-        File.WriteAllText(alternativePath,jdata);
-        
-        
+        File.WriteAllText(alternativePath, jdata);
+
+
         Debug.Log("Removed " + id + "'s 스테이지 정보");
     }
+
     public void LoadGameStageData(EGameName eGameName, string id, int level, int stage)
     {
         string levelString = "";
@@ -243,30 +247,88 @@ public class StageDataManager : MonoBehaviour
                 Debug.Assert(false, "로드 스테이지 데이터 실패");
                 break;
         }
-
-        
     }
 
     public float GetAvgResponseTimeForLevel(string id, int level, EGameName chosenGame)
     {
         tmpStageDatas = chooseTmpData(chosenGame);
-        float avg;
+        float avg = 0.0f;
+        int playedStageCnt = 0;
         switch (level)
         {
             case 0:
-                avg = (tmpStageDatas[id].stageData["초급"]["Stage1"].avgResponseTimeForEachStage +
-                       tmpStageDatas[id].stageData["초급"]["Stage2"].avgResponseTimeForEachStage +
-                       tmpStageDatas[id].stageData["초급"]["Stage3"].avgResponseTimeForEachStage) / 3;
+                if (_totalStorageScript.tmpTriedCnt[chosenGame.ToString()][0, 0] > 0)
+                {
+                    avg += tmpStageDatas[id].stageData["초급"]["Stage1"].avgResponseTimeForEachStage;
+                    playedStageCnt++;
+                }
+
+                if (_totalStorageScript.tmpTriedCnt[chosenGame.ToString()][0, 1] > 0)
+                {
+                    avg += tmpStageDatas[id].stageData["초급"]["Stage2"].avgResponseTimeForEachStage;
+                    playedStageCnt++;
+                }
+
+                if (_totalStorageScript.tmpTriedCnt[chosenGame.ToString()][0, 2] > 0)
+                {
+                    avg += tmpStageDatas[id].stageData["초급"]["Stage3"].avgResponseTimeForEachStage;
+                    playedStageCnt++;
+                }
+
+                if (playedStageCnt != 0)
+                {
+                    avg /= playedStageCnt;
+                }
+
                 break;
             case 1:
-                avg = (tmpStageDatas[id].stageData["중급"]["Stage1"].avgResponseTimeForEachStage +
-                       tmpStageDatas[id].stageData["중급"]["Stage2"].avgResponseTimeForEachStage +
-                       tmpStageDatas[id].stageData["중급"]["Stage3"].avgResponseTimeForEachStage) / 3;
+                if (_totalStorageScript.tmpTriedCnt[chosenGame.ToString()][1, 0] > 0)
+                {
+                    avg += tmpStageDatas[id].stageData["중급"]["Stage1"].avgResponseTimeForEachStage;
+                    playedStageCnt++;
+                }
+
+                if (_totalStorageScript.tmpTriedCnt[chosenGame.ToString()][1, 1] > 0)
+                {
+                    avg += tmpStageDatas[id].stageData["중급"]["Stage2"].avgResponseTimeForEachStage;
+                    playedStageCnt++;
+                }
+
+                if (_totalStorageScript.tmpTriedCnt[chosenGame.ToString()][1, 2] > 0)
+                {
+                    avg += tmpStageDatas[id].stageData["중급"]["Stage3"].avgResponseTimeForEachStage;
+                    playedStageCnt++;
+                }
+
+                if (playedStageCnt != 0)
+                {
+                    avg /= playedStageCnt;
+                }
+
                 break;
             case 2:
-                avg = (tmpStageDatas[id].stageData["고급"]["Stage1"].avgResponseTimeForEachStage +
-                       tmpStageDatas[id].stageData["고급"]["Stage2"].avgResponseTimeForEachStage +
-                       tmpStageDatas[id].stageData["고급"]["Stage3"].avgResponseTimeForEachStage) / 3;
+                if (_totalStorageScript.tmpTriedCnt[chosenGame.ToString()][2, 0] > 0)
+                {
+                    avg += tmpStageDatas[id].stageData["고급"]["Stage1"].avgResponseTimeForEachStage;
+                    playedStageCnt++;
+                }
+
+                if (_totalStorageScript.tmpTriedCnt[chosenGame.ToString()][2, 1] > 0)
+                {
+                    avg += tmpStageDatas[id].stageData["고급"]["Stage2"].avgResponseTimeForEachStage;
+                    playedStageCnt++;
+                }
+
+                if (_totalStorageScript.tmpTriedCnt[chosenGame.ToString()][2, 2] > 0)
+                {
+                    avg += tmpStageDatas[id].stageData["고급"]["Stage3"].avgResponseTimeForEachStage;
+                    playedStageCnt++;
+                }
+
+                if (playedStageCnt != 0)
+                {
+                    avg /= playedStageCnt;
+                }
 
                 break;
             default:
@@ -278,7 +340,7 @@ public class StageDataManager : MonoBehaviour
         return avg;
     }
 
-    private  Dictionary<string, StageData> chooseTmpData(EGameName chosenGame)
+    private Dictionary<string, StageData> chooseTmpData(EGameName chosenGame)
     {
         Dictionary<string, StageData> result = new Dictionary<string, StageData>();
         switch (chosenGame)
@@ -296,33 +358,83 @@ public class StageDataManager : MonoBehaviour
                 result = tmpAStageDatas;
                 break;
             default:
-                Debug.Assert(false,"??");
+                Debug.Assert(false, "??");
                 break;
         }
 
         return result;
     }
-    
-    public int GetAvgCorrectAnswerCountForLevel(string id, int level,EGameName chosenGame)
+
+    public int GetAvgCorrectAnswerCountForLevel(string id, int level, EGameName chosenGame)
     {
         tmpStageDatas = chooseTmpData(chosenGame);
-        int avg;
+        int avg = 0;
+        int playedStageCnt = 0;
         switch (level)
         {
             case 0:
-                avg = (tmpStageDatas[id].stageData["초급"]["Stage1"].avgCorrectAnswerCountForEachStage +
-                       tmpStageDatas[id].stageData["초급"]["Stage2"].avgCorrectAnswerCountForEachStage +
-                       tmpStageDatas[id].stageData["초급"]["Stage3"].avgCorrectAnswerCountForEachStage) / 3;
+                if (_totalStorageScript.tmpTriedCnt[chosenGame.ToString()][0, 0] > 0)
+                {
+                   avg += tmpStageDatas[id].stageData["초급"]["Stage1"].avgCorrectAnswerCountForEachStage;
+                   playedStageCnt++;
+                }
+                if (_totalStorageScript.tmpTriedCnt[chosenGame.ToString()][0, 1] > 0)
+                {
+                    avg += tmpStageDatas[id].stageData["초급"]["Stage2"].avgCorrectAnswerCountForEachStage;
+                    playedStageCnt++;
+                }
+                if (_totalStorageScript.tmpTriedCnt[chosenGame.ToString()][0, 2] > 0)
+                {
+                    avg += tmpStageDatas[id].stageData["초급"]["Stage3"].avgCorrectAnswerCountForEachStage;
+                    playedStageCnt++;
+                }
+                if (playedStageCnt != 0)
+                {
+                    avg /= playedStageCnt;
+                }
+                
                 break;
             case 1:
-                avg = (tmpStageDatas[id].stageData["중급"]["Stage1"].avgCorrectAnswerCountForEachStage +
-                       tmpStageDatas[id].stageData["중급"]["Stage2"].avgCorrectAnswerCountForEachStage +
-                       tmpStageDatas[id].stageData["중급"]["Stage3"].avgCorrectAnswerCountForEachStage) / 3;
+                if (_totalStorageScript.tmpTriedCnt[chosenGame.ToString()][1, 0] > 0)
+                {
+                    avg += tmpStageDatas[id].stageData["중급"]["Stage1"].avgCorrectAnswerCountForEachStage;
+                    playedStageCnt++;
+                }
+                if (_totalStorageScript.tmpTriedCnt[chosenGame.ToString()][1, 1] > 0)
+                {
+                    avg += tmpStageDatas[id].stageData["중급"]["Stage2"].avgCorrectAnswerCountForEachStage;
+                    playedStageCnt++;
+                }
+                if (_totalStorageScript.tmpTriedCnt[chosenGame.ToString()][1, 2] > 0)
+                {
+                    avg += tmpStageDatas[id].stageData["중급"]["Stage3"].avgCorrectAnswerCountForEachStage;
+                    playedStageCnt++;
+                }
+                if (playedStageCnt != 0)
+                {
+                    avg /= playedStageCnt;
+                }
                 break;
             case 2:
-                avg = (tmpStageDatas[id].stageData["고급"]["Stage1"].avgCorrectAnswerCountForEachStage +
-                       tmpStageDatas[id].stageData["고급"]["Stage2"].avgCorrectAnswerCountForEachStage +
-                       tmpStageDatas[id].stageData["고급"]["Stage3"].avgCorrectAnswerCountForEachStage) / 3;
+                if (_totalStorageScript.tmpTriedCnt[chosenGame.ToString()][2, 0] > 0)
+                {
+                    avg += tmpStageDatas[id].stageData["고급"]["Stage1"].avgCorrectAnswerCountForEachStage;
+                    playedStageCnt++;
+                }
+                if (_totalStorageScript.tmpTriedCnt[chosenGame.ToString()][2, 1] > 0)
+                {
+                    avg += tmpStageDatas[id].stageData["고급"]["Stage2"].avgCorrectAnswerCountForEachStage;
+                    playedStageCnt++;
+                }
+                if (_totalStorageScript.tmpTriedCnt[chosenGame.ToString()][2, 2] > 0)
+                {
+                    avg += tmpStageDatas[id].stageData["고급"]["Stage3"].avgCorrectAnswerCountForEachStage;
+                    playedStageCnt++;
+                }
+                if (playedStageCnt != 0)
+                {
+                    avg /= playedStageCnt;
+                }
 
                 break;
             default:

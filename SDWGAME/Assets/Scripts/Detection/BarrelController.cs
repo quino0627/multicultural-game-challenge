@@ -77,7 +77,7 @@ public class BarrelController : MonoBehaviour
         tmpTransform.gameObject.GetComponent<DetectionQuizManager>().chosenAns.Add(currentBarrelText);
         
         // 해당 stage의 정답 string
-        string currentStageAnswerText = DetectionQuizManager.answer_string_list[DetectionQuizManager.stage_no];
+        string currentStageAnswerText = DetectionQuizManager.answer_string_list[DetectionQuizManager.question_no];
 
         // 만약 유저가 클릭한 배럴에 쓰여 있는 글자가 해당 stage의 정답과 일치하면,
         if (currentBarrelText == currentStageAnswerText)

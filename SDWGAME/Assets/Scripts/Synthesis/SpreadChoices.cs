@@ -70,10 +70,10 @@ public class SpreadChoices : MonoBehaviour
     public int questionId;
     private static List<int> randomNoDuplicates;
 
-    // 각 난이도 안의 stage index
-    public static int stageIndex;
+    // 각 stage안의 질문index
+    public static int questionNumber;
 
-    // 해당 난이도의 전체 question 개수 
+    // 해당 스테이지의 전체 question 개수 
     public static int questionMaxIndex;
     public static int realQuestionIndex; // 진짜 level
     public int refQuestionIndex;
@@ -131,7 +131,7 @@ public class SpreadChoices : MonoBehaviour
     void Start()
     {
         SoundManager.Instance.StopMusic();
-        
+
         totalStorageObject = GameObject.Find("TotalStorage");
         _totalStorageScript = totalStorageObject.GetComponent<TotalDataManager>();
         eachQuestionStorage = GameObject.Find("EachQuestionStorage");
@@ -156,7 +156,8 @@ public class SpreadChoices : MonoBehaviour
 
         Debug.Log("RealLevel :" + realLevel + ", level: " + excelLevel + ", bTwoAns:" + bTwoAns);
         if (bTwoAns ||
-            (excelLevel == 0 && stageIndex > levelOneQuestionMaxIndex)) //뒤연산은 낱말늘어날때 한번연산하게됨
+            (excelLevel == 0 && stage > 0))
+            //stageIndex > levelOneQuestionMaxIndex)) //뒤연산은 낱말늘어날때 한번연산하게됨
         {
             excelLevel = 1;
             bTwoAns = true;
@@ -166,13 +167,13 @@ public class SpreadChoices : MonoBehaviour
             excelLevel++;
         }
 
-        
-        Debug.Log("StageIndex: " + stageIndex);
-        if (bTwoAns)
+
+        Debug.Log("StageIndex: " + questionNumber);
+        /*if (bTwoAns)
         {
             stageIndex = realQuestionIndex - levelOneQuestionMaxIndex - 1;
             Debug.Log("StageIndex bTwoAns: " + stageIndex);
-        }
+        }*/
 
         total_tried = 0;
 
@@ -195,6 +196,14 @@ public class SpreadChoices : MonoBehaviour
         }
 
         Debug.Log("RealQuestionIndex: " + realQuestionIndex);
+
+        //두글자일때
+        if (excelLevel == 1)
+        {
+            questionId = (stage - 1) * 10 + randomNoDuplicates[realQuestionIndex];
+        }
+
+        //한글짜일때
         questionId = stage * 10 + randomNoDuplicates[realQuestionIndex];
         QuizInit();
     }
@@ -292,7 +301,7 @@ public class SpreadChoices : MonoBehaviour
             if (i == 0)
             {
                 Debug.Log("level " + excelLevel);
-                Debug.Log("stageIndex " + stageIndex);
+                Debug.Log("stageIndex " + questionNumber);
 
                 Debug.Log(data.sheets[excelLevel].list[questionId].정답1);
                 PickedAnswer[0].GetComponent<TextMeshPro>().text
@@ -482,7 +491,7 @@ public class SpreadChoices : MonoBehaviour
         }
         else*/
         {
-            stageIndex++;
+            questionNumber++;
             realQuestionIndex++;
             //_totalStorageScript.tmpStage[1] = stageIndex;
             if (bTwoAns)
@@ -600,15 +609,24 @@ public class SpreadChoices : MonoBehaviour
     {
         yield return new WaitForSeconds(1.0f);
         _resultHandler.OpenResult();
+        SoundManager.Instance.Play_StarShowedUp();
+        string result_text = $"{totalCorrect/10.0f * 100} 도달!";
+        descriptionText.text = result_text;
+        string[] sentences = {"다시! 다시! 아~좀!", "와~ 고마워!"};
 
 
-        /////////임시코드
+        /////////임시코드///////////////////////////////////////////
         if (totalCorrectStage == questionMaxIndex)
         {
             // 별 1개 채워짐
+            onesentenceText.text = sentences[1];
             levelStorageScript.obtainedStarCnt[realLevel, stage] = 4;
         }
-        ///////////
+        else
+        {
+            onesentenceText.text = sentences[0];
+        }
+        ////////////////////////////////////////////////////////////////
 
         /*if (totalCorrectStage <= 3)
         {
@@ -638,7 +656,7 @@ public class SpreadChoices : MonoBehaviour
 
         eachQuestionStorageScript.SaveGameOver(EGameName.Synthesis, realLevel, stage, questionId,
             stageStorageScript.playCnt);
-        
+
         stageStorageScript.LoadGameStageData(EGameName.Synthesis, _totalStorageScript.currId, realLevel, stage);
         stageStorageScript.playCnt++;
         stageStorageScript.SaveGameStageData(EGameName.Synthesis, _totalStorageScript.currId, realLevel, stage,
@@ -655,6 +673,7 @@ public class SpreadChoices : MonoBehaviour
         _totalStorageScript.Save(EGameName.Synthesis, realLevel, stage);
 
         eachQuestionStorageScript.initializeQuestionData();
+        
     }
     // ttr: total tried, tco: total corrected 
     /*IEnumerator DecideResult(float ttr, float tco, float tcos)
