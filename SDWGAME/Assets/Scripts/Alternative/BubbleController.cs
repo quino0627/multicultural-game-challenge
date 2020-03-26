@@ -59,7 +59,7 @@ public class BubbleController : MonoBehaviour
         tmpTransform.gameObject.GetComponent<AlternativeQuizManager>().chosenAns.Add(currentBubbleText); 
         
         // 해당 stage의 정답 string
-        string currentStageAnswerText = AlternativeQuizManager.answer_string_list[AlternativeQuizManager.stage_no];
+        string currentStageAnswerText = AlternativeQuizManager.answer_string_list[AlternativeQuizManager.question_no];
         
         // 만약 유저가 클릭한 버블에 쓰여 있는 글자가 해당 stage의 정답과 일치하면
         if (currentBubbleText == currentStageAnswerText)

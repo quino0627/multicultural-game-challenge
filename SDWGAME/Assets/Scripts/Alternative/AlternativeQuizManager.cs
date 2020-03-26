@@ -4,6 +4,7 @@ using System.Diagnostics;
 using Newtonsoft.Json;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using Debug = UnityEngine.Debug;
 
 public class AlternativeQuizManager : MonoBehaviour
@@ -27,7 +28,7 @@ public class AlternativeQuizManager : MonoBehaviour
     private GameObject description;
 
     public GameObject StarLeft;
-    public GameObject StarMiddle;
+    public Image StarMiddle;
     public GameObject StarRight;
     public TextMeshProUGUI descriptionText;
     public TextMeshProUGUI onesentenceText;
@@ -52,9 +53,9 @@ public class AlternativeQuizManager : MonoBehaviour
     public int questionId;
     private static List<int> randomNoDuplicates;
 
-    // 각 난이도 안에는 stage0 부터 max_stage_no - 1까지의 stage가 존재한다.
-    public static int stage_no = 0;
-    public static int max_stage_no = 0;
+    // 각 stage 안에는 질문 0 부터 max_question_no - 1까지의 질문이 존재한다.
+    public static int question_no = 0;
+    public static int max_question_no = 0;
 
     //wj
     public int ref_stage_no;
@@ -122,7 +123,7 @@ public class AlternativeQuizManager : MonoBehaviour
     void Start()
     {
         SoundManager.Instance.StopMusic();
-        
+
         totalStorageObject = GameObject.Find("TotalStorage");
         _totalStorageScript = totalStorageObject.GetComponent<TotalDataManager>();
         eachQuestionStorage = GameObject.Find("EachQuestionStorage");
@@ -132,13 +133,14 @@ public class AlternativeQuizManager : MonoBehaviour
         levelStorage = GameObject.Find("LevelStorage");
         levelStorageScript = levelStorage.GetComponent<LevelDataManager>();
 
-        
+
         level = _totalStorageScript.chosenLevel;
         stage = _totalStorageScript.chosenStage;
-        
+        question_no = 0;
         chosenAns = new List<string>();
 
-        max_stage_no = 3;
+        max_question_no = 3;
+        
         this.director = GameObject.Find("AlternativeGameDirector");
         this.description = GameObject.Find("DescriptionBubble");
 
@@ -163,20 +165,21 @@ public class AlternativeQuizManager : MonoBehaviour
 //            this.animators[i] = this.Bubbles[i].GetComponent<Animator>();
         }
 
-        max_stage_no = 3;
-        answer_list = new int[max_stage_no];
-        answer_string_list = new string[max_stage_no];
+        max_question_no = 3;
+        answer_list = new int[max_question_no];
+        answer_string_list = new string[max_question_no];
+
         
-        
-        if (stage_no == 0)
+
+        if (question_no == 0)
         {
             randomNoDuplicates = new List<int>();
-            for (int i = 0; i < max_stage_no; ++i)
+            for (int i = 0; i < max_question_no; ++i)
             {
-                int tmp = UnityEngine.Random.Range(0, max_stage_no);
+                int tmp = UnityEngine.Random.Range(0, max_question_no);
                 while (randomNoDuplicates.Contains(tmp))
                 {
-                    tmp = UnityEngine.Random.Range(0, max_stage_no);
+                    tmp = UnityEngine.Random.Range(0, max_question_no);
                 }
 
                 randomNoDuplicates.Add(tmp);
@@ -251,7 +254,7 @@ public class AlternativeQuizManager : MonoBehaviour
     {
         int i = 0;
         // stage 0~4까지의 정답을 정해서 answer_list에 저장한다.
-        while (i < max_stage_no)
+        while (i < max_question_no)
         {
             answer_list[i] = UnityEngine.Random.Range(0, 5);
             i++;
@@ -262,7 +265,8 @@ public class AlternativeQuizManager : MonoBehaviour
 
     IEnumerator StageEach(int level)
     {
-        questionId = stage * 10 + randomNoDuplicates[stage_no];
+        questionId = stage * 10 + randomNoDuplicates[question_no];
+        //questionId = randomNoDuplicates[question_no];
         total_clicked = 0;
         // 시작 오디오 세팅
 
@@ -271,7 +275,7 @@ public class AlternativeQuizManager : MonoBehaviour
         description.GetComponent<AlternativeDescriptionController>().DefaultDescription();
 
         // UI 설정
-        this.director.GetComponent<AlternativeGameDirector>().setStage(stage_no);
+        this.director.GetComponent<AlternativeGameDirector>().setStage(question_no);
         this.director.GetComponent<AlternativeGameDirector>().setLevel(level);
 
         // 보기 설정
@@ -282,11 +286,11 @@ public class AlternativeQuizManager : MonoBehaviour
 
         // 퀴즈 배열
         // 정답을 랜덤위치에 넣고
-        answer_string_list[stage_no] = list.sheets[level].list[questionId].cor;
-        QuizTextList[answer_list[stage_no]].text = list.sheets[level].list[questionId].cor;
+        answer_string_list[question_no] = list.sheets[level].list[questionId].cor;
+        QuizTextList[answer_list[question_no]].text = list.sheets[level].list[questionId].cor;
 
         //wj
-        ref_answer_string = answer_string_list[stage_no];
+        ref_answer_string = answer_string_list[question_no];
         _totalStorageScript.tmpLevel[3] = level;
 
 
@@ -295,7 +299,7 @@ public class AlternativeQuizManager : MonoBehaviour
         for (int i = 0; i < 5; i++)
         {
             // i 가 만약 정답이 있는 index가 아니라면 해당 index의 text에 값을 넣어야 함.
-            if (i != answer_list[stage_no])
+            if (i != answer_list[question_no])
             {
                 switch (tmp)
                 {
@@ -441,17 +445,17 @@ public class AlternativeQuizManager : MonoBehaviour
         // 다음 스테이지로 가던지, 아니면 결과창을 보여 주던지
         SeahorseRight.transform.Find("RepeatSound").gameObject.SetActive(false);
 
-       eachQuestionStorageScript.AQM = this;
-        ref_stage_no = stage_no;
+        eachQuestionStorageScript.AQM = this;
+        ref_stage_no = question_no;
         //Debug.Log("stage"+stage_no+"ChosenAns전 = " + JsonConvert.SerializeObject(chosenAns, Formatting.Indented));
         eachQuestionStorageScript.SaveAlternativeDataForEachQuestion();
         chosenAns = new List<string>();
         //Debug.Log("stage"+stage_no+"ChosenAns후 = " + JsonConvert.SerializeObject(chosenAns, Formatting.Indented));
 
 
-        if (stage_no < max_stage_no - 1)
+        if (question_no < max_question_no - 1)
         {
-            stage_no = stage_no + 1;
+            question_no = question_no + 1;
             // _totalStorageScript.tmpStage[3] = stage_no;
 
             StartCoroutine(StageEach(level));
@@ -459,7 +463,7 @@ public class AlternativeQuizManager : MonoBehaviour
         else
         {
             // 지워야할 코드
-            stage_no++;
+            question_no++;
 
             //  _totalStorageScript.tmpStage[3] = 0;
 
@@ -496,61 +500,97 @@ public class AlternativeQuizManager : MonoBehaviour
         return null; // no clip by that name
     }
 
-    
+
     IEnumerator DecideResult(int totalClicked, int totalCorrect)
     {
         yield return new WaitForSeconds(1.0f);
         _resultHandler.OpenResult();
-
+        SoundManager.Instance.Play_StarShowedUp();
+        string result_text = $"{totalCorrect/10.0f * 100} 도달!";
+        descriptionText.text = result_text;
+        string[] sentences = {"다시 해보자", "와~ 너 너무 잘한다!"};
         //////////////////임시코드
-        if (totalCorrect == max_stage_no)
+        if (totalCorrect == max_question_no)
         {
             // 별 1개 채워짐
+            StarMiddle.fillAmount = 1f;
+            onesentenceText.text = sentences[1];
             levelStorageScript.obtainedStarCnt[level, stage] = 4;
         }
+        else
+        {
+            onesentenceText.text = sentences[0];
+            StarMiddle.fillAmount = 0.25f;
+            levelStorageScript.obtainedStarCnt[level, stage] = 1;
+        }
+
         ///////////////
-        
+
         /*if (totalCorrect <= 3)
         {
+            onesentenceText.text = sentences[0];
             // 별 1/4
-            levelStorageScript.obtainedStarCnt[level, stage] = 1;
+            StarMiddle.fillAmount = 0.25f;
+           if (levelStorageScript.obtainedStarCnt[level, stage] != 4)
+            {
+                levelStorageScript.obtainedStarCnt[level, stage] = 1;
+            }
+            
         }
         else if (totalCorrect <= 6)
         {
             // 별 2/4
-            levelStorageScript.obtainedStarCnt[level, stage] = 2;
+            onesentenceText.text = sentences[0];
+            StarMiddle.fillAmount = 0.5f;
+             if (levelStorageScript.obtainedStarCnt[level, stage] != 4)
+            {
+                levelStorageScript.obtainedStarCnt[level, stage] = 2;
+            }
+            
         }
         else if (totalCorrect <= 9)
         {
             // 별 3/4
-            levelStorageScript.obtainedStarCnt[level, stage] = 3;
+            onesentenceText.text = sentences[0];
+            StarMiddle.fillAmount = 0.75f;
+            if (levelStorageScript.obtainedStarCnt[level, stage] != 4)
+            {
+                levelStorageScript.obtainedStarCnt[level, stage] = 3;
+            }
         }
-        else if (totalCorrect == max_stage_no)
+        else if (totalCorrect == questionMaxNumber)
         {
             // 별 1개 채워짐
+            onesentenceText.text = sentences[1];
+            StarMiddle.fillAmount = 1f;
             levelStorageScript.obtainedStarCnt[level, stage] = 4;
         }
         else
         {
             Debug.Assert(false, "문제가 10개 초과");
         }*/
-        
-        eachQuestionStorageScript.SaveGameOver(EGameName.Alternative,level,stage,questionId,stageStorageScript.playCnt);
         stageStorageScript.LoadGameStageData(EGameName.Alternative, _totalStorageScript.currId, level, stage);
         stageStorageScript.playCnt++;
+        eachQuestionStorageScript.SaveGameOver(EGameName.Alternative, level, stage, questionId,
+            stageStorageScript.playCnt);
+        
+        
         stageStorageScript.SaveGameStageData(EGameName.Alternative, _totalStorageScript.currId, level, stage,
             totalCorrect);
 
         //levelData 계산
         levelStorageScript.avgPerfection[level] =
-            stageStorageScript.GetAvgCorrectAnswerCountForLevel(_totalStorageScript.currId, level, EGameName.Alternative);
+            stageStorageScript.GetAvgCorrectAnswerCountForLevel(_totalStorageScript.currId, level,
+                EGameName.Alternative);
         levelStorageScript.avgResponseTime[level] =
             stageStorageScript.GetAvgResponseTimeForLevel(_totalStorageScript.currId, level, EGameName.Alternative);
         levelStorageScript.SaveLevelData(EGameName.Alternative, _totalStorageScript.currId, level);
 
         _totalStorageScript.Save(EGameName.Alternative, level, stage);
-        
+
         eachQuestionStorageScript.initializeQuestionData();
+        
+        
     }
 
     /*IEnumerator DecideResult(float tcl, float tco)

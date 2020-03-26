@@ -944,7 +944,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &134645344
 RectTransform:
   m_ObjectHideFlags: 0
@@ -983,11 +983,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 37e688a15082443858dfbbe3cceb7c45, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
+  m_FillMethod: 0
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -1413,7 +1413,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &213697497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1433,11 +1433,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 37e688a15082443858dfbbe3cceb7c45, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
+  m_FillMethod: 0
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -3024,7 +3024,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &806173586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3044,11 +3044,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 37e688a15082443858dfbbe3cceb7c45, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
+  m_FillMethod: 0
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -3108,27 +3108,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b784562dfc59164b93abd9e7baecf00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EasyStage1: {fileID: 545213056}
-  EasyStage2: {fileID: 1109927255}
-  EasyStage3: {fileID: 615020467}
-  NormalStage1: {fileID: 1482242704}
-  NormalStage2: {fileID: 1554267986}
-  NormalStage3: {fileID: 1940255186}
-  HardStage1: {fileID: 124819350}
-  HardStage2: {fileID: 17079465}
-  HardStage3: {fileID: 624980815}
+  StageButtons:
+  - {fileID: 545213056}
+  - {fileID: 1109927255}
+  - {fileID: 615020467}
+  - {fileID: 1482242704}
+  - {fileID: 1554267986}
+  - {fileID: 1940255186}
+  - {fileID: 124819350}
+  - {fileID: 17079465}
+  - {fileID: 624980815}
   m_Settings: {fileID: 2041420635}
   chosenGame: 0
-  Stars:
-  - {fileID: 1583926436}
-  - {fileID: 213697496}
-  - {fileID: 806173585}
-  - {fileID: 1652419287}
-  - {fileID: 835323315}
-  - {fileID: 1338989928}
-  - {fileID: 134645343}
-  - {fileID: 2124917199}
-  - {fileID: 2091998791}
+  StarImage:
+  - {fileID: 1583926437}
+  - {fileID: 213697497}
+  - {fileID: 806173586}
+  - {fileID: 1652419288}
+  - {fileID: 835323316}
+  - {fileID: 1338989929}
+  - {fileID: 134645345}
+  - {fileID: 2124917201}
+  - {fileID: 2091998793}
 --- !u!4 &808579497
 Transform:
   m_ObjectHideFlags: 0
@@ -3160,7 +3161,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &835323316
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3180,11 +3181,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 37e688a15082443858dfbbe3cceb7c45, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
+  m_FillMethod: 0
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -3937,7 +3938,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1338989929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3957,11 +3958,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 37e688a15082443858dfbbe3cceb7c45, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
+  m_FillMethod: 0
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -5299,7 +5300,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1583926437
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5319,11 +5320,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 37e688a15082443858dfbbe3cceb7c45, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
+  m_FillMethod: 0
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -5371,7 +5372,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1652419288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5391,11 +5392,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 37e688a15082443858dfbbe3cceb7c45, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
+  m_FillMethod: 0
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -5951,7 +5952,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2091998792
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5990,11 +5991,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 37e688a15082443858dfbbe3cceb7c45, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
+  m_FillMethod: 0
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -6289,7 +6290,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2124917200
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6328,11 +6329,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 37e688a15082443858dfbbe3cceb7c45, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
+  m_FillMethod: 0
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0

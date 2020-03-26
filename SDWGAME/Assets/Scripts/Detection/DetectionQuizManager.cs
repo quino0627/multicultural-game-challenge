@@ -30,7 +30,7 @@ public class DetectionQuizManager : MonoBehaviour
     private GameObject description;
 
     public GameObject StarLeft;
-    public GameObject StarMiddle;
+    public Image StarMiddle;
     public GameObject StarRight;
     public TextMeshProUGUI descriptionText;
     public TextMeshProUGUI onesentenceText;
@@ -53,15 +53,15 @@ public class DetectionQuizManager : MonoBehaviour
     public int questionId;
     private static List<int> randomNoDuplicates;
 
-    // 각 난이도 안에는 stage 0 부터 max_stage_no - 1까지의 stage가 존재한다.
-    public static int stage_no = 0;
+    // 각 stage 안에는 question 0 부터 max_stage_no - 1까지의 질문이 존재한다.
+    public static int question_no = 0;
 
     //복사본 wj
-    public int ref_stage_no;
+    public int refQuestionNumber;
 
 
     //엑셀 데이터 개수 가져와서 저장할 것.
-    public static int max_stage_no;
+    public static int max_question_no;
 
     // 한 레벨이 끝날 때 까지 
     public int total_clicked = 0;
@@ -73,8 +73,8 @@ public class DetectionQuizManager : MonoBehaviour
     // Barrel 안 Coin들
     [HideInInspector] public GameObject[] CoinInBarrel = new GameObject[5];
     [HideInInspector] public GameObject[] TrashInBarrel = new GameObject[5];
-    
-    
+
+
     //문어새기
     public GameObject Octo;
 
@@ -114,7 +114,7 @@ public class DetectionQuizManager : MonoBehaviour
     void Start()
     {
         SoundManager.Instance.StopMusic();
-        
+
         totalStorageObject = GameObject.Find("TotalStorage");
         _totalStorageScript = totalStorageObject.GetComponent<TotalDataManager>();
         eachQuestionStorage = GameObject.Find("EachQuestionStorage");
@@ -124,12 +124,12 @@ public class DetectionQuizManager : MonoBehaviour
         levelStorage = GameObject.Find("LevelStorage");
         levelStorageScript = levelStorage.GetComponent<LevelDataManager>();
 
-        //stage_no = 0;
+        question_no = 0;
         level = _totalStorageScript.chosenLevel;
         stage = _totalStorageScript.chosenStage;
         chosenAns = new List<string>();
 
-        max_stage_no = 3;
+        max_question_no = 3;
         this.director = GameObject.Find("GameDirector");
         this.description = GameObject.Find("Octopus").transform.Find("DescriptionBubble").gameObject;
 
@@ -165,20 +165,21 @@ public class DetectionQuizManager : MonoBehaviour
 
         this.Octo = transform.Find("Octopus").gameObject;
 
-        max_stage_no = 3;
-        answer_list = new int[max_stage_no];
-        answer_string_list = new string[max_stage_no];
+        max_question_no = 3;
+        answer_list = new int[max_question_no];
+        answer_string_list = new string[max_question_no];
 
-        
-        if (stage_no == 0)
+
+        if (question_no == 0)
         {
+            Debug.Log("make randomeNoDuplicates");
             randomNoDuplicates = new List<int>();
-            for (int i = 0; i < max_stage_no; ++i)
+            for (int i = 0; i < max_question_no; ++i)
             {
-                int tmp = UnityEngine.Random.Range(0, max_stage_no);
+                int tmp = UnityEngine.Random.Range(0, max_question_no);
                 while (randomNoDuplicates.Contains(tmp))
                 {
-                    tmp = UnityEngine.Random.Range(0, max_stage_no);
+                    tmp = UnityEngine.Random.Range(0, max_question_no);
                 }
 
                 randomNoDuplicates.Add(tmp);
@@ -227,7 +228,7 @@ public class DetectionQuizManager : MonoBehaviour
     {
         int i = 0;
         //stage 1 ~ 5까지의 정답을 정해서 answer_list에 저장한다.
-        while (i < max_stage_no)
+        while (i < max_question_no)
         {
             answer_list[i] = UnityEngine.Random.Range(0, 5);
 
@@ -248,24 +249,25 @@ public class DetectionQuizManager : MonoBehaviour
     IEnumerator StageEach(int level)
     {
         total_clicked = 0;
-        questionId = stage * 10 + randomNoDuplicates[stage_no];
+        questionId = stage * 10 + randomNoDuplicates[question_no];
+        //questionId = randomNoDuplicates[question_no];
         Debug.Log("questionID: " + questionId);
         // 시작 오디오 세팅
         run_once = false;
 
         // UI 설정
-        this.director.GetComponent<GameDirector>().setStage(stage_no);
+        this.director.GetComponent<GameDirector>().setStage(question_no);
         this.director.GetComponent<GameDirector>().setLevel(level);
         description.GetComponent<DetectionDescriptionController>().DefaultDescription();
 
         // 퀴즈 배열
         //정답을 랜덤위치에 넣고
         Debug.Log(list.sheets[level].list[questionId].cor);
-        answer_string_list[stage_no] = list.sheets[level].list[questionId].cor;
-        QuizTextList[answer_list[stage_no]].text = list.sheets[level].list[questionId].cor;
+        answer_string_list[question_no] = list.sheets[level].list[questionId].cor;
+        QuizTextList[answer_list[question_no]].text = list.sheets[level].list[questionId].cor;
 
         //wj
-        ref_answer_string = answer_string_list[stage_no];
+        ref_answer_string = answer_string_list[question_no];
         _totalStorageScript.tmpLevel[0] = level;
 //        totalStorageScript.tmpStage[0] = stage_no;
         //보기들을 나머지 위치에 넣음
@@ -274,7 +276,7 @@ public class DetectionQuizManager : MonoBehaviour
         for (int i = 0; i < 5; i++)
         {
             // i 가 만약 정답이 있는 index가 아니라면 해당 index의 text에 값을 넣어야 함.
-            if (i != answer_list[stage_no])
+            if (i != answer_list[question_no])
             {
                 switch (tmp)
                 {
@@ -383,19 +385,19 @@ public class DetectionQuizManager : MonoBehaviour
         }
 
         eachQuestionStorageScript.DQM = this;
-        ref_stage_no = stage_no;
-        
+        refQuestionNumber = question_no;
+
         eachQuestionStorageScript.SaveDetectionDataForEachQuestion();
-        
+
         chosenAns = new List<string>();
-        Debug.Log("level:" + level + ",stage: " + stage_no);
+        Debug.Log("level:" + level + ",stage: " + question_no);
         Debug.Log(JsonConvert.SerializeObject(chosenAns, Formatting.Indented));
 
         // stage가 모두 끝났다면 결과 창으로, 그렇지 않다면 다음 스테이지로 넘어간
-        Debug.Log($"stage_no는 {stage_no}이고, max_stage_no는 {max_stage_no}");
-        if (stage_no < max_stage_no - 1)
+        Debug.Log($"stage_no는 {question_no}이고, max_stage_no는 {max_question_no}");
+        if (question_no < max_question_no - 1)
         {
-            stage_no++;
+            question_no++;
 
             //_totalStorageScript.tmpStage[0] = stage_no;
 
@@ -406,7 +408,7 @@ public class DetectionQuizManager : MonoBehaviour
             _totalStorageScript.tmpLevel[0]++;
 
             // 지워야할 코드
-            stage_no++;
+            question_no++;
 
             //_totalStorageScript.tmpStage[0] = 0;
 
@@ -442,34 +444,64 @@ public class DetectionQuizManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1.0f);
         _resultHandler.OpenResult();
+        SoundManager.Instance.Play_StarShowedUp();
+        string result_text = $"{totalCorrect/10.0f * 100} 도달!";
+        descriptionText.text = result_text;
+        string[] sentences = {"우리 계속 동전을 찾아보자!", "와~ 고마워!"};
 
-        
         ///////////////임시 코드///////////////////////////
-        if (totalCorrect == max_stage_no)
+        if (totalCorrect == max_question_no)
         {
+            StarMiddle.fillAmount = 1f;
             // 별 1개 채워짐
+            onesentenceText.text = sentences[1];
             levelStorageScript.obtainedStarCnt[level, stage] = 4;
         }
+        else
+        {
+            StarMiddle.fillAmount = 0.25f;
+            onesentenceText.text = sentences[0];
+            levelStorageScript.obtainedStarCnt[level, stage] = 1;
+        }
         //////////////////////////////////////////////
-        
+
         /*if (totalCorrect <= 3)
         {
+            onesentenceText.text = sentences[0];
             // 별 1/4
-            levelStorageScript.obtainedStarCnt[level, stage] = 1;
+            StarMiddle.fillAmount = 0.25f;
+            if (levelStorageScript.obtainedStarCnt[level, stage] != 4)
+            {
+                levelStorageScript.obtainedStarCnt[level, stage] = 1;
+            }
+            
         }
         else if (totalCorrect <= 6)
         {
             // 별 2/4
-            levelStorageScript.obtainedStarCnt[level, stage] = 2;
+            onesentenceText.text = sentences[0];
+            StarMiddle.fillAmount = 0.5f;
+            if (levelStorageScript.obtainedStarCnt[level, stage] != 4)
+            {
+                levelStorageScript.obtainedStarCnt[level, stage] = 2;
+            }
+            
         }
         else if (totalCorrect <= 9)
         {
             // 별 3/4
-            levelStorageScript.obtainedStarCnt[level, stage] = 3;
+            onesentenceText.text = sentences[0];
+            StarMiddle.fillAmount = 0.75f;
+           if (levelStorageScript.obtainedStarCnt[level, stage] != 4)
+            {
+                levelStorageScript.obtainedStarCnt[level, stage] = 3;
+            }
         }
-        else if (totalCorrect == max_stage_no)
+        else if (totalCorrect == questionMaxNumber)
         {
             // 별 1개 채워짐
+            onesentenceText.text = sentences[1];
+            StarMiddle.fillAmount = 1f;
             levelStorageScript.obtainedStarCnt[level, stage] = 4;
         }
         else
@@ -477,11 +509,13 @@ public class DetectionQuizManager : MonoBehaviour
             Debug.Assert(false, "문제가 10개 초과");
         }*/
 
-        
-        eachQuestionStorageScript.SaveGameOver(EGameName.Detection,level,stage,questionId,stageStorageScript.playCnt);
-        
         stageStorageScript.LoadGameStageData(EGameName.Detection, _totalStorageScript.currId, level, stage);
         stageStorageScript.playCnt++;
+        eachQuestionStorageScript.SaveGameOver(EGameName.Detection, level, stage, questionId,
+            stageStorageScript.playCnt);
+
+        
+        
         stageStorageScript.SaveGameStageData(EGameName.Detection, _totalStorageScript.currId, level, stage,
             totalCorrect);
 
@@ -493,8 +527,10 @@ public class DetectionQuizManager : MonoBehaviour
         levelStorageScript.SaveLevelData(EGameName.Detection, _totalStorageScript.currId, level);
 
         _totalStorageScript.Save(EGameName.Detection, level, stage);
-        
+
         eachQuestionStorageScript.initializeQuestionData();
+        
+        
     }
 
 

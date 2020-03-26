@@ -13,7 +13,7 @@ public class DragAndDrop : MonoBehaviour
     private float deltaX, deltaY;
     //public Transform AnswerTransform;
 
-    public static bool locked;
+    public bool bLocked;
 
     private bool isRight;
 
@@ -30,7 +30,14 @@ public class DragAndDrop : MonoBehaviour
         }
     }
 
- 
+    private void Update()
+    {
+        if (spreadChoicesScript.isUserRight)
+        {
+            bLocked = true;
+        }
+    }
+
     private void OnMouseDown()
     {
         if (Time.timeScale == 0) return;
@@ -40,7 +47,7 @@ public class DragAndDrop : MonoBehaviour
             Debug.Log("Crab2 OnMouseDown EventSystem");
             return;
         }*/
-        if (!locked)
+        if (!bLocked)
         {
             deltaX = Camera.main.ScreenToWorldPoint(Input.mousePosition).x - transform.position.x;
             deltaY = Camera.main.ScreenToWorldPoint(Input.mousePosition).y - transform.position.y;
@@ -57,7 +64,7 @@ public class DragAndDrop : MonoBehaviour
             Debug.Log("Crab2 OnMouseDrag EventSystem");
             return;
         }*/
-        if (!locked)
+        if (!bLocked)
         {
             mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             transform.position = new Vector2(mousePosition.x - deltaX,mousePosition.y - deltaY);

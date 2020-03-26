@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Diagnostics;
+using System.Net.Mime;
 using System.Security.Cryptography.X509Certificates;
 using TMPro;
 using UnityEngine.SceneManagement;
@@ -30,7 +31,7 @@ public class SpreadChoices : MonoBehaviour
 
     // Show Result
     public GameObject StarLeft;
-    public GameObject StarMiddle;
+    public Image StarMiddle;
     public GameObject StarRight;
     public TextMeshProUGUI descriptionText;
     public TextMeshProUGUI onesentenceText;
@@ -57,7 +58,7 @@ public class SpreadChoices : MonoBehaviour
     public bool isUserRight;
 
     //excel data
-    public Entity_Synthesis data;
+    public SYN_DataList data;
 
     // 초급/중급/고급
     public int excelLevel;
@@ -70,14 +71,15 @@ public class SpreadChoices : MonoBehaviour
     public int questionId;
     private static List<int> randomNoDuplicates;
 
-    // 각 난이도 안의 stage index
-    public static int stageIndex;
+    // 각 stage안의 질문index
+    public static int questionNumber;
 
-    // 해당 난이도의 전체 question 개수 
+    // 해당 스테이지의 전체 question 개수 
     public static int questionMaxIndex;
     public static int realQuestionIndex; // 진짜 level
+
     public int refQuestionIndex;
-    public int levelOneQuestionMaxIndex; //일단 씬에서 결정
+    //public int levelOneQuestionMaxIndex; //일단 씬에서 결정
 
     //보기 이 게임에선 해파리
     public GameObject[] choices;
@@ -94,10 +96,10 @@ public class SpreadChoices : MonoBehaviour
     public List<int> corrAnsPosIndex;
 
     //Number of Correct Answers
-    public int corrAnsCnt;
+    public int corrAnsCnt; // Inspector 창에서 설정
 
     //Number of Wrong Answers
-    public int wrongAnsCnt;
+    public int wrongAnsCnt; // Inspector 창에서 설정
 
     public List<string> chosenAns;
 
@@ -125,13 +127,12 @@ public class SpreadChoices : MonoBehaviour
     // 일시 정지에 사용되는 불린 
     private bool CheckPaused = false;
 
-    static bool bTwoAns;
 
     // Start is called before the first frame update
     void Start()
     {
         SoundManager.Instance.StopMusic();
-        
+
         totalStorageObject = GameObject.Find("TotalStorage");
         _totalStorageScript = totalStorageObject.GetComponent<TotalDataManager>();
         eachQuestionStorage = GameObject.Find("EachQuestionStorage");
@@ -143,9 +144,9 @@ public class SpreadChoices : MonoBehaviour
 
         director = GameObject.Find("SynthesisGameDirector");
 
-        questionMaxIndex = 3;
+        questionMaxIndex = 10;
 
-        levelOneQuestionMaxIndex = data.sheets[0].list.Count - 1;
+        //levelOneQuestionMaxIndex = data.sheets[0].list.Count - 1;
 
 
         crab.transform.Find("DescriptionBubble").gameObject.SetActive(false);
@@ -153,26 +154,17 @@ public class SpreadChoices : MonoBehaviour
         realLevel = _totalStorageScript.chosenLevel;
         excelLevel = _totalStorageScript.chosenLevel;
         stage = _totalStorageScript.chosenStage;
-
-        Debug.Log("RealLevel :" + realLevel + ", level: " + excelLevel + ", bTwoAns:" + bTwoAns);
-        if (bTwoAns ||
-            (excelLevel == 0 && stageIndex > levelOneQuestionMaxIndex)) //뒤연산은 낱말늘어날때 한번연산하게됨
+        if (questionNumber == questionMaxIndex)
         {
-            excelLevel = 1;
-            bTwoAns = true;
-        }
-        else if (realLevel > 0)
-        {
-            excelLevel++;
+            questionNumber = 0;
+            realQuestionIndex = 0;
+            total_correct = 0;
+            total_correct_stage = 0;
+            total_tried = 0;
         }
 
-        
-        Debug.Log("StageIndex: " + stageIndex);
-        if (bTwoAns)
-        {
-            stageIndex = realQuestionIndex - levelOneQuestionMaxIndex - 1;
-            Debug.Log("StageIndex bTwoAns: " + stageIndex);
-        }
+        //excelLevel++;
+
 
         total_tried = 0;
 
@@ -195,7 +187,16 @@ public class SpreadChoices : MonoBehaviour
         }
 
         Debug.Log("RealQuestionIndex: " + realQuestionIndex);
+
+        //두글자일때
+        /*if (excelLevel == 1)
+        {
+            questionId = (stage - 1) * 10 + randomNoDuplicates[realQuestionIndex];
+        }*/
+
+        //한글자, 세글자, 네글자, 이제 두글자도!
         questionId = stage * 10 + randomNoDuplicates[realQuestionIndex];
+        //questionId = randomNoDuplicates[realQuestionIndex];
         QuizInit();
     }
 
@@ -292,7 +293,7 @@ public class SpreadChoices : MonoBehaviour
             if (i == 0)
             {
                 Debug.Log("level " + excelLevel);
-                Debug.Log("stageIndex " + stageIndex);
+                Debug.Log("stageIndex " + questionNumber);
 
                 Debug.Log(data.sheets[excelLevel].list[questionId].정답1);
                 PickedAnswer[0].GetComponent<TextMeshPro>().text
@@ -314,12 +315,12 @@ public class SpreadChoices : MonoBehaviour
                         = data.sheets[excelLevel].list[questionId].정답3;
             }
 
-            if (i == 3)
+            /*if (i == 3)
             {
                 PickedAnswer[3].GetComponent<TextMeshPro>().text
                     = choiceTexts[corrAnsPosIndex[3]].text
                         = data.sheets[excelLevel].list[questionId].정답4;
-            }
+            }*/
         }
 
         //정답이 아닌 글자들 처리
@@ -348,6 +349,12 @@ public class SpreadChoices : MonoBehaviour
             {
                 choiceTexts[corrAnsPosIndex[i]].text
                     = data.sheets[excelLevel].list[questionId].보기4;
+            }
+
+            if (i == corrAnsCnt + 4)
+            {
+                choiceTexts[corrAnsPosIndex[i]].text
+                    = data.sheets[excelLevel].list[questionId].보기5;
             }
         }
 
@@ -410,6 +417,7 @@ public class SpreadChoices : MonoBehaviour
         if (!SoundManager.Instance.IsMusicPlaying())
         {
             SoundManager.Instance.Play_JellyFishShowedUp();
+            // SoundManager.Instance.Play_SynthesisMusic();
         }
 
         while (!JfArrived[i])
@@ -482,13 +490,8 @@ public class SpreadChoices : MonoBehaviour
         }
         else*/
         {
-            stageIndex++;
+            questionNumber++;
             realQuestionIndex++;
-            //_totalStorageScript.tmpStage[1] = stageIndex;
-            if (bTwoAns)
-            {
-                //    _totalStorageScript.tmpStage[1] = stageIndex + levelOneQuestionMaxIndex + 1;
-            }
         }
 
         watch.Reset();
@@ -512,26 +515,13 @@ public class SpreadChoices : MonoBehaviour
         yield return new WaitForSeconds(4f);
 
 
-        // stageIndex는 0부터 시작 
-        // stageMaxIndex-1: 전체 stage개수
         // stage가 끝났을 경우에는 Result창을 보여주어야 한다.
         if (realQuestionIndex + 1 > questionMaxIndex)
         {
             Debug.Log("Game Is Over");
             _totalStorageScript.tmpLevel[1]++;
 
-            if (bTwoAns)
-            {
-                bTwoAns = false;
-            }
 
-
-            //_totalStorageScript.tmpStage[1] = 0;
-
-            //totalStorageScript.tmpPerfection = total_correct_stage * 100;
-            //totalStorageScript.CheckObtainedStarSlider((uint) total_correct_stage);
-
-            //eachQuestionStorageScript.SaveGameOver(EGameName.Synthesis);
             _totalStorageScript.Save(EGameName.Synthesis, realLevel, stage);
 
             yield return DecideResult(total_tried, total_correct, total_correct_stage);
@@ -539,16 +529,7 @@ public class SpreadChoices : MonoBehaviour
 
         if (realQuestionIndex + 1 <= questionMaxIndex)
         {
-            if (excelLevel == 0 && realQuestionIndex + 1 > levelOneQuestionMaxIndex)
-            {
-                //글자수 1 -> 2
-                //초급인 건 그대로
-                SceneManager.LoadScene("CrabLevel2");
-            }
-            else
-            {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            }
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 
@@ -600,47 +581,78 @@ public class SpreadChoices : MonoBehaviour
     {
         yield return new WaitForSeconds(1.0f);
         _resultHandler.OpenResult();
+        SoundManager.Instance.Play_StarShowedUp();
+        string result_text = $"{totalCorrect / (float) (excelLevel + 1) / 10.0f * 100} 도달!";
+        descriptionText.text = result_text;
+        string[] sentences = {"다시! 다시! 아~좀!", "와~ 고마워!"};
 
 
-        /////////임시코드
-        if (totalCorrectStage == questionMaxIndex)
+        /////////임시코드///////////////////////////////////////////
+        /*if (totalCorrectStage == questionMaxIndex)
         {
             // 별 1개 채워짐
+            StarMiddle.fillAmount = 1f;
+            onesentenceText.text = sentences[1];
             levelStorageScript.obtainedStarCnt[realLevel, stage] = 4;
         }
-        ///////////
-
-        /*if (totalCorrectStage <= 3)
-        {
-            // 별 1/4
-            levelStorageScript.obtainedStarCnt[realLevel, stage] = 1;
-        }
         else
-        if (totalCorrectStage <= 6)
+        {
+            StarMiddle.fillAmount = 0.25f;
+            onesentenceText.text = sentences[0];
+            levelStorageScript.obtainedStarCnt[realLevel, stage] = 1;
+        }*/
+        ////////////////////////////////////////////////////////////////
+
+        if (totalCorrectStage <= 3)
+        {
+            onesentenceText.text = sentences[0];
+            // 별 1/4
+            StarMiddle.fillAmount = 0.25f;
+            if (levelStorageScript.obtainedStarCnt[realLevel, stage] != 4)
+            {
+                levelStorageScript.obtainedStarCnt[realLevel, stage] = 1;
+            }
+        }
+        else if (totalCorrectStage <= 6)
         {
             // 별 2/4
-            levelStorageScript.obtainedStarCnt[realLevel, stage] = 2;
+            onesentenceText.text = sentences[0];
+            StarMiddle.fillAmount = 0.5f;
+            if (levelStorageScript.obtainedStarCnt[realLevel, stage] != 4)
+            {
+                levelStorageScript.obtainedStarCnt[realLevel, stage] = 2;
+            }
         }
         else if (totalCorrectStage <= 9)
         {
             // 별 3/4
-            levelStorageScript.obtainedStarCnt[realLevel, stage] = 3;
+            onesentenceText.text = sentences[0];
+            StarMiddle.fillAmount = 0.75f;
+            if (levelStorageScript.obtainedStarCnt[realLevel, stage] != 4)
+            {
+                levelStorageScript.obtainedStarCnt[realLevel, stage] = 3;
+            }
         }
         else if (totalCorrectStage == questionMaxIndex)
         {
             // 별 1개 채워짐
+            onesentenceText.text = sentences[1];
+            StarMiddle.fillAmount = 1f;
+
             levelStorageScript.obtainedStarCnt[realLevel, stage] = 4;
         }
         else
         {
             Debug.Assert(false, "문제가 10개 초과");
-        }*/
+        }
 
-        eachQuestionStorageScript.SaveGameOver(EGameName.Synthesis, realLevel, stage, questionId,
-            stageStorageScript.playCnt);
-        
         stageStorageScript.LoadGameStageData(EGameName.Synthesis, _totalStorageScript.currId, realLevel, stage);
         stageStorageScript.playCnt++;
+        eachQuestionStorageScript.SaveGameOver(EGameName.Synthesis, realLevel, stage, questionId,
+            stageStorageScript.playCnt);
+
+
+        
         stageStorageScript.SaveGameStageData(EGameName.Synthesis, _totalStorageScript.currId, realLevel, stage,
             totalCorrectStage);
 

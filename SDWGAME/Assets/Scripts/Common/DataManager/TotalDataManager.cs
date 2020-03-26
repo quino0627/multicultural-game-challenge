@@ -82,6 +82,10 @@ public class TotalDataManager : MonoBehaviour
     private GameObject eachQuestionStorage;
     private EachQuestionDataManager eachQuestionStorageScript;
 
+    private GameObject stageStorage;
+    private StageDataManager stageStorageScript;
+
+    
     private Dictionary<string, TotalData> allData;
     private TotalData data;
 
@@ -94,7 +98,7 @@ public class TotalDataManager : MonoBehaviour
     public int chosenStage;
     public int[] tmpLevel;
     public int[] tmpMaxLevel;
-    public bool[,] isLevelOpen;
+    public bool[,] bStageOpen;
     public bool bLogin;
 
     public Dictionary<string, int[,]> tmpTriedCnt;
@@ -156,6 +160,8 @@ public class TotalDataManager : MonoBehaviour
     {
         eachQuestionStorage = GameObject.Find("EachQuestionStorage");
         eachQuestionStorageScript = eachQuestionStorage.GetComponent<EachQuestionDataManager>();
+        stageStorage = GameObject.Find("StageStorage");
+        stageStorageScript = stageStorage.GetComponent<StageDataManager>();
 
         //Debug.Log(Application.persistentDataPath);
         //Debug.Log(Application.streamingAssetsPath);
@@ -164,12 +170,18 @@ public class TotalDataManager : MonoBehaviour
 
 
         bLogin = false;
-        isLevelOpen = new bool[4,3];
+        bStageOpen = new bool[4, 9];
+        for (int i = 0; i < 4; i++)
+        {
+            bStageOpen[i, 0] = true; // 각 게임의 첫 스테이지는 열려있음
+        }
+
         tmpLevel = new int[4];
         tmpMaxLevel = new int[4];
 
         tmpStars = new int[4, 3, 3]; // 각 게임개수, 초중고, stage3개
-        tmpTriedCnt = new Dictionary<string, int[,]>(){
+        tmpTriedCnt = new Dictionary<string, int[,]>()
+        {
             {"Detection", new int[3, 3]},
             {"Synthesis", new int[3, 3]},
             {"Elimination", new int[3, 3]},
@@ -257,7 +269,7 @@ public class TotalDataManager : MonoBehaviour
     {
         string levelString = "";
         string stepString = "";
-        int afterTry = 0;
+        //int afterTry = 0;
         float avgResTime = 0;
         float perfection = 0;
         switch (level)
@@ -298,10 +310,10 @@ public class TotalDataManager : MonoBehaviour
                 data.achievedLevel["Detection"] = tmpMaxLevel[0];
 
                 //int beforeTry = beforeTriedCnt["Detection"][level, step];
-                afterTry = tmpTriedCnt["Detection"][level, step];
+                //afterTry = tmpTriedCnt["Detection"][level, step];
 
-
-                data.triedCntForEachStage["Detection"][level, step] = afterTry;
+                //afterTry /= 10;
+                data.triedCntForEachStage["Detection"][level, step] = stageStorageScript.playCnt;
 
 
                 break;
@@ -311,10 +323,10 @@ public class TotalDataManager : MonoBehaviour
                 data.achievedLevel["Synthesis"] = tmpMaxLevel[1];
 
                 //int beforeTry = beforeTriedCnt["Detection"][level, step];
-                afterTry = tmpTriedCnt["Synthesis"][level, step];
+                //afterTry = tmpTriedCnt["Synthesis"][level, step];
 
-
-                data.triedCntForEachStage["Synthesis"][level, step] = afterTry;
+                //afterTry /= 10;
+                data.triedCntForEachStage["Synthesis"][level, step] = stageStorageScript.playCnt;
 
 
                 break;
@@ -323,10 +335,10 @@ public class TotalDataManager : MonoBehaviour
             case EGameName.Elimination:
                 data.achievedLevel["Elimination"] = tmpMaxLevel[2];
                 //data.obtainedStarCount["Elimination"][level][step] = tmpStars[2, level];
-                afterTry = tmpTriedCnt["Elimination"][level, step];
+                //afterTry = tmpTriedCnt["Elimination"][level, step];
 
-
-                data.triedCntForEachStage["Elimination"][level, step] = afterTry;
+                //afterTry /= 10;
+                data.triedCntForEachStage["Elimination"][level, step] = stageStorageScript.playCnt;
 
 
                 break;
@@ -335,10 +347,10 @@ public class TotalDataManager : MonoBehaviour
             case EGameName.Alternative:
                 data.achievedLevel["Alternative"] = tmpMaxLevel[3];
                 //data.obtainedStarCount["Alternative"][level][step] = tmpStars[3, level];
-                afterTry = tmpTriedCnt["Alternative"][level, step];
+                //afterTry = tmpTriedCnt["Alternative"][level, step];
 
-
-                data.triedCntForEachStage["Alternative"][level, step] = afterTry;
+                //afterTry /= 10;
+                data.triedCntForEachStage["Alternative"][level, step] = stageStorageScript.playCnt;
 
 
                 break;

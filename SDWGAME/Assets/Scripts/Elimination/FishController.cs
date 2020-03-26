@@ -45,6 +45,7 @@ public class FishController : MonoBehaviour
         if (script.canClick)
         {
             StartCoroutine(FishClicked());
+            
         }
     }
 
@@ -58,6 +59,7 @@ public class FishController : MonoBehaviour
 
         if (currFishText == currStageAnsText)
         {
+            script.canClick = false;
             // total clicked와 total correct ++
             script.PlusTotalClick();
             script.PlusTotalCorrect();
@@ -117,12 +119,13 @@ public class FishController : MonoBehaviour
             if (distance > 0.04f)
             {
                 MoveShark(transform.position);
-                //Debug.Log("Shark moved");
+                Debug.Log("Shark moved");
             }
             else
             {
                 isSharkToFish = true;
-                //Debug.Log("Shark arrived");
+                
+                Debug.Log("Shark arrived");
             }
         }
     }
@@ -138,7 +141,7 @@ public class FishController : MonoBehaviour
     {
         yield return new WaitForSeconds(.5f);
         SoundManager.Instance.Play_SharkEatingFish();
-
+        Debug.Log("SharkEating");
         while (!fishSwallown)
         {
             yield return new WaitForEndOfFrame();
@@ -157,6 +160,7 @@ public class FishController : MonoBehaviour
                 Debug.Log("fishSwallown");
                 fishSwallown = true;
                 script.sharkAte = true;
+                gameObject.SetActive(false);
 //                script.GoNextStage();
             }
         }

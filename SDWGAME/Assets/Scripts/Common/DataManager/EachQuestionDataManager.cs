@@ -399,9 +399,9 @@ public class EachQuestionDataManager : MonoBehaviour
         tmp.level = DQM.level;
         tmp.questionId = DQM.questionId;
         tmp.step = DQM.stage;
-        tmp.stageIndex = DQM.ref_stage_no;
+        tmp.stageIndex = DQM.refQuestionNumber;
         //tmp.nthTry = ++TotalStorageScript.tmpTriedCnt[0, tmp.stageIndex];
-        //tmp.nthTry = ++_totalStorageScript.tmpTriedCnt["Detection"][tmp.level, tmp.stageIndex];
+        //tmp.nthTry = ++_totalStorageScript.tmpTriedCnt["Detection"][tmp.level, tmp.step];
         tmp.nthTry = StageStorageScript.playCnt;
         tmp.corrAns[0] = DQM.ref_answer_string;
         tmp.chosenAns = DQM.chosenAns;
@@ -421,7 +421,8 @@ public class EachQuestionDataManager : MonoBehaviour
         tmp.step = AQM.stage;
         tmp.stageIndex = AQM.ref_stage_no;
         //tmp.nthTry = ++TotalStorageScript.tmpTriedCnt[3, tmp.stageIndex];
-        tmp.nthTry = ++_totalStorageScript.tmpTriedCnt["Alternative"][tmp.level, tmp.stageIndex];
+        //tmp.nthTry = ++_totalStorageScript.tmpTriedCnt["Alternative"][tmp.level, tmp.step];
+        tmp.nthTry = StageStorageScript.playCnt;
         tmp.corrAns[0] = AQM.ref_answer_string;
         tmp.chosenAns = AQM.chosenAns;
         tmp.isUserRight = AQM.isUserRight;
@@ -450,7 +451,8 @@ public class EachQuestionDataManager : MonoBehaviour
         tmp.stageIndex = SC.refQuestionIndex;
         tmp.step = SC.stage;
         //tmp.nthTry = ++TotalStorageScript.tmpTriedCnt[1, tmp.stageIndex];
-        tmp.nthTry = ++_totalStorageScript.tmpTriedCnt["Synthesis"][tmp.level, tmp.stageIndex];
+        //tmp.nthTry = ++_totalStorageScript.tmpTriedCnt["Synthesis"][tmp.level, tmp.step];
+        tmp.nthTry = StageStorageScript.playCnt;
         for (int i = 0; i < curLevel; i++)
         {
             tmp.corrAns[i] = SC.choiceTexts[SC.corrAnsPosIndex[i]].text;
@@ -476,7 +478,8 @@ public class EachQuestionDataManager : MonoBehaviour
         tmp.stageIndex = FSA.refStageIndex;
         tmp.step = FSA.stage;
         //tmp.nthTry = ++TotalStorageScript.tmpTriedCnt[2, tmp.stageIndex];
-        tmp.nthTry = ++_totalStorageScript.tmpTriedCnt["Elimination"][tmp.level, tmp.stageIndex];
+        //tmp.nthTry = ++_totalStorageScript.tmpTriedCnt["Elimination"][tmp.level, tmp.step];
+        tmp.nthTry = StageStorageScript.playCnt;
         tmp.corrAns[0] = FSA.choiceTexts[FSA.ansPosIndex[0]].text;
         tmp.chosenAns = (FSA.chosenAns);
         tmp.isUserRight = FSA.isUserRight;

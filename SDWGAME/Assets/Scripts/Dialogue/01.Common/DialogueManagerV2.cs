@@ -15,7 +15,7 @@ public class DialogueManagerV2 : MonoBehaviour
     public int currentLevel;
 
     public GameObject DisplayClickable;
-    
+
     // Dialogue를 조작하는데 공통적으로 필요한 항목들을 여기에다가 작성합니다.
     private List<string> listSentences = new List<string>();
 //    private Sprite window = null;
@@ -31,11 +31,11 @@ public class DialogueManagerV2 : MonoBehaviour
 
 
     public Animator aniWindow;
+
 //    public SpriteRenderer srSprite;
     public SpriteRenderer srWindow;
-    
-    
-   
+
+
     private void Start()
     {
         TotalStorage = GameObject.Find("TotalStorage");
@@ -53,10 +53,11 @@ public class DialogueManagerV2 : MonoBehaviour
         {
             DisplayClickable.SetActive(true);
         }
-        else if(!dialogue.flags[count] && DisplayClickable.activeSelf)
+        else if (!dialogue.flags[count] && DisplayClickable.activeSelf)
         {
             DisplayClickable.SetActive(false);
         }
+
         // 만약 말하고 있는 상태일 때?
         if (talking)
         {
@@ -69,7 +70,6 @@ public class DialogueManagerV2 : MonoBehaviour
                 {
                     Debug.Log("DIALOGUE's FLAG IS TRUE");
                     return;
-                    
                 }
 
                 ++count;
@@ -93,16 +93,15 @@ public class DialogueManagerV2 : MonoBehaviour
     public void ShowDialogue()
     {
         Debug.Log("IN SHOWDIALOGUE V2");
-        
+
         aniWindow.SetBool("Appear", true);
-        
+
         for (int i = 0; i < dialogue.sentences.Length; i++)
         {
             listSentences.Add(dialogue.sentences[i]);
         }
 
         StartCoroutine(StartDialogueCoroutine());
-
     }
 
     public int GetCurrentSentenceNumber()
@@ -115,7 +114,7 @@ public class DialogueManagerV2 : MonoBehaviour
         dialogue.flags[count] = true;
         SoundManager.Instance.Play_SpeechBubblePop();
     }
-    
+
     public void StartNextScript()
     {
         dialogue.flags[count] = true;
@@ -130,7 +129,7 @@ public class DialogueManagerV2 : MonoBehaviour
         SoundManager.Instance.Play_SpeechBubblePop();
         talking = true;
         text.text = "";
-        if (count>0)
+        if (count > 0)
         {
             yield return new WaitForSeconds(0.05f);
         }
@@ -140,7 +139,7 @@ public class DialogueManagerV2 : MonoBehaviour
             srWindow.sprite = dialogue.dialogueWindow;
             Debug.Log("HI?");
         }
-        
+
 //        Debug.Log(listSentences[count].Length);
         // 텍스트 출력 
         SoundManager.Instance.Play_SoundYes();
@@ -149,13 +148,14 @@ public class DialogueManagerV2 : MonoBehaviour
             text.text += listSentences[count][i];
             yield return new WaitForSeconds(0.02f);
         }
+
 //        for (int i = 0; i < dialogue.sentences[count].Length; i++)
 //        {
 //            text.text += dialogue.sentences[count][i];
 //            yield return new WaitForSeconds(0.02f);
 //        }
     }
-    
+
     public void ExitDialogue()
     {
         talking = false;
@@ -164,7 +164,7 @@ public class DialogueManagerV2 : MonoBehaviour
         listSentences.Clear();
         // 애니메이터 초기화
     }
-    
+
     public void LoadNextScene()
     {
         if (type == "Detection")
@@ -174,15 +174,7 @@ public class DialogueManagerV2 : MonoBehaviour
 
         if (type == "Synthesis")
         {
-            //매직넘버
-            //if (totalStorageScript.tmpStage[1] < 14)
-            //{
             SceneManager.LoadScene("CrabLevel1");
-            //}
-            //else
-            //{
-            //    SceneManager.LoadScene("CrabLevel2");
-            //}
         }
 
         if (type == "Elimination")
