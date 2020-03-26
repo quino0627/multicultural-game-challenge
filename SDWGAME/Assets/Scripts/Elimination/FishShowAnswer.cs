@@ -28,9 +28,11 @@ public class FishShowAnswer : MonoBehaviour
     private GameObject director;
     public bool canClick;
 
-    public GameObject StarLeft;
-    public GameObject StarMiddle;
-    public GameObject StarRight;
+    //public GameObject StarLeft;
+    //public GameObject StarMiddle;
+    public Image StarMiddle;
+
+    //public GameObject StarRight;
     public TextMeshProUGUI descriptionText;
     public TextMeshProUGUI onesentenceText;
 
@@ -48,7 +50,7 @@ public class FishShowAnswer : MonoBehaviour
 
     //excel data
     //public Entity_EliminationTest data;
-    public Entity_EliminationTestCnt10 data;
+    public ELM_DataList data;
 
     // 초급/중급/고급
     public int level;
@@ -145,7 +147,10 @@ public class FishShowAnswer : MonoBehaviour
         if (questionNumber == questionMaxNumber)
         {
             questionNumber = 0;
+            total_clicked = 0;
+            total_correct = 0;
         }
+
         refStageIndex = questionNumber;
         //chosenAns = new List<string>();
         QuizManager = GameObject.Find("QuizManager");
@@ -155,16 +160,17 @@ public class FishShowAnswer : MonoBehaviour
         sharkAudio = shark.GetComponent<AudioSource>();
         stimulText = stimulation.GetComponent<TextMeshPro>();
         sharkArriveTransform = GameObject.Find("SharkArrivePos").transform;
-        // 전체 stage 개수를 3으로 한다.
-        questionMaxNumber = 3;
-        
+        // 전체 질문 개수는 10
+        questionMaxNumber = 10;
+
         total_clicked = 0;
 
 
         if (refStageIndex == 0)
         {
-            randomNoDuplicates = new List<int>();
-            for (int i = 0; i < questionMaxNumber; ++i)
+            //randomNoDuplicates = new List<int>();
+            randomNoDuplicates = stageStorageScript.EliminationRandomNoDuplicates;
+            /*for (int i = 0; i < questionMaxNumber; ++i)
             {
                 int tmp = Random.Range(0, questionMaxNumber);
                 while (randomNoDuplicates.Contains(tmp))
@@ -173,10 +179,11 @@ public class FishShowAnswer : MonoBehaviour
                 }
 
                 randomNoDuplicates.Add(tmp);
-            }
+            }*/
         }
 
         questionId = stage * 10 + randomNoDuplicates[refStageIndex];
+
         QuizInit();
     }
 
@@ -349,12 +356,12 @@ public class FishShowAnswer : MonoBehaviour
         }
 
         //초성 종성 표시
-        syllableText.text = $"<{data.sheets[level].list[questionId].초성종성}>";
+        //syllableText.text = $"<{data.sheets[level].list[questionId].초성종성}>";
 
         //syllable.SetActive(true);
 
         // 자극 제시 ex) 만들
-        stimulText.text = data.sheets[level].list[questionId].자극;
+        stimulText.text = data.sheets[level].list[questionId].원자극;
         SoundManager.Instance.Play_SpeechBubblePop();
         stimulation.SetActive(true);
         yield return new WaitForSeconds(2f);
@@ -362,10 +369,10 @@ public class FishShowAnswer : MonoBehaviour
         // 탈락 자극 제시 ex) ㄴ
         stimulation.SetActive(false);
         SoundManager.Instance.Play_SpeechBubblePop();
-        eliminText.text = data.sheets[level].list[questionId].탈락자극;
+        eliminText.text = data.sheets[level].list[questionId].탈락음소;
         eliminStimul.SetActive(true);
 
-        Debug.Log("HEHEHEHE");
+        //Debug.Log("HEHEHEHE");
 
         StartCoroutine(ShowAnswer());
     }
@@ -549,53 +556,75 @@ public class FishShowAnswer : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         _resultHandler.OpenResult();
         SoundManager.Instance.Play_StarShowedUp();
-        string result_text = $"{totalCorrect/10.0f * 100} 도달!";
+        string result_text = $"{totalCorrect / 10.0f * 100} 도달!";
         descriptionText.text = result_text;
         string[] sentences = {"배고프다구!", "와~ 고마워!"};
 
         ///////임시코드////////////////////////////////////
-        if (totalCorrect == questionMaxNumber)
+        /*if (totalCorrect == questionMaxNumber)
         {
             // 별 1개 채워짐
+            StarMiddle.fillAmount = 1f;
             onesentenceText.text = sentences[1];
             levelStorageScript.obtainedStarCnt[level, stage] = 4;
         }
         else
         {
             onesentenceText.text = sentences[0];
-        }
+            StarMiddle.fillAmount = 0.25f;
+            levelStorageScript.obtainedStarCnt[level, stage] = 1;
+        }*/
         ///////////////////////////////////////////////////
 
-        /*if (totalCorrect <= 3)
+        if (totalCorrect <= 3)
         {
+            onesentenceText.text = sentences[0];
             // 별 1/4
-            levelStorageScript.obtainedStarCnt[level, stage] = 1;
+            StarMiddle.fillAmount = 0.25f;
+            if (levelStorageScript.obtainedStarCnt[level, stage] != 4)
+            {
+                levelStorageScript.obtainedStarCnt[level, stage] = 1;
+            }
         }
         else if (totalCorrect <= 6)
         {
             // 별 2/4
-            levelStorageScript.obtainedStarCnt[level, stage] = 2;
+            onesentenceText.text = sentences[0];
+            StarMiddle.fillAmount = 0.5f;
+            if (levelStorageScript.obtainedStarCnt[level, stage] != 4)
+            {
+                levelStorageScript.obtainedStarCnt[level, stage] = 2;
+            }
         }
         else if (totalCorrect <= 9)
         {
             // 별 3/4
-            levelStorageScript.obtainedStarCnt[level, stage] = 3;
+            onesentenceText.text = sentences[0];
+            StarMiddle.fillAmount = 0.75f;
+            if (levelStorageScript.obtainedStarCnt[level, stage] != 4)
+            {
+                levelStorageScript.obtainedStarCnt[level, stage] = 3;
+            }
         }
-        else if (totalCorrect == stageMaxIndex)
+        else if (totalCorrect == questionMaxNumber)
         {
             // 별 1개 채워짐
+            onesentenceText.text = sentences[1];
+            StarMiddle.fillAmount = 1f;
             levelStorageScript.obtainedStarCnt[level, stage] = 4;
         }
         else
         {
             Debug.Assert(false, "문제가 10개 초과");
-        }*/
-
-        eachQuestionStorageScript.SaveGameOver(EGameName.Elimination, level, stage, questionId,
-            stageStorageScript.playCnt);
+        }
 
         stageStorageScript.LoadGameStageData(EGameName.Elimination, _totalStorageScript.currId, level, stage);
         stageStorageScript.playCnt++;
+        eachQuestionStorageScript.SaveGameOver(EGameName.Elimination, level, stage, questionId,
+            stageStorageScript.playCnt);
+
+
+        
         stageStorageScript.SaveGameStageData(EGameName.Elimination, _totalStorageScript.currId, level, stage,
             totalCorrect);
 
@@ -610,8 +639,6 @@ public class FishShowAnswer : MonoBehaviour
         _totalStorageScript.Save(EGameName.Elimination, level, stage);
 
         eachQuestionStorageScript.initializeQuestionData();
-
-        
     }
     /*IEnumerator DecideResult(float tcl, float tco)
     {

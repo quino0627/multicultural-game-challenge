@@ -153,17 +153,13 @@ public class SynthesisGameDirector : MonoBehaviour
         }
         if (le == 1)
         {
-            this.level = "쉬움";
+            this.level = "보통";
         }
 
         if (le == 2)
         {
-            this.level = "보통";
-        }
-        
-        if (le == 3)
-        {
             this.level = "어려움";
         }
+        
     }
 }

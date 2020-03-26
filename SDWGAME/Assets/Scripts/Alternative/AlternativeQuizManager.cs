@@ -4,6 +4,7 @@ using System.Diagnostics;
 using Newtonsoft.Json;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using Debug = UnityEngine.Debug;
 
 public class AlternativeQuizManager : MonoBehaviour
@@ -27,7 +28,7 @@ public class AlternativeQuizManager : MonoBehaviour
     private GameObject description;
 
     public GameObject StarLeft;
-    public GameObject StarMiddle;
+    public Image StarMiddle;
     public GameObject StarRight;
     public TextMeshProUGUI descriptionText;
     public TextMeshProUGUI onesentenceText;
@@ -135,7 +136,7 @@ public class AlternativeQuizManager : MonoBehaviour
 
         level = _totalStorageScript.chosenLevel;
         stage = _totalStorageScript.chosenStage;
-
+        question_no = 0;
         chosenAns = new List<string>();
 
         max_question_no = 3;
@@ -265,6 +266,7 @@ public class AlternativeQuizManager : MonoBehaviour
     IEnumerator StageEach(int level)
     {
         questionId = stage * 10 + randomNoDuplicates[question_no];
+        //questionId = randomNoDuplicates[question_no];
         total_clicked = 0;
         // 시작 오디오 세팅
 
@@ -511,12 +513,15 @@ public class AlternativeQuizManager : MonoBehaviour
         if (totalCorrect == max_question_no)
         {
             // 별 1개 채워짐
+            StarMiddle.fillAmount = 1f;
             onesentenceText.text = sentences[1];
             levelStorageScript.obtainedStarCnt[level, stage] = 4;
         }
         else
         {
             onesentenceText.text = sentences[0];
+            StarMiddle.fillAmount = 0.25f;
+            levelStorageScript.obtainedStarCnt[level, stage] = 1;
         }
 
         ///////////////
@@ -525,35 +530,51 @@ public class AlternativeQuizManager : MonoBehaviour
         {
             onesentenceText.text = sentences[0];
             // 별 1/4
-            levelStorageScript.obtainedStarCnt[level, stage] = 1;
+            StarMiddle.fillAmount = 0.25f;
+           if (levelStorageScript.obtainedStarCnt[level, stage] != 4)
+            {
+                levelStorageScript.obtainedStarCnt[level, stage] = 1;
+            }
+            
         }
         else if (totalCorrect <= 6)
         {
-            onesentenceText.text = sentences[0];
             // 별 2/4
-            levelStorageScript.obtainedStarCnt[level, stage] = 2;
+            onesentenceText.text = sentences[0];
+            StarMiddle.fillAmount = 0.5f;
+             if (levelStorageScript.obtainedStarCnt[level, stage] != 4)
+            {
+                levelStorageScript.obtainedStarCnt[level, stage] = 2;
+            }
+            
         }
         else if (totalCorrect <= 9)
         {
-            onesentenceText.text = sentences[0];
             // 별 3/4
-            levelStorageScript.obtainedStarCnt[level, stage] = 3;
+            onesentenceText.text = sentences[0];
+            StarMiddle.fillAmount = 0.75f;
+            if (levelStorageScript.obtainedStarCnt[level, stage] != 4)
+            {
+                levelStorageScript.obtainedStarCnt[level, stage] = 3;
+            }
         }
-        else if (totalCorrect == max_stage_no)
+        else if (totalCorrect == questionMaxNumber)
         {
-        
             // 별 1개 채워짐
+            onesentenceText.text = sentences[1];
+            StarMiddle.fillAmount = 1f;
             levelStorageScript.obtainedStarCnt[level, stage] = 4;
         }
         else
         {
             Debug.Assert(false, "문제가 10개 초과");
         }*/
-
-        eachQuestionStorageScript.SaveGameOver(EGameName.Alternative, level, stage, questionId,
-            stageStorageScript.playCnt);
         stageStorageScript.LoadGameStageData(EGameName.Alternative, _totalStorageScript.currId, level, stage);
         stageStorageScript.playCnt++;
+        eachQuestionStorageScript.SaveGameOver(EGameName.Alternative, level, stage, questionId,
+            stageStorageScript.playCnt);
+        
+        
         stageStorageScript.SaveGameStageData(EGameName.Alternative, _totalStorageScript.currId, level, stage,
             totalCorrect);
 

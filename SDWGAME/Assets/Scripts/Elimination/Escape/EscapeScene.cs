@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -9,10 +10,10 @@ public class EscapeScene : MonoBehaviour
     //KeepTrackController ConclusionData
     public GameObject totalStorageObject;
     private TotalDataManager _totalStorageScript;
-    
+
     private GameObject StageStorage;
-    private EachQuestionDataManager StageStorageScript;
-    
+    private StageDataManager StageStorageScript;
+
     private GameObject shark;
     public GameObject sharkBubble;
     private GameObject fish;
@@ -24,7 +25,7 @@ public class EscapeScene : MonoBehaviour
     private bool isSharkArrived;
     private bool isFishExited;
     private bool isDongExited;
-    
+
     private Transform sharkMeetFishPos;
     private Transform fishExitPos;
     private Transform dongExitPos;
@@ -38,11 +39,13 @@ public class EscapeScene : MonoBehaviour
     public Vector3 relativeDistance = Vector3.zero;
 
     public int level;
-    public static int stageIndex;
+    public int stage;
+    public static int questionNumber;
+    public int questionMaxNumber;
+    public ELM_DataList data;
 
-    public Entity_EliminationTestCnt10 data;
-    
-    
+    public int questionId;
+    private static List<int> randomNoDuplicates;
 
     // Start is called before the first frame update
     void Start()
@@ -51,41 +54,66 @@ public class EscapeScene : MonoBehaviour
         totalStorageObject = GameObject.Find("TotalStorage");
         _totalStorageScript = totalStorageObject.GetComponent<TotalDataManager>();
         StageStorage = GameObject.Find("StageStorage");
-        StageStorageScript = StageStorage.GetComponent<EachQuestionDataManager>();
+        StageStorageScript = StageStorage.GetComponent<StageDataManager>();
 
+        questionMaxNumber = 10;
         level = _totalStorageScript.chosenLevel;
-//        stageIndex = _totalStorageScript.tmpStage[2];
-        
+        stage = _totalStorageScript.chosenStage;
+        if (questionNumber == questionMaxNumber)
+        {
+            questionNumber = 0;
+        }
+
+        if (questionNumber == 0)
+        {
+            randomNoDuplicates = new List<int>();
+            for (int i = 0; i < questionMaxNumber; ++i)
+            {
+                int tmp = Random.Range(0, questionMaxNumber);
+                while (randomNoDuplicates.Contains(tmp))
+                {
+                    tmp = Random.Range(0, questionMaxNumber);
+                }
+
+                randomNoDuplicates.Add(tmp);
+            }
+
+            StageStorageScript.EliminationRandomNoDuplicates = randomNoDuplicates;
+        }
+
+        questionId = stage * 10 + randomNoDuplicates[questionNumber];
+
+
         dongExitPos = GameObject.Find("DongExitPos").transform;
         shark = GameObject.Find("Shark");
         fish = GameObject.Find("Fish");
         fishText = fish.transform.GetChild(0).GetComponent<TextMeshPro>();
-        
+
         sharkMeetFishPos = GameObject.Find("SharkFishMeetPos").transform;
         fishExitPos = GameObject.Find("FishExitPos").transform;
 
         fishDongText = fishDong.GetComponentInChildren<TextMeshPro>();
         fishDongTransform = fishDong.transform;
         relativeDistance = fishDongTransform.position - DongOrbitTarget.transform.position;
-        StartCoroutine(SharkTry());    
-        
+        StartCoroutine(SharkTry());
+
         //물고기에 정답음성 넣기
-        string wordFileLink = 
-            $"Sounds/Detection/{data.sheets[level].list[stageIndex].정답음성}";
-        AudioSource fishAudioSource = 
+        string wordFileLink =
+            $"Sounds/Detection/{data.sheets[level].list[questionId].정답음성}";
+        AudioSource fishAudioSource =
             fish.GetComponentInChildren<AudioSource>();
         fishAudioSource.loop = false;
         fishAudioSource.clip = Resources.Load(wordFileLink) as AudioClip;
-        
+
         //테스트로 글자 넣기
-        fishText.text = 
-            data.sheets[level].list[stageIndex].자극;
-        
-        fishDongText.text = 
-            data.sheets[level].list[stageIndex].탈락자극;
+        fishText.text =
+            data.sheets[level].list[questionId].원자극;
+
+        fishDongText.text =
+            data.sheets[level].list[questionId].탈락음소;
     }
-    
-    
+
+
     IEnumerator SharkTry()
     {
         yield return new WaitForSeconds(3.0f);
@@ -108,16 +136,16 @@ public class EscapeScene : MonoBehaviour
                 //Debug.Log("Shark arrived");
             }
         }
-        
-        
+
+
         //물고기와 만났으니 
         shark.GetComponent<Animator>().SetTrigger("Eat");
         yield return new WaitForSeconds(0.5f);
         //물고기 바로 도망가쥬
         shark.GetComponent<Animator>().SetTrigger("Idle");
         StartCoroutine(FishEscape());
-
     }
+
     void MoveObject(float speed, GameObject obj, Vector2 destination)
     {
         float step = speed * Time.deltaTime;
@@ -130,15 +158,12 @@ public class EscapeScene : MonoBehaviour
         //Debug.Log("FishEscape");
         //똥이 보여짐
         fishDong.SetActive(true);
-       
-        
-        
-        
-        
+
+
         //똥이 데굴데굴...
         StartCoroutine(DongTargetMove());
         StartCoroutine(DongDaeGulDaeGul());
-        
+
         //도망치는 물고기
         while (!isFishExited)
         {
@@ -157,28 +182,30 @@ public class EscapeScene : MonoBehaviour
                 //Debug.Log("Shark arrived");
             }
         }
-        
+
         //황당해하는 상어 소환
         StartCoroutine(GoCatchFish());
     }
 
-    IEnumerator DongTargetMove(){
-        while(!isDongExited){
+    IEnumerator DongTargetMove()
+    {
+        while (!isDongExited)
+        {
             yield return new WaitForEndOfFrame();
-             float distance = 
-             Vector2.Distance(
-                            DongOrbitTarget.transform.position,
-                            dongExitPos.position);
-                        if (distance > 0.01f)
-                        {
-                            MoveObject(slowSpeed, DongOrbitTarget, dongExitPos.position);
-                            //Debug.Log("DongTarget moved");
-                        }
-                        else
-                        {
-                            isDongExited = true;
-                            //Debug.Log("DongTarget arrived");
-                        }
+            float distance =
+                Vector2.Distance(
+                    DongOrbitTarget.transform.position,
+                    dongExitPos.position);
+            if (distance > 0.01f)
+            {
+                MoveObject(slowSpeed, DongOrbitTarget, dongExitPos.position);
+                //Debug.Log("DongTarget moved");
+            }
+            else
+            {
+                isDongExited = true;
+                //Debug.Log("DongTarget arrived");
+            }
         }
     }
 
@@ -190,7 +217,7 @@ public class EscapeScene : MonoBehaviour
             fishDongTransform.position = DongOrbitTarget.transform.position + relativeDistance;
             //fishDongTransform.position = DongOrbitTarget.transform.position + orbitDistance;
             fishDongTransform.RotateAround(
-                DongOrbitTarget.transform.position, Vector3.forward, 
+                DongOrbitTarget.transform.position, Vector3.forward,
                 orbitDegreesPerSec * Time.deltaTime);
             relativeDistance = fishDongTransform.position - DongOrbitTarget.transform.position;
         }
@@ -200,18 +227,17 @@ public class EscapeScene : MonoBehaviour
     {
         sharkBubble.SetActive(true);
         yield return new WaitForSeconds(2.0f);
-        
-        //상어 뿔남 애니메이션 예정
-        
-        
-        //Debug.Log("LoadScene");
-        SceneManager.LoadScene("Elimination");
 
+        //상어 뿔남 애니메이션 예정
+
+
+        //Debug.Log("LoadScene");
+        questionNumber++;
+        SceneManager.LoadScene("Elimination");
     }
-    
+
     // Update is called once per frame
     void Update()
     {
-        
     }
 }

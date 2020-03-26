@@ -76,6 +76,7 @@ MonoBehaviour:
   m_SharkEatingFish: {fileID: 8300000, guid: 887b9618127e1464aabefb814a24bc75, type: 3}
   m_JellyFishShowedUp: {fileID: 8300000, guid: 79b0d7a1e422047079ba09687c1aeb11, type: 3}
   m_JellyFishShocked: {fileID: 8300000, guid: 8679320d2f49746878d50728f45e123b, type: 3}
+  m_CrabHurray: {fileID: 8300000, guid: a8f6f36833e2e4c8fb146d8f47adaf8d, type: 3}
   m_EliminationTutorialSampleSound: {fileID: 8300000, guid: 7487f2c881c5a4c7b8d8b2aec8eca37f,
     type: 3}
   m_EliminationTutorialFishClickedSound: {fileID: 8300000, guid: 7ca46b43ef14e436798aa2962084634a,

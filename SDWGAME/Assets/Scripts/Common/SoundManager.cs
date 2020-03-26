@@ -117,6 +117,8 @@ public class SoundManager : MonoBehaviour
 
 	// 해파리가 틀렸을 때 전기충격
 	public AudioClip m_JellyFishShocked = null;
+
+	public AudioClip m_CrabHurray;
 	
 	// EliminationTutorialSampleSound
 	public AudioClip m_EliminationTutorialSampleSound = null;
@@ -340,27 +342,27 @@ public class SoundManager : MonoBehaviour
 	// If music is playing, return true.
 	public bool IsMusicPlaying()
 	{
-		Debug.Log("a");
+		//Debug.Log("a");
 		AudioListener pAudioListener = GameObject.FindObjectOfType<AudioListener>();
 		if (pAudioListener != null)
 		{
-			Debug.Log("b");
+		//	Debug.Log("b");
 //			AudioSource[] pAudioSourceList = pAudioListener.gameObject.GetComponents<AudioSource>();
 			// 내가 짠 거
 			AudioSource[] pAudioSourceList = GetComponents<AudioSource>();
 			Debug.Log(pAudioSourceList.Length);
 			if (pAudioSourceList.Length > 0)
 			{
-				Debug.Log("c");
+		//		Debug.Log("c");
 				for (int i = 0; i < pAudioSourceList.Length; i++)
 				{
-					Debug.Log("d");
+		//			Debug.Log("d");
 					if (pAudioSourceList[i].ignoreListenerVolume == true)
 					{
-						Debug.Log("e");
+		//				Debug.Log("e");
 						if (pAudioSourceList[i].isPlaying == true)
 						{
-							Debug.Log("f");
+		//					Debug.Log("f");
 							return true;
 						}
 					}
@@ -434,6 +436,11 @@ public class SoundManager : MonoBehaviour
 	public void Play_EliminationMusic()
 	{
 		Play_Music(EliminationMusic);
+	}
+
+	public void Play_SynthesisMusic()
+	{
+		Play_Music(SynthesisMusic);
 	}
 
 	// Play Back button sound
@@ -565,6 +572,11 @@ public class SoundManager : MonoBehaviour
 		PlaySoundOneShot(m_JellyFishShocked);
 	}
 
+	public void Play_CrabHurray()
+	{
+		PlaySoundOneShot(m_CrabHurray);
+	}
+	
 	public void Play_EliminationTutorialSampleSound()
 	{
 		PlaySoundOneShot(m_EliminationTutorialSampleSound);

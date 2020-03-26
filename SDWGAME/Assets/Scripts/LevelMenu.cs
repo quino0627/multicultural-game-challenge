@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using System.Xml.Schema;
+using Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -17,7 +18,7 @@ public class LevelMenu : MonoBehaviour
     private GameObject levelStorage;
     private LevelDataManager levelStorageScript;
 
-    public Button EasyStage1;
+    /*public Button EasyStage1;
     public Button EasyStage2;
     public Button EasyStage3;
 
@@ -27,7 +28,9 @@ public class LevelMenu : MonoBehaviour
 
     public Button HardStage1;
     public Button HardStage2;
-    public Button HardStage3;
+    public Button HardStage3;*/
+
+    public Button[] StageButtons;
 
     public SettingsHandler m_Settings = null;
 
@@ -35,13 +38,15 @@ public class LevelMenu : MonoBehaviour
 
     public int[,] starData;
 
-    public GameObject[] Stars;
+    //public GameObject[] Stars;
+
+    public Image[] StarImage;
 
     // Start is called before the first frame update
     void Start()
     {
         starData = new int[3, 3];
-        Debug.Log("stardata전: "+starData[0,0]);
+        Debug.Log("stardata전: " + starData[0, 0]);
         if (!SoundManager.Instance.IsMusicPlaying())
         {
             SoundManager.Instance.Play_MenuMusic();
@@ -56,23 +61,61 @@ public class LevelMenu : MonoBehaviour
         chosenGame = (EGameName) totalStorageScript.chosenGame;
         Debug.Log("STart Level Menu, chosenGame: " + chosenGame);
         starData = levelStorageScript.LoadLevelSceneStar(chosenGame, totalStorageScript.currId);
-        
-        Debug.Log("Stardata[0,0]: "+starData[0,0]);
+
+        StageButtons[0].interactable = true;
+        for (int i = 1; i < 9; i++)
+        {
+            StageButtons[i].interactable = false;
+        }
+
+        Debug.Log("Stardata[0,0]: " + starData[0, 0]);
         // 3 -> 12 수정필요
         if (totalStorageScript.bLogin)
         {
-            if (starData[0, 0] + starData[0, 1] + starData[0, 2] == 4)
+/*
+            if (starData[0, 0] + starData[0, 1] + starData[0, 2] == 12)
             {
                 totalStorageScript.isLevelOpen[(int) chosenGame, 1] = true;
             }
 
-            if (starData[1, 0] + starData[1, 1] + starData[1, 2] == 4)
+            if (starData[1, 0] + starData[1, 1] + starData[1, 2] == 12)
             {
                 totalStorageScript.isLevelOpen[(int) chosenGame, 2] = true;
             }
+*/
+
+
+            //한 스테이지마다 갱신하는 새 코드
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    if (i == 2 && j == 2)
+                    {
+                        break;
+                    }
+
+                    if (starData[i, j] == 4)
+                    {
+                        totalStorageScript.bStageOpen[(int) chosenGame, 3 * i + j + 1] = true;
+                    }
+                }
+            }
         }
 
-        if (totalStorageScript.isLevelOpen[(int) chosenGame, 1])
+        for (int i = 1; i < 9; i++)
+        {
+            if (totalStorageScript.bStageOpen[(int) chosenGame, i])
+            {
+                StageButtons[i].interactable = true;
+            }
+            else
+            {
+                break; // 한번 false면 나머지도 false
+            }
+        }
+
+        /*if (totalStorageScript.isLevelOpen[(int) chosenGame, 1])
         {
             NormalStage1.interactable = true;
             NormalStage2.interactable = true;
@@ -97,50 +140,192 @@ public class LevelMenu : MonoBehaviour
             HardStage2.interactable = false;
             HardStage3.interactable = false;
         }
+*/
+
 
         if (starData[0, 0] == 4)
         {
-            Stars[0].SetActive(true);
+            StarImage[0].fillAmount = 1f;
         }
+
+        if (starData[0, 0] == 3)
+        {
+            StarImage[0].fillAmount = 0.75f;
+        }
+
+        if (starData[0, 0] == 2)
+        {
+            StarImage[0].fillAmount = 0.5f;
+        }
+
+        if (starData[0, 0] == 1)
+        {
+            StarImage[0].fillAmount = 0.25f;
+        }
+
 
         if (starData[0, 1] == 4)
         {
-            Stars[1].SetActive(true);
+            StarImage[1].fillAmount = 1f;
         }
+
+        if (starData[0, 1] == 3)
+        {
+            StarImage[1].fillAmount = 0.75f;
+        }
+
+        if (starData[0, 1] == 2)
+        {
+            StarImage[1].fillAmount = 0.5f;
+        }
+
+        if (starData[0, 1] == 1)
+        {
+            StarImage[1].fillAmount = 0.25f;
+        }
+
 
         if (starData[0, 2] == 4)
         {
-            Stars[2].SetActive(true);
+            StarImage[2].fillAmount = 1f;
         }
+
+        if (starData[0, 2] == 3)
+        {
+            StarImage[2].fillAmount = 0.75f;
+        }
+
+        if (starData[0, 2] == 2)
+        {
+            StarImage[2].fillAmount = 0.5f;
+        }
+
+        if (starData[0, 2] == 1)
+        {
+            StarImage[2].fillAmount = 0.25f;
+        }
+
 
         if (starData[1, 0] == 4)
         {
-            Stars[3].SetActive(true);
+            StarImage[3].fillAmount = 1f;
         }
+
+        if (starData[1, 0] == 3)
+        {
+            StarImage[3].fillAmount = 0.75f;
+        }
+
+        if (starData[1, 0] == 2)
+        {
+            StarImage[3].fillAmount = 0.5f;
+        }
+
+        if (starData[1, 0] == 1)
+        {
+            StarImage[3].fillAmount = 0.25f;
+        }
+
 
         if (starData[1, 1] == 4)
         {
-            Stars[4].SetActive(true);
+            StarImage[4].fillAmount = 1f;
         }
+
+        if (starData[1, 1] == 3)
+        {
+            StarImage[4].fillAmount = 0.75f;
+        }
+
+        if (starData[1, 1] == 2)
+        {
+            StarImage[4].fillAmount = 0.5f;
+        }
+
+        if (starData[1, 1] == 1)
+        {
+            StarImage[4].fillAmount = 0.25f;
+        }
+
 
         if (starData[1, 2] == 4)
         {
-            Stars[5].SetActive(true);
+            StarImage[5].fillAmount = 1f;
+        }
+
+        if (starData[1, 2] == 3)
+        {
+            StarImage[5].fillAmount = 0.75f;
+        }
+
+        if (starData[1, 2] == 2)
+        {
+            StarImage[5].fillAmount = 0.5f;
+        }
+
+        if (starData[1, 2] == 1)
+        {
+            StarImage[5].fillAmount = 0.25f;
         }
 
         if (starData[2, 0] == 4)
         {
-            Stars[6].SetActive(true);
+            StarImage[6].fillAmount = 1f;
+        }
+
+        if (starData[2, 0] == 3)
+        {
+            StarImage[6].fillAmount = 0.75f;
+        }
+
+        if (starData[2, 0] == 2)
+        {
+            StarImage[6].fillAmount = 0.5f;
+        }
+
+        if (starData[2, 0] == 1)
+        {
+            StarImage[6].fillAmount = 0.25f;
         }
 
         if (starData[2, 1] == 4)
         {
-            Stars[7].SetActive(true);
+            StarImage[7].fillAmount = 1f;
+        }
+
+        if (starData[2, 1] == 3)
+        {
+            StarImage[7].fillAmount = 0.75f;
+        }
+
+        if (starData[2, 1] == 2)
+        {
+            StarImage[7].fillAmount = 0.5f;
+        }
+
+        if (starData[2, 1] == 1)
+        {
+            StarImage[7].fillAmount = 0.25f;
         }
 
         if (starData[2, 2] == 4)
         {
-            Stars[8].SetActive(true);
+            StarImage[8].fillAmount = 1f;
+        }
+
+        if (starData[2, 2] == 3)
+        {
+            StarImage[8].fillAmount = 0.75f;
+        }
+
+        if (starData[2, 2] == 2)
+        {
+            StarImage[8].fillAmount = 0.5f;
+        }
+
+        if (starData[2, 2] == 1)
+        {
+            StarImage[8].fillAmount = 0.25f;
         }
     }
 
@@ -168,12 +353,12 @@ public class LevelMenu : MonoBehaviour
 
                 if (totalStorageScript.chosenLevel == 1)
                 {
-                    SceneManager.LoadScene("CrabLevel3");
+                    SceneManager.LoadScene("CrabLevel2");
                 }
 
                 if (totalStorageScript.chosenLevel == 2)
                 {
-                    SceneManager.LoadScene("CrabLevel4");
+                    SceneManager.LoadScene("CrabLevel3");
                 }
 
                 break;
@@ -283,5 +468,10 @@ public class LevelMenu : MonoBehaviour
     {
         //환경설정 창 띄우기
         m_Settings.Show();
+    }
+
+    public void GoBack()
+    {
+        SceneManager.LoadScene("SelectMenu");
     }
 }

@@ -42,10 +42,11 @@ public class SelectMenu : MonoBehaviour
         TotalStorage = GameObject.Find("TotalStorage");
         totalStorageScript = TotalStorage.GetComponent<TotalDataManager>();
         currentLevel = totalStorageScript.chosenLevel;
-        if (!SoundManager.Instance.IsMusicPlaying())
+        if (SoundManager.Instance.IsMusicPlaying())
         {
-            SoundManager.Instance.Play_MenuMusic();
+            SoundManager.Instance.StopMusic();
         }
+        Invoke(nameof(MenuMusicStart), 1f);
         
         /*for (int i = 0; i < 4; i++)
         {
@@ -80,11 +81,13 @@ public class SelectMenu : MonoBehaviour
         }*/
     }
 
-    // Update is called once per frame
-    void Update()
+    
+    
+    // function invoke를 위해 따로 함수를 선업합니다.
+    private void MenuMusicStart()
     {
+        SoundManager.Instance.Play_MenuMusic();
     }
-
 
     public void Detection()
     {

@@ -69,8 +69,8 @@ public class LevelDataManager : MonoBehaviour
 
         detectionLevelDataPath = Path.Combine(Application.persistentDataPath, "DetectionLevelData.json");
         synthesisLevelDataPath = Path.Combine(Application.persistentDataPath, "SynthesisLevelData.json");
-        eliminationDataPath = Path.Combine(Application.persistentDataPath, "eliminationLevelData.json");
-        alternativeDataPath = Path.Combine(Application.persistentDataPath, "alternativeLevelData.json");
+        eliminationDataPath = Path.Combine(Application.persistentDataPath, "EliminationLevelData.json");
+        alternativeDataPath = Path.Combine(Application.persistentDataPath, "AlternativeLevelData.json");
 
         if (!File.Exists(detectionLevelDataPath))
         {

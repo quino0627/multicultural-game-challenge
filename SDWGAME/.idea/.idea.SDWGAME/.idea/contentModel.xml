@@ -184,6 +184,7 @@
             </e>
             <e p="FishController.cs" t="Include" />
             <e p="FishShowAnswer.cs" t="Include" />
+            <e p="FishType.cs" t="Include" />
             <e p="SpeakerController.cs" t="Include" />
           </e>
           <e p="FadeIn.cs" t="Include" />
@@ -237,14 +238,18 @@
               <e p="DET_List_importer.cs" t="Include" />
               <e p="eliminationTest_importer.cs" t="Include" />
               <e p="eliminationTestCnt10_importer.cs" t="Include" />
+              <e p="ELM_DataList_importer.cs" t="Include" />
+              <e p="SYN_DataList_importer.cs" t="Include" />
               <e p="SYN_List_importer.cs" t="Include" />
               <e p="synthesis_importer.cs" t="Include" />
             </e>
+            <e p="ELM_DataList.cs" t="Include" />
             <e p="Entity_Alternative.cs" t="Include" />
             <e p="Entity_Detection.cs" t="Include" />
             <e p="Entity_EliminationTest.cs" t="Include" />
             <e p="Entity_EliminationTestCnt10.cs" t="Include" />
             <e p="Entity_Synthesis.cs" t="Include" />
+            <e p="SYN_DataList.cs" t="Include" />
           </e>
           <e p="Editor" t="Include">
             <e p="EntityTemplate.txt" t="Include" />

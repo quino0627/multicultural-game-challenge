@@ -30,7 +30,7 @@ public class DetectionQuizManager : MonoBehaviour
     private GameObject description;
 
     public GameObject StarLeft;
-    public GameObject StarMiddle;
+    public Image StarMiddle;
     public GameObject StarRight;
     public TextMeshProUGUI descriptionText;
     public TextMeshProUGUI onesentenceText;
@@ -124,7 +124,7 @@ public class DetectionQuizManager : MonoBehaviour
         levelStorage = GameObject.Find("LevelStorage");
         levelStorageScript = levelStorage.GetComponent<LevelDataManager>();
 
-        //stage_no = 0;
+        question_no = 0;
         level = _totalStorageScript.chosenLevel;
         stage = _totalStorageScript.chosenStage;
         chosenAns = new List<string>();
@@ -172,6 +172,7 @@ public class DetectionQuizManager : MonoBehaviour
 
         if (question_no == 0)
         {
+            Debug.Log("make randomeNoDuplicates");
             randomNoDuplicates = new List<int>();
             for (int i = 0; i < max_question_no; ++i)
             {
@@ -249,6 +250,7 @@ public class DetectionQuizManager : MonoBehaviour
     {
         total_clicked = 0;
         questionId = stage * 10 + randomNoDuplicates[question_no];
+        //questionId = randomNoDuplicates[question_no];
         Debug.Log("questionID: " + questionId);
         // 시작 오디오 세팅
         run_once = false;
@@ -450,34 +452,56 @@ public class DetectionQuizManager : MonoBehaviour
         ///////////////임시 코드///////////////////////////
         if (totalCorrect == max_question_no)
         {
+            StarMiddle.fillAmount = 1f;
             // 별 1개 채워짐
             onesentenceText.text = sentences[1];
             levelStorageScript.obtainedStarCnt[level, stage] = 4;
         }
         else
         {
+            StarMiddle.fillAmount = 0.25f;
             onesentenceText.text = sentences[0];
+            levelStorageScript.obtainedStarCnt[level, stage] = 1;
         }
         //////////////////////////////////////////////
 
         /*if (totalCorrect <= 3)
         {
+            onesentenceText.text = sentences[0];
             // 별 1/4
-            levelStorageScript.obtainedStarCnt[level, stage] = 1;
+            StarMiddle.fillAmount = 0.25f;
+            if (levelStorageScript.obtainedStarCnt[level, stage] != 4)
+            {
+                levelStorageScript.obtainedStarCnt[level, stage] = 1;
+            }
+            
         }
         else if (totalCorrect <= 6)
         {
             // 별 2/4
-            levelStorageScript.obtainedStarCnt[level, stage] = 2;
+            onesentenceText.text = sentences[0];
+            StarMiddle.fillAmount = 0.5f;
+            if (levelStorageScript.obtainedStarCnt[level, stage] != 4)
+            {
+                levelStorageScript.obtainedStarCnt[level, stage] = 2;
+            }
+            
         }
         else if (totalCorrect <= 9)
         {
             // 별 3/4
-            levelStorageScript.obtainedStarCnt[level, stage] = 3;
+            onesentenceText.text = sentences[0];
+            StarMiddle.fillAmount = 0.75f;
+           if (levelStorageScript.obtainedStarCnt[level, stage] != 4)
+            {
+                levelStorageScript.obtainedStarCnt[level, stage] = 3;
+            }
         }
-        else if (totalCorrect == max_stage_no)
+        else if (totalCorrect == questionMaxNumber)
         {
             // 별 1개 채워짐
+            onesentenceText.text = sentences[1];
+            StarMiddle.fillAmount = 1f;
             levelStorageScript.obtainedStarCnt[level, stage] = 4;
         }
         else
@@ -485,12 +509,13 @@ public class DetectionQuizManager : MonoBehaviour
             Debug.Assert(false, "문제가 10개 초과");
         }*/
 
-
+        stageStorageScript.LoadGameStageData(EGameName.Detection, _totalStorageScript.currId, level, stage);
+        stageStorageScript.playCnt++;
         eachQuestionStorageScript.SaveGameOver(EGameName.Detection, level, stage, questionId,
             stageStorageScript.playCnt);
 
-        stageStorageScript.LoadGameStageData(EGameName.Detection, _totalStorageScript.currId, level, stage);
-        stageStorageScript.playCnt++;
+        
+        
         stageStorageScript.SaveGameStageData(EGameName.Detection, _totalStorageScript.currId, level, stage,
             totalCorrect);
 

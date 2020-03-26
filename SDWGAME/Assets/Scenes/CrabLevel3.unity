@@ -123,10 +123,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: UIP_ClockBar
       objectReference: {fileID: 0}
-    - target: {fileID: 11489234, guid: 7f01e5e2d97f14c91a0083746fa27c13, type: 3}
-      propertyPath: m_Text
-      value: 60.00
-      objectReference: {fileID: 0}
     - target: {fileID: 22489240, guid: 7f01e5e2d97f14c91a0083746fa27c13, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -222,6 +218,10 @@ PrefabInstance:
     - target: {fileID: 22489240, guid: 7f01e5e2d97f14c91a0083746fa27c13, type: 3}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11489234, guid: 7f01e5e2d97f14c91a0083746fa27c13, type: 3}
+      propertyPath: m_Text
+      value: 60.00
       objectReference: {fileID: 0}
     - target: {fileID: 11489240, guid: 7f01e5e2d97f14c91a0083746fa27c13, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
@@ -1962,12 +1962,6 @@ Transform:
   m_Father: {fileID: 137979847}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &418734510 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4048415073317975088, guid: 79eb7ebd4f45b40a5a75e40e3a3e75e5,
-    type: 3}
-  m_PrefabInstance: {fileID: 1919788155}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &435810241
 GameObject:
   m_ObjectHideFlags: 0
@@ -4711,7 +4705,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalStorageObject: {fileID: 0}
   StarLeft: {fileID: 1997164199}
-  StarMiddle: {fileID: 418734510}
+  StarMiddle: {fileID: 1919788156}
   StarRight: {fileID: 96240758}
   descriptionText: {fileID: 320813819}
   onesentenceText: {fileID: 1807757009}
@@ -4720,13 +4714,12 @@ MonoBehaviour:
   allJFArrived: 0
   cntJFArrived: 0
   isUserRight: 0
-  data: {fileID: 11400000, guid: 8fcb1efef110c4821bc65a35a4c4dcec, type: 2}
+  data: {fileID: 11400000, guid: 3cfc4a6e29d4a024d80270642a2eb81d, type: 2}
   excelLevel: 0
   realLevel: 0
   stage: 0
   questionId: 0
   refQuestionIndex: 0
-  levelOneQuestionMaxIndex: 0
   choices:
   - {fileID: 226080029}
   - {fileID: 7814788422906350757}
@@ -5744,6 +5737,10 @@ PrefabInstance:
       propertyPath: jellyfish
       value: 
       objectReference: {fileID: 137979843}
+    - target: {fileID: 620775252, guid: ec1a40a14ca4642fba19ea0de5d82ced, type: 3}
+      propertyPath: successCrabAudioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: a8f6f36833e2e4c8fb146d8f47adaf8d, type: 3}
     - target: {fileID: 1288890976, guid: ec1a40a14ca4642fba19ea0de5d82ced, type: 3}
       propertyPath: m_LocalPosition.z
       value: -1
@@ -6953,6 +6950,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObjectPlace: {fileID: 1068975827}
   initialPosition: {x: 0, y: 0}
+  bLocked: 0
 --- !u!222 &1908924548
 CanvasRenderer:
   m_ObjectHideFlags: 2
@@ -7076,6 +7074,36 @@ PrefabInstance:
       propertyPath: m_Name
       value: ResultPanel
       objectReference: {fileID: 0}
+    - target: {fileID: 4048415072844002034, guid: 79eb7ebd4f45b40a5a75e40e3a3e75e5,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4048415072844002034, guid: 79eb7ebd4f45b40a5a75e40e3a3e75e5,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4048415072844002034, guid: 79eb7ebd4f45b40a5a75e40e3a3e75e5,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4048415072844002034, guid: 79eb7ebd4f45b40a5a75e40e3a3e75e5,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4048415072844002034, guid: 79eb7ebd4f45b40a5a75e40e3a3e75e5,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4048415072675160053, guid: 79eb7ebd4f45b40a5a75e40e3a3e75e5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4048415072192094188, guid: 79eb7ebd4f45b40a5a75e40e3a3e75e5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7181,11 +7209,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4048415072675160053, guid: 79eb7ebd4f45b40a5a75e40e3a3e75e5,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4048415073392839678, guid: 79eb7ebd4f45b40a5a75e40e3a3e75e5,
         type: 3}
       propertyPath: m_IsActive
@@ -7226,31 +7249,6 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4048415072844002034, guid: 79eb7ebd4f45b40a5a75e40e3a3e75e5,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4048415072844002034, guid: 79eb7ebd4f45b40a5a75e40e3a3e75e5,
-        type: 3}
-      propertyPath: m_textInfo.spaceCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4048415072844002034, guid: 79eb7ebd4f45b40a5a75e40e3a3e75e5,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4048415072844002034, guid: 79eb7ebd4f45b40a5a75e40e3a3e75e5,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4048415072844002034, guid: 79eb7ebd4f45b40a5a75e40e3a3e75e5,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4048415073359356030, guid: 79eb7ebd4f45b40a5a75e40e3a3e75e5,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -7274,10 +7272,32 @@ PrefabInstance:
     - target: {fileID: 4048415073359356030, guid: 79eb7ebd4f45b40a5a75e40e3a3e75e5,
         type: 3}
       propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4048415073317975090, guid: 79eb7ebd4f45b40a5a75e40e3a3e75e5,
+        type: 3}
+      propertyPath: m_Type
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4048415073317975090, guid: 79eb7ebd4f45b40a5a75e40e3a3e75e5,
+        type: 3}
+      propertyPath: m_FillMethod
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79eb7ebd4f45b40a5a75e40e3a3e75e5, type: 3}
+--- !u!114 &1919788156 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4048415073317975090, guid: 79eb7ebd4f45b40a5a75e40e3a3e75e5,
+    type: 3}
+  m_PrefabInstance: {fileID: 1919788155}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1997164199 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4048415073392839678, guid: 79eb7ebd4f45b40a5a75e40e3a3e75e5,
@@ -7679,6 +7699,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObjectPlace: {fileID: 1068975827}
   initialPosition: {x: 0, y: 0}
+  bLocked: 0
 --- !u!1 &2079791940
 GameObject:
   m_ObjectHideFlags: 0
@@ -8158,6 +8179,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObjectPlace: {fileID: 1068975827}
   initialPosition: {x: 0, y: 0}
+  bLocked: 0
 --- !u!114 &387041623738357332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8411,6 +8433,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObjectPlace: {fileID: 1068975827}
   initialPosition: {x: 0, y: 0}
+  bLocked: 0
 --- !u!1 &961433035622520129
 GameObject:
   m_ObjectHideFlags: 0
@@ -8596,6 +8619,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObjectPlace: {fileID: 1068975827}
   initialPosition: {x: 0, y: 0}
+  bLocked: 0
 --- !u!114 &961433037524023125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8779,6 +8803,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObjectPlace: {fileID: 1068975827}
   initialPosition: {x: 0, y: 0}
+  bLocked: 0
 --- !u!114 &961433037695172832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8979,6 +9004,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObjectPlace: {fileID: 1068975827}
   initialPosition: {x: 0, y: 0}
+  bLocked: 0
 --- !u!58 &1187686099560868951
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -9155,6 +9181,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObjectPlace: {fileID: 1068975827}
   initialPosition: {x: 0, y: 0}
+  bLocked: 0
 --- !u!114 &1187686099731504092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9661,6 +9688,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObjectPlace: {fileID: 1068975827}
   initialPosition: {x: 0, y: 0}
+  bLocked: 0
 --- !u!1 &6527218233151387369
 GameObject:
   m_ObjectHideFlags: 0
@@ -9697,6 +9725,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObjectPlace: {fileID: 1068975827}
   initialPosition: {x: 0, y: 0}
+  bLocked: 0
 --- !u!58 &6527218233151387371
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -10156,6 +10185,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObjectPlace: {fileID: 1068975827}
   initialPosition: {x: 0, y: 0}
+  bLocked: 0
 --- !u!1 &7814788424859474232
 GameObject:
   m_ObjectHideFlags: 0
@@ -10227,6 +10257,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObjectPlace: {fileID: 1068975827}
   initialPosition: {x: 0, y: 0}
+  bLocked: 0
 --- !u!114 &7814788424859474236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10504,6 +10535,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObjectPlace: {fileID: 1068975827}
   initialPosition: {x: 0, y: 0}
+  bLocked: 0
 --- !u!61 &7921267749337008252
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10646,6 +10678,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObjectPlace: {fileID: 1068975827}
   initialPosition: {x: 0, y: 0}
+  bLocked: 0
 --- !u!1 &7921267749474107382
 GameObject:
   m_ObjectHideFlags: 0
@@ -11029,6 +11062,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObjectPlace: {fileID: 1068975827}
   initialPosition: {x: 0, y: 0}
+  bLocked: 0
 --- !u!114 &8924173200129077740
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11282,6 +11316,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObjectPlace: {fileID: 1068975827}
   initialPosition: {x: 0, y: 0}
+  bLocked: 0
 --- !u!1 &8924173201015997769
 GameObject:
   m_ObjectHideFlags: 0

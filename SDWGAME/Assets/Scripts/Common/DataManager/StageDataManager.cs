@@ -85,6 +85,8 @@ public class StageDataManager : MonoBehaviour
     private string alternativePath;
     private string synthesisPath;
 
+    public List<int> EliminationRandomNoDuplicates;
+    
     // Start is called before the first frame update
     void Start()
     {

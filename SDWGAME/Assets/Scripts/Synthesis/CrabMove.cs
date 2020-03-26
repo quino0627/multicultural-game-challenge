@@ -15,7 +15,7 @@ public class CrabMove : MonoBehaviour
     public float speed = 1f;
     public float targetAngle = 80f;
     public float turnSpeed = 5f;
-
+    
     
     public bool isAboarding;
     private bool foundJf;
@@ -27,7 +27,7 @@ public class CrabMove : MonoBehaviour
         //jellyfish = GameObject.FindGameObjectWithTag("Carrier");
         clearPosition = GameObject.Find("ClearPosition").transform.position;
         rb2d = GetComponent<Rigidbody2D>();
-        //Debug.Log("jellyfish: "+jellyfish);
+        
     }
 
     // Update is called once per frame
@@ -80,13 +80,16 @@ public class CrabMove : MonoBehaviour
             Debug.Log("Crab on Clear position");
             rb2d.velocity = Vector2.zero;
 
+            //SoundManager.Instance.Play_CrabHurray();
             animator.SetTrigger("Hurray");
+            
+            
             //rb2d.MoveRotation(rb2d.rotation + rotateSpeed * Time.deltaTime);
-            transform.rotation = Quaternion.Slerp(
+            /*transform.rotation = Quaternion.Slerp(
                 transform.rotation,
                 Quaternion.Euler(0, 0, targetAngle),
                 turnSpeed * Time.deltaTime
-            );
+            );*/
 
             // 다음 스테이지로 이동
             if (okNext)
