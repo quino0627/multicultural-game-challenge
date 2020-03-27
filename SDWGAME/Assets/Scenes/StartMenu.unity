@@ -3094,6 +3094,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1120682584}
     m_Modifications:
+    - target: {fileID: 161496, guid: 79770295709e440149f515ba01062d57, type: 3}
+      propertyPath: m_Name
+      value: UIP_Window_01
+      objectReference: {fileID: 0}
     - target: {fileID: 22461496, guid: 79770295709e440149f515ba01062d57, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3185,10 +3189,6 @@ PrefabInstance:
     - target: {fileID: 22461496, guid: 79770295709e440149f515ba01062d57, type: 3}
       propertyPath: m_LocalScale.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 161496, guid: 79770295709e440149f515ba01062d57, type: 3}
-      propertyPath: m_Name
-      value: UIP_Window_01
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79770295709e440149f515ba01062d57, type: 3}
@@ -10015,16 +10015,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8799329715339595891, guid: 85167f57e410c42d09db8d164adf1f1d,
-        type: 3}
-      propertyPath: m_CanvasesToDeactivated.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8799329715339595891, guid: 85167f57e410c42d09db8d164adf1f1d,
-        type: 3}
-      propertyPath: m_CanvasesToDeactivated.Array.data[0]
-      value: 
-      objectReference: {fileID: 220744729}
     - target: {fileID: 6644684302707236014, guid: 85167f57e410c42d09db8d164adf1f1d,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -10130,6 +10120,16 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8799329715339595891, guid: 85167f57e410c42d09db8d164adf1f1d,
+        type: 3}
+      propertyPath: m_CanvasesToDeactivated.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8799329715339595891, guid: 85167f57e410c42d09db8d164adf1f1d,
+        type: 3}
+      propertyPath: m_CanvasesToDeactivated.Array.data[0]
+      value: 
+      objectReference: {fileID: 220744729}
     - target: {fileID: 8799329715339595884, guid: 85167f57e410c42d09db8d164adf1f1d,
         type: 3}
       propertyPath: m_Camera

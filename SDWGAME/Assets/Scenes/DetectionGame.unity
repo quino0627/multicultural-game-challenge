@@ -1024,6 +1024,7 @@ GameObject:
   - component: {fileID: 590778368}
   - component: {fileID: 590778369}
   - component: {fileID: 590778370}
+  - component: {fileID: 590778371}
   m_Layer: 0
   m_Name: DescriptionBubble
   m_TagString: Untagged
@@ -1106,6 +1107,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a59cfa5694aca4e6e973a09859936b80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!61 &590778371
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 590778367}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0068668127, y: 0.21975082}
+  m_SpriteTilingProperty:
+    border: {x: 0.25, y: 0.7, z: 0.25, w: 0.25}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 5.2, y: 3.07}
+    newSize: {x: 2.5, y: 2.2695115}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 1
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.4393814, y: 1.8064328}
+  m_EdgeRadius: 0
 --- !u!1 &598860788
 GameObject:
   m_ObjectHideFlags: 0
@@ -1718,7 +1745,7 @@ MonoBehaviour:
   descriptionText: {fileID: 353788575}
   onesentenceText: {fileID: 258380271}
   _resultHandler: {fileID: 746229634}
-  list: {fileID: 11400000, guid: 6dd53c6bbc27443f1a521a1ba42abf7a, type: 2}
+  data: {fileID: 11400000, guid: 52f499289b1d9478c833651eded1679b, type: 2}
   level: 0
   stage: 0
   questionId: 0
@@ -1803,11 +1830,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1312120093460475355, guid: 1f0aaaafbb86a441aa3612a1c9e9c879,
-        type: 3}
-      propertyPath: m_Settings
-      value: 
-      objectReference: {fileID: 1470578227}
     - target: {fileID: 1312120093460475352, guid: 1f0aaaafbb86a441aa3612a1c9e9c879,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1913,6 +1935,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1312120093460475355, guid: 1f0aaaafbb86a441aa3612a1c9e9c879,
+        type: 3}
+      propertyPath: m_Settings
+      value: 
+      objectReference: {fileID: 1470578227}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f0aaaafbb86a441aa3612a1c9e9c879, type: 3}
 --- !u!224 &809575594 stripped
@@ -3961,11 +3988,14 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 11449294, guid: 6473523504e7243c4adf3ac0c305593e, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 4bf5a7d450d144bb0a017069e41ee289,
-        type: 3}
+    - target: {fileID: 22449298, guid: 6473523504e7243c4adf3ac0c305593e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 22449298, guid: 6473523504e7243c4adf3ac0c305593e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 35
+      objectReference: {fileID: 0}
     - target: {fileID: 11449296, guid: 6473523504e7243c4adf3ac0c305593e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 2
@@ -4010,6 +4040,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 11449294, guid: 6473523504e7243c4adf3ac0c305593e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4bf5a7d450d144bb0a017069e41ee289,
+        type: 3}
     - target: {fileID: 11449298, guid: 6473523504e7243c4adf3ac0c305593e, type: 3}
       propertyPath: m_Color.g
       value: 0.3137255
@@ -4019,14 +4054,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: b8fbbf96b49e548c1b1869cd7ea1ad8b,
         type: 3}
-    - target: {fileID: 22449298, guid: 6473523504e7243c4adf3ac0c305593e, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 35
-      objectReference: {fileID: 0}
-    - target: {fileID: 22449298, guid: 6473523504e7243c4adf3ac0c305593e, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 35
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6473523504e7243c4adf3ac0c305593e, type: 3}
 --- !u!224 &1531073044 stripped
@@ -5154,11 +5181,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ResultPanel
       objectReference: {fileID: 0}
-    - target: {fileID: 4048415072675160053, guid: 79eb7ebd4f45b40a5a75e40e3a3e75e5,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4048415072192094188, guid: 79eb7ebd4f45b40a5a75e40e3a3e75e5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5264,6 +5286,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4048415072675160053, guid: 79eb7ebd4f45b40a5a75e40e3a3e75e5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4048415073392839678, guid: 79eb7ebd4f45b40a5a75e40e3a3e75e5,
         type: 3}
       propertyPath: m_IsActive
@@ -5279,16 +5306,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4048415072981636734, guid: 79eb7ebd4f45b40a5a75e40e3a3e75e5,
-        type: 3}
-      propertyPath: m_RaycastTarget
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4048415073842494970, guid: 79eb7ebd4f45b40a5a75e40e3a3e75e5,
-        type: 3}
-      propertyPath: m_MoveIn.Enable
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4048415073317975090, guid: 79eb7ebd4f45b40a5a75e40e3a3e75e5,
         type: 3}
       propertyPath: m_Type
@@ -5298,6 +5315,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_FillMethod
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4048415072981636734, guid: 79eb7ebd4f45b40a5a75e40e3a3e75e5,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4048415073842494970, guid: 79eb7ebd4f45b40a5a75e40e3a3e75e5,
+        type: 3}
+      propertyPath: m_MoveIn.Enable
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79eb7ebd4f45b40a5a75e40e3a3e75e5, type: 3}

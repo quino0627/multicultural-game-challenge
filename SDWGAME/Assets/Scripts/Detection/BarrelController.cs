@@ -83,7 +83,7 @@ public class BarrelController : MonoBehaviour
         if (currentBarrelText == currentStageAnswerText)
         {
             SoundManager.Instance.Play_ClickedCorrectAnswer();
-            description.GetComponent<DetectionDescriptionController>().CorrectAnswer();
+//            description.GetComponent<DetectionDescriptionController>().CorrectAnswer();
             preventSeveralTouch = true;
             // 점수 올리기
 //            this.director.GetComponent<GameDirector>().GetPoint(100);
@@ -109,7 +109,7 @@ public class BarrelController : MonoBehaviour
             SoundManager.Instance.Play_ClickedWrongAnswer();
             aniTrash.SetTrigger("Appear");
             Invoke(nameof(DisappearTrashAfterSeconds), 1f);
-            description.GetComponent<DetectionDescriptionController>().WrongAnswer();
+//            description.GetComponent<DetectionDescriptionController>().WrongAnswer();
 //            Transform tmpTransform = GameObject.Find("QuizContainer").transform;
             tmpTransform.GetComponent<DetectionQuizManager>().total_clicked++;
             

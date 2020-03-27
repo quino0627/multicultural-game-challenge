@@ -45,7 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_MaxAudioSource: 8
   m_Music: {fileID: 8300000, guid: 0d69a57e4a3f6b54dbca4fb6a11be49f, type: 3}
-  DetectionMusic: {fileID: 8300000, guid: 2c41c63412a8cd040b45854337285773, type: 3}
+  DetectionMusic: {fileID: 8300000, guid: 42163e72c5cbd3a43846fe2695f63871, type: 3}
   SynthesisMusic: {fileID: 8300000, guid: a35b58dddaa2b7a439c90cad10ca37d3, type: 3}
   AlternativeMusic: {fileID: 8300000, guid: 61cb60d759c121d429de2e0f0b1a7543, type: 3}
   EliminationMusic: {fileID: 8300000, guid: b7154de6eb78db94998eb3f5a16ed805, type: 3}

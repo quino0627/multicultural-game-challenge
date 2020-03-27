@@ -41,7 +41,9 @@ public class DetectionQuizManager : MonoBehaviour
     [HideInInspector] private Animator[] animators = new Animator[5];
 
     // excel data
-    public Entity_Detection list;
+//    public Entity_Detection list;
+    public DET_DataList data;
+
 
     // 쉬움, 보통, 어려움 난이도
     public int level = 0;
@@ -129,7 +131,7 @@ public class DetectionQuizManager : MonoBehaviour
         stage = _totalStorageScript.chosenStage;
         chosenAns = new List<string>();
 
-        max_question_no = 3;
+        max_question_no = 10;
         this.director = GameObject.Find("GameDirector");
         this.description = GameObject.Find("Octopus").transform.Find("DescriptionBubble").gameObject;
 
@@ -165,7 +167,6 @@ public class DetectionQuizManager : MonoBehaviour
 
         this.Octo = transform.Find("Octopus").gameObject;
 
-        max_question_no = 3;
         answer_list = new int[max_question_no];
         answer_string_list = new string[max_question_no];
 
@@ -204,7 +205,6 @@ public class DetectionQuizManager : MonoBehaviour
         {
             if (!isLoading)
             {
-                Debug.Log("????????????");
                 watch.Start();
                 CheckPaused = false;
             }
@@ -234,18 +234,11 @@ public class DetectionQuizManager : MonoBehaviour
 
             i++;
         }
-//        Debug.Log($"Stage 0~{max_stage_no-1}까지의 정답은");
-//        for (int j = 0; j < max_stage_no; j++)
-//        {
-//            Debug.Log(answer_list[j].ToString());
-//        }
 
         // 단계(easy=0, normal=1, hard=2)를 받아서 그에 따른 stage를 띄워주면 될 듯
         StartCoroutine(StageEach(level));
     }
 
-    // IEnumerator을 사용하는 이유는 타이머 때문인 듯?!
-    // Original Code at RandomQuizScript/EnableCoroutine
     IEnumerator StageEach(int level)
     {
         total_clicked = 0;
@@ -258,13 +251,13 @@ public class DetectionQuizManager : MonoBehaviour
         // UI 설정
         this.director.GetComponent<GameDirector>().setStage(question_no);
         this.director.GetComponent<GameDirector>().setLevel(level);
-        description.GetComponent<DetectionDescriptionController>().DefaultDescription();
+//        description.GetComponent<DetectionDescriptionController>().DefaultDescription();
 
         // 퀴즈 배열
         //정답을 랜덤위치에 넣고
-        Debug.Log(list.sheets[level].list[questionId].cor);
-        answer_string_list[question_no] = list.sheets[level].list[questionId].cor;
-        QuizTextList[answer_list[question_no]].text = list.sheets[level].list[questionId].cor;
+        Debug.Log(data.sheets[level].list[questionId].정답);
+        answer_string_list[question_no] = data.sheets[level].list[questionId].정답;
+        QuizTextList[answer_list[question_no]].text = data.sheets[level].list[questionId].정답;
 
         //wj
         ref_answer_string = answer_string_list[question_no];
@@ -281,16 +274,16 @@ public class DetectionQuizManager : MonoBehaviour
                 switch (tmp)
                 {
                     case 1:
-                        QuizTextList[i].text = list.sheets[level].list[questionId].ex1;
+                        QuizTextList[i].text = data.sheets[level].list[questionId].오답1;
                         break;
                     case 2:
-                        QuizTextList[i].text = list.sheets[level].list[questionId].ex2;
+                        QuizTextList[i].text = data.sheets[level].list[questionId].오답2;
                         break;
                     case 3:
-                        QuizTextList[i].text = list.sheets[level].list[questionId].ex3;
+                        QuizTextList[i].text = data.sheets[level].list[questionId].오답3;
                         break;
                     case 4:
-                        QuizTextList[i].text = list.sheets[level].list[questionId].ex4;
+                        QuizTextList[i].text = data.sheets[level].list[questionId].오답4;
                         break;
                     default:
                         Debug.Log("?");
@@ -337,11 +330,14 @@ public class DetectionQuizManager : MonoBehaviour
 
             yield return new WaitForSeconds(1f);
             //originalPosition 이 false인 경우에는 아무것도 하지 않다가 true가 되면 break한다.
-            string wordFileLink = $"Sounds/Detection/{list.sheets[level].list[questionId].filename}";
+            string wordFileLink = $"Sounds/Detection/{data.sheets[level].list[questionId].정답음성}";
             Octo.GetComponent<AudioSource>().loop = false;
             Octo.GetComponent<AudioSource>().clip = Resources.Load(wordFileLink) as AudioClip;
-            Debug.Log(Resources.Load(wordFileLink) as AudioClip);
+//            Debug.Log(Resources.Load(wordFileLink) as AudioClip);
             Octo.GetComponent<AudioSource>().Play();
+            
+            
+            
             Debug.Log("타이머 스타트");
             //클릭 타임이
             isLoading = false;
@@ -349,7 +345,7 @@ public class DetectionQuizManager : MonoBehaviour
             yield return new WaitForSeconds(1.0f);
             if (!SoundManager.Instance.IsMusicPlaying())
             {
-                SoundManager.Instance.Play_SoundOctopusMove();
+                SoundManager.Instance.Play_DetectionMusic();
             }
 
 
@@ -450,22 +446,22 @@ public class DetectionQuizManager : MonoBehaviour
         string[] sentences = {"우리 계속 동전을 찾아보자!", "와~ 고마워!"};
 
         ///////////////임시 코드///////////////////////////
-        if (totalCorrect == max_question_no)
-        {
-            StarMiddle.fillAmount = 1f;
-            // 별 1개 채워짐
-            onesentenceText.text = sentences[1];
-            levelStorageScript.obtainedStarCnt[level, stage] = 4;
-        }
-        else
-        {
-            StarMiddle.fillAmount = 0.25f;
-            onesentenceText.text = sentences[0];
-            levelStorageScript.obtainedStarCnt[level, stage] = 1;
-        }
+//        if (totalCorrect == max_question_no)
+//        {
+//            StarMiddle.fillAmount = 1f;
+//            // 별 1개 채워짐
+//            onesentenceText.text = sentences[1];
+//            levelStorageScript.obtainedStarCnt[level, stage] = 4;
+//        }
+//        else
+//        {
+//            StarMiddle.fillAmount = 0.25f;
+//            onesentenceText.text = sentences[0];
+//            levelStorageScript.obtainedStarCnt[level, stage] = 1;
+//        }
         //////////////////////////////////////////////
 
-        /*if (totalCorrect <= 3)
+        if (totalCorrect <= 3)
         {
             onesentenceText.text = sentences[0];
             // 별 1/4
@@ -497,7 +493,7 @@ public class DetectionQuizManager : MonoBehaviour
                 levelStorageScript.obtainedStarCnt[level, stage] = 3;
             }
         }
-        else if (totalCorrect == questionMaxNumber)
+        else if (totalCorrect == max_question_no)
         {
             // 별 1개 채워짐
             onesentenceText.text = sentences[1];
@@ -507,7 +503,7 @@ public class DetectionQuizManager : MonoBehaviour
         else
         {
             Debug.Assert(false, "문제가 10개 초과");
-        }*/
+        }
 
         stageStorageScript.LoadGameStageData(EGameName.Detection, _totalStorageScript.currId, level, stage);
         stageStorageScript.playCnt++;

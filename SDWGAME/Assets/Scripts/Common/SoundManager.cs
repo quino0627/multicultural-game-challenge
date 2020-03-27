@@ -377,20 +377,20 @@ public class SoundManager : MonoBehaviour
 	{
 
 		AudioListener pAudioListener = GameObject.FindObjectOfType<AudioListener>();
-		Debug.Log("1");
+//		Debug.Log("1");
 		if (pAudioListener != null)
 		{
-			Debug.Log("2");
+//			Debug.Log("2");
 			// Look for an AudioListener component that is not playing background music or sounds.
 			bool IsPlaySuccess = false;
 //			AudioSource[] pAudioSourceList = pAudioListener.gameObject.GetComponents<AudioSource>();
 			AudioSource[] pAudioSourceList = GetComponents<AudioSource>();
 			if (pAudioSourceList.Length > 0)
 			{
-				Debug.Log("3");
+//				Debug.Log("3");
 				for (int i = 0; i < pAudioSourceList.Length; i++)
 				{
-					Debug.Log("4");
+//					Debug.Log("4");
 					// Stop music
 
 					pAudioSourceList[i].Stop();

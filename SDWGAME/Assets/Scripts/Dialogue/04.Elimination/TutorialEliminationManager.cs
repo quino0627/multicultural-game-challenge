@@ -12,6 +12,8 @@ public class TutorialEliminationManager : MonoBehaviour
     // 상어
     public GameObject Shark;
     public AudioSource SharkAudio;
+
+    public GameObject thinkBubble;
     
     // in SpeechBubble Text
     public GameObject stimulation;
@@ -20,8 +22,8 @@ public class TutorialEliminationManager : MonoBehaviour
     public GameObject eliminStimul;
     public TextMeshPro eliminText;
     // in SpeechBubble Text
-    public GameObject syllable;
-    public TextMeshPro syllableText;
+//    public GameObject syllable;
+//    public TextMeshPro syllableText;
 
     // Fishes
     public GameObject CorrectFish;
@@ -53,7 +55,7 @@ public class TutorialEliminationManager : MonoBehaviour
         SharkArriveTransform = GameObject.Find("SharkArrivePos").transform;
         eliminText = eliminStimul.GetComponent<TextMeshPro>();
         stimulText = stimulation.GetComponent<TextMeshPro>();
-        syllableText = syllable.GetComponent<TextMeshPro>();
+//        syllableText = syllable.GetComponent<TextMeshPro>();
         
         // Initialize Some Flags
         isClickedSpeaker = false;
@@ -133,8 +135,11 @@ public class TutorialEliminationManager : MonoBehaviour
         }
         
         yield return new WaitForSeconds(3.0f);
+        
+        thinkBubble.SetActive(true);
+        yield return new WaitForSeconds(.5f);
         // 초성 종성 표시
-        syllableText.text = "종성";
+//        syllableText.text = "종성";
         
         // 자극 제시 ex) 만들
         stimulText.text = "만들";

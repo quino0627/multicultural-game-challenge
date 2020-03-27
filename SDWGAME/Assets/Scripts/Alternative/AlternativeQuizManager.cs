@@ -41,7 +41,9 @@ public class AlternativeQuizManager : MonoBehaviour
     [HideInInspector] Animator[] animators = new Animator[5];
 
     // excel data
-    public Entity_Alternative list;
+//    public Entity_Alternative list;
+    public ALT_DataList data;    
+
 
     // 쉬움, 보통, 어려움 난이도 
     public int level = 0;
@@ -139,7 +141,7 @@ public class AlternativeQuizManager : MonoBehaviour
         question_no = 0;
         chosenAns = new List<string>();
 
-        max_question_no = 3;
+        max_question_no = 10;
         
         this.director = GameObject.Find("AlternativeGameDirector");
         this.description = GameObject.Find("DescriptionBubble");
@@ -165,7 +167,6 @@ public class AlternativeQuizManager : MonoBehaviour
 //            this.animators[i] = this.Bubbles[i].GetComponent<Animator>();
         }
 
-        max_question_no = 3;
         answer_list = new int[max_question_no];
         answer_string_list = new string[max_question_no];
 
@@ -280,14 +281,14 @@ public class AlternativeQuizManager : MonoBehaviour
 
         // 보기 설정
         WordBoxOrigin.transform.Find("Text").GetComponent<TextMeshPro>().text =
-            list.sheets[level].list[questionId].origin;
+            data.sheets[level].list[questionId].원자극;
         WordBoxExpect.transform.Find("Text").GetComponent<TextMeshPro>().text =
-            list.sheets[level].list[questionId].expect;
+            data.sheets[level].list[questionId].후자극;
 
         // 퀴즈 배열
         // 정답을 랜덤위치에 넣고
-        answer_string_list[question_no] = list.sheets[level].list[questionId].cor;
-        QuizTextList[answer_list[question_no]].text = list.sheets[level].list[questionId].cor;
+        answer_string_list[question_no] = data.sheets[level].list[questionId].정답;
+        QuizTextList[answer_list[question_no]].text = data.sheets[level].list[questionId].정답;
 
         //wj
         ref_answer_string = answer_string_list[question_no];
@@ -304,16 +305,16 @@ public class AlternativeQuizManager : MonoBehaviour
                 switch (tmp)
                 {
                     case 1:
-                        QuizTextList[i].text = list.sheets[level].list[questionId].ex1;
+                        QuizTextList[i].text = data.sheets[level].list[questionId].오답1;
                         break;
                     case 2:
-                        QuizTextList[i].text = list.sheets[level].list[questionId].ex2;
+                        QuizTextList[i].text = data.sheets[level].list[questionId].오답2;
                         break;
                     case 3:
-                        QuizTextList[i].text = list.sheets[level].list[questionId].ex3;
+                        QuizTextList[i].text = data.sheets[level].list[questionId].오답3;
                         break;
                     case 4:
-                        QuizTextList[i].text = list.sheets[level].list[questionId].ex4;
+                        QuizTextList[i].text = data.sheets[level].list[questionId].오답4;
                         break;
                     default:
                         Debug.Log("? 일어날 수 없습니다.");
@@ -382,12 +383,12 @@ public class AlternativeQuizManager : MonoBehaviour
             }
 
             yield return new WaitForSeconds(1f);
-            string wordFileLink = $"Sounds/Alternative/{list.sheets[level].list[questionId].filename}";
-//            Debug.Log(wordFileLink);
+            string wordFileLink = $"Sounds/Alternative/{data.sheets[level].list[questionId].후자극음성}";
+            Debug.Log(wordFileLink);
             SeahorseRight.GetComponent<AudioSource>().loop = false;
             SeahorseRight.GetComponent<AudioSource>().clip = Resources.Load(wordFileLink) as AudioClip;
             SeahorseRight.GetComponent<AudioSource>().Play();
-
+            Debug.Log(SeahorseRight.GetComponent<AudioSource>().clip);
             yield return new WaitForSeconds(1f);
             SoundManager.Instance.Play_AlternativeMusic();
 
@@ -510,23 +511,23 @@ public class AlternativeQuizManager : MonoBehaviour
         descriptionText.text = result_text;
         string[] sentences = {"다시 해보자", "와~ 너 너무 잘한다!"};
         //////////////////임시코드
-        if (totalCorrect == max_question_no)
-        {
-            // 별 1개 채워짐
-            StarMiddle.fillAmount = 1f;
-            onesentenceText.text = sentences[1];
-            levelStorageScript.obtainedStarCnt[level, stage] = 4;
-        }
-        else
-        {
-            onesentenceText.text = sentences[0];
-            StarMiddle.fillAmount = 0.25f;
-            levelStorageScript.obtainedStarCnt[level, stage] = 1;
-        }
+//        if (totalCorrect == max_question_no)
+//        {
+//            // 별 1개 채워짐
+//            StarMiddle.fillAmount = 1f;
+//            onesentenceText.text = sentences[1];
+//            levelStorageScript.obtainedStarCnt[level, stage] = 4;
+//        }
+//        else
+//        {
+//            onesentenceText.text = sentences[0];
+//            StarMiddle.fillAmount = 0.25f;
+//            levelStorageScript.obtainedStarCnt[level, stage] = 1;
+//        }
 
         ///////////////
 
-        /*if (totalCorrect <= 3)
+        if (totalCorrect <= 3)
         {
             onesentenceText.text = sentences[0];
             // 별 1/4
@@ -558,7 +559,7 @@ public class AlternativeQuizManager : MonoBehaviour
                 levelStorageScript.obtainedStarCnt[level, stage] = 3;
             }
         }
-        else if (totalCorrect == questionMaxNumber)
+        else if (totalCorrect == 10)
         {
             // 별 1개 채워짐
             onesentenceText.text = sentences[1];
@@ -568,7 +569,7 @@ public class AlternativeQuizManager : MonoBehaviour
         else
         {
             Debug.Assert(false, "문제가 10개 초과");
-        }*/
+        }
         stageStorageScript.LoadGameStageData(EGameName.Alternative, _totalStorageScript.currId, level, stage);
         stageStorageScript.playCnt++;
         eachQuestionStorageScript.SaveGameOver(EGameName.Alternative, level, stage, questionId,

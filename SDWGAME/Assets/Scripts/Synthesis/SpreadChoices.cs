@@ -464,8 +464,21 @@ public class SpreadChoices : MonoBehaviour
             Debug.Log("DONE");
             // 해파리가 모두 제 자리에 왔을 때 시간을 시작.
             initialDone = true;
+            // 음악도 시작
+
+            StartCoroutine(MusicStart());
             Invoke("StartTime", 2.0f);
         }
+    }
+
+    IEnumerator MusicStart()
+    {
+        if (SoundManager.Instance.IsMusicPlaying())
+        {
+            SoundManager.Instance.StopMusic();
+        }
+        yield return new WaitForSeconds(1f);
+        SoundManager.Instance.Play_SynthesisMusic();
     }
 
     private void StartTime()
