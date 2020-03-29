@@ -64,11 +64,11 @@ public class DialogueManagerV2 : MonoBehaviour
             // 만약 마우스 클릭을 한다면?
             if (Input.GetMouseButtonDown(0))
             {
-                Debug.Log("I Clicked And");
+//                Debug.Log("I Clicked And");
                 // flags[count]가 true일때만 넘어간다?
                 if (!dialogue.flags[count])
                 {
-                    Debug.Log("DIALOGUE's FLAG IS TRUE");
+//                    Debug.Log("DIALOGUE's FLAG IS TRUE");
                     return;
                 }
 

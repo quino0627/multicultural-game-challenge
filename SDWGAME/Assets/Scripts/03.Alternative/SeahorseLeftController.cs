@@ -16,7 +16,7 @@ public class SeahorseLeftController : MonoBehaviour
         this.animator = GetComponent<Animator>();
         this.animator.speed = .25f;
         this.waterFallAnimator = transform.Find("WaterFallAnimation").GetComponent<Animator>();
-        Debug.Log(waterFallAnimator);
+//        Debug.Log(waterFallAnimator);
     }
 
     // Update is called once per frame

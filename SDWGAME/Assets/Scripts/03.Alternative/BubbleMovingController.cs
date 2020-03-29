@@ -49,13 +49,11 @@ public class BubbleMovingController : MonoBehaviour
     private void OnMouseEnter()
     {
         isMoving = false;
-        Debug.Log("isMoving is " + isMoving);
     }
 
     private void OnMouseExit()
     {
         isMoving = true;
-        Debug.Log("isMoving is " + isMoving);
     }
 
  
