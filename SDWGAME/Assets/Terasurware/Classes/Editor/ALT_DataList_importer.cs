@@ -18,9 +18,9 @@ public class ALT_DataList_importer : AssetPostprocessor {
 			if (!filePath.Equals (asset))
 				continue;
 				
-			ALT_DataList data = (ALT_DataList)AssetDatabase.LoadAssetAtPath (exportPath, typeof(ALT_DataList));
+			ALT_DataList_0329 data = (ALT_DataList_0329)AssetDatabase.LoadAssetAtPath (exportPath, typeof(ALT_DataList_0329));
 			if (data == null) {
-				data = ScriptableObject.CreateInstance<ALT_DataList> ();
+				data = ScriptableObject.CreateInstance<ALT_DataList_0329> ();
 				AssetDatabase.CreateAsset ((ScriptableObject)data, exportPath);
 				data.hideFlags = HideFlags.NotEditable;
 			}
@@ -41,14 +41,14 @@ public class ALT_DataList_importer : AssetPostprocessor {
 						continue;
 					}
 
-					ALT_DataList.Sheet s = new ALT_DataList.Sheet ();
+					ALT_DataList_0329.Sheet s = new ALT_DataList_0329.Sheet ();
 					s.name = sheetName;
 				
 					for (int i=1; i<= sheet.LastRowNum; i++) {
 						IRow row = sheet.GetRow (i);
 						ICell cell = null;
 						
-						ALT_DataList.Param p = new ALT_DataList.Param ();
+						ALT_DataList_0329.Param p = new ALT_DataList_0329.Param ();
 						
 					cell = row.GetCell(0); p.Stage = (cell == null ? 0.0 : cell.NumericCellValue);
 					cell = row.GetCell(1); p.게임No = (cell == null ? 0.0 : cell.NumericCellValue);
@@ -62,6 +62,7 @@ public class ALT_DataList_importer : AssetPostprocessor {
 					cell = row.GetCell(9); p.오답3 = (cell == null ? "" : cell.StringCellValue);
 					cell = row.GetCell(10); p.오답4 = (cell == null ? "" : cell.StringCellValue);
 					cell = row.GetCell(11); p.후자극음성 = (cell == null ? "" : cell.StringCellValue);
+					cell = row.GetCell(12); p.원자극음성 = (cell == null ? "" : cell.StringCellValue);
 						s.list.Add (p);
 					}
 					data.sheets.Add(s);

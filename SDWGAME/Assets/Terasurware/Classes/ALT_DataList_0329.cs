@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-public class ALT_DataList : ScriptableObject
+public class ALT_DataList_0329 : ScriptableObject
 {	
 	public List<Sheet> sheets = new List<Sheet> ();
 
@@ -29,6 +29,7 @@ public class ALT_DataList : ScriptableObject
 		public string 오답3;
 		public string 오답4;
 		public string 후자극음성;
+		public string 원자극음성;
 	}
 }
 

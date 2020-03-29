@@ -105,17 +105,7 @@
           </e>
         </e>
         <e p="Scripts" t="Include">
-          <e p="Alternative" t="Include">
-            <e p="AlternativeDescriptionController.cs" t="Include" />
-            <e p="AlternativeGameDirector.cs" t="Include" />
-            <e p="AlternativeQuizManager.cs" t="Include" />
-            <e p="BubbleController.cs" t="Include" />
-            <e p="BubbleMovingController.cs" t="Include" />
-            <e p="RepeatSoundBubble.cs" t="Include" />
-            <e p="SeahorseLeftController.cs" t="Include" />
-            <e p="SeahorseRightController.cs" t="Include" />
-          </e>
-          <e p="Common" t="Include">
+          <e p="00.Common" t="Include">
             <e p="CloseController.cs" t="Include" />
             <e p="DataManager" t="Include">
               <e p="EachQuestionDataManager.cs" t="Include" />
@@ -137,13 +127,54 @@
             <e p="SoundManager.cs" t="Include" />
             <e p="TimerScript.cs" t="Include" />
           </e>
-          <e p="Detection" t="Include">
+          <e p="01.Detection" t="Include">
             <e p="BarrelController.cs" t="Include" />
             <e p="DetectionDescriptionController.cs" t="Include" />
             <e p="DetectionQuizManager.cs" t="Include" />
             <e p="GameDirector.cs" t="Include" />
           </e>
-          <e p="Dialogue" t="Include">
+          <e p="02.Synthesis" t="Include">
+            <e p="CharacterController2D.cs" t="Include" />
+            <e p="CheckAnswer.cs" t="Include" />
+            <e p="CrabMove.cs" t="Include" />
+            <e p="DragAndDrop.cs" t="Include" />
+            <e p="GameData.cs" t="Include" />
+            <e p="JfSuccess.cs" t="Include" />
+            <e p="MoveJellyfish.cs" t="Include" />
+            <e p="MovingJfScript.cs" t="Include" />
+            <e p="PlayerMovement.cs" t="Include" />
+            <e p="Projectile.cs" t="Include" />
+            <e p="SpreadChoices.cs" t="Include" />
+            <e p="StageClear.cs" t="Include" />
+            <e p="SynthesisDescriptionController.cs" t="Include" />
+            <e p="SynthesisGameDirector.cs" t="Include" />
+          </e>
+          <e p="03.Alternative" t="Include">
+            <e p="AlternativeDescriptionController.cs" t="Include" />
+            <e p="AlternativeGameDirector.cs" t="Include" />
+            <e p="AlternativeQuizManager.cs" t="Include" />
+            <e p="BubbleController.cs" t="Include" />
+            <e p="BubbleMovingController.cs" t="Include" />
+            <e p="RepeatSoundBubble.cs" t="Include" />
+            <e p="SeahorseLeftController.cs" t="Include" />
+            <e p="SeahorseRightController.cs" t="Include" />
+            <e p="WordSpeakerController.cs" t="Include" />
+          </e>
+          <e p="04.Elimination" t="Include">
+            <e p="EliminationDirector.cs" t="Include" />
+            <e p="Escape" t="Include">
+              <e p="EscapeScene.cs" t="Include" />
+            </e>
+            <e p="FishController.cs" t="Include" />
+            <e p="FishShowAnswer.cs" t="Include" />
+            <e p="FishType.cs" t="Include" />
+            <e p="HoverResponse.cs" t="Include" />
+            <e p="SpeakerController.cs" t="Include" />
+          </e>
+          <e p="05.Start" t="Include">
+            <e p="GameMenuUIController.cs" t="Include" />
+          </e>
+          <e p="06.Dialogue" t="Include">
             <e p="01.Common" t="Include">
               <e p="DialogueManagerV2.cs" t="Include" />
               <e p="DialogueV2.cs" t="Include" />
@@ -175,43 +206,13 @@
             <e p="EliminationFishSoundController.cs" t="Include" />
             <e p="EliminationSpeakerSoundController.cs" t="Include" />
           </e>
-          <e p="Elimination" t="Include">
-            <e p="EliminationDirector.cs" t="Include" />
-            <e p="Escape" t="Include">
-              <e p="EscapeScene.cs" t="Include" />
-            </e>
-            <e p="FishController.cs" t="Include" />
-            <e p="FishShowAnswer.cs" t="Include" />
-            <e p="FishType.cs" t="Include" />
-            <e p="SpeakerController.cs" t="Include" />
-          </e>
           <e p="FadeIn.cs" t="Include" />
-          <e p="HoverResponse.cs" t="Include" />
           <e p="LevelMenu.cs" t="Include" />
           <e p="Practice" t="Include">
             <e p="PracticeManager.cs" t="Include" />
           </e>
           <e p="SelectMenu.cs" t="Include" />
-          <e p="Start" t="Include">
-            <e p="GameMenuUIController.cs" t="Include" />
-          </e>
           <e p="StartMenu.cs" t="Include" />
-          <e p="Synthesis" t="Include">
-            <e p="CharacterController2D.cs" t="Include" />
-            <e p="CheckAnswer.cs" t="Include" />
-            <e p="CrabMove.cs" t="Include" />
-            <e p="DragAndDrop.cs" t="Include" />
-            <e p="GameData.cs" t="Include" />
-            <e p="JfSuccess.cs" t="Include" />
-            <e p="MoveJellyfish.cs" t="Include" />
-            <e p="MovingJfScript.cs" t="Include" />
-            <e p="PlayerMovement.cs" t="Include" />
-            <e p="Projectile.cs" t="Include" />
-            <e p="SpreadChoices.cs" t="Include" />
-            <e p="StageClear.cs" t="Include" />
-            <e p="SynthesisDescriptionController.cs" t="Include" />
-            <e p="SynthesisGameDirector.cs" t="Include" />
-          </e>
         </e>
         <e p="SelectResponse.cs" t="Include" />
         <e p="ShineScript.cs" t="Include" />
@@ -231,9 +232,10 @@
         </e>
         <e p="Terasurware" t="Include">
           <e p="Classes" t="Include">
-            <e p="ALT_DataList.cs" t="Include" />
+            <e p="ALT_DataList_0329.cs" t="Include" />
             <e p="DET_DataList.cs" t="Include" />
             <e p="Editor" t="Include">
+              <e p="ALT_DataList_0329_importer.cs" t="Include" />
               <e p="ALT_DataList_importer.cs" t="Include" />
               <e p="ALT_List_importer.cs" t="Include" />
               <e p="DET_DataList_importer.cs" t="Include" />

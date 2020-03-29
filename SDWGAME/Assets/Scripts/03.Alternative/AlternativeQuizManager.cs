@@ -42,7 +42,7 @@ public class AlternativeQuizManager : MonoBehaviour
 
     // excel data
 //    public Entity_Alternative list;
-    public ALT_DataList data;    
+    public ALT_DataList_0329 data;    
 
 
     // 쉬움, 보통, 어려움 난이도 
@@ -69,10 +69,10 @@ public class AlternativeQuizManager : MonoBehaviour
     // Bubble1, Bubble2, Bubble3, Bubble4, Bubble5 -> 음소를 담고 있는 Object
     [HideInInspector] public GameObject[] Bubbles = new GameObject[5];
 
-    // 왼쪽에 있는 해마새기
+    // 왼쪽에 있는 해마
     [HideInInspector] public GameObject SeahorseLeft;
 
-    // 오른쪽에 있는 해마새기
+    // 오른쪽에 있는 해마
     [HideInInspector] public GameObject SeahorseRight;
 
     // 처음에 보여지는 글자 (excel에 origin에 해당)
@@ -81,6 +81,11 @@ public class AlternativeQuizManager : MonoBehaviour
     // 목표 글자 (excel에 target에 해당)
     [HideInInspector] public GameObject WordBoxExpect;
 
+    // WordBoxOrigin의 하위 오브젝트인 Speaker의 AudioSource Compoennt,
+    // Start에서 초기화함
+    [HideInInspector] public AudioSource OriginWordSpeaker; 
+    
+    
     // 타이머 관련 변수
     private float timer = 0f;
     private float timeLimit = 60f;
@@ -155,6 +160,9 @@ public class AlternativeQuizManager : MonoBehaviour
         this.WordBoxOrigin = WordsTransform.Find("WordBoxOrigin").gameObject;
         this.WordBoxExpect = WordsTransform.Find("WordBoxExpect").gameObject;
 
+        // 원 발음 스피커 컴포넌트
+        this.OriginWordSpeaker = WordBoxOrigin.transform.Find("Speaker").gameObject.GetComponent<AudioSource>();
+        
         centerPosition = transform.Find("Words").transform.Find("WordCenterPosition").position;
         rb = WordBoxOrigin.GetComponent<Rigidbody2D>();
 
@@ -284,6 +292,12 @@ public class AlternativeQuizManager : MonoBehaviour
             data.sheets[level].list[questionId].원자극;
         WordBoxExpect.transform.Find("Text").GetComponent<TextMeshPro>().text =
             data.sheets[level].list[questionId].후자극;
+
+        // 원자극파일연결
+        string originWordFileLink = $"Sounds/Alternative/{data.sheets[level].list[questionId].원자극음성}";
+        Debug.Log(originWordFileLink);
+        OriginWordSpeaker.loop = false;
+        OriginWordSpeaker.clip = Resources.Load(originWordFileLink) as AudioClip;
 
         // 퀴즈 배열
         // 정답을 랜덤위치에 넣고
