@@ -74,6 +74,10 @@ public class DragAndDrop : MonoBehaviour
 
     private void OnMouseUp()
     {
+        if (bLocked)
+        {
+            return;
+        }
         if (ObjectPlace != null) 
         {
             //해파리를 원의 일정범위내에 놓으면...

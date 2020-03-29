@@ -1439,14 +1439,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 22449298, guid: 6473523504e7243c4adf3ac0c305593e, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 35
-      objectReference: {fileID: 0}
-    - target: {fileID: 22449298, guid: 6473523504e7243c4adf3ac0c305593e, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 35
-      objectReference: {fileID: 0}
+    - target: {fileID: 11449294, guid: 6473523504e7243c4adf3ac0c305593e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4bf5a7d450d144bb0a017069e41ee289,
+        type: 3}
     - target: {fileID: 11449296, guid: 6473523504e7243c4adf3ac0c305593e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 2
@@ -1491,11 +1488,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
-    - target: {fileID: 11449294, guid: 6473523504e7243c4adf3ac0c305593e, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 4bf5a7d450d144bb0a017069e41ee289,
-        type: 3}
     - target: {fileID: 11449298, guid: 6473523504e7243c4adf3ac0c305593e, type: 3}
       propertyPath: m_Color.g
       value: 0.3137255
@@ -1505,6 +1497,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: b8fbbf96b49e548c1b1869cd7ea1ad8b,
         type: 3}
+    - target: {fileID: 22449298, guid: 6473523504e7243c4adf3ac0c305593e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 22449298, guid: 6473523504e7243c4adf3ac0c305593e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 35
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6473523504e7243c4adf3ac0c305593e, type: 3}
 --- !u!224 &382051384 stripped
@@ -2640,7 +2640,7 @@ Transform:
   m_GameObject: {fileID: 586039511}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 12.2, y: -0.34, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_Children:
   - {fileID: 255951793}
   - {fileID: 1979078664}
@@ -3742,10 +3742,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: UIP_ClockBar
       objectReference: {fileID: 0}
-    - target: {fileID: 11489234, guid: 7f01e5e2d97f14c91a0083746fa27c13, type: 3}
-      propertyPath: m_Text
-      value: 60.00
-      objectReference: {fileID: 0}
     - target: {fileID: 22489240, guid: 7f01e5e2d97f14c91a0083746fa27c13, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3841,6 +3837,10 @@ PrefabInstance:
     - target: {fileID: 22489240, guid: 7f01e5e2d97f14c91a0083746fa27c13, type: 3}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11489234, guid: 7f01e5e2d97f14c91a0083746fa27c13, type: 3}
+      propertyPath: m_Text
+      value: 60.00
       objectReference: {fileID: 0}
     - target: {fileID: 11489240, guid: 7f01e5e2d97f14c91a0083746fa27c13, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size

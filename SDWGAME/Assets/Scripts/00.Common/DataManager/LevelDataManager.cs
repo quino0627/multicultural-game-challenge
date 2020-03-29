@@ -83,8 +83,8 @@ public class LevelDataManager : MonoBehaviour
             File.WriteAllText(alternativeDataPath, tmpJdata);
         }
 
-LoadLevelData();
-       }
+        LoadLevelData();
+    }
 
     public void LoadLevelData()
     {
@@ -97,9 +97,8 @@ LoadLevelData();
         tmpEliminationLevelData = JsonConvert.DeserializeObject<Dictionary<string, LevelDataForEachUser>>(jdata);
         jdata = File.ReadAllText(alternativeDataPath);
         tmpAlternativeLevelData = JsonConvert.DeserializeObject<Dictionary<string, LevelDataForEachUser>>(jdata);
-
     }
-    
+
     public int[,] LoadLevelSceneStar(EGameName eGameName, string id)
     {
         LoadLevelData();

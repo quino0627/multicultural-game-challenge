@@ -200,6 +200,7 @@
               <e p="ClickCorrectBubble.cs" t="Include" />
               <e p="ClickWrongBubble.cs" t="Include" />
               <e p="TutorialAlternativeManager.cs" t="Include" />
+              <e p="TutorialRepeatSoundBubble.cs" t="Include" />
             </e>
             <e p="AlternativeBubbleClickSound.cs" t="Include" />
             <e p="CheckClicks.cs" t="Include" />

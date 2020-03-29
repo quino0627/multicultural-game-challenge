@@ -151,7 +151,7 @@ public class SoundManager : MonoBehaviour
 	// Awake is called when the script instance is being loaded.
 	void Awake()
 	{
-		Debug.Log("AWAKE");
+//		Debug.Log("AWAKE");
 		if (instance == null)
 		{
 			// Make the current instance as the singleton
@@ -162,11 +162,9 @@ public class SoundManager : MonoBehaviour
 		}
 		else
 		{
-			Debug.Log("IN FIRST ELSE");
 			// If more than one singleton exists in the scene find the existing reference from the scene and destroy it
 			if (this != instance)
 			{
-				Debug.Log("IN SECONDE ELSE");
 				InitAudioListener();
 				Destroy(this.gameObject);
 			}
@@ -177,7 +175,6 @@ public class SoundManager : MonoBehaviour
 	// http://docs.unity3d.com/ScriptReference/MonoBehaviour.Start.html
 	void Start()
 	{
-		Debug.Log("START");
 		// Initial AudioListener
 		InitAudioListener();
 

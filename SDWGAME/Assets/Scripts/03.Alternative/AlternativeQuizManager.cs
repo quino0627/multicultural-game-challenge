@@ -80,10 +80,19 @@ public class AlternativeQuizManager : MonoBehaviour
 
     // 목표 글자 (excel에 target에 해당)
     [HideInInspector] public GameObject WordBoxExpect;
+    
+    // 원 글자 스피커
+    [HideInInspector] public GameObject OriginWordSpeakerGameObject;
 
-    // WordBoxOrigin의 하위 오브젝트인 Speaker의 AudioSource Compoennt,
+    // Speakers
+    
+    // WordBoxOrigin의 하위 오브젝트인 Speaker의 AudioSource Component,
     // Start에서 초기화함
-    [HideInInspector] public AudioSource OriginWordSpeaker; 
+    [HideInInspector] public AudioSource OriginWordSpeaker;
+    
+    // SeahorseRight의 하위 오브젝트인 Speaker의 AudioSource Component
+    // Start에서 초기화함
+    [HideInInspector] public AudioSource ExpectWordSpeaker;
     
     
     // 타이머 관련 변수
@@ -159,9 +168,14 @@ public class AlternativeQuizManager : MonoBehaviour
         Transform WordsTransform = transform.Find("Words").transform;
         this.WordBoxOrigin = WordsTransform.Find("WordBoxOrigin").gameObject;
         this.WordBoxExpect = WordsTransform.Find("WordBoxExpect").gameObject;
-
+        this.OriginWordSpeakerGameObject = WordsTransform.Find("Speaker").gameObject;
+        
         // 원 발음 스피커 컴포넌트
-        this.OriginWordSpeaker = WordBoxOrigin.transform.Find("Speaker").gameObject.GetComponent<AudioSource>();
+//        this.OriginWordSpeaker = WordBoxOrigin.transform.Find("Speaker").gameObject.GetComponent<AudioSource>();
+        this.OriginWordSpeaker = WordsTransform.Find("Speaker").gameObject.GetComponent<AudioSource>();
+        // 기대 발음 스피커 컴포넌트
+        this.ExpectWordSpeaker = SeahorseRight.transform.Find("RepeatSound").gameObject.GetComponent<AudioSource>();
+        ExpectWordSpeaker.playOnAwake = false;
         
         centerPosition = transform.Find("Words").transform.Find("WordCenterPosition").position;
         rb = WordBoxOrigin.GetComponent<Rigidbody2D>();
@@ -398,11 +412,18 @@ public class AlternativeQuizManager : MonoBehaviour
 
             yield return new WaitForSeconds(1f);
             string wordFileLink = $"Sounds/Alternative/{data.sheets[level].list[questionId].후자극음성}";
-            Debug.Log(wordFileLink);
+            // 2020.03.29 송동욱
+            // 유니티 오브젝트에 익숙치 않아서 유사 코드가 중복...ㅠ
+            
+            // 처음 들려주는 후자극음성
             SeahorseRight.GetComponent<AudioSource>().loop = false;
             SeahorseRight.GetComponent<AudioSource>().clip = Resources.Load(wordFileLink) as AudioClip;
             SeahorseRight.GetComponent<AudioSource>().Play();
-            Debug.Log(SeahorseRight.GetComponent<AudioSource>().clip);
+            
+            // 사용자가 버튼을 클릭하면 
+            ExpectWordSpeaker.loop = false;
+            ExpectWordSpeaker.clip = Resources.Load(wordFileLink) as AudioClip;
+            
             yield return new WaitForSeconds(1f);
             SoundManager.Instance.Play_AlternativeMusic();
 
@@ -429,6 +450,7 @@ public class AlternativeQuizManager : MonoBehaviour
 
             // 다시 듣기 말풍선 띄우기
             SeahorseRight.transform.Find("RepeatSound").gameObject.SetActive(true);
+            OriginWordSpeakerGameObject.SetActive(true);
         }
     }
 
@@ -446,6 +468,8 @@ public class AlternativeQuizManager : MonoBehaviour
     {
         // 다시 듣기 말풍선 가리기
         SeahorseRight.transform.Find("RepeatSound").gameObject.SetActive(false);
+        OriginWordSpeakerGameObject.SetActive(false);
+        
         for (int i = 0; i < 5; i++)
         {
             yield return new WaitForSeconds(0.3f);
@@ -583,7 +607,12 @@ public class AlternativeQuizManager : MonoBehaviour
         else
         {
             Debug.Assert(false, "문제가 10개 초과");
+<<<<<<< Updated upstream:SDWGAME/Assets/Scripts/03.Alternative/AlternativeQuizManager.cs
         }
+=======
+        }*/
+        
+>>>>>>> Stashed changes:SDWGAME/Assets/Scripts/Alternative/AlternativeQuizManager.cs
         stageStorageScript.LoadGameStageData(EGameName.Alternative, _totalStorageScript.currId, level, stage);
         stageStorageScript.playCnt++;
         eachQuestionStorageScript.SaveGameOver(EGameName.Alternative, level, stage, questionId,
