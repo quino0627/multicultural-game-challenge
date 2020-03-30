@@ -42,7 +42,7 @@ public class AlternativeQuizManager : MonoBehaviour
 
     // excel data
 //    public Entity_Alternative list;
-    public ALT_DataList_0329 data;    
+    public ALT_DataList_0329 data;
 
 
     // 쉬움, 보통, 어려움 난이도 
@@ -80,21 +80,21 @@ public class AlternativeQuizManager : MonoBehaviour
 
     // 목표 글자 (excel에 target에 해당)
     [HideInInspector] public GameObject WordBoxExpect;
-    
+
     // 원 글자 스피커
     [HideInInspector] public GameObject OriginWordSpeakerGameObject;
 
     // Speakers
-    
+
     // WordBoxOrigin의 하위 오브젝트인 Speaker의 AudioSource Component,
     // Start에서 초기화함
     [HideInInspector] public AudioSource OriginWordSpeaker;
-    
+
     // SeahorseRight의 하위 오브젝트인 Speaker의 AudioSource Component
     // Start에서 초기화함
     [HideInInspector] public AudioSource ExpectWordSpeaker;
-    
-    
+
+
     // 타이머 관련 변수
     private float timer = 0f;
     private float timeLimit = 60f;
@@ -156,7 +156,7 @@ public class AlternativeQuizManager : MonoBehaviour
         chosenAns = new List<string>();
 
         max_question_no = 10;
-        
+
         this.director = GameObject.Find("AlternativeGameDirector");
         this.description = GameObject.Find("DescriptionBubble");
 
@@ -169,14 +169,14 @@ public class AlternativeQuizManager : MonoBehaviour
         this.WordBoxOrigin = WordsTransform.Find("WordBoxOrigin").gameObject;
         this.WordBoxExpect = WordsTransform.Find("WordBoxExpect").gameObject;
         this.OriginWordSpeakerGameObject = WordsTransform.Find("Speaker").gameObject;
-        
+
         // 원 발음 스피커 컴포넌트
 //        this.OriginWordSpeaker = WordBoxOrigin.transform.Find("Speaker").gameObject.GetComponent<AudioSource>();
         this.OriginWordSpeaker = WordsTransform.Find("Speaker").gameObject.GetComponent<AudioSource>();
         // 기대 발음 스피커 컴포넌트
         this.ExpectWordSpeaker = SeahorseRight.transform.Find("RepeatSound").gameObject.GetComponent<AudioSource>();
         ExpectWordSpeaker.playOnAwake = false;
-        
+
         centerPosition = transform.Find("Words").transform.Find("WordCenterPosition").position;
         rb = WordBoxOrigin.GetComponent<Rigidbody2D>();
 
@@ -192,7 +192,6 @@ public class AlternativeQuizManager : MonoBehaviour
         answer_list = new int[max_question_no];
         answer_string_list = new string[max_question_no];
 
-        
 
         if (question_no == 0)
         {
@@ -414,16 +413,16 @@ public class AlternativeQuizManager : MonoBehaviour
             string wordFileLink = $"Sounds/Alternative/{data.sheets[level].list[questionId].후자극음성}";
             // 2020.03.29 송동욱
             // 유니티 오브젝트에 익숙치 않아서 유사 코드가 중복...ㅠ
-            
+
             // 처음 들려주는 후자극음성
             SeahorseRight.GetComponent<AudioSource>().loop = false;
             SeahorseRight.GetComponent<AudioSource>().clip = Resources.Load(wordFileLink) as AudioClip;
             SeahorseRight.GetComponent<AudioSource>().Play();
-            
+
             // 사용자가 버튼을 클릭하면 
             ExpectWordSpeaker.loop = false;
             ExpectWordSpeaker.clip = Resources.Load(wordFileLink) as AudioClip;
-            
+
             yield return new WaitForSeconds(1f);
             SoundManager.Instance.Play_AlternativeMusic();
 
@@ -469,7 +468,7 @@ public class AlternativeQuizManager : MonoBehaviour
         // 다시 듣기 말풍선 가리기
         SeahorseRight.transform.Find("RepeatSound").gameObject.SetActive(false);
         OriginWordSpeakerGameObject.SetActive(false);
-        
+
         for (int i = 0; i < 5; i++)
         {
             yield return new WaitForSeconds(0.3f);
@@ -545,7 +544,7 @@ public class AlternativeQuizManager : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         _resultHandler.OpenResult();
         SoundManager.Instance.Play_StarShowedUp();
-        string result_text = $"{totalCorrect/10.0f * 100} 도달!";
+        string result_text = $"{totalCorrect / 10.0f * 100} 도달!";
         descriptionText.text = result_text;
         string[] sentences = {"다시 해보자", "와~ 너 너무 잘한다!"};
         //////////////////임시코드
@@ -570,22 +569,20 @@ public class AlternativeQuizManager : MonoBehaviour
             onesentenceText.text = sentences[0];
             // 별 1/4
             StarMiddle.fillAmount = 0.25f;
-           if (levelStorageScript.obtainedStarCnt[level, stage] != 4)
+            if (levelStorageScript.obtainedStarCnt[level, stage] != 4)
             {
                 levelStorageScript.obtainedStarCnt[level, stage] = 1;
             }
-            
         }
         else if (totalCorrect <= 6)
         {
             // 별 2/4
             onesentenceText.text = sentences[0];
             StarMiddle.fillAmount = 0.5f;
-             if (levelStorageScript.obtainedStarCnt[level, stage] != 4)
+            if (levelStorageScript.obtainedStarCnt[level, stage] != 4)
             {
                 levelStorageScript.obtainedStarCnt[level, stage] = 2;
             }
-            
         }
         else if (totalCorrect <= 9)
         {
@@ -607,18 +604,15 @@ public class AlternativeQuizManager : MonoBehaviour
         else
         {
             Debug.Assert(false, "문제가 10개 초과");
-<<<<<<< Updated upstream:SDWGAME/Assets/Scripts/03.Alternative/AlternativeQuizManager.cs
         }
-=======
-        }*/
-        
->>>>>>> Stashed changes:SDWGAME/Assets/Scripts/Alternative/AlternativeQuizManager.cs
+
+
         stageStorageScript.LoadGameStageData(EGameName.Alternative, _totalStorageScript.currId, level, stage);
         stageStorageScript.playCnt++;
         eachQuestionStorageScript.SaveGameOver(EGameName.Alternative, level, stage, questionId,
             stageStorageScript.playCnt);
-        
-        
+
+
         stageStorageScript.SaveGameStageData(EGameName.Alternative, _totalStorageScript.currId, level, stage,
             totalCorrect);
 
@@ -626,6 +620,7 @@ public class AlternativeQuizManager : MonoBehaviour
         levelStorageScript.avgPerfection[level] =
             stageStorageScript.GetAvgCorrectAnswerCountForLevel(_totalStorageScript.currId, level,
                 EGameName.Alternative);
+
         levelStorageScript.avgResponseTime[level] =
             stageStorageScript.GetAvgResponseTimeForLevel(_totalStorageScript.currId, level, EGameName.Alternative);
         levelStorageScript.SaveLevelData(EGameName.Alternative, _totalStorageScript.currId, level);
@@ -633,76 +628,74 @@ public class AlternativeQuizManager : MonoBehaviour
         _totalStorageScript.Save(EGameName.Alternative, level, stage);
 
         eachQuestionStorageScript.initializeQuestionData();
-        
-        
     }
+}
 
-    /*IEnumerator DecideResult(float tcl, float tco)
-    {
-        yield return new WaitForSeconds(1.0f);
-        _resultHandler.OpenResult();
+/*IEnumerator DecideResult(float tcl, float tco)
+{
+    yield return new WaitForSeconds(1.0f);
+    _resultHandler.OpenResult();
 //        // Text 설정
 //        // tcl : total_clicked
 //        // tco : total_correct
-        string result_text = $"{tcl}번만에 {tco}개를 맞췄어요!";
-        descriptionText.text = result_text;
-        string[] sentences = {"정말 잘했어요", "조금 더 신중하게 해 보자", "더 연습하자"};
-        float rate = tcl / tco;
+    string result_text = $"{tcl}번만에 {tco}개를 맞췄어요!";
+    descriptionText.text = result_text;
+    string[] sentences = {"정말 잘했어요", "조금 더 신중하게 해 보자", "더 연습하자"};
+    float rate = tcl / tco;
 //        // 만약에 2.5배보다 더 많이 클릭했으면
-        if (rate > 2.5f)
+    if (rate > 2.5f)
+    {
+        // 아무것도 열리지 않을 것.
+        // do nothing
+        // 별 아무것도 못 받았을 떄 소리
+        SoundManager.Instance.Play_NoStarShowedUp();
+        StarLeft.SetActive(false);
+        onesentenceText.text = sentences[2];
+        _totalStorageScript.tmpStars[3, level] = 0;
+    }
+    else
+    {
+        SoundManager.Instance.Play_StarShowedUp();
+        onesentenceText.text = sentences[2];
+        StarLeft.SetActive(true);
+        _totalStorageScript.tmpStars[3, level]++;
+        yield return new WaitForSeconds(.5f);
+    }
+
+    if (rate > 2)
+    {
+        StarMiddle.SetActive(false);
+    }
+    else
+    {
+        SoundManager.Instance.Play_StarShowedUp();
+        onesentenceText.text = sentences[1];
+        StarMiddle.SetActive(true);
+        _totalStorageScript.tmpStars[3, level]++;
+        yield return new WaitForSeconds(.5f);
+    }
+
+    if (rate > 1.5)
+    {
+        StarRight.SetActive(false);
+    }
+    else
+    {
+        SoundManager.Instance.Play_StarShowedUp();
+        onesentenceText.text = sentences[0];
+        StarRight.SetActive(true);
+        _totalStorageScript.tmpStars[3, level]++;
+        if (_totalStorageScript.tmpMaxLevel[3] == level)
         {
-            // 아무것도 열리지 않을 것.
-            // do nothing
-            // 별 아무것도 못 받았을 떄 소리
-            SoundManager.Instance.Play_NoStarShowedUp();
-            StarLeft.SetActive(false);
-            onesentenceText.text = sentences[2];
-            _totalStorageScript.tmpStars[3, level] = 0;
-        }
-        else
-        {
-            SoundManager.Instance.Play_StarShowedUp();
-            onesentenceText.text = sentences[2];
-            StarLeft.SetActive(true);
-            _totalStorageScript.tmpStars[3, level]++;
-            yield return new WaitForSeconds(.5f);
+            _totalStorageScript.tmpMaxLevel[3] = level + 1;
         }
 
-        if (rate > 2)
-        {
-            StarMiddle.SetActive(false);
-        }
-        else
-        {
-            SoundManager.Instance.Play_StarShowedUp();
-            onesentenceText.text = sentences[1];
-            StarMiddle.SetActive(true);
-            _totalStorageScript.tmpStars[3, level]++;
-            yield return new WaitForSeconds(.5f);
-        }
+        yield return new WaitForSeconds(.5f);
+    }
 
-        if (rate > 1.5)
-        {
-            StarRight.SetActive(false);
-        }
-        else
-        {
-            SoundManager.Instance.Play_StarShowedUp();
-            onesentenceText.text = sentences[0];
-            StarRight.SetActive(true);
-            _totalStorageScript.tmpStars[3, level]++;
-            if (_totalStorageScript.tmpMaxLevel[3] == level)
-            {
-                _totalStorageScript.tmpMaxLevel[3] = level + 1;
-            }
-
-            yield return new WaitForSeconds(.5f);
-        }
-
-        if (_totalStorageScript.tmpMaxLevel[3] > level)
-        {
-            _totalStorageScript.tmpStars[3, level] = 3;
-        }
-        
-    }*/
-}
+    if (_totalStorageScript.tmpMaxLevel[3] > level)
+    {
+        _totalStorageScript.tmpStars[3, level] = 3;
+    }
+    
+}*/
