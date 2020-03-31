@@ -26,8 +26,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u3134"
       "\uC624\uB2F53": "\u3137"
       "\uC624\uB2F54": "\u3147"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S1_1_P1
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S1_1_W1
     - Stage: 1
       "\uAC8C\uC784No": 1
       "\uB09C\uC774\uB3C4": "\uCD08"
@@ -39,8 +39,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u314A"
       "\uC624\uB2F53": "\u3147"
       "\uC624\uB2F54": "\u3137"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S1_1_P2
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S1_1_W2
     - Stage: 1
       "\uAC8C\uC784No": 2
       "\uB09C\uC774\uB3C4": "\uCD08"
@@ -52,8 +52,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u3147"
       "\uC624\uB2F53": "\u3148"
       "\uC624\uB2F54": "\u3142"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S1_1_P3
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S1_1_W3
     - Stage: 1
       "\uAC8C\uC784No": 3
       "\uB09C\uC774\uB3C4": "\uCD08"
@@ -65,8 +65,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u3137"
       "\uC624\uB2F53": "\u3147"
       "\uC624\uB2F54": "\u314C"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S1_1_P4
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S1_1_W4
     - Stage: 1
       "\uAC8C\uC784No": 4
       "\uB09C\uC774\uB3C4": "\uCD08"
@@ -78,8 +78,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u3134"
       "\uC624\uB2F53": "\u3147"
       "\uC624\uB2F54": "\u314A"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S1_1_P5
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S1_1_W5
     - Stage: 1
       "\uAC8C\uC784No": 5
       "\uB09C\uC774\uB3C4": "\uCD08"
@@ -91,8 +91,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u3147"
       "\uC624\uB2F53": "\u3134"
       "\uC624\uB2F54": "\u314B"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S1_1_P6
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S1_1_W6
     - Stage: 1
       "\uAC8C\uC784No": 6
       "\uB09C\uC774\uB3C4": "\uCD08"
@@ -104,8 +104,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u3148"
       "\uC624\uB2F53": "\u3134"
       "\uC624\uB2F54": "\u314C"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S1_1_P7
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S1_1_W7
     - Stage: 1
       "\uAC8C\uC784No": 7
       "\uB09C\uC774\uB3C4": "\uCD08"
@@ -117,8 +117,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u3147"
       "\uC624\uB2F53": "\u3137"
       "\uC624\uB2F54": "\u314C"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S1_1_P8
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S1_1_W8
     - Stage: 1
       "\uAC8C\uC784No": 8
       "\uB09C\uC774\uB3C4": "\uCD08"
@@ -130,8 +130,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u3141"
       "\uC624\uB2F53": "\u3134"
       "\uC624\uB2F54": "\u314C"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S1_1_P9
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S1_1_W9
     - Stage: 1
       "\uAC8C\uC784No": 9
       "\uB09C\uC774\uB3C4": "\uCD08"
@@ -143,8 +143,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u314A"
       "\uC624\uB2F53": "\u3137"
       "\uC624\uB2F54": "\u3131"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S1_1_P10
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S1_1_W10
     - Stage: 2
       "\uAC8C\uC784No": 10
       "\uB09C\uC774\uB3C4": "\uCD08"
@@ -156,8 +156,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u3134"
       "\uC624\uB2F53": "\u314E"
       "\uC624\uB2F54": "\u314D"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S1_2_P11
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S1_2_W11
     - Stage: 2
       "\uAC8C\uC784No": 11
       "\uB09C\uC774\uB3C4": "\uCD08"
@@ -169,8 +169,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u3131"
       "\uC624\uB2F53": "\u3139"
       "\uC624\uB2F54": "\u314B"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S1_2_P12
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S1_2_W12
     - Stage: 2
       "\uAC8C\uC784No": 12
       "\uB09C\uC774\uB3C4": "\uCD08"
@@ -182,8 +182,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u3160"
       "\uC624\uB2F53": "\u315A"
       "\uC624\uB2F54": "\u3162"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S1_2_P13
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S1_2_W13
     - Stage: 2
       "\uAC8C\uC784No": 13
       "\uB09C\uC774\uB3C4": "\uCD08"
@@ -195,8 +195,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u3139"
       "\uC624\uB2F53": "\u314A"
       "\uC624\uB2F54": "\u3142"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S1_2_P14
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S1_2_W14
     - Stage: 2
       "\uAC8C\uC784No": 14
       "\uB09C\uC774\uB3C4": "\uCD08"
@@ -208,8 +208,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u314A"
       "\uC624\uB2F53": "\u3131"
       "\uC624\uB2F54": "\u3139"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S1_2_P15
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S1_2_W15
     - Stage: 2
       "\uAC8C\uC784No": 15
       "\uB09C\uC774\uB3C4": "\uCD08"
@@ -221,8 +221,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u3141"
       "\uC624\uB2F53": "\u314C"
       "\uC624\uB2F54": "\u3139"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S1_2_P16
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S1_2_W16
     - Stage: 2
       "\uAC8C\uC784No": 16
       "\uB09C\uC774\uB3C4": "\uCD08"
@@ -234,8 +234,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u314D"
       "\uC624\uB2F53": "\u314E"
       "\uC624\uB2F54": "\u3131"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S1_2_P17
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S1_2_W17
     - Stage: 2
       "\uAC8C\uC784No": 17
       "\uB09C\uC774\uB3C4": "\uCD08"
@@ -247,8 +247,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u3137"
       "\uC624\uB2F53": "\u3139"
       "\uC624\uB2F54": "\u3145"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S1_2_P18
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S1_2_W18
     - Stage: 2
       "\uAC8C\uC784No": 18
       "\uB09C\uC774\uB3C4": "\uCD08"
@@ -260,8 +260,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u3154"
       "\uC624\uB2F53": "\u3161"
       "\uC624\uB2F54": "\u3157"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S1_2_P19
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S1_2_W19
     - Stage: 2
       "\uAC8C\uC784No": 19
       "\uB09C\uC774\uB3C4": "\uCD08"
@@ -273,8 +273,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u3158"
       "\uC624\uB2F53": "\u3153"
       "\uC624\uB2F54": "\u3161"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S1_2_P20
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S1_2_W20
     - Stage: 3
       "\uAC8C\uC784No": 20
       "\uB09C\uC774\uB3C4": "\uCD08"
@@ -286,8 +286,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u3162"
       "\uC624\uB2F53": "\u315C"
       "\uC624\uB2F54": "\u3160"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S1_3_P21
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S1_3_W21
     - Stage: 3
       "\uAC8C\uC784No": 21
       "\uB09C\uC774\uB3C4": "\uCD08"
@@ -299,8 +299,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u3151"
       "\uC624\uB2F53": "\u3153"
       "\uC624\uB2F54": "\u3163"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S1_3_P22
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S1_3_W22
     - Stage: 3
       "\uAC8C\uC784No": 22
       "\uB09C\uC774\uB3C4": "\uCD08"
@@ -312,8 +312,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u3147"
       "\uC624\uB2F53": "\u3145"
       "\uC624\uB2F54": "\u314E"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S1_3_P23
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S1_3_W23
     - Stage: 3
       "\uAC8C\uC784No": 23
       "\uB09C\uC774\uB3C4": "\uCD08"
@@ -325,8 +325,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u315D"
       "\uC624\uB2F53": "\u3161"
       "\uC624\uB2F54": "\u315C"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S1_3_P24
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S1_3_W24
     - Stage: 3
       "\uAC8C\uC784No": 24
       "\uB09C\uC774\uB3C4": "\uCD08"
@@ -338,8 +338,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u3137"
       "\uC624\uB2F53": "\u3139"
       "\uC624\uB2F54": "\u314D"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S1_3_P25
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S1_3_W25
     - Stage: 3
       "\uAC8C\uC784No": 25
       "\uB09C\uC774\uB3C4": "\uCD08"
@@ -351,8 +351,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u3147"
       "\uC624\uB2F53": "\u314A"
       "\uC624\uB2F54": "\u3148"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S1_3_P26
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S1_3_W26
     - Stage: 3
       "\uAC8C\uC784No": 26
       "\uB09C\uC774\uB3C4": "\uCD08"
@@ -364,8 +364,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u3147"
       "\uC624\uB2F53": "\u314A"
       "\uC624\uB2F54": "\u3131"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S1_3_P27
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S1_3_W27
     - Stage: 3
       "\uAC8C\uC784No": 27
       "\uB09C\uC774\uB3C4": "\uCD08"
@@ -377,8 +377,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u3161"
       "\uC624\uB2F53": "\u314F"
       "\uC624\uB2F54": "\u3162"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S1_3_P28
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S1_3_W28
     - Stage: 3
       "\uAC8C\uC784No": 28
       "\uB09C\uC774\uB3C4": "\uCD08"
@@ -390,8 +390,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u3147"
       "\uC624\uB2F53": "\u314A"
       "\uC624\uB2F54": "\u3142"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S1_3_P29
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S1_3_W29
     - Stage: 3
       "\uAC8C\uC784No": 29
       "\uB09C\uC774\uB3C4": "\uCD08"
@@ -403,8 +403,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u3141"
       "\uC624\uB2F53": "\u314B"
       "\uC624\uB2F54": "\u3145"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S1_3_P30
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S1_3_W30
   - name: Level2
     list:
     - Stage: 1
@@ -418,8 +418,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u3148"
       "\uC624\uB2F53": "\u314C"
       "\uC624\uB2F54": "\u314B"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S2_1_P1
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S2_1_W1
     - Stage: 1
       "\uAC8C\uC784No": 31
       "\uB09C\uC774\uB3C4": "\uC911"
@@ -431,8 +431,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u314A"
       "\uC624\uB2F53": "\u314D"
       "\uC624\uB2F54": "\u3142"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S2_1_P2
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S2_1_W2
     - Stage: 1
       "\uAC8C\uC784No": 32
       "\uB09C\uC774\uB3C4": "\uC911"
@@ -444,8 +444,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u3154"
       "\uC624\uB2F53": "\u3163"
       "\uC624\uB2F54": "\u315E"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S2_1_P3
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S2_1_W3
     - Stage: 1
       "\uAC8C\uC784No": 33
       "\uB09C\uC774\uB3C4": "\uC911"
@@ -457,8 +457,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u315B"
       "\uC624\uB2F53": "\u315C"
       "\uC624\uB2F54": "\u3163"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S2_1_P4
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S2_1_W4
     - Stage: 1
       "\uAC8C\uC784No": 34
       "\uB09C\uC774\uB3C4": "\uC911"
@@ -470,8 +470,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u3154"
       "\uC624\uB2F53": "\u3160"
       "\uC624\uB2F54": "\u315B"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S2_1_P5
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S2_1_W5
     - Stage: 1
       "\uAC8C\uC784No": 35
       "\uB09C\uC774\uB3C4": "\uC911"
@@ -483,8 +483,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u3159"
       "\uC624\uB2F53": "\u3154"
       "\uC624\uB2F54": "\u3161"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S2_1_P6
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S2_1_W6
     - Stage: 1
       "\uAC8C\uC784No": 36
       "\uB09C\uC774\uB3C4": "\uC911"
@@ -496,8 +496,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u315B"
       "\uC624\uB2F53": "\u3157"
       "\uC624\uB2F54": "\u315E"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S2_1_P7
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S2_1_W7
     - Stage: 1
       "\uAC8C\uC784No": 37
       "\uB09C\uC774\uB3C4": "\uC911"
@@ -509,8 +509,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u3147"
       "\uC624\uB2F53": "\u314C"
       "\uC624\uB2F54": "\u314B"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S2_1_P8
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S2_1_W8
     - Stage: 1
       "\uAC8C\uC784No": 38
       "\uB09C\uC774\uB3C4": "\uC911"
@@ -522,8 +522,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u3157"
       "\uC624\uB2F53": "\u3155"
       "\uC624\uB2F54": "\u315C"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S2_1_P9
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S2_1_W9
     - Stage: 1
       "\uAC8C\uC784No": 39
       "\uB09C\uC774\uB3C4": "\uC911"
@@ -535,8 +535,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u3148"
       "\uC624\uB2F53": "\u314C"
       "\uC624\uB2F54": "\u3134"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S2_1_P10
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S2_1_W10
     - Stage: 2
       "\uAC8C\uC784No": 40
       "\uB09C\uC774\uB3C4": "\uC911"
@@ -548,8 +548,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u3160"
       "\uC624\uB2F53": "\u3161"
       "\uC624\uB2F54": "\u315C"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S2_2_P11
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S2_2_W11
     - Stage: 2
       "\uAC8C\uC784No": 41
       "\uB09C\uC774\uB3C4": "\uC911"
@@ -561,8 +561,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u314A"
       "\uC624\uB2F53": "\u3131"
       "\uC624\uB2F54": "\u3139"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S2_2_P12
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S2_2_W12
     - Stage: 2
       "\uAC8C\uC784No": 42
       "\uB09C\uC774\uB3C4": "\uC911"
@@ -574,8 +574,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u3148"
       "\uC624\uB2F53": "\u3134"
       "\uC624\uB2F54": "\u314B"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S2_2_P13
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S2_2_W13
     - Stage: 2
       "\uAC8C\uC784No": 43
       "\uB09C\uC774\uB3C4": "\uC911"
@@ -587,8 +587,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u314A"
       "\uC624\uB2F53": "\u314D"
       "\uC624\uB2F54": "\u314B"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S2_2_P14
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S2_2_W14
     - Stage: 2
       "\uAC8C\uC784No": 44
       "\uB09C\uC774\uB3C4": "\uC911"
@@ -600,8 +600,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u315F"
       "\uC624\uB2F53": "\u315B"
       "\uC624\uB2F54": "\u314F"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S2_2_P15
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S2_2_W15
     - Stage: 2
       "\uAC8C\uC784No": 45
       "\uB09C\uC774\uB3C4": "\uC911"
@@ -613,8 +613,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u3147"
       "\uC624\uB2F53": "\u314B"
       "\uC624\uB2F54": "\u3148"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S2_2_P16
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S2_2_W16
     - Stage: 2
       "\uAC8C\uC784No": 46
       "\uB09C\uC774\uB3C4": "\uC911"
@@ -626,8 +626,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u3149"
       "\uC624\uB2F53": "\u314E"
       "\uC624\uB2F54": "\u3131"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S2_2_P17
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S2_2_W17
     - Stage: 2
       "\uAC8C\uC784No": 47
       "\uB09C\uC774\uB3C4": "\uC911"
@@ -639,8 +639,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u3139"
       "\uC624\uB2F53": "\u314E"
       "\uC624\uB2F54": "\u314D"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S2_2_P18
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S2_2_W18
     - Stage: 2
       "\uAC8C\uC784No": 48
       "\uB09C\uC774\uB3C4": "\uC911"
@@ -652,8 +652,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u314A"
       "\uC624\uB2F53": "\u314B"
       "\uC624\uB2F54": "\u3145"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S2_2_P19
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S2_2_W19
     - Stage: 2
       "\uAC8C\uC784No": 49
       "\uB09C\uC774\uB3C4": "\uC911"
@@ -665,8 +665,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u3137"
       "\uC624\uB2F53": "\u314C"
       "\uC624\uB2F54": "\u314B"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S2_2_P20
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S2_2_W20
     - Stage: 3
       "\uAC8C\uC784No": 50
       "\uB09C\uC774\uB3C4": "\uC911"
@@ -678,8 +678,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u3142"
       "\uC624\uB2F53": "\u314B"
       "\uC624\uB2F54": "\u3145"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S2_3_P21
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S2_3_W21
     - Stage: 3
       "\uAC8C\uC784No": 51
       "\uB09C\uC774\uB3C4": "\uC911"
@@ -691,8 +691,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u314D"
       "\uC624\uB2F53": "\u314E"
       "\uC624\uB2F54": "\u3142"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S2_3_P22
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S2_3_W22
     - Stage: 3
       "\uAC8C\uC784No": 52
       "\uB09C\uC774\uB3C4": "\uC911"
@@ -704,8 +704,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u314B"
       "\uC624\uB2F53": "\u3148"
       "\uC624\uB2F54": "\u314A"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S2_3_P23
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S2_3_W23
     - Stage: 3
       "\uAC8C\uC784No": 53
       "\uB09C\uC774\uB3C4": "\uC911"
@@ -717,8 +717,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u3161"
       "\uC624\uB2F53": "\u3163"
       "\uC624\uB2F54": "\u315B"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S2_3_P24
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S2_3_W24
     - Stage: 3
       "\uAC8C\uC784No": 54
       "\uB09C\uC774\uB3C4": "\uC911"
@@ -730,8 +730,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u3154"
       "\uC624\uB2F53": "\u3151"
       "\uC624\uB2F54": "\u3161"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S2_3_P25
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S2_3_W25
     - Stage: 3
       "\uAC8C\uC784No": 55
       "\uB09C\uC774\uB3C4": "\uC911"
@@ -743,8 +743,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u3142"
       "\uC624\uB2F53": "\u314C"
       "\uC624\uB2F54": "\u3141"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S2_3_P26
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S2_3_W26
     - Stage: 3
       "\uAC8C\uC784No": 56
       "\uB09C\uC774\uB3C4": "\uC911"
@@ -756,8 +756,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u315B"
       "\uC624\uB2F53": "\u315C"
       "\uC624\uB2F54": "\u3161"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S2_3_P27
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S2_3_W27
     - Stage: 3
       "\uAC8C\uC784No": 57
       "\uB09C\uC774\uB3C4": "\uC911"
@@ -769,8 +769,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u3157"
       "\uC624\uB2F53": "\u3158"
       "\uC624\uB2F54": "\u315C"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S2_3_P28
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S2_3_W28
     - Stage: 3
       "\uAC8C\uC784No": 58
       "\uB09C\uC774\uB3C4": "\uC911"
@@ -782,8 +782,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u3139"
       "\uC624\uB2F53": "\u3131"
       "\uC624\uB2F54": "\u3142"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S2_3_P29
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S2_3_W29
     - Stage: 3
       "\uAC8C\uC784No": 59
       "\uB09C\uC774\uB3C4": "\uC911"
@@ -795,8 +795,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u3151"
       "\uC624\uB2F53": "\u314F"
       "\uC624\uB2F54": "\u3161"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S2_3_P30
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S2_3_W30
   - name: Level3
     list:
     - Stage: 1
@@ -810,8 +810,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u3148"
       "\uC624\uB2F53": "\u3145"
       "\uC624\uB2F54": "\u314E"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S3_1_P1
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S3_1_W1
     - Stage: 1
       "\uAC8C\uC784No": 61
       "\uB09C\uC774\uB3C4": "\uACE0"
@@ -823,8 +823,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u314C"
       "\uC624\uB2F53": "\u314B"
       "\uC624\uB2F54": "\u314E"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S3_1_P2
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S3_1_W2
     - Stage: 1
       "\uAC8C\uC784No": 62
       "\uB09C\uC774\uB3C4": "\uACE0"
@@ -836,8 +836,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u314D"
       "\uC624\uB2F53": "\u3137"
       "\uC624\uB2F54": "\u3149"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S3_1_P3
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S3_1_W3
     - Stage: 1
       "\uAC8C\uC784No": 63
       "\uB09C\uC774\uB3C4": "\uACE0"
@@ -849,8 +849,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u3132"
       "\uC624\uB2F53": "\u3147"
       "\uC624\uB2F54": "\u3134"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S3_1_P4
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S3_1_W4
     - Stage: 1
       "\uAC8C\uC784No": 64
       "\uB09C\uC774\uB3C4": "\uACE0"
@@ -862,8 +862,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u315B"
       "\uC624\uB2F53": "\u3162"
       "\uC624\uB2F54": "\u3159"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S3_1_P5
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S3_1_W5
     - Stage: 1
       "\uAC8C\uC784No": 65
       "\uB09C\uC774\uB3C4": "\uACE0"
@@ -875,8 +875,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u3141"
       "\uC624\uB2F53": "\u3137"
       "\uC624\uB2F54": "\u3131"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S3_1_P6
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S3_1_W6
     - Stage: 1
       "\uAC8C\uC784No": 66
       "\uB09C\uC774\uB3C4": "\uACE0"
@@ -888,8 +888,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u315A"
       "\uC624\uB2F53": "\u3155 "
       "\uC624\uB2F54": "\u3156"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S3_1_P7
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S3_1_W7
     - Stage: 1
       "\uAC8C\uC784No": 67
       "\uB09C\uC774\uB3C4": "\uACE0"
@@ -901,8 +901,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u3146"
       "\uC624\uB2F53": "\u3148"
       "\uC624\uB2F54": "\u314B"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S3_1_P8
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S3_1_W8
     - Stage: 1
       "\uAC8C\uC784No": 68
       "\uB09C\uC774\uB3C4": "\uACE0"
@@ -914,8 +914,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u315C"
       "\uC624\uB2F53": "\u3151"
       "\uC624\uB2F54": "\u3161"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S3_1_P9
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S3_1_W9
     - Stage: 1
       "\uAC8C\uC784No": 69
       "\uB09C\uC774\uB3C4": "\uACE0"
@@ -927,8 +927,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u3151"
       "\uC624\uB2F53": "\u3152"
       "\uC624\uB2F54": "\u315F"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S3_1_P10
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S3_1_W10
     - Stage: 2
       "\uAC8C\uC784No": 70
       "\uB09C\uC774\uB3C4": "\uACE0"
@@ -940,8 +940,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u314E"
       "\uC624\uB2F53": "\u3131"
       "\uC624\uB2F54": "\u314C"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S3_2_P11
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S3_2_W11
     - Stage: 2
       "\uAC8C\uC784No": 71
       "\uB09C\uC774\uB3C4": "\uACE0"
@@ -953,8 +953,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u314B"
       "\uC624\uB2F53": "\u314D"
       "\uC624\uB2F54": "\u314E"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S3_2_P12
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S3_2_W12
     - Stage: 2
       "\uAC8C\uC784No": 72
       "\uB09C\uC774\uB3C4": "\uACE0"
@@ -966,8 +966,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u3162"
       "\uC624\uB2F53": "\u3160"
       "\uC624\uB2F54": "\u3158"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S3_2_P13
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S3_2_W13
     - Stage: 2
       "\uAC8C\uC784No": 73
       "\uB09C\uC774\uB3C4": "\uACE0"
@@ -979,8 +979,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u3143"
       "\uC624\uB2F53": "\u314C"
       "\uC624\uB2F54": "\u3146"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S3_2_P14
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S3_2_W14
     - Stage: 2
       "\uAC8C\uC784No": 74
       "\uB09C\uC774\uB3C4": "\uACE0"
@@ -992,8 +992,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u3147"
       "\uC624\uB2F53": "\u314C"
       "\uC624\uB2F54": "\u314B"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S3_2_P15
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S3_2_W15
     - Stage: 2
       "\uAC8C\uC784No": 75
       "\uB09C\uC774\uB3C4": "\uACE0"
@@ -1005,8 +1005,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u315A"
       "\uC624\uB2F53": "\u315B"
       "\uC624\uB2F54": "\u3158"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S3_2_P16
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S3_2_W16
     - Stage: 2
       "\uAC8C\uC784No": 76
       "\uB09C\uC774\uB3C4": "\uACE0"
@@ -1018,8 +1018,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u314B"
       "\uC624\uB2F53": "\u314C"
       "\uC624\uB2F54": "\u3145"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S3_2_P17
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S3_2_W17
     - Stage: 2
       "\uAC8C\uC784No": 77
       "\uB09C\uC774\uB3C4": "\uACE0"
@@ -1031,8 +1031,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u314C"
       "\uC624\uB2F53": "\u314A"
       "\uC624\uB2F54": "\u3148"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S3_2_P18
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S3_2_W18
     - Stage: 2
       "\uAC8C\uC784No": 78
       "\uB09C\uC774\uB3C4": "\uACE0"
@@ -1044,8 +1044,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u315A"
       "\uC624\uB2F53": "\u3156"
       "\uC624\uB2F54": "\u3162"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S3_2_P19
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S3_2_W19
     - Stage: 2
       "\uAC8C\uC784No": 79
       "\uB09C\uC774\uB3C4": "\uACE0"
@@ -1057,8 +1057,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u3145"
       "\uC624\uB2F53": "\u3131"
       "\uC624\uB2F54": "\u314A"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S3_2_P20
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S3_2_W20
     - Stage: 3
       "\uAC8C\uC784No": 80
       "\uB09C\uC774\uB3C4": "\uACE0"
@@ -1070,8 +1070,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u3150"
       "\uC624\uB2F53": "\u3155 "
       "\uC624\uB2F54": "\u3158"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S3_3_P21
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S3_3_W21
     - Stage: 3
       "\uAC8C\uC784No": 81
       "\uB09C\uC774\uB3C4": "\uACE0"
@@ -1083,8 +1083,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u3158"
       "\uC624\uB2F53": "\u315F"
       "\uC624\uB2F54": "\u3154"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S3_3_P22
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S3_3_W22
     - Stage: 3
       "\uAC8C\uC784No": 82
       "\uB09C\uC774\uB3C4": "\uACE0"
@@ -1096,8 +1096,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u3132"
       "\uC624\uB2F53": "\u3145"
       "\uC624\uB2F54": "\u3148"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S3_3_P23
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S3_3_W23
     - Stage: 3
       "\uAC8C\uC784No": 83
       "\uB09C\uC774\uB3C4": "\uACE0"
@@ -1109,8 +1109,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u3145"
       "\uC624\uB2F53": "\u3131"
       "\uC624\uB2F54": "\u314E"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S3_3_P24
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S3_3_W24
     - Stage: 3
       "\uAC8C\uC784No": 84
       "\uB09C\uC774\uB3C4": "\uACE0"
@@ -1122,8 +1122,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u314B"
       "\uC624\uB2F53": "\u3146"
       "\uC624\uB2F54": "\u314A"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S3_3_P25
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S3_3_W25
     - Stage: 3
       "\uAC8C\uC784No": 85
       "\uB09C\uC774\uB3C4": "\uACE0"
@@ -1135,8 +1135,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u314A"
       "\uC624\uB2F53": "\u3146"
       "\uC624\uB2F54": "\u3134"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S3_3_P26
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S3_3_W26
     - Stage: 3
       "\uAC8C\uC784No": 86
       "\uB09C\uC774\uB3C4": "\uACE0"
@@ -1148,8 +1148,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u3145"
       "\uC624\uB2F53": "\u3149"
       "\uC624\uB2F54": "\u314B"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S3_3_P27
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S3_3_W27
     - Stage: 3
       "\uAC8C\uC784No": 87
       "\uB09C\uC774\uB3C4": "\uACE0"
@@ -1161,8 +1161,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u314B"
       "\uC624\uB2F53": "\u3145"
       "\uC624\uB2F54": "\u3141"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S3_3_P28
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S3_3_W28
     - Stage: 3
       "\uAC8C\uC784No": 88
       "\uB09C\uC774\uB3C4": "\uACE0"
@@ -1174,8 +1174,8 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u315A"
       "\uC624\uB2F53": "\u3156"
       "\uC624\uB2F54": "\u3162"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S3_3_P29
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S3_3_W29
     - Stage: 3
       "\uAC8C\uC784No": 89
       "\uB09C\uC774\uB3C4": "\uACE0"
@@ -1187,5 +1187,5 @@ MonoBehaviour:
       "\uC624\uB2F52": "\u314A"
       "\uC624\uB2F53": "\u3139"
       "\uC624\uB2F54": "\u314C"
-      "\uD6C4\uC790\uADF9\uC74C\uC131": det_1-01
-      "\uC6D0\uC790\uADF9\uC74C\uC131": det_1-01
+      "\uD6C4\uC790\uADF9\uC74C\uC131": S3_3_P30
+      "\uC6D0\uC790\uADF9\uC74C\uC131": S3_3_W30

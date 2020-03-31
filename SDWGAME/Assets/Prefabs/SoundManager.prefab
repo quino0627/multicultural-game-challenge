@@ -83,5 +83,45 @@ MonoBehaviour:
     type: 3}
   m_HurryOutTime: {fileID: 8300000, guid: 13ece71ec4e04e641bbf09d1e4634561, type: 3}
   m_TimeOver: {fileID: 8300000, guid: d6c3b28176fa44272aa0a730a9500dbd, type: 3}
+  m_NarrationDetections:
+  - {fileID: 8300000, guid: c2f6ec3f09a7848419d70e1e0f7693b0, type: 3}
+  - {fileID: 8300000, guid: 430646ce10e5e4d3582e934a655a9425, type: 3}
+  - {fileID: 8300000, guid: 82ed0132e4cd641559079b5369b9d1a3, type: 3}
+  - {fileID: 8300000, guid: 7627f33248b594b4da945a8e8e4d354f, type: 3}
+  - {fileID: 8300000, guid: 70914c02158424d20b8a20e308e5893b, type: 3}
+  - {fileID: 8300000, guid: 73ca5b49807a64482bce40cd4f0fef3c, type: 3}
+  - {fileID: 8300000, guid: ec427fd6f9c6f4245a24aaa02bddb44d, type: 3}
+  - {fileID: 8300000, guid: b8b996e3e1ddb4b35a2911be4e945bd7, type: 3}
+  m_NarrationSynthesises:
+  - {fileID: 8300000, guid: 5c2d4a4eaed2a47ab9c2d6d0cc3d525a, type: 3}
+  - {fileID: 8300000, guid: 2f43e8637128945aca24c8c809969cf7, type: 3}
+  - {fileID: 8300000, guid: 69a9b2609c1db42f4968ba466ec4f97f, type: 3}
+  - {fileID: 8300000, guid: eb7f32b5eeb9f42e08e2555538a5b4ca, type: 3}
+  - {fileID: 8300000, guid: e4859582e6ce548d3816dd938d2f50ab, type: 3}
+  - {fileID: 8300000, guid: 7818b0a6ebef748d5932270f86e79690, type: 3}
+  - {fileID: 8300000, guid: f4fd860e5941244b2899483afed779a4, type: 3}
+  - {fileID: 8300000, guid: d45e539a78bc64f78a094a7e0387033c, type: 3}
+  m_NarrationEliminations:
+  - {fileID: 8300000, guid: be55e759c03db41738fa6f3a2dab2191, type: 3}
+  - {fileID: 8300000, guid: a1d0d8f82906d48058849cfe2f421e81, type: 3}
+  - {fileID: 8300000, guid: 3d38ca5c9c0684dda984d8eb95bb46a8, type: 3}
+  - {fileID: 8300000, guid: b78c24d4022204fae98a681e04fea1eb, type: 3}
+  - {fileID: 8300000, guid: b4c7e3db463ee4f5b9eec598802b0ccf, type: 3}
+  - {fileID: 8300000, guid: e96a16231a24047e5924a5b6d2e8c162, type: 3}
+  - {fileID: 8300000, guid: 2fda8f17bc97b4bfcb46fcdf691c7be8, type: 3}
+  - {fileID: 8300000, guid: baf1dc75719de459aaea1b009c57f57a, type: 3}
+  - {fileID: 8300000, guid: b612e365948474546873c7ff0ffbe13f, type: 3}
+  - {fileID: 8300000, guid: f71a09c75d00249b0835810c44a29f6d, type: 3}
+  m_NarrationAlternatives:
+  - {fileID: 8300000, guid: 83c34b4665b7c452b9dcc4fdafd3692b, type: 3}
+  - {fileID: 8300000, guid: 83124c0613d3644b486f12f64165b7ef, type: 3}
+  - {fileID: 8300000, guid: 3e797b12d1ad14bca93d466237c7765d, type: 3}
+  - {fileID: 8300000, guid: 66e1c09edc3d34b8285341091b03c85e, type: 3}
+  - {fileID: 8300000, guid: 390e2c96e0be746ee813980cd56daa57, type: 3}
+  - {fileID: 8300000, guid: 20637ad5655ad4b8e8930f9e834abe4b, type: 3}
+  - {fileID: 8300000, guid: b278bb4edd82b4df09d4dc13fc9fc56f, type: 3}
+  - {fileID: 8300000, guid: 3c6a1baeedba046b19ce3202d890e16d, type: 3}
+  - {fileID: 8300000, guid: b03c6494d55494a4eb122cc1aeac0fe0, type: 3}
+  - {fileID: 8300000, guid: 6294a141b6659434d982097c2b571e5b, type: 3}
   m_SoundVolume: 0.5
   m_MusicVolume: 0.5

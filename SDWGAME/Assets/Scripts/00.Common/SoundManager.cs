@@ -132,12 +132,23 @@ public class SoundManager : MonoBehaviour
 	// 타임오버 시 효과음
 	public AudioClip m_TimeOver = null;
 
-
+	// 탐지과제 나레이션 배열(튜토리얼 포함)
+	public AudioClip[] m_NarrationDetections;
+	// 합성과제 나레이션 배열(튜토리얼 포함)
+	public AudioClip[] m_NarrationSynthesises;
+	// 탈락과제 나레이션 배열(튜토리얼 포함)
+	public AudioClip[] m_NarrationEliminations;
+	// 대치과제 나레이션 배열(튜토리얼 포함)
+	public AudioClip[] m_NarrationAlternatives;
+	
+	
 	// Sound volume
 	public float m_SoundVolume = 0.5f;
 
 	// Music volume
 	public float m_MusicVolume = 0.5f;
+	
+	
 
 	#endregion Variables
 
@@ -592,6 +603,28 @@ public class SoundManager : MonoBehaviour
 	public void Play_TimeOverSound()
 	{
 		PlaySoundOneShot(m_TimeOver);
+	}
+
+	// 나레이션 재생 함수 
+	public float Play_Narration(string type, int number)
+	{
+		switch (type)
+		{
+			case "Detection":
+				PlaySoundOneShot(m_NarrationDetections[number]);
+				return m_NarrationDetections[number].length;
+			case "Synthesis":
+				PlaySoundOneShot(m_NarrationSynthesises[number]);
+				return m_NarrationSynthesises[number].length;
+			case "Elimination":
+				PlaySoundOneShot(m_NarrationEliminations[number]);
+				return m_NarrationEliminations[number].length;
+			case "Alternative":
+				PlaySoundOneShot(m_NarrationAlternatives[number]);
+				return m_NarrationAlternatives[number].length;
+			default:
+				return 1f;
+		}
 	}
 
 	#endregion // Functions

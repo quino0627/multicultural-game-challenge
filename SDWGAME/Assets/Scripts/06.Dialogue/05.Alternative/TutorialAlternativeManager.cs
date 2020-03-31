@@ -4,8 +4,17 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+/**
+ * 대체과제 튜토리얼의 전체적인 흐름을 담당하는 코드입니다.
+ * Canvas > DialogueManager 오브젝트의 <DialogueManager> 컴포넌트에서 제공하는 각종 플래그에 따라,
+ * 다이얼로그를 제외한 오브젝트들의 모션을 음직이게 합니다.
+ *
+ * @author: 송동욱
+ */
+
 public class TutorialAlternativeManager : MonoBehaviour
 {
+    // Canvas > DialogueManager
     private DialogueManagerV2 theDM;
     
     // 다섯개의 통 중 가장 오른쪽에 놓여있는 버블
@@ -28,11 +37,15 @@ public class TutorialAlternativeManager : MonoBehaviour
 
     [HideInInspector] private string[] answerStrings = new string[5];
 
+    // 플래그들
     public Boolean clickedCorrectAnswer;
     public Boolean clickedSpeechBubble;
+    public Boolean clickedOriginalWordBox;
+    
+    
+    
+    // WordBox들을 움직이기 위해 필요한 변수들
     public Boolean is_loading;
-    
-    
     [SerializeField] private float moveSpeed = 5f;
     public Boolean isMoving = false;
     private float previousDistanceToTouchPos, currentDistanceToTouchPos;
@@ -48,6 +61,7 @@ public class TutorialAlternativeManager : MonoBehaviour
 
         clickedCorrectAnswer = false;
         clickedSpeechBubble = false;
+        clickedOriginalWordBox = false;
         is_loading = true;
         
         centerPosition = transform.Find("Words").transform.Find("WordCenterPosition").position;
@@ -100,7 +114,7 @@ public class TutorialAlternativeManager : MonoBehaviour
 
     IEnumerator AlternativeTutorialStage()
     {
-                
+        // 해마가 물대포를 발사하는 애니메이션
         yield return new WaitForSeconds(1f);
         SoundManager.Instance.Play_SeahorseWaves();
         SeahorseLeft.transform.Find("WaterFallAnimation").gameObject.SetActive(true);
@@ -115,12 +129,11 @@ public class TutorialAlternativeManager : MonoBehaviour
         SoundManager.Instance.Play_AlterWordShowedUp();
         yield return new WaitForSeconds(.4f);
 
-        
+        // 해마가 물대포를 발사하는 애니메이션
         SoundManager.Instance.Play_SeahorseWaves();
         SeahorseRight.transform.Find("WaterFallAnimation").gameObject.SetActive(true);
         Animator right_waterFallAnimator = SeahorseRight.GetComponent<SeahorseRightController>().waterFallAnimator;
         right_waterFallAnimator.Play("WaterFall");
-
         yield return new WaitForSeconds(right_waterFallAnimator.GetCurrentAnimatorStateInfo(0).length);
         SeahorseRight.transform.Find("WaterFallAnimation").gameObject.SetActive(false);
 
@@ -131,17 +144,26 @@ public class TutorialAlternativeManager : MonoBehaviour
         SoundManager.Instance.Play_AlterWordShowedUp();
         yield return new WaitForSeconds(.4f);
         
+        
+        // 다이얼로그 화면에 나타남(클릭 불가능)
         theDM.ShowDialogue();
+
+        var tmpCount = 0;
         
-        var tmpCount = theDM.GetCurrentSentenceNumber();
-        theDM.AllowNextStep();
-        while (tmpCount == theDM.GetCurrentSentenceNumber())
+        // 헤당 코드블럭은 다이얼로그를 클릭 가능하게 하고, 유저가 다이얼로그를 클릭했는지 계속 검사합니다.
+        // 유저가 클릭한 경우 해당 코드블럭을 벗어나 다음 동작으로 진행됩니다.
         {
-            yield return new WaitForFixedUpdate();
+            tmpCount = theDM.GetCurrentSentenceNumber();
+            theDM.AllowNextStep();
+            while (tmpCount == theDM.GetCurrentSentenceNumber())
+            {
+                yield return new WaitForFixedUpdate();
+            }
         }
-        
+
         yield return new WaitForSeconds(1.0f);
         
+        // 버블들을 화면에 표시
         SoundManager.Instance.Play_AlterBubbleShowedUp();
         WrongBubble_1.SetActive(true);
         yield return new WaitForSeconds(0.6f);
@@ -157,18 +179,30 @@ public class TutorialAlternativeManager : MonoBehaviour
         SoundManager.Instance.Play_AlterBubbleShowedUp();
         CorrectBubble.SetActive(true);
         yield return new WaitForSeconds(0.6f);
-        
-        
-        
-        
-        tmpCount = theDM.GetCurrentSentenceNumber();
-        theDM.AllowNextStep();
-        while (tmpCount == theDM.GetCurrentSentenceNumber())
+
         {
-            yield return new WaitForFixedUpdate();
+            tmpCount = theDM.GetCurrentSentenceNumber();
+            theDM.AllowNextStep();
+            while (tmpCount == theDM.GetCurrentSentenceNumber())
+            {
+                yield return new WaitForFixedUpdate();
+            }
         }
 
+        // 왼쪽 상자를 눌러봐! 음성이 들어갈 자리
+        yield return new WaitForSeconds(3.0f);
+
+        clickedCorrectAnswer = false;
+        while (!clickedOriginalWordBox)
+        {
+            yield return new WaitForEndOfFrame();
+        }
+        theDM.StartNextScript();
+        yield return new WaitForFixedUpdate();
+//        theDM.AllowNextStep();
+        
         yield return new WaitForSeconds(1f);
+        // 목표 단어 사라짐
         Color color = WordBoxExpect.GetComponent<SpriteRenderer>().color;
         while (color.a > 0.0f)
         {
@@ -177,6 +211,7 @@ public class TutorialAlternativeManager : MonoBehaviour
             WordBoxExpect.transform.Find("Text").GetComponent<TextMeshPro>().color = color;
             yield return new WaitForSeconds(0.1f);
         }
+        // 블럭 이동
         is_loading = false;
         
         yield return new WaitForSeconds(2.0f);
@@ -184,27 +219,30 @@ public class TutorialAlternativeManager : MonoBehaviour
         SoundManager.Instance.Play_EliminationTutorialSampleSound();
 
         yield return new WaitForSeconds(2.0f);
+
         
-        tmpCount = theDM.GetCurrentSentenceNumber();
-        theDM.AllowNextStep();
-        while (tmpCount == theDM.GetCurrentSentenceNumber())
         {
-            yield return new WaitForFixedUpdate();
+            tmpCount = theDM.GetCurrentSentenceNumber();
+            theDM.AllowNextStep();
+            while (tmpCount == theDM.GetCurrentSentenceNumber())
+            {
+                yield return new WaitForFixedUpdate();
+            }
         }
-        
         yield return new WaitForSeconds(2.0f);
         
         // 다시 듣기 말풍선 띄우기
         SeahorseRight.transform.Find("RepeatSound").gameObject.SetActive(true);
 
 
+        clickedSpeechBubble = false;
         while (!clickedSpeechBubble)
         {
             yield return new WaitForEndOfFrame();
         }
         theDM.StartNextScript();
-        
-        
+
+        clickedCorrectAnswer = false;
         while (!clickedCorrectAnswer)
         {
             yield return new WaitForEndOfFrame();

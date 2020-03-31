@@ -82,7 +82,7 @@ public class AlternativeQuizManager : MonoBehaviour
     [HideInInspector] public GameObject WordBoxExpect;
 
     // 원 글자 스피커
-    [HideInInspector] public GameObject OriginWordSpeakerGameObject;
+//    [HideInInspector] public GameObject OriginWordSpeakerGameObject;
 
     // Speakers
 
@@ -168,11 +168,11 @@ public class AlternativeQuizManager : MonoBehaviour
         Transform WordsTransform = transform.Find("Words").transform;
         this.WordBoxOrigin = WordsTransform.Find("WordBoxOrigin").gameObject;
         this.WordBoxExpect = WordsTransform.Find("WordBoxExpect").gameObject;
-        this.OriginWordSpeakerGameObject = WordsTransform.Find("Speaker").gameObject;
+//        this.OriginWordSpeakerGameObject = WordsTransform.Find("Speaker").gameObject;
 
         // 원 발음 스피커 컴포넌트
 //        this.OriginWordSpeaker = WordBoxOrigin.transform.Find("Speaker").gameObject.GetComponent<AudioSource>();
-        this.OriginWordSpeaker = WordsTransform.Find("Speaker").gameObject.GetComponent<AudioSource>();
+        this.OriginWordSpeaker = WordBoxOrigin.GetComponent<AudioSource>();
         // 기대 발음 스피커 컴포넌트
         this.ExpectWordSpeaker = SeahorseRight.transform.Find("RepeatSound").gameObject.GetComponent<AudioSource>();
         ExpectWordSpeaker.playOnAwake = false;
@@ -410,7 +410,7 @@ public class AlternativeQuizManager : MonoBehaviour
             }
 
             yield return new WaitForSeconds(1f);
-            string wordFileLink = $"Sounds/Alternative/{data.sheets[level].list[questionId].후자극음성}";
+            string wordFileLink = $"Sounds/04.Alternative/{data.sheets[level].list[questionId].후자극음성}";
             // 2020.03.29 송동욱
             // 유니티 오브젝트에 익숙치 않아서 유사 코드가 중복...ㅠ
 
@@ -449,7 +449,7 @@ public class AlternativeQuizManager : MonoBehaviour
 
             // 다시 듣기 말풍선 띄우기
             SeahorseRight.transform.Find("RepeatSound").gameObject.SetActive(true);
-            OriginWordSpeakerGameObject.SetActive(true);
+//            OriginWordSpeakerGameObject.SetActive(true);
         }
     }
 
@@ -467,7 +467,7 @@ public class AlternativeQuizManager : MonoBehaviour
     {
         // 다시 듣기 말풍선 가리기
         SeahorseRight.transform.Find("RepeatSound").gameObject.SetActive(false);
-        OriginWordSpeakerGameObject.SetActive(false);
+//        OriginWordSpeakerGameObject.SetActive(false);
 
         for (int i = 0; i < 5; i++)
         {

@@ -89,7 +89,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -2825,8 +2825,10 @@ MonoBehaviour:
       \uC788\uB294 \uC0C1\uC790\uB85C \uBC14\uAFB8\uACE0 \uC2F6\uC5B4!!"
     - "\uD55C \uAC00\uC9C0\uB9CC \uBC14\uAFB8\uBA74 \uB420 \uAC83 \uAC19\uC740\uB370...\uC774
       \uC548\uC5D0 \uC788\uC744 \uAC83 \uAC19\uC544."
+    - "\uC67C\uCABD\uC0C1\uC790\uB97C \uB20C\uB7EC\uBD10! \uC18C\uB9AC\uB97C \uB4E4\uC744
+      \uC218 \uC788\uC5B4"
     - "\uC624\uB978\uCABD\uC5D0 \uC788\uB294 \uC0C1\uC790\uB294 \uACE7 \uC0AC\uB77C\uC9C8\uAC70\uC57C.
-      \uC5B4! \uC774\uC81C \uC0AC\uB77C\uC9C4\uB2E4!\n\uADF8\uB300\uC2E0 \uD55C\uBC88
+      \uC5B4! \uC774\uC81C \uC0AC\uB77C\uC9C4\uB2E4!\n\uADF8 \uB300\uC2E0 \uD55C\uBC88
       \uB4E4\uB824\uC904\uAC8C."
     - "\uC624\uB978\uCABD \uBE68\uAC04 \uD574\uB9C8\uAC00 \uC0AC\uB77C\uC9C4 \uB2E8\uC5B4\uB97C
       \uAE30\uC5B5\uD558\uACE0 \uC788\uC5B4. \n\uB2E4\uC2DC \uB4E4\uC5B4\uBCF4\uACE0
@@ -2836,8 +2838,8 @@ MonoBehaviour:
       \uC5B4\uB5A4 \uAE00\uC790\uAC00 \uD544\uC694\uD560\uAE4C?\n\uC0AC\uB77C\uC9C4
       \uC0C1\uC790\uC758 \uAE00\uC790\uAC00 \uB2F4\uAE34 \uBB3C\uBC29\uC6B8\uC744
       \uD074\uB9AD\uD574\uC918!"
-    - "\uB9DE\uC544 \uADF8\uB807\uAC8C \uD558\uB294 \uAC70\uC57C!"
-    flags: 000000000000
+    - "\uB9DE\uC544~"
+    flags: 00000000000000
     dialogueWindow: {fileID: 21300000, guid: 6a681893ed56a4d5b80be834f37e7f08, type: 3}
   aniWindow: {fileID: 1586319769}
   srWindow: {fileID: 1586319770}
@@ -3825,7 +3827,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 980337365}
-    characterCount: 2
+    characterCount: 3
     spriteCount: 0
     spaceCount: 0
     wordCount: 1
@@ -5123,6 +5125,8 @@ GameObject:
   - component: {fileID: 1323464537}
   - component: {fileID: 1323464539}
   - component: {fileID: 1323464538}
+  - component: {fileID: 1323464541}
+  - component: {fileID: 1323464540}
   m_Layer: 0
   m_Name: WordBoxOrigin
   m_TagString: Untagged
@@ -5214,6 +5218,44 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1323464540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1323464536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50d33e863ec024dd4b65a0f82319ebc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!61 &1323464541
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1323464536}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.006898403, y: -0.02069521}
+  m_SpriteTilingProperty:
+    border: {x: 0.45999998, y: 0.44, z: 0.42, w: 0.37}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.56, y: 2.56}
+    newSize: {x: 3, y: 1.5}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 1
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.9601078, y: 1.4976449}
+  m_EdgeRadius: 0
 --- !u!1 &1342943917
 GameObject:
   m_ObjectHideFlags: 0
@@ -6834,6 +6876,7 @@ MonoBehaviour:
   WordBoxExpect: {fileID: 1821597349}
   clickedCorrectAnswer: 0
   clickedSpeechBubble: 0
+  clickedOriginalWordBox: 0
   is_loading: 1
   moveSpeed: 5
   isMoving: 0
