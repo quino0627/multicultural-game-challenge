@@ -151,7 +151,7 @@ public class FishController : MonoBehaviour
                 transform.position,
                 SwallowTransform.position);
             //Debug.Log("distance: "+distance);
-            if (distance > 0.01f)
+            if (distance > 0.4f)
             {
                 MoveFish(SwallowTransform.position);
             }

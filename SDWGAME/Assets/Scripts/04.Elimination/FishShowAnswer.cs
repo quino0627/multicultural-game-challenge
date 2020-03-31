@@ -267,9 +267,26 @@ public class FishShowAnswer : MonoBehaviour
             ansPosIndex.Add(tmp);
         }
 
+        string levelToString = "";
+        switch (level)
+        {
+            case 0:
+                levelToString = "D1_Easy";
+                break;
+            case 1:
+                levelToString = "D2_Normal";
+                break;
+            case 2:
+                levelToString = "D3_Hard";
+                break;
+            default:
+                Debug.Assert(false,"Wrong LevelToString");
+                break;
+        }
+
         //정답 물고기에 정답음성 넣기
         string wordFileLink =
-            $"Sounds/Detection/{data.sheets[level].list[questionId].정답음성}";
+            $"Sounds/Elimination/{levelToString}/{data.sheets[level].list[questionId].정답음성}";
         AudioSource corrFish =
             choices[ansPosIndex[0]].GetComponentInChildren<AudioSource>();
         corrFish.loop = false;
@@ -290,7 +307,7 @@ public class FishShowAnswer : MonoBehaviour
 
             if (i == 1)
             {
-                link = $"Sounds/Detection/{data.sheets[level].list[questionId].오답음성1}";
+                link = $"Sounds/Elimination/{levelToString}/{data.sheets[level].list[questionId].오답음성1}";
                 fishSpeaker.loop = false;
                 fishSpeaker.clip = Resources.Load(link) as AudioClip;
 
@@ -300,7 +317,7 @@ public class FishShowAnswer : MonoBehaviour
 
             else if (i == 2)
             {
-                link = $"Sounds/Detection/{data.sheets[level].list[questionId].오답음성2}";
+                link = $"Sounds/Elimination/{levelToString}/{data.sheets[level].list[questionId].오답음성2}";
                 fishSpeaker.loop = false;
                 fishSpeaker.clip = Resources.Load(link) as AudioClip;
 
@@ -310,7 +327,7 @@ public class FishShowAnswer : MonoBehaviour
 
             else if (i == 3)
             {
-                link = $"Sounds/Detection/{data.sheets[level].list[questionId].오답음성3}";
+                link = $"Sounds/Elimination/{levelToString}/{data.sheets[level].list[questionId].오답음성3}";
                 fishSpeaker.loop = false;
                 fishSpeaker.clip = Resources.Load(link) as AudioClip;
 
@@ -319,7 +336,7 @@ public class FishShowAnswer : MonoBehaviour
             }
             else if (i == 4)
             {
-                link = $"Sounds/Detection/{data.sheets[level].list[questionId].오답음성4}";
+                link = $"Sounds/Elimination/{levelToString}/{data.sheets[level].list[questionId].오답음성4}";
                 fishSpeaker.loop = false;
                 fishSpeaker.clip = Resources.Load(link) as AudioClip;
 
@@ -396,7 +413,7 @@ public class FishShowAnswer : MonoBehaviour
         //int fish_index;
         while (i < 5)
         {
-            yield return new WaitForSeconds(1.0f);
+            yield return new WaitForSeconds(1.3f);
             choices[i].SetActive(true);
 
             //물고기들이 가운데 생김
@@ -404,7 +421,7 @@ public class FishShowAnswer : MonoBehaviour
             i++;
         }
 
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(1.5f);
 
         SoundManager.Instance.Play_EliminationMusic();
 
@@ -624,7 +641,6 @@ public class FishShowAnswer : MonoBehaviour
             stageStorageScript.playCnt);
 
 
-        
         stageStorageScript.SaveGameStageData(EGameName.Elimination, _totalStorageScript.currId, level, stage,
             totalCorrect);
 
