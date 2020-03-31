@@ -22,6 +22,7 @@ public class ELM_DataList : ScriptableObject
 		public string 난이도;
 		public int 음절수;
 		public string 원자극;
+		public string 원자극음성;
 		public string 탈락음소;
 		public string 정답;
 		public string 오답1;

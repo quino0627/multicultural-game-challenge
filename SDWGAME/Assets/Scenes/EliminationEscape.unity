@@ -1065,7 +1065,7 @@ Transform:
   m_GameObject: {fileID: 586039511}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 12.2, y: 0, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
+  m_LocalScale: {x: 0.9, y: 0.9, z: 1}
   m_Children:
   - {fileID: 255951793}
   - {fileID: 1979078664}
@@ -3042,6 +3042,7 @@ MonoBehaviour:
     type: 2}
   fish4IdleYellowAnimatorController: {fileID: 9100000, guid: c085bae7dffd378489051a1dbcd0f9b6,
     type: 2}
+  bEscapeScene: 1
   choices:
   - {fileID: 415810803}
   NUM_OF_CHOICES: 1

@@ -377,8 +377,26 @@ public class SpreadChoices : MonoBehaviour
             SoundManager.Instance.StopMusic();
         }
 
-        yield return new WaitForSeconds(1.5f);
-        string wordFileLink = $"Sounds/Synthesis/{data.sheets[excelLevel].list[questionId].filename}";
+        yield return new WaitForSeconds(1.3f);
+
+        string levelToString = "";
+        switch (excelLevel)
+        {
+            case 0:
+                levelToString = "A1_Easy";
+                break;
+            case 1:
+                levelToString = "A2_Normal";
+                break;
+            case 2:
+                levelToString = "A3_Hard";
+                break;
+            default:
+                Debug.Assert(false,"Weird LevelToString");
+                break;
+        }
+        
+        string wordFileLink = $"Sounds/Synthesis/{levelToString}/{data.sheets[excelLevel].list[questionId].filename}";
         Debug.Log(data.sheets[excelLevel].list[questionId].filename);
         Debug.Log(wordFileLink);
         crab.GetComponent<AudioSource>().loop = false;
