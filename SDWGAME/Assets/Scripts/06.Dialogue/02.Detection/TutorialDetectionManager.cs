@@ -63,9 +63,12 @@ public class TutorialDetectionManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
         
 //        Octo.transform.Find("DescriptionBubble").gameObject.SetActive(true);
-        yield return new WaitForSeconds(1f);
+        
         // 통에 동전을 넣어두었는데 찾을 수가 없다.
         theDM.ShowDialogue();
+        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(
+            SoundManager.Instance.Play_Narration("Detection", theDM.GetCurrentSentenceNumber()) + 1f);
         var tmpCount = theDM.GetCurrentSentenceNumber();
         theDM.AllowNextStep();
         while (tmpCount == theDM.GetCurrentSentenceNumber())
@@ -76,10 +79,12 @@ public class TutorialDetectionManager : MonoBehaviour
         // 내가 단어를 소리내서 말할건데, 그 단어가 적힌 통에 동전이 있다.
         Debug.Log("NEXT DIALOGUE");
         // 안내 음성
-        yield return new WaitForSeconds(3.0f);
+        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(
+            SoundManager.Instance.Play_Narration("Detection", theDM.GetCurrentSentenceNumber()) + 1f);
+        
         // 샘플 사운드
-        SoundManager.Instance.Play_EliminationTutorialSampleSound();
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(SoundManager.Instance.Play_TutorialDetectectionSampleSound()+1f);
         
         // check whether is next dialogue? 
         tmpCount = theDM.GetCurrentSentenceNumber();
@@ -91,26 +96,26 @@ public class TutorialDetectionManager : MonoBehaviour
         
         // 어떤 통인지 선택해 주겠어?
         // 안내 음성
-        yield return new WaitForSeconds(3.0f);
+        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(
+            SoundManager.Instance.Play_Narration("Detection", theDM.GetCurrentSentenceNumber()) + 1f);
+        
+    
         
         CoinInCorrectBarrel.SetActive(true);
         CoinInCorrectBarrel.GetComponent<Animator>().SetBool("Appear", false);
-
         SoundManager.Instance.Play_BarrelCreated();
         WrongBarrel_2.SetActive(true);
         WrongBarrel_2.GetComponent<Animator>().Play("Entry");
         yield return new WaitForSeconds(0.4f);
-        
         SoundManager.Instance.Play_BarrelCreated();
         WrongBarrel_4.SetActive(true);
         WrongBarrel_4.GetComponent<Animator>().Play("Entry");
         yield return new WaitForSeconds(0.4f);
-        
         SoundManager.Instance.Play_BarrelCreated();
         WrongBarrel_3.SetActive(true);
         WrongBarrel_3.GetComponent<Animator>().Play("Entry");
         yield return new WaitForSeconds(0.4f);
-        
         SoundManager.Instance.Play_BarrelCreated();
         CorrectBarrel.SetActive(true);
         CorrectBarrel.GetComponent<Animator>().Play("Entry");
@@ -128,8 +133,10 @@ public class TutorialDetectionManager : MonoBehaviour
         }
         
         theDM.StartNextScript();
+        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(
+            SoundManager.Instance.Play_Narration("Detection", theDM.GetCurrentSentenceNumber()) + 1f);
         
-        yield return new WaitForSeconds(3.0f);
         CoinInCorrectBarrel.GetComponent<Animator>().SetBool("Appear", false);
         
         Debug.Log(theDM.GetCurrentSentenceNumber());
@@ -141,7 +148,11 @@ public class TutorialDetectionManager : MonoBehaviour
             yield return new WaitForFixedUpdate();
         }
         yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(
+            SoundManager.Instance.Play_Narration("Detection", theDM.GetCurrentSentenceNumber()) + 1f);
+
         theDM.AllowNextStep();
+      
         
         
         

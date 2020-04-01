@@ -10,10 +10,13 @@ public class WordSpeakerController : MonoBehaviour
 {
 
     private AudioSource _audioSource;
+    //음원 재생 중 여러번 클릭되는 것을 방지하기 위한 플래그
+    private Boolean isPlaying;
     
     // Start is called before the first frame update
     void Start()
     {
+        isPlaying = false;
         Debug.Log("WordSpeakerController Started");
         _audioSource = gameObject.GetComponent<AudioSource>();
     }
@@ -29,12 +32,13 @@ public class WordSpeakerController : MonoBehaviour
     private void OnMouseDown()
     {
         if (Time.timeScale == 0) return;
-        Debug.Log("HeartIcon Clicked");
+        if (isPlaying) return;
         StartCoroutine(StopMusicPlayWord());
     }
 
     IEnumerator StopMusicPlayWord()
     {
+        isPlaying = true;
         if (SoundManager.Instance.IsMusicPlaying())
         {
             SoundManager.Instance.StopMusic();
@@ -43,15 +47,15 @@ public class WordSpeakerController : MonoBehaviour
 
         if (_audioSource.clip != null)
         {
-            Debug.Log("StopMusicAnd Play Word");
             _audioSource.Play();  
         }
         
         yield return new WaitForSeconds(_audioSource.clip.length+1.5f);
         
         SoundManager.Instance.Play_AlternativeMusic();
-        
-        
-        
+        isPlaying = false;
+
+
+
     }
 }

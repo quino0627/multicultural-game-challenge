@@ -101,9 +101,14 @@ public class TutorialEliminationManager : MonoBehaviour
             }
         }
         
-        yield return new WaitForSeconds(3.0f);
+        yield return new WaitForSeconds(2.0f);
         
         theDM.ShowDialogue();
+        
+        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(
+            SoundManager.Instance.Play_Narration("Elimination", theDM.GetCurrentSentenceNumber()) + 1f);
+
         
         
         var tmpCount = theDM.GetCurrentSentenceNumber();
@@ -112,6 +117,11 @@ public class TutorialEliminationManager : MonoBehaviour
         {
             yield return new WaitForFixedUpdate();
         }
+        
+        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(
+            SoundManager.Instance.Play_Narration("Elimination", theDM.GetCurrentSentenceNumber()) + 1f);
+
         
         
         WrongFish1.SetActive(true);
@@ -124,7 +134,7 @@ public class TutorialEliminationManager : MonoBehaviour
         yield return new WaitForSeconds(0.6f);
         WrongFish4.SetActive(true);
         
-        yield return new WaitForSeconds(3.0f);
+        yield return new WaitForSeconds(2.0f);
         
         
         tmpCount = theDM.GetCurrentSentenceNumber();
@@ -134,7 +144,10 @@ public class TutorialEliminationManager : MonoBehaviour
             yield return new WaitForFixedUpdate();
         }
         
-        yield return new WaitForSeconds(3.0f);
+        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(
+            SoundManager.Instance.Play_Narration("Elimination", theDM.GetCurrentSentenceNumber()) + 1f);
+
         
         thinkBubble.SetActive(true);
         yield return new WaitForSeconds(.5f);
@@ -142,7 +155,7 @@ public class TutorialEliminationManager : MonoBehaviour
 //        syllableText.text = "종성";
         
         // 자극 제시 ex) 만들
-        stimulText.text = "만들";
+        stimulText.text = "친구";
         SoundManager.Instance.Play_SpeechBubblePop();
         stimulation.SetActive(true);
         
@@ -155,15 +168,18 @@ public class TutorialEliminationManager : MonoBehaviour
             yield return new WaitForFixedUpdate();
         }
         
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
         
         // 탈락 자극 제시
         stimulation.SetActive(false);
         SoundManager.Instance.Play_SpeechBubblePop();
-        eliminText.text = "ㄷ";
+        eliminText.text = "ㄴ";
         
-        yield return new WaitForSeconds(3f);
-
+        yield return new WaitForSeconds(
+            SoundManager.Instance.Play_Narration("Elimination", theDM.GetCurrentSentenceNumber()) + 1f);
+        
+        
+        
         tmpCount = theDM.GetCurrentSentenceNumber();
         theDM.AllowNextStep();
         while (tmpCount == theDM.GetCurrentSentenceNumber())
@@ -171,8 +187,11 @@ public class TutorialEliminationManager : MonoBehaviour
             yield return new WaitForFixedUpdate();
         }
         
-        
-        
+        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(
+            SoundManager.Instance.Play_Narration("Elimination", theDM.GetCurrentSentenceNumber()) + 1f);
+
+
         // 스피커 클릭 연습하기
         isClickedSpeaker = false;
 
@@ -184,7 +203,10 @@ public class TutorialEliminationManager : MonoBehaviour
         theDM.AllowNextStep();
         theDM.StartNextScript();
         
-        yield return new WaitForSeconds(3.0f);
+        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(
+            SoundManager.Instance.Play_Narration("Elimination", theDM.GetCurrentSentenceNumber()) + 1f);
+
         
         
         // 정답 물고기 클릭 연습하기
@@ -197,7 +219,10 @@ public class TutorialEliminationManager : MonoBehaviour
         theDM.AllowNextStep();
         theDM.StartNextScript();
         
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(
+            SoundManager.Instance.Play_Narration("Elimination", theDM.GetCurrentSentenceNumber()) + 1f);
+
         
         theDM.AllowNextStep();
         

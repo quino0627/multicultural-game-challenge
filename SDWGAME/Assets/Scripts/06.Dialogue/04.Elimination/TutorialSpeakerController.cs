@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class TutorialSpeakerController : MonoBehaviour
 {
+    public int choiceNumber;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +20,7 @@ public class TutorialSpeakerController : MonoBehaviour
 
     private void OnMouseDown()
     {
-        SoundManager.Instance.Play_EliminationTutorialSampleSound();
+        SoundManager.Instance.Play_TutorialEliminationChoices(choiceNumber);
         GameObject.FindObjectOfType<TutorialEliminationManager>().isClickedSpeaker = true;
     }
 }

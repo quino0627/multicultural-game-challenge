@@ -70,6 +70,12 @@ public class TutorialSynthesisManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1.0f);
         theDM.ShowDialogue();
+        
+        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(
+            SoundManager.Instance.Play_Narration("Synthesis", theDM.GetCurrentSentenceNumber()) + 1f);
+
+        
         var tmpCount = theDM.GetCurrentSentenceNumber();
         theDM.AllowNextStep();
         while (tmpCount == theDM.GetCurrentSentenceNumber())
@@ -79,7 +85,10 @@ public class TutorialSynthesisManager : MonoBehaviour
         // 게의 상황 설명
 //        yield return new WaitForSeconds(3.0f);
 
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(
+            SoundManager.Instance.Play_Narration("Synthesis", theDM.GetCurrentSentenceNumber()) + 1f);
+
         
         StartCoroutine(InitialJellyfish(0, CorrectJellyfish, CorrectJellyfishPosition));
         
@@ -88,8 +97,6 @@ public class TutorialSynthesisManager : MonoBehaviour
         StartCoroutine(InitialJellyfish(3, WrongJellyfish3, WrongJellyfishPosition3));
         StartCoroutine(InitialJellyfish(4, WrongJellyfish4, WrongJellyfishPosition4));
         StartCoroutine(InitialJellyfish(5, WrongJellyfish5, WrongJellyfishPosition5));
-        
-        yield return new WaitForSeconds(3.0f);
         
         tmpCount = theDM.GetCurrentSentenceNumber();
         theDM.AllowNextStep();
@@ -100,9 +107,14 @@ public class TutorialSynthesisManager : MonoBehaviour
 
 
         // 게가 단어를 말 함
-        yield return new WaitForSeconds(3.0f);
-        SoundManager.Instance.Play_EliminationTutorialSampleSound();
-        yield return new WaitForSeconds(3.0f);
+        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(
+            SoundManager.Instance.Play_Narration("Synthesis", theDM.GetCurrentSentenceNumber()) + 1f);
+
+        yield return new WaitForSeconds(SoundManager.Instance.Play_TutorialSynthesisSampleSound()+1f);
+        
+        
+       
         
         tmpCount = theDM.GetCurrentSentenceNumber();
         theDM.AllowNextStep();
@@ -112,7 +124,10 @@ public class TutorialSynthesisManager : MonoBehaviour
         }
         // 해파리들이 날라와서 장전됨
     
-        yield return new WaitForSeconds(3.0f);
+        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(
+            SoundManager.Instance.Play_Narration("Synthesis", theDM.GetCurrentSentenceNumber()) + 1f);
+
         
         
         
@@ -124,12 +139,13 @@ public class TutorialSynthesisManager : MonoBehaviour
             yield return new WaitForFixedUpdate();
         }
         SoundManager.Instance.Play_ClickedCorrectAnswer();
-        
-        yield return new WaitForSeconds(3.0f);
-        
+
         theDM.StartNextScript();
         
-        yield return new WaitForSeconds(3.0f);
+        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(
+            SoundManager.Instance.Play_Narration("Synthesis", theDM.GetCurrentSentenceNumber()) + 1f);
+
         
         theDM.AllowNextStep();
         

@@ -147,6 +147,11 @@ public class TutorialAlternativeManager : MonoBehaviour
         
         // 다이얼로그 화면에 나타남(클릭 불가능)
         theDM.ShowDialogue();
+        
+        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(
+            SoundManager.Instance.Play_Narration("Alternative", theDM.GetCurrentSentenceNumber()) + 1f);
+
 
         var tmpCount = 0;
         
@@ -161,8 +166,10 @@ public class TutorialAlternativeManager : MonoBehaviour
             }
         }
 
-        yield return new WaitForSeconds(1.0f);
-        
+        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(
+            SoundManager.Instance.Play_Narration("Alternative", theDM.GetCurrentSentenceNumber()) + 1f);
+
         // 버블들을 화면에 표시
         SoundManager.Instance.Play_AlterBubbleShowedUp();
         WrongBubble_1.SetActive(true);
@@ -190,7 +197,10 @@ public class TutorialAlternativeManager : MonoBehaviour
         }
 
         // 왼쪽 상자를 눌러봐! 음성이 들어갈 자리
-        yield return new WaitForSeconds(3.0f);
+        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(
+            SoundManager.Instance.Play_Narration("Alternative", theDM.GetCurrentSentenceNumber()) + 1f);
+
 
         clickedCorrectAnswer = false;
         while (!clickedOriginalWordBox)
@@ -198,8 +208,11 @@ public class TutorialAlternativeManager : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
         theDM.StartNextScript();
-        yield return new WaitForFixedUpdate();
-//        theDM.AllowNextStep();
+        
+        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(
+            SoundManager.Instance.Play_Narration("Alternative", theDM.GetCurrentSentenceNumber()) + 1f);
+
         
         yield return new WaitForSeconds(1f);
         // 목표 단어 사라짐
@@ -216,7 +229,7 @@ public class TutorialAlternativeManager : MonoBehaviour
         
         yield return new WaitForSeconds(2.0f);
         // 샘플 사운드
-        SoundManager.Instance.Play_EliminationTutorialSampleSound();
+        SoundManager.Instance.Play_AlternativeOriginSound();
 
         yield return new WaitForSeconds(2.0f);
 
@@ -229,7 +242,12 @@ public class TutorialAlternativeManager : MonoBehaviour
                 yield return new WaitForFixedUpdate();
             }
         }
-        yield return new WaitForSeconds(2.0f);
+        
+        
+        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(
+            SoundManager.Instance.Play_Narration("Alternative", theDM.GetCurrentSentenceNumber()) + 1f);
+
         
         // 다시 듣기 말풍선 띄우기
         SeahorseRight.transform.Find("RepeatSound").gameObject.SetActive(true);
@@ -241,6 +259,11 @@ public class TutorialAlternativeManager : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
         theDM.StartNextScript();
+        
+        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(
+            SoundManager.Instance.Play_Narration("Alternative", theDM.GetCurrentSentenceNumber()) + 1f);
+
 
         clickedCorrectAnswer = false;
         while (!clickedCorrectAnswer)
@@ -250,7 +273,10 @@ public class TutorialAlternativeManager : MonoBehaviour
         
         theDM.StartNextScript();
         
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(
+            SoundManager.Instance.Play_Narration("Alternative", theDM.GetCurrentSentenceNumber()) + 1f);
+        
         
         theDM.AllowNextStep();
 

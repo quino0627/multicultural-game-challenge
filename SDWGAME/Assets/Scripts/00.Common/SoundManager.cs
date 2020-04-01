@@ -120,8 +120,8 @@ public class SoundManager : MonoBehaviour
 
 	public AudioClip m_CrabHurray;
 	
-	// EliminationTutorialSampleSound
-	public AudioClip m_EliminationTutorialSampleSound = null;
+//	// EliminationTutorialSampleSound
+//	public AudioClip m_EliminationTutorialSampleSound = null;
 
 	// EliminationTutorial에서 생선을 클릭했을 때 맞췄습니다 ~ 소리
 	public AudioClip m_EliminationTutorialFishClickedSound = null;
@@ -141,7 +141,14 @@ public class SoundManager : MonoBehaviour
 	// 대치과제 나레이션 배열(튜토리얼 포함)
 	public AudioClip[] m_NarrationAlternatives;
 	
-	
+	// 튜토리얼 예제 음성들
+	public AudioClip m_TutorialDetectionSampleSound = null;
+	public AudioClip m_TutorialSynthesisSampleSound = null;
+	public AudioClip[] m_TutorialEliminationChoices;
+	public AudioClip m_TutorialEliminationSampleSound = null;
+	public AudioClip m_TutorialAlternativeOriginSound = null;
+	public AudioClip m_TutorialAlternativeTargetSound = null;
+
 	// Sound volume
 	public float m_SoundVolume = 0.5f;
 
@@ -584,11 +591,6 @@ public class SoundManager : MonoBehaviour
 	{
 		PlaySoundOneShot(m_CrabHurray);
 	}
-	
-	public void Play_EliminationTutorialSampleSound()
-	{
-		PlaySoundOneShot(m_EliminationTutorialSampleSound);
-	}
 
 	public void Play_EliminationTutorialFishClickedSound()
 	{
@@ -626,6 +628,42 @@ public class SoundManager : MonoBehaviour
 				return 1f;
 		}
 	}
+	
+	public float Play_TutorialDetectectionSampleSound()
+	{
+		PlaySoundOneShot(m_TutorialDetectionSampleSound);
+		return m_TutorialDetectionSampleSound.length;
+	}
+
+	public float Play_TutorialSynthesisSampleSound()
+	{
+		PlaySoundOneShot(m_TutorialSynthesisSampleSound);
+		return m_TutorialSynthesisSampleSound.length;
+	}
+	public float Play_TutorialEliminationChoices(int number)
+	{
+		PlaySoundOneShot(m_TutorialEliminationChoices[number]);
+		return m_TutorialEliminationChoices[number].length;
+	}
+	public float Play_TutorialEliminationSampleSound()
+	{
+		PlaySoundOneShot(m_TutorialEliminationSampleSound);
+		return m_TutorialEliminationSampleSound.length;
+	}
+	public float Play_AlternativeOriginSound()
+	{
+		PlaySoundOneShot(m_TutorialAlternativeOriginSound);
+		return m_TutorialAlternativeOriginSound.length;
+	}
+	public float Play_AlternativeTargetSound()
+	{
+		PlaySoundOneShot(m_TutorialAlternativeTargetSound);
+		return m_TutorialAlternativeTargetSound.length;
+	}
+	
+
+
+	
 
 	#endregion // Functions
 }

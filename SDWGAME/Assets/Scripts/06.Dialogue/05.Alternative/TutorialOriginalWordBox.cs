@@ -27,6 +27,7 @@ public class TutorialOriginalWordBox : MonoBehaviour
     {
         Debug.Log("Clicked TutorialOriginWordBox");
         GameObject.FindObjectOfType<TutorialAlternativeManager>().clickedOriginalWordBox = true;
-        SoundManager.Instance.Play_EliminationTutorialSampleSound();
-    }
+//        SoundManager.Instance.Play_EliminationTutorialSampleSound();
+        SoundManager.Instance.Play_AlternativeOriginSound();
+    }    
 }

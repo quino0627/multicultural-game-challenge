@@ -77,8 +77,6 @@ MonoBehaviour:
   m_JellyFishShowedUp: {fileID: 8300000, guid: 79b0d7a1e422047079ba09687c1aeb11, type: 3}
   m_JellyFishShocked: {fileID: 8300000, guid: 8679320d2f49746878d50728f45e123b, type: 3}
   m_CrabHurray: {fileID: 8300000, guid: a8f6f36833e2e4c8fb146d8f47adaf8d, type: 3}
-  m_EliminationTutorialSampleSound: {fileID: 8300000, guid: 7487f2c881c5a4c7b8d8b2aec8eca37f,
-    type: 3}
   m_EliminationTutorialFishClickedSound: {fileID: 8300000, guid: 7ca46b43ef14e436798aa2962084634a,
     type: 3}
   m_HurryOutTime: {fileID: 8300000, guid: 13ece71ec4e04e641bbf09d1e4634561, type: 3}
@@ -123,5 +121,21 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 3c6a1baeedba046b19ce3202d890e16d, type: 3}
   - {fileID: 8300000, guid: b03c6494d55494a4eb122cc1aeac0fe0, type: 3}
   - {fileID: 8300000, guid: 6294a141b6659434d982097c2b571e5b, type: 3}
+  m_TutorialDetectionSampleSound: {fileID: 8300000, guid: e00663b6f2d4e4a8ab712449995dcb26,
+    type: 3}
+  m_TutorialSynthesisSampleSound: {fileID: 8300000, guid: ae9ff686b416d4be797312a104d6cd21,
+    type: 3}
+  m_TutorialEliminationChoices:
+  - {fileID: 8300000, guid: 5fb40de26374548f39d48819ca100b21, type: 3}
+  - {fileID: 8300000, guid: 07200b0b40d0248d69e9861ab44fec6a, type: 3}
+  - {fileID: 8300000, guid: c2eee299900ee4a9f8c0c4149733a362, type: 3}
+  - {fileID: 8300000, guid: 0886495c80f4e41b19f883fb95637c80, type: 3}
+  - {fileID: 8300000, guid: cb1e1fd6adb2644b184220333751b900, type: 3}
+  m_TutorialEliminationSampleSound: {fileID: 8300000, guid: 4f4675bdfd61f4d5a8703f5fa9af98ae,
+    type: 3}
+  m_TutorialAlternativeOriginSound: {fileID: 8300000, guid: 648f2a7ef6e3840a89e73822c546b091,
+    type: 3}
+  m_TutorialAlternativeTargetSound: {fileID: 8300000, guid: 896a92d446ecb495d9888f910d16628a,
+    type: 3}
   m_SoundVolume: 0.5
   m_MusicVolume: 0.5
