@@ -410,7 +410,7 @@ public class AlternativeQuizManager : MonoBehaviour
             }
 
             yield return new WaitForSeconds(1f);
-            string wordFileLink = $"Sounds/04.Alternative/{data.sheets[level].list[questionId].후자극음성}";
+            string wordFileLink = $"Sounds/Alternative/{data.sheets[level].list[questionId].후자극음성}";
             // 2020.03.29 송동욱
             // 유니티 오브젝트에 익숙치 않아서 유사 코드가 중복...ㅠ
 

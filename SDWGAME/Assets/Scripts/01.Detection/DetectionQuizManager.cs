@@ -330,7 +330,7 @@ public class DetectionQuizManager : MonoBehaviour
 
             yield return new WaitForSeconds(1f);
             //originalPosition 이 false인 경우에는 아무것도 하지 않다가 true가 되면 break한다.
-            string wordFileLink = $"Sounds/01.Detection/{data.sheets[level].list[questionId].정답음성}";
+            string wordFileLink = $"Sounds/Detection/{data.sheets[level].list[questionId].정답음성}";
             Debug.Log(wordFileLink);
             Octo.GetComponent<AudioSource>().loop = false;
             Octo.GetComponent<AudioSource>().clip = Resources.Load(wordFileLink) as AudioClip;
