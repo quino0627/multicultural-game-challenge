@@ -52,8 +52,11 @@ public class JfSuccess : MonoBehaviour
 
         if (CheckSuccess())
         {
-            spreadChoicesScript.responseTime = spreadChoicesScript.watch.ElapsedMilliseconds;
-            //Carrier.SetActive(true);
+            if (spreadChoicesScript.isUserRight == false)
+            {
+                spreadChoicesScript.responseTime = spreadChoicesScript.watch.ElapsedMilliseconds;
+            }
+
             if (!tmpValue)
             {
                 GameObject.Find("QuizManager").GetComponent<SpreadChoices>().PlusTotalCorrectStage();
@@ -123,7 +126,7 @@ public class JfSuccess : MonoBehaviour
     {
         if (cntCorrAns == currCntCorrAns)
         {
-            spreadChoicesScript.responseTime = spreadChoicesScript.watch.ElapsedMilliseconds;
+            //spreadChoicesScript.responseTime = spreadChoicesScript.watch.ElapsedMilliseconds;
             return true;
         }
         return false;

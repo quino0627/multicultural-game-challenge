@@ -1,6 +1,6 @@
 Win
 PlayerPath?
-/Users/quino0627/Documents/0327windowhangeulgame/HangeulGame.exe
+C:/Users/singi/Desktop/0401/HangeulGame.exe
 SceneListBegin?
 Assets/Scenes/StartMenu.unity
 Assets/Scenes/AlternativeGame.unity
@@ -20,6 +20,7 @@ Assets/Scenes/TutorialEliminationGameV2.unity
 Assets/Scenes/TutorialSynthesisGameV2.unity
 SceneListEnd?
 a1f19ad47d3094e235f21b74dfc423a8 Unity.Postprocessing.Runtime.dll:UnityEngine.Rendering.PostProcessing.PostProcessLayer
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.TutorialRepeatSoundBubble
 726fcf7961cbb4108aa5be5e55b8c8bf Unity.Postprocessing.Runtime.dll:UnityEngine.Rendering.PostProcessing.ColorGrading
 b13de7a0a457cb8e026d4237dc1b5797 Unity.Postprocessing.Runtime.dll:UnityEngine.Rendering.PostProcessing.LensDistortion
 3c08375166df118bd1801438fc36b92f Unity.TextMeshPro.dll:TMPro.TMP_SelectionCaret
@@ -150,14 +151,13 @@ e1bbf0ab858085e38fae6b12ebbdcd35 UnityEngine.Timeline.dll:UnityEngine.Timeline.P
 201e3fde670b00545944bb3db215c80a UnityEngine.Timeline.dll:UnityEngine.Timeline.TimelineAsset
 5035cc25f1a7c7d2a8f9fc9868ae4919 Assembly-CSharp.dll:.FadeIn
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.SettingButtonScript
-71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.CheckClicks
 1519adaaaa99ce912dd770faf59cea18 Assembly-CSharp.dll:.OctoSinusodialMove
 ff480acec67d8ff513069399e20ee6a8 Assembly-CSharp.dll:.UIPT_PRO_Demo_Achievement
 4e9333594897a1fb8b136ad2eae996c7 Unity.TextMeshPro.dll:TMPro.TMP_SubMeshUI
 13c1f31760f53fe1490e72fce12a0a44 Unity.RenderPipelines.Lightweight.Runtime.dll:UnityEngine.Experimental.Rendering.LightweightPipeline.LightweightRenderPipelineResources
 7f1eb9b932a517e55222850395fa4897 Assembly-CSharp.dll:.BubbleController
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.MousePointer
-c6c829ed483a56e2f485dcf1b7c33781 Assembly-CSharp.dll:.SoundManager
+403b7266f86461953ab6e915660a2283 Assembly-CSharp.dll:.SoundManager
 e6ae40841db498b6e673877ac45ad208 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkAnimator
 71bb6a6b6c8f052f948db64c7dd3ca4f UnityEngine.Networking.dll:UnityEngine.Networking.NetworkBehaviour
 1dcb82730d983b77cec736c6ef19f814 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkDiscovery
@@ -177,8 +177,7 @@ d0cd0c743e9c42b9f00a90d62bfa139a Assembly-CSharp.dll:.GameData
 d251bf88db6c95a6b1aa0b69298da9ef UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 ea97bcaec307e5622213804beba5a482 Assembly-CSharp.dll:.ResultHandler
 75bfe009ae86c2f34d0001c399c184cc Assembly-CSharp.dll:.TutorialSynthesisManager
-ef9c8534f322ff0e65acd80fe9a4a80a Assembly-CSharp.dll:.TutorialAlternativeManager
-71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.EliminationSpeakerSoundController
+8128da8295ba6f26f99c200edb5a39f6 Assembly-CSharp.dll:.TutorialAlternativeManager
 4d16cfbaa8e821a2b370e80844a0e9bc Assembly-CSharp.dll:TMPro.Examples.Benchmark03
 a0518b18ff23ae2366cd318ad9650c69 Assembly-CSharp.dll:.Entity_EliminationTestCnt10
 3d5ea869f6f9d85e3171edfd937d72b5 Assembly-CSharp.dll:.FishController
@@ -194,8 +193,10 @@ b8a5e8091ab0b8861d2add371082c5e0 Unity.TextMeshPro.dll:TMPro.TMP_SpriteAsset
 0aa867b016a08fb9509357e6a5e0c19c Assembly-CSharp.dll:.FishShowAnswer
 47930f3b40e24ef5b3b5e3d9ada7097a Assembly-CSharp.dll:TMPro.Examples.Benchmark01
 c0558fe903a7b73f2e3a964e15238da0 Assembly-CSharp.dll:.UIPT_PRO_CloudManager
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.WordSpeakerController
 24fa984b25f04ae18af13126cbb1eb60 Assembly-CSharp.dll:.BarrelController
 61b9d9b6f4b6a222dfea8b131b3d3227 Unity.Postprocessing.Runtime.dll:UnityEngine.Rendering.PostProcessing.ChromaticAberration
+b9e32552ee8f18989658acb71e6db788 Assembly-CSharp.dll:.DET_DataList
 3e345838d555e3f0f0a651f8c577cd84 Unity.RenderPipelines.Lightweight.Runtime.dll:UnityEngine.Experimental.Rendering.LightweightPipeline.LightweightRenderPipelineAsset
 b94c68df884a02bfd310d43e5d04859a Assembly-CSharp.dll:.UIPT_PRO_Demo07_Social
 826758c182643958ef1860f26e43593d Assembly-CSharp.dll:.SelectMenu
@@ -207,11 +208,12 @@ d7062d9cf91a562c05c67aa4ee9c1b8c Assembly-CSharp.dll:.UIPT_PRO_Demo_Pause
 399a68023002d11056f5d32d73c7ec0a Assembly-CSharp.dll:.TutorialDragAndDrop
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.CheckAnswer
 b3ab2106268377ffe25dd18ac23dca28 Unity.TextMeshPro.dll:TMPro.TMP_Asset
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.TutorialOriginalWordBox
 f35835214b61e3b269a35054afdeb062 Assembly-CSharp.dll:.DetectionQuizManager
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.ScreenResolution
 8202806dd3d740737bbccf3cb68bedc9 Assembly-CSharp.dll:.TutorialWrongJellyfishController
 0fb28052108a9578b63ec723737a9345 Elringus.SpriteGlow.Runtime.dll:SpriteGlow.SpriteGlowEffect
-71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.TutorialSpeakerController
+07c8acd739255a3b4cdb17d74950897e Assembly-CSharp.dll:.TutorialSpeakerController
 3375c3d749f8f4cad889721b431bdc27 Assembly-CSharp.dll:TMPro.Examples.CameraController
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.TutorialWrongFishController
 e63944317d2f5958e31963668bb29158 Assembly-CSharp.dll:TMPro.Examples.VertexJitter
@@ -228,7 +230,7 @@ a3259324d9b29d43e7ef9b6aea8b8846 Assembly-CSharp.dll:.UIPT_PRO_Demo_Help
 f89823f39c681be8646171797d5c1e3b Assembly-CSharp.dll:.UIPT_PRO_Demo02_Home
 fe1a0ae70b3a6b0c6fb2003791988628 Assembly-CSharp.dll:.PracticeManager
 50c443b12ccc0b475183318b5088bcc5 Unity.Postprocessing.Runtime.dll:UnityEngine.Rendering.PostProcessing.PostProcessDebug
-d95b5ab885e9835e0eda00056eca619b Assembly-CSharp.dll:.AlternativeQuizManager
+6e01ade7c40afea75a4ae093c6a56363 Assembly-CSharp.dll:.AlternativeQuizManager
 4fd8bf02e3089425d3502e26c44ba31a Unity.TextMeshPro.dll:TMPro.TextContainer
 4d51d5ccf37d2089bdfe827617b784ff Unity.RenderPipelines.Core.Runtime.dll:UnityEngine.Experimental.Rendering.VolumeProfile
 3cae62e09a50c5d5aae8d0536b3d8fde Assembly-CSharp.dll:.ChatController
@@ -253,6 +255,7 @@ ad9173d3a69d99153f38ed4b62226129 UnityEngine.Networking.dll:UnityEngine.Networki
 bafa8e90733dda2f71123afff8397ec7 Assembly-CSharp.dll:.SliderTimer
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.ClickCorrectBubble
 11319334e5365797f8056694f9b5dae4 Assembly-CSharp.dll:TMPro.Examples.ObjectSpin
+b1b9ade2429ccb885eade1bd2802e454 Assembly-CSharp.dll:.ALT_DataList_0329
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:TMPro.TMP_DigitValidator
 35a9693c388776aaf487636491a20f11 Unity.TextMeshPro.dll:TMPro.TMP_FontAsset
 0beeaef9afd717c935b9c92db008df4a Assembly-CSharp.dll:.GameDirector
@@ -325,7 +328,7 @@ bd3f0ca738703903e759f77536ed74fd Assembly-CSharp.dll:TMPro.Examples.TMP_UiFrameR
 e63944317d2f5958e31963668bb29158 Assembly-CSharp.dll:TMPro.Examples.VertexZoom
 bebd40118e6600a3bb40e32f03705edd Assembly-CSharp.dll:.UIPT_PRO_Demo_LevelClear
 d791aa6007fa3640be1164ea75bb087d Unity.TextMeshPro.dll:TMPro.TMP_StyleSheet
-bdc0d924411d24b9d1ff2d41facb1eb4 Assembly-CSharp.dll:.ELM_DataList
+72ac3e127a5ed5a8e1b75fbca2bd95a6 Assembly-CSharp.dll:.ELM_DataList
 b6ae07b272c46c9972c5bdefeba54447 Assembly-CSharp.dll:.DemoPlaySound
 e80c1450883443c68d6c2dade213536f Assembly-CSharp.dll:TMPro.Examples.TMPro_InstructionOverlay
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.RepeatSoundBubble
@@ -352,11 +355,9 @@ a47f3a3bb5ee8a92609a7a8d4bd1f45f Assembly-CSharp.dll:.Entity_Detection
 8424edc4dc7caa1ef0c7c4bdd341cac7 Assembly-CSharp.dll:.UIPT_PRO_Demo_RankInfo
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.TutorialCorrectFishController
 853a4d2b44a622267bd0bf619e7f413b Assembly-CSharp.dll:.UIPT_PRO_Demo01_IntroAndLoading
-6d9ef67e4ee8780c19ad9a14e316d286 Assembly-CSharp.dll:.FishType
+0195e13502a1bb2fa23c73fea01b9fc5 Assembly-CSharp.dll:.FishType
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.GA_UUI_DemoBasicControlledByScripts
 18aa4baa262a0873ab762d359c2fc55c Assembly-CSharp.dll:.DragAndDrop
 d68ab92741f0dd0a458f688d7572660a Assembly-CSharp.dll:.Demo02
 ac94dd7a761ade1054066655ce15217a Assembly-CSharp.dll:.DialogueManagerV2
 7c3c235ba43b0a79ea410a52722ab6ad Assembly-CSharp.dll:.MovingScript
-b9e32552ee8f18989658acb71e6db788 Assembly-CSharp.dll:.DET_DataList
-eb85f96ee14cbf24146bb0ed336e9275 Assembly-CSharp.dll:.ALT_DataList
