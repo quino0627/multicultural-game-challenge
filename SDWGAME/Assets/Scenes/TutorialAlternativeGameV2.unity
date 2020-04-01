@@ -89,7 +89,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1842,7 +1842,7 @@ MonoBehaviour:
       \uAE30\uC5B5\uD558\uACE0 \uC788\uC5B4. \n\uB2E4\uC2DC \uB4E4\uC5B4\uBCF4\uACE0
       \uC2F6\uB2E4\uBA74 \uB4E4\uB824\uC904 \uC218 \uC788\uB300.\n\uB9D0\uD48D\uC120\uC744
       \uD074\uB9AD\uD574\uBD10."
-    - "\"\uB098\uB204\uAE30\"\uC5D0\uC11C \"\uB2E4\uB450\uAE30\"\uB85C \uBC14\uB00C\uB824\uBA74
+    - "\"\uD30C\uB2E4\"\uC5D0\uC11C \"\uBC14\uB2E4\"\uB85C \uBC14\uB00C\uB824\uBA74
       \uC5B4\uB5A4 \uAE00\uC790\uAC00 \uD544\uC694\uD560\uAE4C?\n\uC0AC\uB77C\uC9C4
       \uC0C1\uC790\uC758 \uAE00\uC790\uAC00 \uB2F4\uAE34 \uBB3C\uBC29\uC6B8\uC744
       \uD074\uB9AD\uD574\uC918!"

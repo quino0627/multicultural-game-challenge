@@ -1,6 +1,6 @@
 Win
 PlayerPath?
-C:/Users/singi/Desktop/0401/HangeulGame.exe
+/Users/quino0627/Documents/0401windowhangeulgame/HangeulGame.exe
 SceneListBegin?
 Assets/Scenes/StartMenu.unity
 Assets/Scenes/AlternativeGame.unity
