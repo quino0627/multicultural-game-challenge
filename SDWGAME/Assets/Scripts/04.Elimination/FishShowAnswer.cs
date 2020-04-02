@@ -280,7 +280,7 @@ public class FishShowAnswer : MonoBehaviour
                 levelToString = "D3_Hard";
                 break;
             default:
-                Debug.Assert(false,"Wrong LevelToString");
+                Debug.Assert(false, "Wrong LevelToString");
                 break;
         }
 
@@ -413,11 +413,12 @@ public class FishShowAnswer : MonoBehaviour
         //int fish_index;
         while (i < 5)
         {
-            yield return new WaitForSeconds(1.3f);
-            choices[i].SetActive(true);
-
             //물고기들이 가운데 생김
-
+            choices[i].SetActive(true);
+            AudioSource audioSource = choices[i].GetComponentInChildren<AudioSource>();
+            audioSource.Play();
+            float audioLength = audioSource.clip.length;
+            yield return new WaitForSeconds(audioLength + 0.1f);
             i++;
         }
 
