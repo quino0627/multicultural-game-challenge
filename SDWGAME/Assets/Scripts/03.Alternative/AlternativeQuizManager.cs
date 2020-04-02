@@ -308,7 +308,7 @@ public class AlternativeQuizManager : MonoBehaviour
 
         // 원자극파일연결
         string originWordFileLink = $"Sounds/Alternative/{data.sheets[level].list[questionId].원자극음성}";
-        Debug.Log(originWordFileLink);
+//        Debug.Log(originWordFileLink);
         OriginWordSpeaker.loop = false;
         OriginWordSpeaker.clip = Resources.Load(originWordFileLink) as AudioClip;
 
@@ -359,7 +359,7 @@ public class AlternativeQuizManager : MonoBehaviour
 //            Debug.Log("left start");
             SoundManager.Instance.Play_SeahorseWaves();
             SeahorseLeft.transform.Find("WaterFallAnimation").gameObject.SetActive(true);
-            Debug.Log(SeahorseLeft.GetComponent<SeahorseLeftController>().waterFallAnimator);
+//            Debug.Log(SeahorseLeft.GetComponent<SeahorseLeftController>().waterFallAnimator);
             Animator left_waterFallAnimator = SeahorseLeft.GetComponent<SeahorseLeftController>().waterFallAnimator;
 
             left_waterFallAnimator.Play("WaterFall");

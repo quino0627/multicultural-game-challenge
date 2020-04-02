@@ -196,7 +196,7 @@ public class TutorialAlternativeManager : MonoBehaviour
             }
         }
 
-        // 왼쪽 상자를 눌러봐! 음성이 들어갈 자리
+        // 왼쪽 상자를 눌러봐
         yield return new WaitForSeconds(1f);
         yield return new WaitForSeconds(
             SoundManager.Instance.Play_Narration("Alternative", theDM.GetCurrentSentenceNumber()) + 1f);
@@ -229,7 +229,7 @@ public class TutorialAlternativeManager : MonoBehaviour
         
         yield return new WaitForSeconds(2.0f);
         // 샘플 사운드
-        SoundManager.Instance.Play_AlternativeOriginSound();
+        SoundManager.Instance.Play_AlternativeTargetSound();
 
         yield return new WaitForSeconds(2.0f);
 

@@ -17,7 +17,6 @@ public class WordSpeakerController : MonoBehaviour
     void Start()
     {
         isPlaying = false;
-        Debug.Log("WordSpeakerController Started");
         _audioSource = gameObject.GetComponent<AudioSource>();
     }
 
@@ -27,9 +26,9 @@ public class WordSpeakerController : MonoBehaviour
         
     }
 
-    // 마우스로 해당 오브젝트 - WordBoxOrigin 위에 있는 하트 - 를 클릭하면
+    // 마우스로 해당 오브젝트 - WordBoxOrigin을 클릭하면
     // SpeakerClicked 함수를 호출한다.
-    private void OnMouseDown()
+    private void OnMouseUp()
     {
         if (Time.timeScale == 0) return;
         if (isPlaying) return;
@@ -41,18 +40,22 @@ public class WordSpeakerController : MonoBehaviour
         isPlaying = true;
         if (SoundManager.Instance.IsMusicPlaying())
         {
-            SoundManager.Instance.StopMusic();
+            SoundManager.Instance.PauseMusic();
         }
         yield return new WaitForSeconds(1.0f);
 
         if (_audioSource.clip != null)
         {
             _audioSource.Play();  
+            yield return new WaitForSeconds(_audioSource.clip.length+1.5f);
+        }
+        else
+        {
+            Debug.Log("Clip Not Exists");
         }
         
-        yield return new WaitForSeconds(_audioSource.clip.length+1.5f);
         
-        SoundManager.Instance.Play_AlternativeMusic();
+        SoundManager.Instance.UnpauseMusic();
         isPlaying = false;
 
 

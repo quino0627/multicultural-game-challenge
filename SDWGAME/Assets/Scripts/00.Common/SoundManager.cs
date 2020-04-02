@@ -357,27 +357,19 @@ public class SoundManager : MonoBehaviour
 	// If music is playing, return true.
 	public bool IsMusicPlaying()
 	{
-		//Debug.Log("a");
 		AudioListener pAudioListener = GameObject.FindObjectOfType<AudioListener>();
 		if (pAudioListener != null)
 		{
-		//	Debug.Log("b");
-//			AudioSource[] pAudioSourceList = pAudioListener.gameObject.GetComponents<AudioSource>();
-			// 내가 짠 거
 			AudioSource[] pAudioSourceList = GetComponents<AudioSource>();
-			Debug.Log(pAudioSourceList.Length);
+//			Debug.Log(pAudioSourceList.Length);
 			if (pAudioSourceList.Length > 0)
 			{
-		//		Debug.Log("c");
 				for (int i = 0; i < pAudioSourceList.Length; i++)
 				{
-		//			Debug.Log("d");
 					if (pAudioSourceList[i].ignoreListenerVolume == true)
 					{
-		//				Debug.Log("e");
 						if (pAudioSourceList[i].isPlaying == true)
 						{
-		//					Debug.Log("f");
 							return true;
 						}
 					}
@@ -388,26 +380,53 @@ public class SoundManager : MonoBehaviour
 		return false;
 	}
 
+	public void PauseMusic()
+	{
+		AudioListener pAudioListener = GameObject.FindObjectOfType<AudioListener>();
+		if (pAudioListener != null)
+		{
+			AudioSource[] pAudioSourceList = GetComponents<AudioSource>();
+			if (pAudioSourceList.Length > 0)
+			{
+				for (int i = 0; i < pAudioSourceList.Length; i++)
+				{
+					pAudioSourceList[i].Pause();
+				}
+			}
+		}
+
+	}
+
+	public void UnpauseMusic()
+	{
+		AudioListener pAudioListener = GameObject.FindObjectOfType<AudioListener>();
+		if (pAudioListener != null)
+		{
+			AudioSource[] pAudioSourceList = GetComponents<AudioSource>();
+			if (pAudioSourceList.Length > 0)
+			{
+				for (int i = 0; i < pAudioSourceList.Length; i++)
+				{
+					pAudioSourceList[i].UnPause();
+				}
+			}
+		}
+	}
+
 	public void StopMusic()
 	{
 
 		AudioListener pAudioListener = GameObject.FindObjectOfType<AudioListener>();
-//		Debug.Log("1");
 		if (pAudioListener != null)
 		{
-//			Debug.Log("2");
 			// Look for an AudioListener component that is not playing background music or sounds.
 			bool IsPlaySuccess = false;
-//			AudioSource[] pAudioSourceList = pAudioListener.gameObject.GetComponents<AudioSource>();
 			AudioSource[] pAudioSourceList = GetComponents<AudioSource>();
 			if (pAudioSourceList.Length > 0)
 			{
-//				Debug.Log("3");
 				for (int i = 0; i < pAudioSourceList.Length; i++)
 				{
-//					Debug.Log("4");
 					// Stop music
-
 					pAudioSourceList[i].Stop();
 //							break;
 

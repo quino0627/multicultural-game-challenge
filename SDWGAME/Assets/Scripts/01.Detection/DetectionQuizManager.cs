@@ -331,7 +331,7 @@ public class DetectionQuizManager : MonoBehaviour
             // 배경음악 잠시 멈춤
             SoundManager.Instance.StopMusic();
 
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(1.5f);
             //originalPosition 이 false인 경우에는 아무것도 하지 않다가 true가 되면 break한다.
             string wordFileLink = $"Sounds/Detection/{data.sheets[level].list[questionId].정답음성}";
             Debug.Log(wordFileLink);

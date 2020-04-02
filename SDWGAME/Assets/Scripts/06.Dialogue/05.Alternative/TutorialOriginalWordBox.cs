@@ -11,10 +11,11 @@ using UnityEngine;
  */
 public class TutorialOriginalWordBox : MonoBehaviour
 {
+    private Boolean isPlaying;
     // Start is called before the first frame update
     void Start()
     {
-        
+        isPlaying = false;
     }
 
     // Update is called once per frame
@@ -25,9 +26,16 @@ public class TutorialOriginalWordBox : MonoBehaviour
 
     private void OnMouseUp()
     {
-        Debug.Log("Clicked TutorialOriginWordBox");
+        if (isPlaying) return;
+        
+        StartCoroutine(PlaySound());
+    }
+
+    IEnumerator PlaySound()
+    {
+        isPlaying = true;
+        yield return new WaitForSeconds(SoundManager.Instance.Play_AlternativeOriginSound()+1f);
         GameObject.FindObjectOfType<TutorialAlternativeManager>().clickedOriginalWordBox = true;
-//        SoundManager.Instance.Play_EliminationTutorialSampleSound();
-        SoundManager.Instance.Play_AlternativeOriginSound();
-    }    
+        isPlaying = false;
+    }
 }

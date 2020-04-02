@@ -10,60 +10,52 @@ public class DetectionDescriptionController : MonoBehaviour
     private GameObject Octo;
     private AudioSource OctoAudioSource;
     private string description_text;
+    //음원 재생 중 여러번 클릭되는 것을 방지하기 위한 플래그
+    private Boolean isPlaying;
     void Start()
     {
         Octo = transform.parent.gameObject;
         OctoAudioSource = Octo.GetComponent<AudioSource>();
         DescriptionText = transform.Find("DescriptionText").gameObject;
         DescriptionText.GetComponent<TextMeshPro>().text = "다시 듣기";
-//        DefaultDescription();
+        isPlaying = false;
     }
 
     // 다시 듣기를 눌렀을 떄.
     private void OnMouseUp()
     {
-        StartCoroutine(MusicPauseAndStart());
+        if (Time.timeScale == 0) return;
+        if (isPlaying) return;
+        StartCoroutine(StopMusicPlayWord());
         
     }
 
-    // 백그라운드 음악을 잠시 꺼야합니다.
-    IEnumerator MusicPauseAndStart()
+    // 백그라운드 음악을 껐다가 켠다
+    IEnumerator StopMusicPlayWord()
     {
+        isPlaying = true;
+        if (SoundManager.Instance.IsMusicPlaying())
+        {
+            SoundManager.Instance.PauseMusic();
+        }
+        yield return new WaitForSeconds(1.0f);
+
         if (OctoAudioSource.clip != null)
         {
-            if (SoundManager.Instance.IsMusicPlaying())
-            {
-                SoundManager.Instance.StopMusic();
-            }
-            yield return new WaitForSeconds(1f);
-            OctoAudioSource.Play();
-            yield return new WaitForSeconds(OctoAudioSource.clip.length + 1f);
-            SoundManager.Instance.Play_DetectionMusic();
+            OctoAudioSource.Play();  
+            yield return new WaitForSeconds(OctoAudioSource.clip.length+1.5f);
         }
+        else
+        {
+            Debug.Log("Clip Not Exists");
+        }
+        
+        
+        SoundManager.Instance.UnpauseMusic();
+        isPlaying = false;
+
+
+
     }
-    // 아래 코드들은 탐지과제에서 문어의 다시 듣기 펑션이 없을 때,
-    // 유저의 정답/오답 선택에 따른 말풍선 내부의 텍스트값을 변경하는 코드입니다.
-    
-//    // Update is called once per frame
-//    void Update()
-//    {
-//        this.DescriptionText.GetComponent<TextMeshPro>().text = description_text;
-//    }
-//
-//    public void CorrectAnswer()
-//    {
-//        description_text = "정답이야. \n 축하해!";
-//        Invoke("DefaultDescription", 2.0f);
-//    }
-//
-//    public void WrongAnswer()
-//    {
-//        description_text = "틀렸어.\n나중에 다시 골라봐\nㅠㅠ";
-//        Invoke("DefaultDescription", 2.0f);
-//    }
-//
-//    public void DefaultDescription()
-//    {
-//        description_text = "소리나는\n글자를\n찾아보자!";
-//    }
+ 
 }

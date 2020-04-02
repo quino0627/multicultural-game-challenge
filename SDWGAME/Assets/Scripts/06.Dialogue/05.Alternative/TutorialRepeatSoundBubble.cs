@@ -1,13 +1,15 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class TutorialRepeatSoundBubble : MonoBehaviour
 {
+    private Boolean isPlaying;
     // Start is called before the first frame update
     void Start()
     {
-        
+        isPlaying = false;
     }
 
     // Update is called once per frame
@@ -16,13 +18,18 @@ public class TutorialRepeatSoundBubble : MonoBehaviour
         
     }
     
-    private void OnMouseDown()
+    private void OnMouseUp()
     {
-        if (Time.timeScale == 0) return;
-//        transform.parent.GetComponent<SeahorseRightController>().ClickBubble();
-        GameObject.FindObjectOfType<TutorialAlternativeManager>().clickedSpeechBubble = true;
-        // 샘플 사운드이므로 교체 요망
-        SoundManager.Instance.Play_AlternativeTargetSound();
+        if (isPlaying) return;
+        
+        StartCoroutine(PlaySound());
+    }
 
+    IEnumerator PlaySound()
+    {
+        isPlaying = true;
+        yield return new WaitForSeconds(SoundManager.Instance.Play_AlternativeTargetSound()+1f);
+        GameObject.FindObjectOfType<TutorialAlternativeManager>().clickedSpeechBubble = true;
+        isPlaying = false;
     }
 }
