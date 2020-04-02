@@ -676,6 +676,19 @@ public class SpreadChoices : MonoBehaviour
         {
             Debug.Assert(false, "문제가 10개 초과");
         }
+        
+        SoundManager.Instance.StopMusic();
+        
+        yield return new WaitForSeconds(1.0f);
+
+        if (totalCorrectStage == questionMaxIndex)
+        {
+            SoundManager.Instance.Play_Narration("Synthesis", 5);
+        }
+        else
+        {
+            SoundManager.Instance.Play_Narration("Synthesis", 7);
+        }
 
         stageStorageScript.LoadGameStageData(EGameName.Synthesis, _totalStorageScript.currId, realLevel, stage);
         stageStorageScript.playCnt++;
@@ -699,77 +712,7 @@ public class SpreadChoices : MonoBehaviour
 
         eachQuestionStorageScript.initializeQuestionData();
     }
-    // ttr: total tried, tco: total corrected 
-    /*IEnumerator DecideResult(float ttr, float tco, float tcos)
-    {
-        yield return new WaitForSeconds(1.0f);
-        _resultHandler.OpenResult();
-        // tcl : total_clicked
-        // tco : total_correct
-        string result_text = $"{ttr - tco}번 틀리고 {tcos}개를 맞췄어요!";
-        descriptionText.text = result_text;
-        string[] sentences = {"정말 잘했어요", "조금 더 신중하게 해 보자", "더 연습하자"};
-        float rate = ttr / tco;
-        Debug.Log("level, rate: " + excelLevel + ", " + rate);
-
-
-        //        // 만약에 2.5배보다 더 많이 클릭했으면
-        if (rate > 2.5f)
-        {
-            // 아무것도 열리지 않을 것.
-            // do nothing
-            SoundManager.Instance.Play_NoStarShowedUp();
-            StarLeft.SetActive(false);
-            onesentenceText.text = sentences[2];
-            _totalStorageScript.tmpStars[1, _totalStorageScript.chosenLevel] = 0;
-        }
-        else
-        {
-            SoundManager.Instance.Play_StarShowedUp();
-            onesentenceText.text = sentences[2];
-            StarLeft.SetActive(true);
-            _totalStorageScript.tmpStars[1, _totalStorageScript.chosenLevel]++;
-            yield return new WaitForSeconds(.5f);
-        }
-
-        if (rate > 2)
-        {
-            StarMiddle.SetActive(false);
-        }
-        else
-        {
-            SoundManager.Instance.Play_StarShowedUp();
-            onesentenceText.text = sentences[1];
-            StarMiddle.SetActive(true);
-            _totalStorageScript.tmpStars[1, _totalStorageScript.chosenLevel]++;
-            yield return new WaitForSeconds(.5f);
-        }
-
-        if (rate > 1.5)
-        {
-            StarRight.SetActive(false);
-        }
-        else
-        {
-            SoundManager.Instance.Play_StarShowedUp();
-            onesentenceText.text = sentences[0];
-            StarRight.SetActive(true);
-            _totalStorageScript.tmpStars[1, _totalStorageScript.chosenLevel]++;
-            if (_totalStorageScript.tmpMaxLevel[1] == excelLevel)
-            {
-                _totalStorageScript.tmpMaxLevel[1] = excelLevel + 1;
-            }
-
-            yield return new WaitForSeconds(.5f);
-        }
-
-        if (_totalStorageScript.tmpMaxLevel[1] > excelLevel)
-        {
-            _totalStorageScript.tmpStars[1, excelLevel] = 3;
-        }
-
-        
-    }*/
+    
 
     public void PlusTotalTry()
     {

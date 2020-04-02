@@ -635,6 +635,20 @@ public class FishShowAnswer : MonoBehaviour
         {
             Debug.Assert(false, "문제가 10개 초과");
         }
+        
+        SoundManager.Instance.StopMusic();
+        
+        yield return new WaitForSeconds(1.0f);
+
+        if (totalCorrect == questionMaxNumber)
+        {
+            SoundManager.Instance.Play_Narration("Alternative", 7);
+        }
+        else
+        {
+            SoundManager.Instance.Play_Narration("Alternative", 9);
+        }
+
 
         stageStorageScript.LoadGameStageData(EGameName.Elimination, _totalStorageScript.currId, level, stage);
         stageStorageScript.playCnt++;
@@ -657,74 +671,7 @@ public class FishShowAnswer : MonoBehaviour
 
         eachQuestionStorageScript.initializeQuestionData();
     }
-    /*IEnumerator DecideResult(float tcl, float tco)
-    {
-        yield return new WaitForSeconds(1.0f);
-        _resultHandler.OpenResult();
-//        // Text 설정
-//        // tcl : total_clicked
-//        // tco : total_correct
-        string result_text = $"{tcl}번만에 {tco}개를 맞췄어요!";
-        descriptionText.text = result_text;
-        string[] sentences = {"정말 잘했어요", "조금 더 신중하게 해 보자", "더 연습하자"};
-        float rate = tcl / tco;
-//        // 만약에 2.5배보다 더 많이 클릭했으면
-        if (rate > 2.5f)
-        {
-            // 아무것도 열리지 않을 것.
-            // do nothing
-            // 별 아무것도 못 받았을 떄 소리
-            SoundManager.Instance.Play_NoStarShowedUp();
-            StarLeft.SetActive(false);
-            onesentenceText.text = sentences[2];
-            _totalStorageScript.tmpStars[2, level] = 0;
-        }
-        else
-        {
-            SoundManager.Instance.Play_StarShowedUp();
-            onesentenceText.text = sentences[2];
-            StarLeft.SetActive(true);
-            _totalStorageScript.tmpStars[2, level]++;
-            yield return new WaitForSeconds(.5f);
-        }
-
-        if (rate > 2)
-        {
-            StarMiddle.SetActive(false);
-        }
-        else
-        {
-            SoundManager.Instance.Play_StarShowedUp();
-            onesentenceText.text = sentences[1];
-            StarMiddle.SetActive(true);
-            _totalStorageScript.tmpStars[2, level]++;
-            yield return new WaitForSeconds(.5f);
-        }
-
-        if (rate > 1.5)
-        {
-            StarRight.SetActive(false);
-        }
-        else
-        {
-            SoundManager.Instance.Play_StarShowedUp();
-            onesentenceText.text = sentences[0];
-            StarRight.SetActive(true);
-            _totalStorageScript.tmpStars[2, level]++;
-            if (_totalStorageScript.tmpMaxLevel[2] == level)
-            {
-                _totalStorageScript.tmpMaxLevel[2] = level + 1;
-            }
-
-            yield return new WaitForSeconds(.5f);
-        }
-
-        if (_totalStorageScript.tmpMaxLevel[2] > level)
-        {
-            _totalStorageScript.tmpStars[2, level] = 3;
-        }
-    }
-*/
+    
 
     // Total Click과 Total Correct를 증가시키기 위한 함수들
     public void PlusTotalClick()
