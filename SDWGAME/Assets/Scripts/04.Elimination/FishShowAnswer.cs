@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -7,6 +8,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Debug = UnityEngine.Debug;
+using Random = UnityEngine.Random;
 
 public class FishShowAnswer : MonoBehaviour
 {
@@ -122,8 +124,14 @@ public class FishShowAnswer : MonoBehaviour
     private bool CheckPaused = false;
     public bool bFail; // 틀리면 바로 넘어가기 위한 코드인데 이제 이 변수 안씀 그냥 다시 수정이 필요함을 위해서 집어넣음
 
+    
+    // Fishes > Fish 에서 BGM관리를 위한 변수
+    [HideInInspector] public Boolean isSpeakingWord;
+    
+    
     void Start()
     {
+        isSpeakingWord = false;
         Cursor.visible = true;
         if (SoundManager.Instance.IsMusicPlaying())
         {

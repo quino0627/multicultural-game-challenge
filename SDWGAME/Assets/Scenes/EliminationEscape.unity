@@ -1985,10 +1985,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1505317742}
-  - component: {fileID: 1505317743}
   - component: {fileID: 1505317746}
   - component: {fileID: 1505317744}
   - component: {fileID: 1505317745}
+  - component: {fileID: 1505317743}
   m_Layer: 0
   m_Name: Speaker
   m_TagString: Untagged
@@ -2019,7 +2019,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1505317741}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d862bc7ac0293443801c523937a525e, type: 3}
+  m_Script: {fileID: 11500000, guid: 14836e751ea734441be366d02efdc572, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!82 &1505317744

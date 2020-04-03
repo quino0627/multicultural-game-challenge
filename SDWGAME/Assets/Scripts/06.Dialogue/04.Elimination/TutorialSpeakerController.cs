@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.ShaderGraph;
 using UnityEngine;
 
 // 탈락과제 튜토리얼의 물고기 보기 위에 있는 하트모양 스피터 

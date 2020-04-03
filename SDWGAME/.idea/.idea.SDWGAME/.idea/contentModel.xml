@@ -126,6 +126,7 @@
             <e p="SliderTimer.cs" t="Include" />
             <e p="SoundManager.cs" t="Include" />
             <e p="TimerScript.cs" t="Include" />
+            <e p="WordSpeakerController.cs" t="Include" />
           </e>
           <e p="01.Detection" t="Include">
             <e p="BarrelController.cs" t="Include" />
@@ -157,7 +158,6 @@
             <e p="BubbleMovingController.cs" t="Include" />
             <e p="SeahorseLeftController.cs" t="Include" />
             <e p="SeahorseRightController.cs" t="Include" />
-            <e p="WordSpeakerController.cs" t="Include" />
           </e>
           <e p="04.Elimination" t="Include">
             <e p="EliminationDirector.cs" t="Include" />
@@ -166,9 +166,9 @@
             </e>
             <e p="FishController.cs" t="Include" />
             <e p="FishShowAnswer.cs" t="Include" />
+            <e p="FishSpeakerController.cs" t="Include" />
             <e p="FishType.cs" t="Include" />
             <e p="HoverResponse.cs" t="Include" />
-            <e p="SpeakerController.cs" t="Include" />
           </e>
           <e p="05.Start" t="Include">
             <e p="GameMenuUIController.cs" t="Include" />

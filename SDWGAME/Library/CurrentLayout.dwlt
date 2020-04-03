@@ -21,7 +21,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 6}
-  m_MinSize: {x: 950, y: 548}
+  m_MinSize: {x: 950, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -42,8 +42,8 @@ MonoBehaviour:
     y: 638
     width: 483
     height: 317
-  m_MinSize: {x: 102, y: 124}
-  m_MaxSize: {x: 4002, y: 4024}
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 15}
   m_Panes:
   - {fileID: 15}
@@ -121,10 +121,10 @@ MonoBehaviour:
     y: 0
     width: 408
     height: 955
-  m_MinSize: {x: 234, y: 498}
-  m_MaxSize: {x: 10004, y: 14048}
+  m_MinSize: {x: 234, y: 474}
+  m_MaxSize: {x: 10004, y: 14024}
   vertical: 1
-  controlID: 151
+  controlID: 95
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -193,10 +193,10 @@ MonoBehaviour:
     y: 30
     width: 1680
     height: 955
-  m_MinSize: {x: 713, y: 498}
-  m_MaxSize: {x: 18008, y: 14048}
+  m_MinSize: {x: 713, y: 474}
+  m_MaxSize: {x: 18008, y: 14024}
   vertical: 0
-  controlID: 130
+  controlID: 45
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -242,7 +242,7 @@ MonoBehaviour:
   m_MinSize: {x: 202, y: 424}
   m_MaxSize: {x: 4002, y: 8024}
   vertical: 1
-  controlID: 131
+  controlID: 46
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -402,9 +402,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: a8e70000
+      m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 52e6fdffb6eafdfffef1fdffdcf6fdffeefbfdff480cfefff015feff0821feffb22bfeffae31feff8c41feffb649feff3068feff806ffeff9c78feffec78feff5686feffd889feffc88afeff60f6000030f7000076f7000074080100ac080100f0080100bc170100921801009618010020190100521f01005a1f0100b41f01001c300100243001006a300100963e0100d84b01004c500100765b0100ee5b01004a5e0100c25e0100
+      m_ExpandedIDs: 30d1feff52d1feffc8d6feff2cdafeff8eddfeffb8ddfeff9ae0feff64e3feff6ce3feff72e7feffc2ebfeff9eeffeff60f3feff22f7feffe4fafeffc8fefeffde02ffffd005ffff1609ffff8a0dffff7412ffffc613ffffde18ffffb219ffffa022fffff433ffffbe37ffff0842ffff9248ffff824dffff0a52fffff25fffff5284ffff62a0ffff7ac8ffff0ed3ffffe4f3ffff52f8ffffd2fbffff7a900000be900000fa9000008691000096910000b6910000829200007aaa0000c0aa0000fcaa000088ab000098ab0000b8ab00000abb000050bb0000e2bd000064be0000d8bf000096cc000068ce0000aece000086cf0000e4db00009ee50000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -501,20 +501,20 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes
+    - Assets/Scripts/06.Dialogue/04.Elimination
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Scenes
+  - Assets/Scripts/06.Dialogue/04.Elimination
   m_LastFoldersGridSize: 16
   m_LastProjectPath: /Users/quino0627/Documents/multicultural/multicultural-game-challenge/SDWGAME
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 352}
-    m_SelectedIDs: 64ec0000
-    m_LastClickedID: 60516
-    m_ExpandedIDs: 0000000016d600003ed6000092d6000050d900006ed9000022da0000e8da00007adb00002cdc000044dc00004edc0000d6dd000012df00001ae0000028e100003ce10000c6e100002ce3000084e30000ace30000eae4000058e5000070e500009ee50000a8e50000d2e50000c8e60000e4e600000ee7000028e9000062e90000ccea00001ceb000076eb000042ec00005aec000064ec000086ed000000ca9a3b
+    m_SelectedIDs: da390000
+    m_LastClickedID: 14810
+    m_ExpandedIDs: 00000000b82d0000142e0000e02e00006a360000e036000018390000383b0000d43c0000d23e00004c3f00005a3f00000244000002470000c6490000fa4c0000424d0000d04e00008652000072530000d45300005a57000080580000c2580000425900004c590000c6590000505c00009a5c0000405d00002a630000da630000ea670000c8680000a4690000d26b0000106c0000206c0000266f000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -542,7 +542,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000016d600003ed6000092d6000050d900006ed9000022da0000e8da00007adb00002cdc000044dc00004edc0000d6dd000012df00001ae0000028e100003ce10000c6e100002ce3000084e30000ace30000eae4000058e5000070e500009ee50000a8e50000d2e50000c8e60000e4e600000ee7000028e9000062e90000ccea00001ceb000076eb000042ec00005aec000064ec000086ed0000
+    m_ExpandedIDs: 00000000b82d0000142e0000e02e00006a360000e036000018390000383b0000d43c0000d23e00004c3f00005a3f00000244000002470000c6490000fa4c0000424d0000d04e00008652000072530000d45300005a57000080580000c2580000425900004c590000c6590000505c00009a5c0000405d00002a630000da630000ea670000c8680000a4690000d26b0000106c0000206c0000266f0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -573,18 +573,18 @@ MonoBehaviour:
     m_ExpandedInstanceIDs: 
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: FishSpeakerController
+      m_OriginalName: FishSpeakerController
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 44118
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 4}
     m_CreateAssetUtility:

@@ -1,6 +1,6 @@
 Win
 PlayerPath?
-/Users/quino0627/Documents/0401windowhangeulgame/HangeulGame.exe
+/Users/quino0627/Documents/0403windowhangeulgame/0403windowhangeulgame/HangeulGame.exe
 SceneListBegin?
 Assets/Scenes/StartMenu.unity
 Assets/Scenes/AlternativeGame.unity
@@ -190,7 +190,7 @@ dd7520b7d4e690e8c593273e7b9fbe80 Assembly-CSharp.dll:TMPro.Examples.TMP_TextEven
 fd018dea2aa42e407ceb0412072710a9 Assembly-CSharp.dll:.StageDataManager
 b8a5e8091ab0b8861d2add371082c5e0 Unity.TextMeshPro.dll:TMPro.TMP_SpriteAsset
 08ee418b801850b56a351565b9c8bb78 Assembly-CSharp.dll:TMPro.TMP_TextEventHandler
-0aa867b016a08fb9509357e6a5e0c19c Assembly-CSharp.dll:.FishShowAnswer
+df3667654d4b10fb6b22b9b125ae18bf Assembly-CSharp.dll:.FishShowAnswer
 47930f3b40e24ef5b3b5e3d9ada7097a Assembly-CSharp.dll:TMPro.Examples.Benchmark01
 c0558fe903a7b73f2e3a964e15238da0 Assembly-CSharp.dll:.UIPT_PRO_CloudManager
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.WordSpeakerController
@@ -220,7 +220,6 @@ e63944317d2f5958e31963668bb29158 Assembly-CSharp.dll:TMPro.Examples.VertexJitter
 d6fc8d3165070298511ec776ea575626 Unity.Postprocessing.Runtime.dll:UnityEngine.Rendering.PostProcessing.PostProcessResources
 71bb6a6b6c8f052f948db64c7dd3ca4f Unity.TextMeshPro.dll:TMPro.TMP_SpriteAnimator
 cb11255182c38d6179bdb0eddf232340 Assembly-CSharp.dll:.ShineScript
-71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.SpeakerController
 a53651ee3996fbba20dfe0fce02f0b23 Unity.Postprocessing.Runtime.dll:UnityEngine.Rendering.PostProcessing.AutoExposure
 1990ec6dc7945655a39a1b5cc9e6e904 Assembly-CSharp.dll:.TutorialDetectionManager
 2e580f4870398ea06c021a8b7c7bb587 Assembly-CSharp.dll:.Demo07
@@ -331,7 +330,6 @@ d791aa6007fa3640be1164ea75bb087d Unity.TextMeshPro.dll:TMPro.TMP_StyleSheet
 72ac3e127a5ed5a8e1b75fbca2bd95a6 Assembly-CSharp.dll:.ELM_DataList
 b6ae07b272c46c9972c5bdefeba54447 Assembly-CSharp.dll:.DemoPlaySound
 e80c1450883443c68d6c2dade213536f Assembly-CSharp.dll:TMPro.Examples.TMPro_InstructionOverlay
-71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.RepeatSoundBubble
 41d303d4e8c2190105c0d3bd29b481bb Assembly-CSharp.dll:.Demo03
 edf0b3a60b934a550566974ead0b5b43 Assembly-CSharp.dll:.PlayerMovement
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.PulsingWhenOver
@@ -361,3 +359,4 @@ a47f3a3bb5ee8a92609a7a8d4bd1f45f Assembly-CSharp.dll:.Entity_Detection
 d68ab92741f0dd0a458f688d7572660a Assembly-CSharp.dll:.Demo02
 ac94dd7a761ade1054066655ce15217a Assembly-CSharp.dll:.DialogueManagerV2
 7c3c235ba43b0a79ea410a52722ab6ad Assembly-CSharp.dll:.MovingScript
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.FishSpeakerController
