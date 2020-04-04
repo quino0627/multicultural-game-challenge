@@ -1,6 +1,6 @@
 Win
 PlayerPath?
-/Users/quino0627/Documents/0403windowhangeulgame/0403windowhangeulgame/HangeulGame.exe
+/Users/quino0627/Documents/0405windowhangeulgame/HangeulGame.exe
 SceneListBegin?
 Assets/Scenes/StartMenu.unity
 Assets/Scenes/AlternativeGame.unity
@@ -20,6 +20,7 @@ Assets/Scenes/TutorialEliminationGameV2.unity
 Assets/Scenes/TutorialSynthesisGameV2.unity
 SceneListEnd?
 a1f19ad47d3094e235f21b74dfc423a8 Unity.Postprocessing.Runtime.dll:UnityEngine.Rendering.PostProcessing.PostProcessLayer
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.FishSpeakerController
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.TutorialRepeatSoundBubble
 726fcf7961cbb4108aa5be5e55b8c8bf Unity.Postprocessing.Runtime.dll:UnityEngine.Rendering.PostProcessing.ColorGrading
 b13de7a0a457cb8e026d4237dc1b5797 Unity.Postprocessing.Runtime.dll:UnityEngine.Rendering.PostProcessing.LensDistortion
@@ -53,7 +54,7 @@ af93f9c42e90877a9ba31e37adfd900c Unity.Postprocessing.Runtime.dll:UnityEngine.Re
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.AlternativeBubbleClickSound
 022d423e6cb2e36eb2fc5ed8ef1368ab Assembly-CSharp.dll:.UIPT_PRO_Demo_Settings
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.PanelController
-6b2e73718a0feb2c43333766d0d41108 Assembly-CSharp.dll:.TutorialCorrectJellyfishController
+9b80b82c437a928a8da8cfa8d5ebed44 Assembly-CSharp.dll:.TutorialCorrectJellyfishController
 8c3d60fad44c15904638b6cc98c3fccd Assembly-CSharp.dll:.SeahorseLeftController
 67f4681cb82afb101b8fc407fc54a665 Assembly-CSharp.dll:.MoveJellyfish
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.ClickWrongBarrel
@@ -176,7 +177,7 @@ ad9173d3a69d99153f38ed4b62226129 UnityEngine.Networking.dll:UnityEngine.Networki
 d0cd0c743e9c42b9f00a90d62bfa139a Assembly-CSharp.dll:.GameData
 d251bf88db6c95a6b1aa0b69298da9ef UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 ea97bcaec307e5622213804beba5a482 Assembly-CSharp.dll:.ResultHandler
-75bfe009ae86c2f34d0001c399c184cc Assembly-CSharp.dll:.TutorialSynthesisManager
+bc56107fc07d240a61d8ddc2266ca02c Assembly-CSharp.dll:.TutorialSynthesisManager
 8128da8295ba6f26f99c200edb5a39f6 Assembly-CSharp.dll:.TutorialAlternativeManager
 4d16cfbaa8e821a2b370e80844a0e9bc Assembly-CSharp.dll:TMPro.Examples.Benchmark03
 a0518b18ff23ae2366cd318ad9650c69 Assembly-CSharp.dll:.Entity_EliminationTestCnt10
@@ -359,4 +360,3 @@ a47f3a3bb5ee8a92609a7a8d4bd1f45f Assembly-CSharp.dll:.Entity_Detection
 d68ab92741f0dd0a458f688d7572660a Assembly-CSharp.dll:.Demo02
 ac94dd7a761ade1054066655ce15217a Assembly-CSharp.dll:.DialogueManagerV2
 7c3c235ba43b0a79ea410a52722ab6ad Assembly-CSharp.dll:.MovingScript
-71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.FishSpeakerController

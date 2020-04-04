@@ -42,14 +42,16 @@ public class TutorialSynthesisManager : MonoBehaviour
     private float speed = 8f;
     
     // Flags
-    public Boolean isCorrected;
+    public Boolean isCorrectedOne;
+    public Boolean isCorrectedTwo;
 
 
     // Start is called before the first frame update
     void Start()
     {
         theDM = FindObjectOfType<DialogueManagerV2>();
-        isCorrected = false;
+        isCorrectedOne = false;
+        isCorrectedTwo = false;
         QuizInit();
     }
 
@@ -133,12 +135,13 @@ public class TutorialSynthesisManager : MonoBehaviour
         
         
 
-        isCorrected = false;
-        while (!isCorrected)
+        isCorrectedOne = false;
+        isCorrectedTwo = false;
+        while (!isCorrectedOne || !isCorrectedTwo)
         {
             yield return new WaitForFixedUpdate();
         }
-        SoundManager.Instance.Play_ClickedCorrectAnswer();
+//        SoundManager.Instance.Play_ClickedCorrectAnswer();
 
         theDM.StartNextScript();
         
