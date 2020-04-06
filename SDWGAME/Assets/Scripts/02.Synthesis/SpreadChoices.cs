@@ -25,7 +25,8 @@ public class SpreadChoices : MonoBehaviour
 
     private GameObject levelStorage;
     private LevelDataManager levelStorageScript;
-
+    
+    
     // director
     private GameObject director;
 
@@ -216,6 +217,7 @@ public class SpreadChoices : MonoBehaviour
         {
             watch.Start();
             CheckPaused = false;
+            
         }
 
         if (watch.ElapsedMilliseconds > 0)
