@@ -145,6 +145,7 @@ public class TutorialSynthesisManager : MonoBehaviour
 
         theDM.StartNextScript();
         
+        SoundManager.Instance.StopMusic();
         yield return new WaitForSeconds(1f);
         yield return new WaitForSeconds(
             SoundManager.Instance.Play_Narration("Synthesis", theDM.GetCurrentSentenceNumber()) + 1f);

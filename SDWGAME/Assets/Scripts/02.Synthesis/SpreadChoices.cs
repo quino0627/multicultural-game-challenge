@@ -132,8 +132,6 @@ public class SpreadChoices : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SoundManager.Instance.StopMusic();
-
         totalStorageObject = GameObject.Find("TotalStorage");
         _totalStorageScript = totalStorageObject.GetComponent<TotalDataManager>();
         eachQuestionStorage = GameObject.Find("EachQuestionStorage");
@@ -198,6 +196,7 @@ public class SpreadChoices : MonoBehaviour
         //한글자, 세글자, 네글자, 이제 두글자도!
         questionId = stage * 10 + randomNoDuplicates[realQuestionIndex];
         //questionId = randomNoDuplicates[realQuestionIndex];
+        
         QuizInit();
     }
 
@@ -237,6 +236,8 @@ public class SpreadChoices : MonoBehaviour
 
     public void QuizInit()
     {
+        
+        
         crab.transform.position = crabStartTransform.position;
         if (excelLevel == 0)
         {
@@ -271,8 +272,7 @@ public class SpreadChoices : MonoBehaviour
         // UI 설정
         director.GetComponent<SynthesisGameDirector>().setStage(realQuestionIndex);
         director.GetComponent<SynthesisGameDirector>().setLevel(excelLevel);
-
-
+        
         //정답의 index (corrAnsCnt: 초급-1,2개 중급-3개 고급-4개)
         //8개의 자리중 랜덤한 위치
         for (int i = 0; i < (corrAnsCnt + wrongAnsCnt); i++)
@@ -363,23 +363,32 @@ public class SpreadChoices : MonoBehaviour
         //show quiz
         yield return StartCoroutine(ShowAnswers());
 
-        Debug.Log("Asdf");
         //waitUser = true;
     }
 
     IEnumerator ShowAnswers()
     {
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(1f);
+        Debug.Log($"{!SoundManager.Instance.IsMusicPlaying()} !SoundManager.Instance.IsMusicPlaying()");
+        if (!SoundManager.Instance.IsMusicPlaying())
+        {
+            SoundManager.Instance.Play_SynthesisMusic();    
+        }
+        yield return new WaitForSeconds(1.5f);
         crab.transform.Find("DescriptionBubble").gameObject.SetActive(true);
+        crab.transform.Find("DescriptionBubble").gameObject.GetComponent<SynthesisDescriptionController>().DefaultDescription();
+        
         SoundManager.Instance.Play_SpeechBubblePop();
         yield return new WaitForSeconds(2.0f);
+        
 
         if (SoundManager.Instance.IsMusicPlaying())
         {
-            SoundManager.Instance.StopMusic();
+            Debug.Log("Music is Playing, then pause");
+            SoundManager.Instance.PauseMusic();
         }
 
-        yield return new WaitForSeconds(1.3f);
+        yield return new WaitForSeconds(2f);
 
         string levelToString = "";
         switch (excelLevel)
@@ -404,10 +413,12 @@ public class SpreadChoices : MonoBehaviour
         crab.GetComponent<AudioSource>().loop = false;
         crab.GetComponent<AudioSource>().clip = Resources.Load(wordFileLink) as AudioClip;
         crab.GetComponent<AudioSource>().Play();
+        crab.transform.Find("DescriptionBubble").gameObject.GetComponent<AudioSource>().clip = Resources.Load(wordFileLink) as AudioClip;
+        
         yield return new WaitForSeconds(1.5f);
         if (!SoundManager.Instance.IsMusicPlaying())
         {
-            SoundManager.Instance.Play_JellyFishShowedUp();
+            SoundManager.Instance.UnpauseMusic();
         }
 
         if (crab.GetComponent<AudioSource>().clip)
@@ -434,11 +445,11 @@ public class SpreadChoices : MonoBehaviour
     IEnumerator InitialJellyfish(int i)
     {
         // 얘는 OneShot이 아니고 백그라운드 뮤직
-        if (!SoundManager.Instance.IsMusicPlaying())
-        {
-            SoundManager.Instance.Play_JellyFishShowedUp();
-            // SoundManager.Instance.Play_SynthesisMusic();
-        }
+//        if (!SoundManager.Instance.IsMusicPlaying())
+//        {
+//            SoundManager.Instance.Play_JellyFishShowedUp();
+//            // SoundManager.Instance.Play_SynthesisMusic();
+//        }
 
         while (!JfArrived[i])
         {
@@ -484,22 +495,21 @@ public class SpreadChoices : MonoBehaviour
             Debug.Log("DONE");
             // 해파리가 모두 제 자리에 왔을 때 시간을 시작.
             initialDone = true;
-            // 음악도 시작
-
-            StartCoroutine(MusicStart());
-            Invoke("StartTime", 2.0f);
+            
+            // 음악 처리
+            Invoke("StartTime", .2f);
         }
     }
 
-    IEnumerator MusicStart()
-    {
-        if (SoundManager.Instance.IsMusicPlaying())
-        {
-            SoundManager.Instance.StopMusic();
-        }
-        yield return new WaitForSeconds(1f);
-        SoundManager.Instance.Play_SynthesisMusic();
-    }
+//    IEnumerator MusicStart()
+//    {
+//        if (SoundManager.Instance.IsMusicPlaying())
+//        {
+//            SoundManager.Instance.StopMusic();
+//        }
+//        yield return new WaitForSeconds(1f);
+//        SoundManager.Instance.Play_SynthesisMusic();
+//    }
 
     private void StartTime()
     {
@@ -508,6 +518,15 @@ public class SpreadChoices : MonoBehaviour
         {
             JfArrived[corrAnsPosIndex[i]] = false;
         }
+        
+        Invoke(nameof(SetRepeatSound), 2f);
+        
+    }
+
+    private void SetRepeatSound()
+    {
+        crab.transform.Find("DescriptionBubble").gameObject.GetComponent<SynthesisDescriptionController>().RepeatSound();
+        SoundManager.Instance.Play_SpeechBubblePop();
     }
 
     public void GoNext()

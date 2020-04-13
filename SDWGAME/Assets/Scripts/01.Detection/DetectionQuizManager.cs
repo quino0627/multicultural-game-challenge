@@ -329,7 +329,7 @@ public class DetectionQuizManager : MonoBehaviour
             }
             
             // 배경음악 잠시 멈춤
-            SoundManager.Instance.StopMusic();
+            SoundManager.Instance.PauseMusic();
 
             yield return new WaitForSeconds(1.5f);
             //originalPosition 이 false인 경우에는 아무것도 하지 않다가 true가 되면 break한다.
@@ -351,7 +351,7 @@ public class DetectionQuizManager : MonoBehaviour
             yield return new WaitForSeconds(1.0f);
             if (!SoundManager.Instance.IsMusicPlaying())
             {
-                SoundManager.Instance.Play_DetectionMusic();
+                SoundManager.Instance.UnpauseMusic();
             }
 
 

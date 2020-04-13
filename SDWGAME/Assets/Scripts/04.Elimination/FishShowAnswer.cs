@@ -133,11 +133,11 @@ public class FishShowAnswer : MonoBehaviour
     {
         isSpeakingWord = false;
         Cursor.visible = true;
-        if (SoundManager.Instance.IsMusicPlaying())
-        {
-            SoundManager.Instance.StopMusic();
-            SoundManager.Instance.Play_MenuMusic();
-        }
+//        if (SoundManager.Instance.IsMusicPlaying())
+//        {
+//            SoundManager.Instance.StopMusic();
+//            SoundManager.Instance.Play_EliminationMusic();
+//        }
 
         totalStorageObject = GameObject.Find("TotalStorage");
         _totalStorageScript = totalStorageObject.GetComponent<TotalDataManager>();
@@ -413,7 +413,7 @@ public class FishShowAnswer : MonoBehaviour
     {
         if (SoundManager.Instance.IsMusicPlaying())
         {
-            SoundManager.Instance.StopMusic();
+            SoundManager.Instance.PauseMusic();
         }
 
         yield return new WaitForSeconds(1f);
@@ -432,7 +432,7 @@ public class FishShowAnswer : MonoBehaviour
 
         yield return new WaitForSeconds(1.5f);
 
-        SoundManager.Instance.Play_EliminationMusic();
+        SoundManager.Instance.UnpauseMusic();
 
         //Debug.Log("watch start");
         watch.Start();

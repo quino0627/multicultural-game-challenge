@@ -16,6 +16,10 @@ public class SynthesisDescriptionController : MonoBehaviour
     private float AfterMsgScaleXValue;
 
     private bool isFirstUpdate;
+
+    private Boolean allowRepeatFlag;
+    private Boolean isPlaying;
+    private AudioSource _audioSource;
     
     private void Awake()
     {
@@ -29,10 +33,14 @@ public class SynthesisDescriptionController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _audioSource = gameObject.GetComponent<AudioSource>();
+            allowRepeatFlag = false;
+        isPlaying = false;
         // Get Parent Object which is Crab\
         DescriptionText = transform.Find("DescriptionText").gameObject;
         DefaultDescription();
     }
+    
 
     // Update is called once per frame
     void Update()
@@ -50,6 +58,19 @@ public class SynthesisDescriptionController : MonoBehaviour
             isFirstUpdate = false;
             
         }
+        
+        if (Input.GetMouseButtonDown(0))
+        {
+            Debug.Log("MESSAGE CLICLED");
+            if (Time.timeScale == 0) return;
+            if (isPlaying) return;
+            if (!allowRepeatFlag) return;
+        
+            StartCoroutine(StopMusicPlayWord());
+        }
+        
+      
+        
         var tmp = 0;
         this.DescriptionText.GetComponent<TextMeshPro>().text = description_text;
     }
@@ -75,6 +96,54 @@ public class SynthesisDescriptionController : MonoBehaviour
     public void DefaultDescription()
     {
         description_text = "해파리를 옮겨 \n 소리나는 단어를\n 만들어줘!";
+        allowRepeatFlag = false;
     }
+
+    public void RepeatSound()
+    {
+        Debug.Log("REPEATSOUND");
+        description_text = "다시 듣기";
+        allowRepeatFlag = true;
+
+    }
+
+
+//    private void OnMouseUp()
+//    {
+//        Debug.Log("AFETR");
+//        if (Time.timeScale == 0) return;
+//        if (isPlaying) return;
+//        if (!allowRepeatFlag) return;
+//        
+//        StartCoroutine(StopMusicPlayWord());
+//    }
+
+    IEnumerator StopMusicPlayWord()
+    {
+        isPlaying = true;
+        if (SoundManager.Instance.IsMusicPlaying())
+        {
+            SoundManager.Instance.PauseMusic();
+        }
+        yield return new WaitForSeconds(1.0f);
+
+        if (_audioSource.clip != null)
+        {
+            _audioSource.Play();  
+            yield return new WaitForSeconds(_audioSource.clip.length+1.5f);
+        }
+        else
+        {
+            Debug.Log("Clip Not Exists");
+        }
+        
+        
+        SoundManager.Instance.UnpauseMusic();
+        isPlaying = false;
+
+
+
+    }
+    
     
 }

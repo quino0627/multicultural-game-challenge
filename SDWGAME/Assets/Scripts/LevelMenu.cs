@@ -332,6 +332,7 @@ public class LevelMenu : MonoBehaviour
 
     public void LoadGame()
     {
+        SoundManager.Instance.StopMusic();
         switch (chosenGame)
         {
             case EGameName.Detection:

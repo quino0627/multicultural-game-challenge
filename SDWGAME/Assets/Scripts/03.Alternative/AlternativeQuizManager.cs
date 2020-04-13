@@ -290,7 +290,6 @@ public class AlternativeQuizManager : MonoBehaviour
         questionId = stage * 10 + randomNoDuplicates[question_no];
         //questionId = randomNoDuplicates[question_no];
         total_clicked = 0;
-        // 시작 오디오 세팅
 
         run_once = false;
         director.GetComponent<AlternativeGameDirector>().InitTime();
@@ -356,7 +355,7 @@ public class AlternativeQuizManager : MonoBehaviour
         {
             // 제시어와 목적 단어 띄우기 ()
             // 왼쪽 해마 워터폴 이펙
-//            Debug.Log("left start");
+            yield return new WaitForSeconds(.2f);
             SoundManager.Instance.Play_SeahorseWaves();
             SeahorseLeft.transform.Find("WaterFallAnimation").gameObject.SetActive(true);
 //            Debug.Log(SeahorseLeft.GetComponent<SeahorseLeftController>().waterFallAnimator);
@@ -406,7 +405,7 @@ public class AlternativeQuizManager : MonoBehaviour
 
             if (SoundManager.Instance.IsMusicPlaying())
             {
-                SoundManager.Instance.StopMusic();
+                SoundManager.Instance.PauseMusic();
             }
 
             yield return new WaitForSeconds(1f);
@@ -424,7 +423,7 @@ public class AlternativeQuizManager : MonoBehaviour
             ExpectWordSpeaker.clip = Resources.Load(wordFileLink) as AudioClip;
 
             yield return new WaitForSeconds(1f);
-            SoundManager.Instance.Play_AlternativeMusic();
+            SoundManager.Instance.UnpauseMusic();
 
             yield return new WaitForSeconds(1f);
             Color color = WordBoxExpect.GetComponent<SpriteRenderer>().color;

@@ -1,6 +1,6 @@
 Win
 PlayerPath?
-/Users/quino0627/Documents/0405windowhangeulgame/HangeulGame.exe
+/Users/quino0627/Documents/0410windowhangeulgame/HangeulGame.exe
 SceneListBegin?
 Assets/Scenes/StartMenu.unity
 Assets/Scenes/AlternativeGame.unity
@@ -360,3 +360,5 @@ a47f3a3bb5ee8a92609a7a8d4bd1f45f Assembly-CSharp.dll:.Entity_Detection
 d68ab92741f0dd0a458f688d7572660a Assembly-CSharp.dll:.Demo02
 ac94dd7a761ade1054066655ce15217a Assembly-CSharp.dll:.DialogueManagerV2
 7c3c235ba43b0a79ea410a52722ab6ad Assembly-CSharp.dll:.MovingScript
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.SampleScript
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.ClickTest
