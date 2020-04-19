@@ -34,6 +34,7 @@ public class TutorialDragAndDrop : MonoBehaviour
  
     private void OnMouseDown()
     {
+        if (!GameObject.FindObjectOfType<TutorialSynthesisManager>().enableJellyFish) return;
         if (Time.timeScale == 0) return;
         Debug.Log("Crab2 OnMouseDown");
         /*if (EventSystem.current.IsPointerOverGameObject())
@@ -51,6 +52,7 @@ public class TutorialDragAndDrop : MonoBehaviour
 
     private void OnMouseDrag()
     {
+        if (!GameObject.FindObjectOfType<TutorialSynthesisManager>().enableJellyFish) return;
         if (Time.timeScale == 0) return;
         Debug.Log("Crab2 OnMouseDrag");
         /*if (EventSystem.current.IsPointerOverGameObject())

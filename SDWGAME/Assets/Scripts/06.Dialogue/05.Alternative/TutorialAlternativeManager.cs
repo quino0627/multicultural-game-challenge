@@ -42,6 +42,12 @@ public class TutorialAlternativeManager : MonoBehaviour
     public Boolean clickedSpeechBubble;
     public Boolean clickedOriginalWordBox;
     
+    // 관련된 페이지 이외에서 워드박스 클릭을 불허한다.
+    public Boolean enableWordBoxClick;
+    // 관련된 페이지 이외에서 물방울 클릭을 불허한다.
+    public Boolean enableBubbleClick;
+    // 관련된 페이지 이외에서 말풍선 클릭을 불허한다.
+    public Boolean enableSpeechBubbleClick;
     
     
     // WordBox들을 움직이기 위해 필요한 변수들
@@ -62,6 +68,12 @@ public class TutorialAlternativeManager : MonoBehaviour
         clickedCorrectAnswer = false;
         clickedSpeechBubble = false;
         clickedOriginalWordBox = false;
+
+        enableWordBoxClick = false;
+        enableBubbleClick = false;
+        enableSpeechBubbleClick = false;
+        
+        
         is_loading = true;
         
         centerPosition = transform.Find("Words").transform.Find("WordCenterPosition").position;
@@ -201,13 +213,14 @@ public class TutorialAlternativeManager : MonoBehaviour
         yield return new WaitForSeconds(
             SoundManager.Instance.Play_Narration("Alternative", theDM.GetCurrentSentenceNumber()) + 1f);
 
-
+        enableWordBoxClick = true;
         clickedCorrectAnswer = false;
         while (!clickedOriginalWordBox)
         {
             yield return new WaitForEndOfFrame();
         }
         theDM.StartNextScript();
+        enableWordBoxClick = false;
         
         yield return new WaitForSeconds(1f);
         yield return new WaitForSeconds(
@@ -253,24 +266,27 @@ public class TutorialAlternativeManager : MonoBehaviour
         SeahorseRight.transform.Find("RepeatSound").gameObject.SetActive(true);
 
 
+        enableSpeechBubbleClick = true;
         clickedSpeechBubble = false;
         while (!clickedSpeechBubble)
         {
             yield return new WaitForEndOfFrame();
         }
         theDM.StartNextScript();
+        enableSpeechBubbleClick = false;
+        
         
         yield return new WaitForSeconds(1f);
         yield return new WaitForSeconds(
             SoundManager.Instance.Play_Narration("Alternative", theDM.GetCurrentSentenceNumber()) + 1f);
 
-
+        enableBubbleClick = true;
         clickedCorrectAnswer = false;
         while (!clickedCorrectAnswer)
         {
             yield return new WaitForEndOfFrame();
         }
-        
+        enableBubbleClick = false;
         theDM.StartNextScript();
         
         yield return new WaitForSeconds(1f);

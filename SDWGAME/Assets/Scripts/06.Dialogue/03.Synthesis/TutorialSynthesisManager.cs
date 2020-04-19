@@ -45,6 +45,8 @@ public class TutorialSynthesisManager : MonoBehaviour
     public Boolean isCorrectedOne;
     public Boolean isCorrectedTwo;
 
+    // 관련된 페이지 이외에서는 해파리를 움직이지 못하게 막는다.
+    public Boolean enableJellyFish;
 
     // Start is called before the first frame update
     void Start()
@@ -52,6 +54,8 @@ public class TutorialSynthesisManager : MonoBehaviour
         theDM = FindObjectOfType<DialogueManagerV2>();
         isCorrectedOne = false;
         isCorrectedTwo = false;
+        
+        enableJellyFish = false;
         QuizInit();
     }
 
@@ -130,11 +134,12 @@ public class TutorialSynthesisManager : MonoBehaviour
         yield return new WaitForSeconds(
             SoundManager.Instance.Play_Narration("Synthesis", theDM.GetCurrentSentenceNumber()) + 1f);
 
-        
-        
-        
-        
 
+
+
+
+
+        enableJellyFish = true;
         isCorrectedOne = false;
         isCorrectedTwo = false;
         while (!isCorrectedOne || !isCorrectedTwo)
@@ -142,6 +147,8 @@ public class TutorialSynthesisManager : MonoBehaviour
             yield return new WaitForFixedUpdate();
         }
 //        SoundManager.Instance.Play_ClickedCorrectAnswer();
+
+        enableJellyFish = false;
 
         theDM.StartNextScript();
         

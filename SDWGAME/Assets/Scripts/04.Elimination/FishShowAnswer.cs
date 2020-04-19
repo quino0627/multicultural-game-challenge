@@ -208,8 +208,11 @@ public class FishShowAnswer : MonoBehaviour
         // timeScale이 1이고 CheckPaused가 true이면 timer를 restart
         if (Time.timeScale == 1 && CheckPaused)
         {
-            watch.Start();
-            CheckPaused = false;
+            if (watch.ElapsedMilliseconds != 0)
+            {
+                watch.Start();
+                CheckPaused = false;
+            }
         }
 
         if (watch.ElapsedMilliseconds > 0)

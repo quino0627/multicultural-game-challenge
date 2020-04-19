@@ -25,6 +25,7 @@ public class TutorialSpeakerController : MonoBehaviour
 
     private void OnMouseUp()
     {
+        if (!GameObject.FindObjectOfType<TutorialEliminationManager>().enableSpeaker) return;
         if (isPlaying) return;
         
         StartCoroutine(PlaySound());

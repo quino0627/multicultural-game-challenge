@@ -24,6 +24,7 @@ public class ClickWrongBubble : MonoBehaviour
     
     private void OnMouseDown()
     {
+        if (!GameObject.FindObjectOfType<TutorialAlternativeManager>().enableBubbleClick) return;
 //        Debug.Log(!IsPointerOverUIObject()); //true
 //        if (IsPointerOverUIObject()) //false
         if (EventSystem.current.IsPointerOverGameObject())

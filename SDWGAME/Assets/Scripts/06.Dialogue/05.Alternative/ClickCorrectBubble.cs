@@ -29,6 +29,7 @@ public class ClickCorrectBubble : MonoBehaviour
 
     private void OnMouseDown()
     {
+        if (!GameObject.FindObjectOfType<TutorialAlternativeManager>().enableBubbleClick) return;
         if (EventSystem.current.IsPointerOverGameObject())
         {
             return;

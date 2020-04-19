@@ -135,6 +135,8 @@ public class AlternativeQuizManager : MonoBehaviour
 
     private bool CheckPaused = false;
 
+    public bool SoundOverloadFlag = false;
+    
 
     void Start()
     {
@@ -224,8 +226,11 @@ public class AlternativeQuizManager : MonoBehaviour
         // timeScale이 1이고 CheckPaused가 true이면 timer를 restart
         if (Time.timeScale == 1 && CheckPaused)
         {
-            watch.Start();
-            CheckPaused = false;
+            if (watch.ElapsedMilliseconds != 0)
+            {
+                watch.Start();
+                CheckPaused = false;
+            }
         }
 
         if (watch.ElapsedMilliseconds > 0)
@@ -410,7 +415,6 @@ public class AlternativeQuizManager : MonoBehaviour
 
             yield return new WaitForSeconds(1f);
             string wordFileLink = $"Sounds/Alternative/{data.sheets[level].list[questionId].후자극음성}";
-            // 2020.03.29 송동욱
             // 유니티 오브젝트에 익숙치 않아서 유사 코드가 중복...ㅠ
 
             // 처음 들려주는 후자극음성

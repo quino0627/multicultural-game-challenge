@@ -29,6 +29,9 @@ public class TutorialDetectionManager : MonoBehaviour
     
     [HideInInspector] private string[] answerStrings = new string[5];
 
+
+    // 관련된 페이지 이외에서는 통들을 클릭하지 못하게 막는다.
+    public Boolean enableBarrelClick;
     public Boolean clickedCorrectAnswer;
     
 
@@ -42,6 +45,7 @@ public class TutorialDetectionManager : MonoBehaviour
         this.description = GameObject.Find("Octopus").transform.Find("DescriptionBubble").gameObject;
         // 배럴들은 outlet으로 연결
 
+        enableBarrelClick = false;
         clickedCorrectAnswer = false;
         
         QuizInit();
@@ -126,12 +130,13 @@ public class TutorialDetectionManager : MonoBehaviour
         WrongBarrel_1.GetComponent<Animator>().Play("Entry");
         yield return new WaitForSeconds(0.4f);
 
-
+        enableBarrelClick = true;
+        clickedCorrectAnswer = false;
         while (!clickedCorrectAnswer)
         {
             yield return new WaitForEndOfFrame();
         }
-        
+        enableBarrelClick = false;
         theDM.StartNextScript();
         yield return new WaitForSeconds(1f);
         yield return new WaitForSeconds(

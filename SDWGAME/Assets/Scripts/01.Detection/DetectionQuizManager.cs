@@ -109,9 +109,6 @@ public class DetectionQuizManager : MonoBehaviour
 
     private bool CheckPaused = false;
 
-    // 로딩중인지?
-    private bool isLoading = true;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -203,11 +200,12 @@ public class DetectionQuizManager : MonoBehaviour
         // timeScale이 1이고 CheckPaused가 true이면 timer를 restart
         if (Time.timeScale == 1 && CheckPaused)
         {
-            if (!isLoading)
+            if (watch.ElapsedMilliseconds != 0)
             {
                 watch.Start();
                 CheckPaused = false;
             }
+
         }
 
         if (watch.ElapsedMilliseconds > 0)
@@ -328,8 +326,14 @@ public class DetectionQuizManager : MonoBehaviour
                 i += 1;
             }
             
+            yield return new WaitForSeconds(.2f);
+            
             // 배경음악 잠시 멈춤
-            SoundManager.Instance.PauseMusic();
+            if (SoundManager.Instance.IsMusicPlaying())
+            {
+                SoundManager.Instance.PauseMusic();
+            }
+
 
             yield return new WaitForSeconds(1.5f);
             //originalPosition 이 false인 경우에는 아무것도 하지 않다가 true가 되면 break한다.
@@ -345,13 +349,11 @@ public class DetectionQuizManager : MonoBehaviour
             
             
             Debug.Log("타이머 스타트");
-            //클릭 타임이
-            isLoading = false;
             watch.Start();
             yield return new WaitForSeconds(1.0f);
             if (!SoundManager.Instance.IsMusicPlaying())
             {
-                SoundManager.Instance.UnpauseMusic();
+                SoundManager.Instance.Play_DetectionMusic();
             }
 
 

@@ -38,12 +38,12 @@ public class DetectionDescriptionController : MonoBehaviour
         {
             SoundManager.Instance.PauseMusic();
         }
-        yield return new WaitForSeconds(1.0f);
+//        yield return new WaitForSeconds(1.0f);
 
         if (OctoAudioSource.clip != null)
         {
             OctoAudioSource.Play();  
-            yield return new WaitForSeconds(OctoAudioSource.clip.length+1.5f);
+            yield return new WaitForSeconds(OctoAudioSource.clip.length+0.5f);
         }
         else
         {

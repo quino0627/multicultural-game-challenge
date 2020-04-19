@@ -31,6 +31,10 @@ public class ClickWrongBarrel : MonoBehaviour
     
     private void OnMouseDown()
     {
+        if (!GameObject.FindObjectOfType<TutorialDetectionManager>().enableBarrelClick)
+        {
+            return;
+        }
 //        Debug.Log(!IsPointerOverUIObject()); //true
 //        if (IsPointerOverUIObject()) //false
         if (EventSystem.current.IsPointerOverGameObject())

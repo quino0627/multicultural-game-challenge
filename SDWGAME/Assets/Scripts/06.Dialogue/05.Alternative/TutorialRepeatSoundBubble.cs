@@ -20,6 +20,7 @@ public class TutorialRepeatSoundBubble : MonoBehaviour
     
     private void OnMouseUp()
     {
+        if (!GameObject.FindObjectOfType<TutorialAlternativeManager>().enableSpeechBubbleClick) return;
         if (isPlaying) return;
         
         StartCoroutine(PlaySound());

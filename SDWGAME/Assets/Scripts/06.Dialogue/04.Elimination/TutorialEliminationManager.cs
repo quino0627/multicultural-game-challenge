@@ -33,10 +33,17 @@ public class TutorialEliminationManager : MonoBehaviour
     public GameObject WrongFish4;
     
     
+    // Flag
+    
     // is Clicked Speaker? default: false
     public Boolean isClickedSpeaker;
     // is Clicked Correct Fish? default: false
     public Boolean isClickedCorrectFish;
+    
+    // 관련된 페이지 이외에서는 스피커 클릭을 막는다.
+    public Boolean enableSpeaker;
+    // 괸련된 페이지 이외에는 물고기 클릭을 막는다.
+    public Boolean enableFish;
     
     
 
@@ -60,6 +67,9 @@ public class TutorialEliminationManager : MonoBehaviour
         // Initialize Some Flags
         isClickedSpeaker = false;
         isClickedCorrectFish = false;
+
+        enableFish = false;
+        enableSpeaker = false;
 
         QuizInit();
 
@@ -193,13 +203,14 @@ public class TutorialEliminationManager : MonoBehaviour
 
 
         // 스피커 클릭 연습하기
+        enableSpeaker = true;
         isClickedSpeaker = false;
 
         while (!isClickedSpeaker)
         {
             yield return new WaitForFixedUpdate();
         }
-        
+        enableSpeaker = false;
         theDM.AllowNextStep();
         theDM.StartNextScript();
         
@@ -210,11 +221,14 @@ public class TutorialEliminationManager : MonoBehaviour
         
         
         // 정답 물고기 클릭 연습하기
+        enableFish = true;
         isClickedCorrectFish = false;
         while (!isClickedCorrectFish)
         {
             yield return new WaitForFixedUpdate();
         }
+
+        enableFish = false;
         
         theDM.AllowNextStep();
         theDM.StartNextScript();

@@ -15,7 +15,7 @@ public class FishSpeakerController : MonoBehaviour
     void Start()
     {
         _audioSource = gameObject.GetComponent<AudioSource>();
-        // 유니티에서 포인터를 쓰기가 애매하네요. 그냥 매번 접근해서 변수를 가져와야 할 것 같습니다.
+        // 유니티에서 포인터를 쓰기가 애매. 그냥 매번 접근해서 변수를 가져와야 할 것 같다.
 //        isPlaying = GameObject.FindObjectOfType<FishShowAnswer>().isSpeakingWord;
     }
 
@@ -39,12 +39,11 @@ public class FishSpeakerController : MonoBehaviour
         {
             SoundManager.Instance.PauseMusic();
         }
-        yield return new WaitForSeconds(1.0f);
 
         if (_audioSource.clip != null)
         {
             _audioSource.Play();  
-            yield return new WaitForSeconds(_audioSource.clip.length+1.5f);
+            yield return new WaitForSeconds(_audioSource.clip.length+0.5f);
         }
         else
         {

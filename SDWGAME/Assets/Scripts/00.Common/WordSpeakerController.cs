@@ -12,7 +12,7 @@ public class WordSpeakerController : MonoBehaviour
 
     private AudioSource _audioSource;
     //음원 재생 중 여러번 클릭되는 것을 방지하기 위한 플래그
-    private Boolean isPlaying;
+    public static Boolean isPlaying;
     
     // Start is called before the first frame update
     void Start()
@@ -43,12 +43,11 @@ public class WordSpeakerController : MonoBehaviour
         {
             SoundManager.Instance.PauseMusic();
         }
-        yield return new WaitForSeconds(1.0f);
 
         if (_audioSource.clip != null)
         {
             _audioSource.Play();  
-            yield return new WaitForSeconds(_audioSource.clip.length+1.5f);
+            yield return new WaitForSeconds(_audioSource.clip.length+0.5f);
         }
         else
         {

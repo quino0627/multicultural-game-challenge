@@ -26,6 +26,7 @@ public class TutorialOriginalWordBox : MonoBehaviour
 
     private void OnMouseUp()
     {
+        if (!GameObject.FindObjectOfType<TutorialAlternativeManager>().enableWordBoxClick) return;
         if (isPlaying) return;
         
         StartCoroutine(PlaySound());

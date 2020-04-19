@@ -19,6 +19,7 @@ public class TutorialWrongFishController : MonoBehaviour
 
     private void OnMouseDown()
     {
+        if (!GameObject.FindObjectOfType<TutorialEliminationManager>().enableFish) return;
         SoundManager.Instance.Play_ClickedWrongAnswer();
     }
 }
