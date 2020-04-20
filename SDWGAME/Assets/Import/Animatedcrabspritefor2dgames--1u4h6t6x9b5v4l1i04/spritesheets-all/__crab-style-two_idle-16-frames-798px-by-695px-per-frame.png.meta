@@ -1,7 +1,23 @@
 fileFormatVersion: 2
 guid: b146f5cc89fd01e4f8ad75e46282cf1d
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: __crab-style-two_idle-16-frames-798px-by-695px-per-frame_0
+    21300002: __crab-style-two_idle-16-frames-798px-by-695px-per-frame_1
+    21300004: __crab-style-two_idle-16-frames-798px-by-695px-per-frame_2
+    21300006: __crab-style-two_idle-16-frames-798px-by-695px-per-frame_3
+    21300008: __crab-style-two_idle-16-frames-798px-by-695px-per-frame_4
+    21300010: __crab-style-two_idle-16-frames-798px-by-695px-per-frame_5
+    21300012: __crab-style-two_idle-16-frames-798px-by-695px-per-frame_6
+    21300014: __crab-style-two_idle-16-frames-798px-by-695px-per-frame_7
+    21300016: __crab-style-two_idle-16-frames-798px-by-695px-per-frame_8
+    21300018: __crab-style-two_idle-16-frames-798px-by-695px-per-frame_9
+    21300020: __crab-style-two_idle-16-frames-798px-by-695px-per-frame_10
+    21300022: __crab-style-two_idle-16-frames-798px-by-695px-per-frame_11
+    21300024: __crab-style-two_idle-16-frames-798px-by-695px-per-frame_12
+    21300026: __crab-style-two_idle-16-frames-798px-by-695px-per-frame_13
+    21300028: __crab-style-two_idle-16-frames-798px-by-695px-per-frame_14
+    21300030: __crab-style-two_idle-16-frames-798px-by-695px-per-frame_15
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -40,7 +56,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -69,9 +85,351 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: __crab-style-two_idle-16-frames-798px-by-695px-per-frame_0
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 2098
+        width: 699
+        height: 653
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3895abd168d732b4680d3f36c96b0a79
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: __crab-style-two_idle-16-frames-798px-by-695px-per-frame_1
+      rect:
+        serializedVersion: 2
+        x: 827
+        y: 2097
+        width: 696
+        height: 651
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5b7e3b22e4fee8499ccb76c47d10339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: __crab-style-two_idle-16-frames-798px-by-695px-per-frame_2
+      rect:
+        serializedVersion: 2
+        x: 1625
+        y: 2097
+        width: 697
+        height: 646
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9fc290d1b092f943a51ca286b3f629b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: __crab-style-two_idle-16-frames-798px-by-695px-per-frame_3
+      rect:
+        serializedVersion: 2
+        x: 2424
+        y: 2097
+        width: 699
+        height: 643
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97a11eed4f54e144e8b938d92be81a98
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: __crab-style-two_idle-16-frames-798px-by-695px-per-frame_4
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 1402
+        width: 698
+        height: 643
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 131654adeda276f45ba6d50b6bfc8f86
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: __crab-style-two_idle-16-frames-798px-by-695px-per-frame_5
+      rect:
+        serializedVersion: 2
+        x: 829
+        y: 1402
+        width: 698
+        height: 635
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4479dab3e8464ec40ac14ac9738f6b0b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: __crab-style-two_idle-16-frames-798px-by-695px-per-frame_6
+      rect:
+        serializedVersion: 2
+        x: 1626
+        y: 1402
+        width: 697
+        height: 632
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b26deec5fe2365a49a2a6f0a596291f5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: __crab-style-two_idle-16-frames-798px-by-695px-per-frame_7
+      rect:
+        serializedVersion: 2
+        x: 2423
+        y: 1402
+        width: 697
+        height: 630
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9e7363f441dbf340bd39a3f9dca2588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: __crab-style-two_idle-16-frames-798px-by-695px-per-frame_8
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 708
+        width: 696
+        height: 626
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94de72f291eed9b48865eb490692d550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: __crab-style-two_idle-16-frames-798px-by-695px-per-frame_9
+      rect:
+        serializedVersion: 2
+        x: 827
+        y: 708
+        width: 695
+        height: 626
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73accb36c4497b841b6dab23d92542c3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: __crab-style-two_idle-16-frames-798px-by-695px-per-frame_10
+      rect:
+        serializedVersion: 2
+        x: 1623
+        y: 707
+        width: 697
+        height: 631
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fddb764cbf488814da9cc330a8161a29
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: __crab-style-two_idle-16-frames-798px-by-695px-per-frame_11
+      rect:
+        serializedVersion: 2
+        x: 2420
+        y: 704
+        width: 697
+        height: 638
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c50f13c60c8efe84aa06c13eda4b16eb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: __crab-style-two_idle-16-frames-798px-by-695px-per-frame_12
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 12
+        width: 700
+        height: 639
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5b8306ca81cf5849a9542a8c4941bde
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: __crab-style-two_idle-16-frames-798px-by-695px-per-frame_13
+      rect:
+        serializedVersion: 2
+        x: 824
+        y: 12
+        width: 698
+        height: 643
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c84c2b80a674f04c9126b045d19f387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: __crab-style-two_idle-16-frames-798px-by-695px-per-frame_14
+      rect:
+        serializedVersion: 2
+        x: 1622
+        y: 12
+        width: 696
+        height: 646
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 790ead3cc8f5c2846ba058aa4cd1830d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: __crab-style-two_idle-16-frames-798px-by-695px-per-frame_15
+      rect:
+        serializedVersion: 2
+        x: 2418
+        y: 12
+        width: 700
+        height: 649
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eaee941b15302b247ac7c1a8212be497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

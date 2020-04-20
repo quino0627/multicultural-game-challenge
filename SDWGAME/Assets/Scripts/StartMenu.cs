@@ -14,7 +14,7 @@ public class StartMenu : UIPT_PRO_Demo_GUIPanel
     public GameObject SettingPanel;
     public SettingsHandler m_Settings = null;
     public GameObject ClosePanel;
-    
+   
     private GameObject TotalStorage;
     private TotalDataManager _totalStorageScript;
 
@@ -136,6 +136,8 @@ public class StartMenu : UIPT_PRO_Demo_GUIPanel
         m_Settings.Show();
         
     }
+
+    
     
     IEnumerator Show()
     {
@@ -197,6 +199,7 @@ public class StartMenu : UIPT_PRO_Demo_GUIPanel
             startButtonGameObject.SetActive(true);
             statisticButtonGameObject.SetActive(true);
 
+            
         }
     }
 
