@@ -59,16 +59,16 @@ public class SynthesisDescriptionController : MonoBehaviour
             
         }
         
-        if (Input.GetMouseButtonDown(0))
-        {
-            Debug.Log("MESSAGE CLICLED");
-            if (Time.timeScale == 0) return;
-            if (isPlaying) return;
-            if (!allowRepeatFlag) return;
-        
-            StartCoroutine(StopMusicPlayWord());
-        }
-        
+//        if (Input.GetMouseButtonDown(0))
+//        {
+//            Debug.Log("MESSAGE CLICLED");
+//            if (Time.timeScale == 0) return;
+//            if (isPlaying) return;
+//            if (!allowRepeatFlag) return;
+//        
+//            StartCoroutine(StopMusicPlayWord());
+//        }
+//        
       
         
         var tmp = 0;

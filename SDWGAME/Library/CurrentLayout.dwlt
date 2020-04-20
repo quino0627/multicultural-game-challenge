@@ -73,7 +73,7 @@ MonoBehaviour:
   m_MinSize: {x: 277, y: 198}
   m_MaxSize: {x: 4002, y: 8048}
   vertical: 1
-  controlID: 190
+  controlID: 13
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -124,7 +124,7 @@ MonoBehaviour:
   m_MinSize: {x: 234, y: 474}
   m_MaxSize: {x: 10004, y: 14024}
   vertical: 1
-  controlID: 82
+  controlID: 142
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -196,7 +196,7 @@ MonoBehaviour:
   m_MinSize: {x: 713, y: 474}
   m_MaxSize: {x: 18008, y: 14024}
   vertical: 0
-  controlID: 45
+  controlID: 105
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -242,7 +242,7 @@ MonoBehaviour:
   m_MinSize: {x: 202, y: 448}
   m_MaxSize: {x: 4002, y: 8048}
   vertical: 1
-  controlID: 46
+  controlID: 106
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -404,23 +404,23 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: a408ffff7c15ffffcc1fffff7024ffff102affff0232ffff443cffff7642ffff7e42ffff8042ffff7c57fffff869ffff206afffff46fffff5074ffff1a7affff289afffff09dffff40a8ffffdeb2ffff14c4ffff8ec7ffff94e6ffff46f8ffffa2fbffffea780000e68a0000b68b0000fc8b0000dc9f00008ea00000b2ad0000eaad00003cae000004cd0000c0cd0000dacf000030e60000a8e600000eea000016ea000070ea000060ec000076ec0000b4ec000024ed00003ced000074fe000048090100940c0100f60c01001c0e0100341a0100d624010022260100
+      m_ExpandedIDs: 0674fefff879feff4e80feff1288feff728dfeffb092feff9898feff649efeffc6a3feffb8acfeff5eb1feff4ab2feff88bcfeff56d4fefff6d9fefff4e4feff80f4feff84f4feff88f4feff98f4feffa8f4feff64f5feff6ef5feff78f5feff98f5feff38f6feff50f6feff52f6feff54f6feff5cf6feff72f6feff76f6feff7af6feff80f6feff82f6feff86f6feff8af6feff90f6feffa4f6feffb6f6feffc0f6feffe0f6fefff2f6feff00f7feff1ef7feff24f7feff2cf7feff38f7feff50f7feff56f7feff66f7feff6af7feffaef7feffcef7feff54fdfeff3efefeff7e08ffffcc3cffffa641ffff7043ffff6a49ffff1e4affff9276ffffc27bfffffe85ffff228bffffa68ffffff094ffff489affff6c9fffffbca3ffffdaa5ffff4aaafffffeafffff64b4ffff4ab9ffff00bbffffdccbffffc6cfffffa8d2ffff08d8ffff40e2ffff9ee7ffff92ecffff38f0ffffdcf3ffff18f4ffff32f8ffffd2fbfffff4ffffff88780000be8d0000128e00006a95000082990000d0990000a49b000010ab00002ead0000cead0000baae00005aaf00009eb10000c8b2000018b80000b8b8000066b9000084ba000026bd0000bcbd000022c3000048c300003ec9000042c90000a4ce0000f2ce0000e2cf0000facf00006add000022e2000010e7000030e7000076e700006ee90000f8ed00005aee000004ef0000f2ef000096f00000b6f00000d00401001c07010098080100a4080100c4080100de0a0100820b0100b00b01005e230100be2501003c2601004a2601003a370100
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: 
-        m_OriginalName: 
+        m_Name: Text
+        m_OriginalName: Text
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 0
+        m_UserData: -77616
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 11
+        m_OriginalEventType: 0
         m_IsRenamingFilename: 0
-        m_ClientGUIView: {fileID: 0}
+        m_ClientGUIView: {fileID: 11}
       m_SearchString: 
     m_ExpandedScenes: []
     m_CurrenRootInstanceID: 0
@@ -501,20 +501,20 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/04.Elimination
+    - Assets/Scenes
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Scripts/04.Elimination
+  - Assets/Scenes
   m_LastFoldersGridSize: 16
   m_LastProjectPath: /Users/quino0627/Documents/multicultural/multicultural-game-challenge/SDWGAME
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 500.00012}
-    m_SelectedIDs: f4640000
-    m_LastClickedID: 25844
-    m_ExpandedIDs: 00000000e82d0000442e0000102f00009a3600001037000048390000683b0000043d0000023f00007c3f00008a3f00003244000032470000f64900002a4d0000724d0000004f0000b84f0000b6520000a2530000045400008a570000b0580000f2580000725900007c590000f6590000805c0000ca5c0000705d0000506100005a6300000a640000f46400001a680000f8680000d4690000026c0000406c0000506c0000566f000000ca9a3b
+    scrollPos: {x: 0, y: 352}
+    m_SelectedIDs: 246c0000
+    m_LastClickedID: 27684
+    m_ExpandedIDs: 00000000bc2d0000182e0000e42e00006e360000e43600001c3900003c3b0000d83c0000d63e0000503f00005e3f00000644000006470000ca490000fe4c0000464d0000d44e00008c4f00008a52000076530000d85300005e57000084580000c65800004659000050590000ca590000545c00009e5c0000445d0000246100002e630000de630000c8640000ee670000cc680000a8690000d66b0000146c0000246c00002a6f000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -542,7 +542,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000e82d0000442e0000102f00009a3600001037000048390000683b0000043d0000023f00007c3f00008a3f00003244000032470000f64900002a4d0000724d0000004f0000b84f0000b6520000a2530000045400008a570000b0580000f2580000725900007c590000f6590000805c0000ca5c0000705d0000506100005a6300000a640000f46400001a680000f8680000d4690000026c0000406c0000506c0000566f0000
+    m_ExpandedIDs: 00000000bc2d0000182e0000e42e00006e360000e43600001c3900003c3b0000d83c0000d63e0000503f00005e3f00000644000006470000ca490000fe4c0000464d0000d44e00008c4f00008a52000076530000d85300005e57000084580000c65800004659000050590000ca590000545c00009e5c0000445d0000246100002e630000de630000c8640000ee670000cc680000a8690000d66b0000146c0000246c00002a6f0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -709,9 +709,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -2.1755915, y: 1.4878007, z: -0.06405395}
+    m_Target: {x: -7.483913, y: 0.49852496, z: -7.264768}
     speed: 2
-    m_Value: {x: -2.1755915, y: 1.4878007, z: -0.06405395}
+    m_Value: {x: -7.483913, y: 0.49852496, z: -7.264768}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -743,9 +743,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 7.169898
+    m_Target: 2.3484035
     speed: 2
-    m_Value: 7.169898
+    m_Value: 2.3484035
   m_Ortho:
     m_Target: 1
     speed: 2

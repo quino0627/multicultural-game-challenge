@@ -390,7 +390,12 @@ public class SoundManager : MonoBehaviour
 			{
 				for (int i = 0; i < pAudioSourceList.Length; i++)
 				{
-					pAudioSourceList[i].Pause();
+					// BGM일 경우에만 포즈한다.
+					if (pAudioSourceList[i].loop == true)
+					{
+						pAudioSourceList[i].Pause();	
+					}
+					
 				}
 			}
 		}

@@ -599,6 +599,7 @@ MonoBehaviour:
   - {fileID: 0}
   is_loading: 1
   moveSpeed: 5
+  SoundOverloadFlag: 0
 --- !u!4 &185061411
 Transform:
   m_ObjectHideFlags: 0
@@ -2447,6 +2448,11 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4048415072675160053, guid: 79eb7ebd4f45b40a5a75e40e3a3e75e5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4048415072744423810, guid: 79eb7ebd4f45b40a5a75e40e3a3e75e5,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -2636,11 +2642,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_MoveIn.Enable
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4048415072675160053, guid: 79eb7ebd4f45b40a5a75e40e3a3e75e5,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4048415073392839678, guid: 79eb7ebd4f45b40a5a75e40e3a3e75e5,
         type: 3}
@@ -5142,27 +5143,9 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1832078684}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1832078686 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 11489234, guid: 7f01e5e2d97f14c91a0083746fa27c13,
-    type: 3}
-  m_PrefabInstance: {fileID: 1832078684}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1832078687 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 189236, guid: 7f01e5e2d97f14c91a0083746fa27c13,
-    type: 3}
-  m_PrefabInstance: {fileID: 1832078684}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1832078688 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 189240, guid: 7f01e5e2d97f14c91a0083746fa27c13,
     type: 3}
   m_PrefabInstance: {fileID: 1832078684}
   m_PrefabAsset: {fileID: 0}
@@ -5201,20 +5184,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1832078687}
   m_CullTransparentMesh: 0
---- !u!114 &1832078691
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1832078688}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65c7436a9f1698942acbd0c1b3d87f65, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeText: {fileID: 1832078686}
-  remainedTime: 0
 --- !u!224 &1849529007 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8799329715339595887, guid: 85167f57e410c42d09db8d164adf1f1d,

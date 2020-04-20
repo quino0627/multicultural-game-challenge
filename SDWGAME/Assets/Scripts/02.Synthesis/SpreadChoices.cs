@@ -129,6 +129,8 @@ public class SpreadChoices : MonoBehaviour
     private bool CheckPaused = false;
 
 
+    public GameObject RepeatSoundBox;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -416,8 +418,8 @@ public class SpreadChoices : MonoBehaviour
         crab.GetComponent<AudioSource>().loop = false;
         crab.GetComponent<AudioSource>().clip = Resources.Load(wordFileLink) as AudioClip;
         crab.GetComponent<AudioSource>().Play();
-        crab.transform.Find("DescriptionBubble").gameObject.GetComponent<AudioSource>().clip = Resources.Load(wordFileLink) as AudioClip;
-        
+//        crab.transform.Find("DescriptionBubble").gameObject.GetComponent<AudioSource>().clip = Resources.Load(wordFileLink) as AudioClip;
+        RepeatSoundBox.GetComponent<AudioSource>().clip = Resources.Load(wordFileLink) as AudioClip;
         yield return new WaitForSeconds(1.5f);
         if (!SoundManager.Instance.IsMusicPlaying())
         {
@@ -528,7 +530,8 @@ public class SpreadChoices : MonoBehaviour
 
     private void SetRepeatSound()
     {
-        crab.transform.Find("DescriptionBubble").gameObject.GetComponent<SynthesisDescriptionController>().RepeatSound();
+//        crab.transform.Find("DescriptionBubble").gameObject.GetComponent<SynthesisDescriptionController>().RepeatSound();
+        RepeatSoundBox.SetActive(true);
         SoundManager.Instance.Play_SpeechBubblePop();
     }
 
@@ -548,6 +551,8 @@ public class SpreadChoices : MonoBehaviour
             questionNumber++;
             realQuestionIndex++;
         }
+        
+        RepeatSoundBox.SetActive(false);
 
         watch.Reset();
         Debug.Log("In GoNext Invoke HideAnswer");
