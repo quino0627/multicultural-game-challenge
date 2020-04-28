@@ -19,9 +19,9 @@ class userStageData
 {
     public int level; //난이도
     public int step; // 세션/단계
-    public int stageIndex; //stageIndex
+    public int questionNumber; //stageIndex
     public int questionId; //문제 번호
-    public int nthTry;
+    /*public int nthTry;*/
     public string[] corrAns; // 정답 보기 글자
     public List<string> chosenAns; //반응 보기 글자
     public bool isUserRight; //정오표시(60초가 지날 때까지 정답을 고르지 못하면 오답)
@@ -34,7 +34,7 @@ class userStageData
         //this.userId = userId;
         level = 0;
         questionId = 0;
-        nthTry = 0;
+        //nthTry = 0;
         corrAns = new string[5]; //합성과제때문에
         chosenAns = new List<string>();
         isUserRight = false;
@@ -399,10 +399,10 @@ public class EachQuestionDataManager : MonoBehaviour
         tmp.level = DQM.level;
         tmp.questionId = DQM.questionId;
         tmp.step = DQM.stage;
-        tmp.stageIndex = DQM.refQuestionNumber;
+        tmp.questionNumber = DQM.refQuestionNumber;
         //tmp.nthTry = ++TotalStorageScript.tmpTriedCnt[0, tmp.stageIndex];
         //tmp.nthTry = ++_totalStorageScript.tmpTriedCnt["Detection"][tmp.level, tmp.step];
-        tmp.nthTry = StageStorageScript.playCnt;
+        //tmp.nthTry = StageStorageScript.playCnt;
         tmp.corrAns[0] = DQM.ref_answer_string;
         tmp.chosenAns = DQM.chosenAns;
         tmp.isUserRight = DQM.isUserRight;
@@ -419,10 +419,10 @@ public class EachQuestionDataManager : MonoBehaviour
         tmp.level = AQM.level;
         tmp.questionId = AQM.questionId;
         tmp.step = AQM.stage;
-        tmp.stageIndex = AQM.ref_stage_no;
+        tmp.questionNumber = AQM.ref_stage_no;
         //tmp.nthTry = ++TotalStorageScript.tmpTriedCnt[3, tmp.stageIndex];
         //tmp.nthTry = ++_totalStorageScript.tmpTriedCnt["Alternative"][tmp.level, tmp.step];
-        tmp.nthTry = StageStorageScript.playCnt;
+        //tmp.nthTry = StageStorageScript.playCnt;
         tmp.corrAns[0] = AQM.ref_answer_string;
         tmp.chosenAns = AQM.chosenAns;
         tmp.isUserRight = AQM.isUserRight;
@@ -448,11 +448,11 @@ public class EachQuestionDataManager : MonoBehaviour
         tmp.questionId = SC.questionId;
 
         curLevel++;
-        tmp.stageIndex = SC.refQuestionIndex;
+        tmp.questionNumber = SC.refQuestionIndex;
         tmp.step = SC.stage;
         //tmp.nthTry = ++TotalStorageScript.tmpTriedCnt[1, tmp.stageIndex];
         //tmp.nthTry = ++_totalStorageScript.tmpTriedCnt["Synthesis"][tmp.level, tmp.step];
-        tmp.nthTry = StageStorageScript.playCnt;
+        //tmp.nthTry = StageStorageScript.playCnt;
         for (int i = 0; i < curLevel; i++)
         {
             tmp.corrAns[i] = SC.choiceTexts[SC.corrAnsPosIndex[i]].text;
@@ -475,11 +475,11 @@ public class EachQuestionDataManager : MonoBehaviour
         userStageData tmp = new userStageData();
         tmp.level = FSA.level;
         tmp.questionId = FSA.questionId;
-        tmp.stageIndex = FSA.refStageIndex;
+        tmp.questionNumber = FSA.refStageIndex;
         tmp.step = FSA.stage;
         //tmp.nthTry = ++TotalStorageScript.tmpTriedCnt[2, tmp.stageIndex];
         //tmp.nthTry = ++_totalStorageScript.tmpTriedCnt["Elimination"][tmp.level, tmp.step];
-        tmp.nthTry = StageStorageScript.playCnt;
+        //tmp.nthTry = StageStorageScript.playCnt;
         tmp.corrAns[0] = FSA.choiceTexts[FSA.ansPosIndex[0]].text;
         tmp.chosenAns = (FSA.chosenAns);
         tmp.isUserRight = FSA.isUserRight;

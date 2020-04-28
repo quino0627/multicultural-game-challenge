@@ -124,11 +124,11 @@ public class FishShowAnswer : MonoBehaviour
     private bool CheckPaused = false;
     public bool bFail; // 틀리면 바로 넘어가기 위한 코드인데 이제 이 변수 안씀 그냥 다시 수정이 필요함을 위해서 집어넣음
 
-    
+
     // Fishes > Fish 에서 BGM관리를 위한 변수
     [HideInInspector] public Boolean isSpeakingWord;
-    
-    
+
+
     void Start()
     {
         isSpeakingWord = false;
@@ -498,7 +498,7 @@ public class FishShowAnswer : MonoBehaviour
             Debug.Log("Game Is Over");
             //shark.SetActive(false);
             //Fishes.gameObject.SetActive(false);
-            _totalStorageScript.tmpLevel[2]++;
+
             //totalStorageScript.InitStageData();
             yield return new WaitForSeconds(1f);
             //stageIndex = 0;
@@ -640,15 +640,20 @@ public class FishShowAnswer : MonoBehaviour
             // 별 1개 채워짐
             onesentenceText.text = sentences[1];
             StarMiddle.fillAmount = 1f;
+            if (stage == 2  && _totalStorageScript.tmpMaxLevel[2] < level + 1)
+            {
+                _totalStorageScript.tmpMaxLevel[2] = level + 1;
+            }
+
             levelStorageScript.obtainedStarCnt[level, stage] = 4;
         }
         else
         {
             Debug.Assert(false, "문제가 10개 초과");
         }
-        
+
         SoundManager.Instance.StopMusic();
-        
+
         yield return new WaitForSeconds(1.0f);
 
         if (totalCorrect == questionMaxNumber)
@@ -671,6 +676,8 @@ public class FishShowAnswer : MonoBehaviour
             totalCorrect);
 
         //levelData 계산
+        _totalStorageScript.tmpTriedCnt["Elimination"]
+            [level, stage] = stageStorageScript.playCnt;
         levelStorageScript.avgPerfection[level] =
             stageStorageScript.GetAvgCorrectAnswerCountForLevel(_totalStorageScript.currId, level,
                 EGameName.Elimination);
@@ -682,7 +689,7 @@ public class FishShowAnswer : MonoBehaviour
 
         eachQuestionStorageScript.initializeQuestionData();
     }
-    
+
 
     // Total Click과 Total Correct를 증가시키기 위한 함수들
     public void PlusTotalClick()

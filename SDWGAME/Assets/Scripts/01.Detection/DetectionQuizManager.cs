@@ -259,7 +259,7 @@ public class DetectionQuizManager : MonoBehaviour
 
         //wj
         ref_answer_string = answer_string_list[question_no];
-        _totalStorageScript.tmpLevel[0] = level;
+        //_totalStorageScript.tmpLevel[0] = level;
 //        totalStorageScript.tmpStage[0] = stage_no;
         //보기들을 나머지 위치에 넣음
         //
@@ -409,7 +409,7 @@ public class DetectionQuizManager : MonoBehaviour
         }
         else
         {
-            _totalStorageScript.tmpLevel[0]++;
+            //_totalStorageScript.tmpLevel[0]++;
 
             // 지워야할 코드
             question_no++;
@@ -506,7 +506,13 @@ public class DetectionQuizManager : MonoBehaviour
             // 별 1개 채워짐
             onesentenceText.text = sentences[1];
             StarMiddle.fillAmount = 1f;
+            if (stage == 2  && _totalStorageScript.tmpMaxLevel[0] < level + 1)
+            {
+                _totalStorageScript.tmpMaxLevel[0] = level + 1;
+            }
+
             levelStorageScript.obtainedStarCnt[level, stage] = 4;
+            
         }
         else
         {
@@ -537,6 +543,8 @@ public class DetectionQuizManager : MonoBehaviour
             totalCorrect);
 
         //levelData 계산
+        _totalStorageScript.tmpTriedCnt["Detection"]
+                [level, stage] = stageStorageScript.playCnt;
         levelStorageScript.avgPerfection[level] =
             stageStorageScript.GetAvgCorrectAnswerCountForLevel(_totalStorageScript.currId, level, EGameName.Detection);
         levelStorageScript.avgResponseTime[level] =

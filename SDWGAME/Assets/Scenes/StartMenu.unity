@@ -505,7 +505,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fe9e17903ffe984baf5cd37e2c91202, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chosenGame: 0
+  chosenGame: 2
   StarImage:
   - {fileID: 1883971611}
   - {fileID: 1269265895}
@@ -1716,7 +1716,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.033018887, b: 0.033018887, a: 0.11372549}
+  m_Color: {r: 0, g: 0.7830189, b: 0.017209113, a: 0.19607843}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -4170,7 +4170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.033018887, b: 0.033018887, a: 0.11372549}
+  m_Color: {r: 0.9987322, g: 1, b: 0, a: 0.19607843}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -5606,7 +5606,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.033018887, b: 0.033018887, a: 0.11372549}
+  m_Color: {r: 0, g: 0.7830189, b: 0.017209113, a: 0.19607843}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -6556,7 +6556,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.062930584, b: 1, a: 0.11372549}
+  m_Color: {r: 0, g: 0.7830189, b: 0.017209113, a: 0.19607843}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -8019,7 +8019,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.062930584, b: 1, a: 0.11372549}
+  m_Color: {r: 0.9987322, g: 1, b: 0, a: 0.19607843}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -14218,7 +14218,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.033018887, b: 0.033018887, a: 0.11372549}
+  m_Color: {r: 0, g: 0.7830189, b: 0.017209113, a: 0.19607843}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -14294,7 +14294,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.033018887, b: 0.033018887, a: 0.11372549}
+  m_Color: {r: 0.9987322, g: 1, b: 0, a: 0.19607843}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -14369,7 +14369,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fe9e17903ffe984baf5cd37e2c91202, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chosenGame: 0
+  chosenGame: 3
   StarImage:
   - {fileID: 68870844}
   - {fileID: 403436712}
@@ -16160,7 +16160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.062930584, b: 1, a: 0.11372549}
+  m_Color: {r: 1, g: 0.033018887, b: 0.033018887, a: 0.11372549}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -16236,7 +16236,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.033018887, b: 0.033018887, a: 0.11372549}
+  m_Color: {r: 0.9987322, g: 1, b: 0, a: 0.19607843}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:

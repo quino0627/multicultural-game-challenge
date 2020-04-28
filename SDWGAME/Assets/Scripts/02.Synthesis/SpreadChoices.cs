@@ -25,8 +25,8 @@ public class SpreadChoices : MonoBehaviour
 
     private GameObject levelStorage;
     private LevelDataManager levelStorageScript;
-    
-    
+
+
     // director
     private GameObject director;
 
@@ -198,7 +198,7 @@ public class SpreadChoices : MonoBehaviour
         //한글자, 세글자, 네글자, 이제 두글자도!
         questionId = stage * 10 + randomNoDuplicates[realQuestionIndex];
         //questionId = randomNoDuplicates[realQuestionIndex];
-        
+
         QuizInit();
     }
 
@@ -221,7 +221,6 @@ public class SpreadChoices : MonoBehaviour
                 watch.Start();
                 CheckPaused = false;
             }
-            
         }
 
         if (watch.ElapsedMilliseconds > 0)
@@ -241,8 +240,6 @@ public class SpreadChoices : MonoBehaviour
 
     public void QuizInit()
     {
-        
-        
         crab.transform.position = crabStartTransform.position;
         if (excelLevel == 0)
         {
@@ -277,7 +274,7 @@ public class SpreadChoices : MonoBehaviour
         // UI 설정
         director.GetComponent<SynthesisGameDirector>().setStage(realQuestionIndex);
         director.GetComponent<SynthesisGameDirector>().setLevel(excelLevel);
-        
+
         //정답의 index (corrAnsCnt: 초급-1,2개 중급-3개 고급-4개)
         //8개의 자리중 랜덤한 위치
         for (int i = 0; i < (corrAnsCnt + wrongAnsCnt); i++)
@@ -377,15 +374,17 @@ public class SpreadChoices : MonoBehaviour
         Debug.Log($"{!SoundManager.Instance.IsMusicPlaying()} !SoundManager.Instance.IsMusicPlaying()");
         if (!SoundManager.Instance.IsMusicPlaying())
         {
-            SoundManager.Instance.Play_SynthesisMusic();    
+            SoundManager.Instance.Play_SynthesisMusic();
         }
+
         yield return new WaitForSeconds(1.5f);
         crab.transform.Find("DescriptionBubble").gameObject.SetActive(true);
-        crab.transform.Find("DescriptionBubble").gameObject.GetComponent<SynthesisDescriptionController>().DefaultDescription();
-        
+        crab.transform.Find("DescriptionBubble").gameObject.GetComponent<SynthesisDescriptionController>()
+            .DefaultDescription();
+
         SoundManager.Instance.Play_SpeechBubblePop();
         yield return new WaitForSeconds(2.0f);
-        
+
 
         if (SoundManager.Instance.IsMusicPlaying())
         {
@@ -408,10 +407,10 @@ public class SpreadChoices : MonoBehaviour
                 levelToString = "A3_Hard";
                 break;
             default:
-                Debug.Assert(false,"Weird LevelToString");
+                Debug.Assert(false, "Weird LevelToString");
                 break;
         }
-        
+
         string wordFileLink = $"Sounds/Synthesis/{levelToString}/{data.sheets[excelLevel].list[questionId].filename}";
         Debug.Log(data.sheets[excelLevel].list[questionId].filename);
         Debug.Log(wordFileLink);
@@ -500,7 +499,7 @@ public class SpreadChoices : MonoBehaviour
             Debug.Log("DONE");
             // 해파리가 모두 제 자리에 왔을 때 시간을 시작.
             initialDone = true;
-            
+
             // 음악 처리
             Invoke("StartTime", .2f);
         }
@@ -523,9 +522,8 @@ public class SpreadChoices : MonoBehaviour
         {
             JfArrived[corrAnsPosIndex[i]] = false;
         }
-        
+
         Invoke(nameof(SetRepeatSound), 2f);
-        
     }
 
     private void SetRepeatSound()
@@ -551,7 +549,7 @@ public class SpreadChoices : MonoBehaviour
             questionNumber++;
             realQuestionIndex++;
         }
-        
+
         RepeatSoundBox.SetActive(false);
 
         watch.Reset();
@@ -579,7 +577,7 @@ public class SpreadChoices : MonoBehaviour
         if (realQuestionIndex + 1 > questionMaxIndex)
         {
             Debug.Log("Game Is Over");
-            _totalStorageScript.tmpLevel[1]++;
+            //_totalStorageScript.tmpLevel[1]++;
 
 
             _totalStorageScript.Save(EGameName.Synthesis, realLevel, stage);
@@ -698,6 +696,10 @@ public class SpreadChoices : MonoBehaviour
             // 별 1개 채워짐
             onesentenceText.text = sentences[1];
             StarMiddle.fillAmount = 1f;
+            if (stage == 2  && _totalStorageScript.tmpMaxLevel[1] < realLevel+1)
+            {
+                _totalStorageScript.tmpMaxLevel[1] = realLevel+1;
+            }
 
             levelStorageScript.obtainedStarCnt[realLevel, stage] = 4;
         }
@@ -705,9 +707,9 @@ public class SpreadChoices : MonoBehaviour
         {
             Debug.Assert(false, "문제가 10개 초과");
         }
-        
+
         SoundManager.Instance.StopMusic();
-        
+
         yield return new WaitForSeconds(1.0f);
 
         if (totalCorrectStage == questionMaxIndex)
@@ -725,11 +727,12 @@ public class SpreadChoices : MonoBehaviour
             stageStorageScript.playCnt);
 
 
-        
         stageStorageScript.SaveGameStageData(EGameName.Synthesis, _totalStorageScript.currId, realLevel, stage,
             totalCorrectStage);
 
         //levelData 계산
+        _totalStorageScript.tmpTriedCnt["Synthesis"]
+            [realLevel, stage] = stageStorageScript.playCnt;
         levelStorageScript.avgPerfection[realLevel] =
             stageStorageScript.GetAvgCorrectAnswerCountForLevel(_totalStorageScript.currId, realLevel,
                 EGameName.Synthesis);
@@ -741,7 +744,7 @@ public class SpreadChoices : MonoBehaviour
 
         eachQuestionStorageScript.initializeQuestionData();
     }
-    
+
 
     public void PlusTotalTry()
     {

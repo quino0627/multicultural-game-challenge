@@ -2,21 +2,21 @@
 using UnityEngine;
 using System.IO;
 using Newtonsoft.Json;
+using UnityEngine.SceneManagement;
 
 
 class TotalData
 {
     public string id;
 
-    public Dictionary<string, int> achievedLevel; // 피험자가 과반 이상 정답을 맞춘 최고단계
-
-    /*public Dictionary<string, Dictionary<string, 
-        Dictionary<string, int>>> triedCntForEachStage;*/
+    public Dictionary<string, int> currentLevel; // 피험자가 play가능한 레벨
+    
     public Dictionary<string, int[,]> triedCntForEachStage;
 
-    public TotalData()
+    public TotalData(string newId)
     {
-        achievedLevel = new Dictionary<string, int>()
+        id = newId;
+        currentLevel = new Dictionary<string, int>()
         {
             {"Alternative", 0},
             {"Elimination", 0},
@@ -85,6 +85,8 @@ public class TotalDataManager : MonoBehaviour
     private GameObject stageStorage;
     private StageDataManager stageStorageScript;
 
+    private GameObject levelStorage;
+    private LevelDataManager levelStorageScript;
     
     private Dictionary<string, TotalData> allData;
     private TotalData data;
@@ -96,7 +98,7 @@ public class TotalDataManager : MonoBehaviour
     public int chosenGame; //0: detection, 1: synthesis, 2: elimination, 3: alternative
     public int chosenLevel;
     public int chosenStage;
-    public int[] tmpLevel;
+    //public int[] tmpLevel;
     public int[] tmpMaxLevel;
     public bool[,] bStageOpen;
     public bool bLogin;
@@ -162,6 +164,8 @@ public class TotalDataManager : MonoBehaviour
         eachQuestionStorageScript = eachQuestionStorage.GetComponent<EachQuestionDataManager>();
         stageStorage = GameObject.Find("StageStorage");
         stageStorageScript = stageStorage.GetComponent<StageDataManager>();
+        levelStorage = GameObject.Find("LevelStorage");
+        levelStorageScript = levelStorage.GetComponent<LevelDataManager>();
 
         //Debug.Log(Application.persistentDataPath);
         //Debug.Log(Application.streamingAssetsPath);
@@ -176,7 +180,7 @@ public class TotalDataManager : MonoBehaviour
             bStageOpen[i, 0] = true; // 각 게임의 첫 스테이지는 열려있음
         }
 
-        tmpLevel = new int[4];
+        //tmpLevel = new int[4];
         tmpMaxLevel = new int[4];
 
         tmpStars = new int[4, 3, 3]; // 각 게임개수, 초중고, stage3개
@@ -194,7 +198,7 @@ public class TotalDataManager : MonoBehaviour
             //Directory.CreateDirectory(Application.persistentDataPath + "/Conclusion.json");
             //File.Create(conclusionPath);
             allData = new Dictionary<string, TotalData>();
-            allData.Add("initial", new TotalData());
+            allData.Add("initial", new TotalData("initial"));
             string tmpJdata = JsonConvert.SerializeObject(allData, Formatting.Indented);
             //File.WriteAllText(conclusionPath, tmpJdata);
             WriteFile(conclusionPath, tmpJdata);
@@ -240,7 +244,8 @@ public class TotalDataManager : MonoBehaviour
 
     public bool makeNewId(string id)
     {
-        TotalData tmp = new TotalData();
+        TotalData tmp = new TotalData(id);
+        
         allData[id] = tmp;
         string jdata = JsonConvert.SerializeObject(allData, Formatting.Indented);
         //File.WriteAllText(conclusionPath, jdata);
@@ -307,7 +312,7 @@ public class TotalDataManager : MonoBehaviour
         switch (eGameName)
         {
             case EGameName.Detection:
-                data.achievedLevel["Detection"] = tmpMaxLevel[0];
+                data.currentLevel["Detection"] = tmpMaxLevel[0];
 
                 //int beforeTry = beforeTriedCnt["Detection"][level, step];
                 //afterTry = tmpTriedCnt["Detection"][level, step];
@@ -320,7 +325,7 @@ public class TotalDataManager : MonoBehaviour
 
 
             case EGameName.Synthesis:
-                data.achievedLevel["Synthesis"] = tmpMaxLevel[1];
+                data.currentLevel["Synthesis"] = tmpMaxLevel[1];
 
                 //int beforeTry = beforeTriedCnt["Detection"][level, step];
                 //afterTry = tmpTriedCnt["Synthesis"][level, step];
@@ -333,7 +338,7 @@ public class TotalDataManager : MonoBehaviour
 
 
             case EGameName.Elimination:
-                data.achievedLevel["Elimination"] = tmpMaxLevel[2];
+                data.currentLevel["Elimination"] = tmpMaxLevel[2];
                 //data.obtainedStarCount["Elimination"][level][step] = tmpStars[2, level];
                 //afterTry = tmpTriedCnt["Elimination"][level, step];
 
@@ -345,7 +350,7 @@ public class TotalDataManager : MonoBehaviour
 
 
             case EGameName.Alternative:
-                data.achievedLevel["Alternative"] = tmpMaxLevel[3];
+                data.currentLevel["Alternative"] = tmpMaxLevel[3];
                 //data.obtainedStarCount["Alternative"][level][step] = tmpStars[3, level];
                 //afterTry = tmpTriedCnt["Alternative"][level, step];
 
@@ -366,10 +371,15 @@ public class TotalDataManager : MonoBehaviour
 
     public void LoadLevelData()
     {
-        tmpMaxLevel[0] = tmpLevel[0] = data.achievedLevel["Detection"];
+        /*tmpMaxLevel[0] = tmpLevel[0] = data.achievedLevel["Detection"];
         tmpMaxLevel[1] = tmpLevel[1] = data.achievedLevel["Synthesis"];
         tmpMaxLevel[2] = tmpLevel[2] = data.achievedLevel["Elimination"];
-        tmpMaxLevel[3] = tmpLevel[3] = data.achievedLevel["Alternative"];
+        tmpMaxLevel[3] = tmpLevel[3] = data.achievedLevel["Alternative"];*/
+        
+        tmpMaxLevel[0] =  data.currentLevel["Detection"];
+        tmpMaxLevel[1] =  data.currentLevel["Synthesis"];
+        tmpMaxLevel[2] =  data.currentLevel["Elimination"];
+        tmpMaxLevel[3] = data.currentLevel["Alternative"];
 
         for (int i = 0; i < 3; i++)
         {
@@ -408,6 +418,10 @@ public class TotalDataManager : MonoBehaviour
     public void deleteID()
     {
         eachQuestionStorageScript.deleteStageInfoOfCurrentId(currId);
+        stageStorageScript.deleteStageInfoOfCurrentId(currId);
+        levelStorageScript.deleteLevelInfoOfCurrentId(currId);
         deleteTotalInfoOfCurrentId(currId);
+        bLogin = false;
+        SceneManager.LoadScene("StartMenu");
     }
 }

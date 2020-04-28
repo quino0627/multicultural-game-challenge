@@ -323,7 +323,7 @@ public class AlternativeQuizManager : MonoBehaviour
 
         //wj
         ref_answer_string = answer_string_list[question_no];
-        _totalStorageScript.tmpLevel[3] = level;
+        //_totalStorageScript.tmpLevel[3] = level;
 
 
         // 보기들을 나머지 위치에 넣음
@@ -512,7 +512,7 @@ public class AlternativeQuizManager : MonoBehaviour
             //totalStorageScript.InitStageData();
 //            Debug.Log("결과창 setActive");
             // Game 이 끝났다는 효과 보여주기
-            _totalStorageScript.tmpLevel[3]++;
+            
 
             //totalStorageScript.tmpPerfection = total_correct * 100;
             //totalStorageScript.CheckObtainedStarSlider((uint) total_correct);
@@ -602,6 +602,10 @@ public class AlternativeQuizManager : MonoBehaviour
             // 별 1개 채워짐
             onesentenceText.text = sentences[1];
             StarMiddle.fillAmount = 1f;
+            if (stage == 2  && _totalStorageScript.tmpMaxLevel[3] < level+1)
+            {
+                _totalStorageScript.tmpMaxLevel[3] = level+1;
+            }
             levelStorageScript.obtainedStarCnt[level, stage] = 4;
         }
         else
@@ -634,6 +638,8 @@ public class AlternativeQuizManager : MonoBehaviour
             totalCorrect);
 
         //levelData 계산
+        _totalStorageScript.tmpTriedCnt["Alternative"]
+            [level, stage] = stageStorageScript.playCnt;
         levelStorageScript.avgPerfection[level] =
             stageStorageScript.GetAvgCorrectAnswerCountForLevel(_totalStorageScript.currId, level,
                 EGameName.Alternative);

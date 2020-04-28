@@ -108,6 +108,16 @@ public class StartMenu : UIPT_PRO_Demo_GUIPanel
             startButtonGameObject.SetActive(true);
             statisticButtonGameObject.SetActive(true);
         }
+        else
+        {
+            idInputFieldGameObject.SetActive(true);
+            idEnterButtonGameObject.SetActive(true);
+            newIdInputFieldGameObject.SetActive(true);
+            newIdEnterButtonGameObject.SetActive(true);
+            
+            startButtonGameObject.SetActive(false);
+            statisticButtonGameObject.SetActive(false);
+        }
     }
 
     // function invoke를 위해 따로 함수를 선업합니다.

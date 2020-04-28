@@ -276,7 +276,7 @@ public class StageDataManager : MonoBehaviour
                     avg += tmpStageDatas[id].stageData["초급"]["Stage3"].avgResponseTimeForEachStage;
                     playedStageCnt++;
                 }
-
+                Debug.Log($"Sum = {avg} , playedStageCnt = {playedStageCnt}");
                 if (playedStageCnt != 0)
                 {
                     avg /= playedStageCnt;
@@ -301,7 +301,7 @@ public class StageDataManager : MonoBehaviour
                     avg += tmpStageDatas[id].stageData["중급"]["Stage3"].avgResponseTimeForEachStage;
                     playedStageCnt++;
                 }
-
+                Debug.Log($"Sum = {avg} , playedStageCnt = {playedStageCnt}");
                 if (playedStageCnt != 0)
                 {
                     avg /= playedStageCnt;
@@ -326,7 +326,7 @@ public class StageDataManager : MonoBehaviour
                     avg += tmpStageDatas[id].stageData["고급"]["Stage3"].avgResponseTimeForEachStage;
                     playedStageCnt++;
                 }
-
+                Debug.Log($"Sum = {avg} , playedStageCnt = {playedStageCnt}");
                 if (playedStageCnt != 0)
                 {
                     avg /= playedStageCnt;
@@ -338,7 +338,7 @@ public class StageDataManager : MonoBehaviour
                 Debug.Assert(false, "이상한 레벨, 평균반응시간 못구함");
                 break;
         }
-
+        Debug.Log($"avg = {avg}");
         return avg;
     }
 
